@@ -1,6 +1,25 @@
 import NavBar from '@/components/NavBar';
 import { Search, Sparkles } from 'lucide-react';
 
+
+const kategori = [
+  { name: "makanan", href: ""},
+  { name: "minuman", href: ""},
+  { name: "fashion", href: ""},
+  { name: "kerajinan", href: ""},
+  { name: "jasa", href: ""},
+  { name: "Pertanian", href: ""},
+]
+const unggulan = [
+  { 
+    foto: "",
+    nama: "Ratan Bakery",
+    kategori: "makanan",
+    Lokasi: "Cijurey",
+  },
+]
+
+
 export default function Page() {
   return (
     <main className='min-h-screen'>
@@ -47,6 +66,24 @@ export default function Page() {
           </p>
         </div>
       </section>
+        {/* Kategori, kalo dipencet ngarah ke filter umkm */}
+        <section className='text-center py-12'>
+          <h2 className='text-2xl font-bold mb-20'>Cari kebutuhan mu disini</h2>
+          <div className='container mx-auto p-4'>
+            <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4  mt-4'>
+              {kategori.map((kat, index)=> {
+                return (
+                  <li key={index}>
+                    <a href={kat.href} className="relative inline-block bg-gradient-to-r from-primary/20 to-accent/20 p-[2px] rounded-full hover:from-primary/80 hover:to-accent/80 hover:text-white transition duration-300 ease-in-out">
+                      <span className='capitalize text-lg block rounded-full bg-white text-primary font-medium px-6 py-3 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition duration-300'>{kat.name}</span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
+        {/* nanti disini ada umkm unggulan abistu langsung footer dan langsung pindah kerjain hal selanjutnya aja */}
     </main>
   );
 }
