@@ -23,7 +23,7 @@ const Page = () => {
 
           <p className='text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed'>
             Jelajahi UMKM lokal pilihan. Dari makanan lezat, kerajinan unik,
-            hingga layanan profesional—semua ada di sini.
+            hingga layanan profesional semua ada di sini.
           </p>
 
           <div className='relative max-w-2xl mx-auto mb-12'>
