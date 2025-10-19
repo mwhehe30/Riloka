@@ -2,9 +2,18 @@
 
 :root {
   --white: #fdf7f1;
+  --accent: oklch(0.62 0.19 35);
+  --primary: oklch(0.45 0.16 142);
+  --muted-foreground: oklch(0.55 0.02 260);
+  --secondary: #f59e0b;
 }
 
 @theme {
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-white: var(--white);
 }
 
 body {
