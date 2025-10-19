@@ -1,21 +1,63 @@
 @import 'tailwindcss';
 
 :root {
-  --white: #fdf7f1;
-  --accent: oklch(0.62 0.19 35);
-  --primary: oklch(0.45 0.16 142);
-  --muted-foreground: oklch(0.55 0.02 260);
-  --secondary: #f59e0b;
-}
+  /* ===== Base ===== */
+  --color-white: oklch(0.98 0.01 95); /* Background utama (putih hangat) */
+  --color-surface: oklch(0.96 0.01 95); /* Card / container background */
+  --color-border: oklch(0.85 0.02 95); /* Border halus */
+  --color-muted: oklch(
+    0.7 0.03 95
+  ); /* Background lembut untuk elemen sekunder */
 
+  /* ===== Text ===== */
+  --color-foreground: oklch(0.35 0.03 95); /* Teks utama */
+  --color-muted-foreground: oklch(
+    0.52 0.03 70
+  ); /* Teks sekunder / placeholder */
+
+  /* ===== Brand & Accent ===== */
+  --color-primary: oklch(0.55 0.14 145); /* Hijau alami — identitas utama */
+  --color-primary-hover: oklch(0.5 0.14 145);
+  --color-accent: oklch(0.72 0.19 65); /* Oranye lembut — tombol atau CTA */
+  --color-accent-hover: oklch(0.68 0.18 65);
+  --color-secondary: oklch(
+    0.68 0.17 80
+  ); /* Kuning hangat — highlight, rating, badge */
+  --color-secondary-hover: oklch(0.63 0.17 80);
+
+  /* ===== Semantic (opsional) ===== */
+  --color-success: oklch(0.63 0.15 150); /* Hijau cerah */
+  --color-warning: oklch(0.75 0.19 90); /* Kuning-oranye */
+  --color-error: oklch(0.58 0.2 25); /* Merah alami */
+
+  /* ===== Overlay / UI Depth ===== */
+  --color-overlay: oklch(0.25 0.02 95 / 0.6);
+  --color-shadow: oklch(0.25 0.02 95 / 0.15);
+}
 @theme {
-  --color-primary: var(--primary);
-  --color-accent: var(--accent);
-  --color-secondary: var(--secondary);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-white: var(--white);
+  --color-white: var(--color-white);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-muted: var(--color-muted);
+
+  --color-foreground: var(--color-foreground);
+  --color-muted-foreground: var(--color-muted-foreground);
+
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-hover: var(--color-secondary-hover);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+
+  --color-overlay: var(--color-overlay);
+  --color-shadow: var(--color-shadow);
 }
 
 body {
-  background: var(--white);
+  background: var(--color-white);
 }

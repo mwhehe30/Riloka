@@ -1,188 +1,47 @@
 [
   {
     "id": 1,
-    "name": "Warung Kopi Senja",
+    "name": "Sale Sultan",
     "category": "makanan-minuman",
-    "description": "Kopi racikan tradisional warisan turun-temurun sejak 1985. Menyajikan kopi robusta pilihan dengan gula aren asli. Suasana nostalgia dengan musik klasik Indonesia.",
-    "address": "Jl. Merdeka No. 123, Jakarta Pusat",
-    "coordinates": { "lat": -6.2088, "lng": 106.8456 },
+    "description": "Sale pisang renyah dan manis, produk UMKM dari Kota Banjar. Dimiliki oleh Euis Hidayah.",
+    "address": "Jl. Brigjen Moh. Isa,SH No.20b, Purwaharja, Kec. Purwaharja, Kota Banjar, Jawa Barat 46331",
+    "coordinates": {},
     "images": [
-      "/images/warkop-senja-1.jpg",
-      "/images/warkop-senja-2.jpg",
-      "/images/warkop-senja-3.jpg"
+      "/images/sale-sultan-1.jpg",
+      "/images/sale-sultan-2.jpg"
     ],
     "contact": {
-      "phone": "08123456789",
-      "instagram": "@warkopsenja",
-      "whatsapp": "08123456789"
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
     },
     "hours": {
-      "open": "06:00",
-      "close": "22:00",
+      "open": "08:00",
+      "close": "20:00",
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": true,
-    "priceRange": "Rp 10.000 - Rp 25.000",
+    "priceRange": "Rp 15.000 - Rp 30.000",
     "popularMenu": [
-      "Kopi Hitam Aren",
-      "Roti Bakar Coklat Keju",
-      "Mie Goreng Jawa"
+      "Sale Pisang Original",
+      "Sale Pisang Coklat"
     ]
   },
   {
     "id": 2,
-    "name": "Bakso Pak Kumis",
+    "name": "Rangginang De'Joan",
     "category": "makanan-minuman",
-    "description": "Bakso legendaris dengan kuah gurih dan bakso urat besar khas Solo. Resep turun-temurun sejak 1990.",
-    "address": "Jl. Gatot Subroto No. 45, Bandung",
-    "coordinates": { "lat": -6.9175, "lng": 107.6191 },
-    "images": ["/images/bakso-kumis-1.jpg", "/images/bakso-kumis-2.jpg"],
-    "contact": {
-      "phone": "08129876543",
-      "instagram": "@baksopakumis",
-      "whatsapp": "08129876543"
-    },
-    "hours": {
-      "open": "09:00",
-      "close": "21:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
-    },
-    "featured": false,
-    "priceRange": "Rp 15.000 - Rp 30.000",
-    "popularMenu": ["Bakso Urat Jumbo", "Bakso Telur", "Es Teh Manis"]
-  },
-  {
-    "id": 3,
-    "name": "Dapur Nasi Uduk Ibu Rina",
-    "category": "makanan-minuman",
-    "description": "Nasi uduk gurih khas Betawi dengan lauk ayam goreng kremes dan sambal kacang pedas manis.",
-    "address": "Jl. Sudirman No. 20, Jakarta Selatan",
-    "coordinates": { "lat": -6.224, "lng": 106.845 },
-    "images": ["/images/nasi-uduk-rina-1.jpg", "/images/nasi-uduk-rina-2.jpg"],
-    "contact": {
-      "phone": "08135551234",
-      "instagram": "@nasidukurina",
-      "whatsapp": "08135551234"
-    },
-    "hours": {
-      "open": "05:30",
-      "close": "11:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
-    },
-    "featured": false,
-    "priceRange": "Rp 8.000 - Rp 20.000",
-    "popularMenu": ["Nasi Uduk Ayam", "Tempe Orek", "Sambal Kacang"]
-  },
-  {
-    "id": 4,
-    "name": "Kedai Es Kopi Nusantara",
-    "category": "makanan-minuman",
-    "description": "Menawarkan berbagai racikan kopi dari seluruh daerah di Indonesia dengan gaya modern.",
-    "address": "Jl. Diponegoro No. 77, Yogyakarta",
-    "coordinates": { "lat": -7.7956, "lng": 110.3695 },
+    "description": "Rengginang, kerupuk beras tradisional Indonesia, yang terbuat dari beras ketan berkualitas tinggi. Produk dari Sentra Rengginang Purwaharja.",
+    "address": "Purwaharja, Kota Banjar, Jawa Barat",
+    "coordinates": {},
     "images": [
-      "/images/es-kopi-nusantara-1.jpg",
-      "/images/es-kopi-nusantara-2.jpg"
+      "/images/rangginang-dejoan-1.jpg",
+      "/images/rangginang-dejoan-2.jpg"
     ],
     "contact": {
-      "phone": "08123334444",
-      "instagram": "@eskopinusantara",
-      "whatsapp": "08123334444"
-    },
-    "hours": {
-      "open": "08:00",
-      "close": "23:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
-    },
-    "featured": true,
-    "priceRange": "Rp 18.000 - Rp 35.000",
-    "popularMenu": [
-      "Es Kopi Gula Aren",
-      "Latte Toraja",
-      "Cappuccino Bali Kintamani"
-    ]
-  },
-  {
-    "id": 5,
-    "name": "Toko Kue Mawar",
-    "category": "makanan-minuman",
-    "description": "Toko kue rumahan yang menjual aneka kue basah tradisional seperti klepon, lapis legit, dan kue talam.",
-    "address": "Jl. Mawar Indah No. 5, Surabaya",
-    "coordinates": { "lat": -7.2504, "lng": 112.7688 },
-    "images": ["/images/toko-kue-mawar-1.jpg", "/images/toko-kue-mawar-2.jpg"],
-    "contact": {
-      "phone": "081222333444",
-      "instagram": "@tokokuemawar",
-      "whatsapp": "081222333444"
-    },
-    "hours": {
-      "open": "06:00",
-      "close": "18:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
-    },
-    "featured": false,
-    "priceRange": "Rp 5.000 - Rp 20.000",
-    "popularMenu": ["Klepon Pandan", "Lapis Legit", "Kue Lumpur Kentang"]
-  },
-  {
-    "id": 6,
-    "name": "Laundry Express Bersih Kilat",
-    "category": "jasa",
-    "description": "Layanan laundry cepat dan bersih, selesai dalam satu hari dengan teknologi mesin modern.",
-    "address": "Jl. Ahmad Yani No. 12, Bekasi",
-    "coordinates": { "lat": -6.2383, "lng": 106.9756 },
-    "images": [
-      "/images/laundry-express-1.jpg",
-      "/images/laundry-express-2.jpg"
-    ],
-    "contact": {
-      "phone": "08127778899",
-      "instagram": "@bersihkilat",
-      "whatsapp": "08127778899"
-    },
-    "hours": {
-      "open": "07:00",
-      "close": "21:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
-    },
-    "featured": false,
-    "priceRange": "Rp 10.000 - Rp 50.000 per kg",
-    "popularMenu": ["Laundry Reguler", "Laundry Kilat", "Setrika Saja"]
-  },
-  {
-    "id": 7,
-    "name": "Barbershop Gentleman’s Cut",
-    "category": "jasa",
-    "description": "Barbershop modern dengan layanan potong rambut, shave, dan styling pria profesional.",
-    "address": "Jl. Veteran No. 9, Malang",
-    "coordinates": { "lat": -7.9839, "lng": 112.6214 },
-    "images": ["/images/gentlemans-cut-1.jpg", "/images/gentlemans-cut-2.jpg"],
-    "contact": {
-      "phone": "08131111222",
-      "instagram": "@gentlemanscut.id",
-      "whatsapp": "08131111222"
-    },
-    "hours": {
-      "open": "10:00",
-      "close": "20:00",
-      "days": ["Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
-    },
-    "featured": true,
-    "priceRange": "Rp 35.000 - Rp 70.000",
-    "popularMenu": ["Classic Haircut", "Hot Towel Shave", "Hair Styling"]
-  },
-  {
-    "id": 8,
-    "name": "Batik Lestari",
-    "category": "fashion",
-    "description": "Toko batik lokal yang menjual kain dan pakaian batik tulis dengan motif khas Pekalongan.",
-    "address": "Jl. Batik No. 10, Pekalongan",
-    "coordinates": { "lat": -6.888, "lng": 109.6753 },
-    "images": ["/images/batik-lestari-1.jpg", "/images/batik-lestari-2.jpg"],
-    "contact": {
-      "phone": "08129990001",
-      "instagram": "@batiklestaripekalongan",
-      "whatsapp": "08129990001"
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
     },
     "hours": {
       "open": "09:00",
@@ -190,24 +49,212 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": false,
-    "priceRange": "Rp 75.000 - Rp 500.000",
-    "popularMenu": ["Batik Tulis", "Kemeja Batik", "Selendang Batik"]
+    "priceRange": "Rp 10.000 - Rp 25.000",
+    "popularMenu": [
+      "Rangginang Original",
+      "Rangginang Terasi"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Keripik Tempe Dinanty",
+    "category": "makanan-minuman",
+    "description": "Keripik tempe yang dibuat dari bumbu pilihan, tepung terigu protein tinggi, dan kedelai berkualitas. Diolah secara higienis tanpa pewarna dan pengawet buatan. Dimiliki oleh Puji Rahayu Wasita.",
+    "address": "Dusun Cijurey RT 01 RW 04 Desa Kujangsari, Kota Banjar",
+    "coordinates": { "lat": -7.395358, "lng": 108.605345 },
+    "images": [
+      "/images/keripik-tempe-dinanty-1.jpg",
+      "/images/keripik-tempe-dinanty-2.jpg"
+    ],
+    "contact": {
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
+    },
+    "hours": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    },
+    "featured": true,
+    "priceRange": "Rp 50.000 per kg",
+    "popularMenu": [
+      "Keripik Tempe Original",
+      "Keripik Tempe Pedas"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Keripik Pisang Tunas Mekar",
+    "category": "makanan-minuman",
+    "description": "Produk UMKM Kota Banjar.",
+    "address": "Kota Banjar, Jawa Barat",
+    "coordinates": {},
+    "images": [
+      "/images/keripik-pisang-1.jpg"
+    ],
+    "contact": {
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
+    },
+    "hours": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    },
+    "featured": false,
+    "priceRange": "Rp 15.000 - Rp 25.000",
+    "popularMenu": [
+      "Keripik Pisang"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Daroja Tunas Mekar",
+    "category": "makanan-minuman",
+    "description": "Produk UMKM Kota Banjar.",
+    "address": "Kota Banjar, Jawa Barat",
+    "coordinates": {},
+    "images": [
+      "/images/daroja-1.jpg"
+    ],
+    "contact": {
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
+    },
+    "hours": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    },
+    "featured": false,
+    "priceRange": "Rp 10.000 - Rp 20.000",
+    "popularMenu": [
+      "Daroja"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Opak Open",
+    "category": "makanan-minuman",
+    "description": "Produk UMKM Kota Banjar.",
+    "address": "Kota Banjar, Jawa Barat",
+    "coordinates": {},
+    "images": [
+      "/images/opak-open-1.jpg"
+    ],
+    "contact": {
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
+    },
+    "hours": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    },
+    "featured": false,
+    "priceRange": "Rp 10.000 - Rp 20.000",
+    "popularMenu": [
+      "Opak"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Mie Lidi",
+    "category": "makanan-minuman",
+    "description": "Produk UMKM Kota Banjar.",
+    "address": "Kota Banjar, Jawa Barat",
+    "coordinates": {},
+    "images": [
+      "/images/mie-lidi-1.jpg"
+    ],
+    "contact": {
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
+    },
+    "hours": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    },
+    "featured": false,
+    "priceRange": "Rp 5.000 - Rp 15.000",
+    "popularMenu": [
+      "Mie Lidi Pedas",
+      "Mie Lidi Asin"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Mie Iteung",
+    "category": "makanan-minuman",
+    "description": "Mie lidi, produk UMKM Kota Banjar.",
+    "address": "Kota Banjar, Jawa Barat",
+    "coordinates": {},
+    "images": [
+      "/images/mie-iteung-1.jpg"
+    ],
+    "contact": {
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
+    },
+    "hours": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    },
+    "featured": false,
+    "priceRange": "Rp 5.000 - Rp 15.000",
+    "popularMenu": [
+      "Mie Iteung Pedas",
+      "Mie Iteung Original"
+    ]
   },
   {
     "id": 9,
-    "name": "Toko Buku Aksara",
-    "category": "toko",
-    "description": "Menjual berbagai buku bacaan lokal, alat tulis, dan menyediakan tempat baca nyaman untuk pengunjung.",
-    "address": "Jl. Dipatiukur No. 11, Bandung",
-    "coordinates": { "lat": -6.893, "lng": 107.617 },
+    "name": "Raja Sale Kripas",
+    "category": "makanan-minuman",
+    "description": "Produk UMKM Kota Banjar.",
+    "address": "Kota Banjar, Jawa Barat",
+    "coordinates": {},
     "images": [
-      "/images/toko-buku-aksara-1.jpg",
-      "/images/toko-buku-aksara-2.jpg"
+      "/images/raja-sale-kripas-1.jpg"
     ],
     "contact": {
-      "phone": "08135550022",
-      "instagram": "@aksarabookstore",
-      "whatsapp": "08135550022"
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
+    },
+    "hours": {
+      "open": "08:00",
+      "close": "17:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+    },
+    "featured": false,
+    "priceRange": "Rp 15.000 - Rp 30.000",
+    "popularMenu": [
+      "Sale Pisang"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Batik Banjar",
+    "category": "fashion",
+    "description": "Batik khas Kota Banjar dengan motif 'Ikan Bebeong dan Daun Tarum'.",
+    "address": "Kota Banjar, Jawa Barat",
+    "coordinates": {},
+    "images": [
+      "/images/batik-banjar-1.jpg"
+    ],
+    "contact": {
+      "phone": "",
+      "instagram": "",
+      "whatsapp": ""
     },
     "hours": {
       "open": "09:00",
@@ -215,51 +262,10 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": false,
-    "priceRange": "Rp 10.000 - Rp 250.000",
-    "popularMenu": ["Novel Lokal", "Stationery Set", "Majalah Edukasi"]
-  },
-  {
-    "id": 10,
-    "name": "Studio Foto Memory",
-    "category": "jasa",
-    "description": "Studio foto profesional untuk prewedding, wisuda, dan keluarga dengan hasil berkualitas tinggi.",
-    "address": "Jl. Kartini No. 23, Semarang",
-    "coordinates": { "lat": -6.9667, "lng": 110.4167 },
-    "images": ["/images/studio-memory-1.jpg", "/images/studio-memory-2.jpg"],
-    "contact": {
-      "phone": "08136667788",
-      "instagram": "@studio.memory",
-      "whatsapp": "08136667788"
-    },
-    "hours": {
-      "open": "08:00",
-      "close": "21:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
-    },
-    "featured": true,
-    "priceRange": "Rp 100.000 - Rp 1.000.000",
-    "popularMenu": ["Foto Wisuda", "Prewedding Indoor", "Family Session"]
-  },
-  {
-    "id": 11,
-    "name": "Roti Bakar Malam Minggu",
-    "category": "makanan-minuman",
-    "description": "Roti bakar kekinian dengan topping premium dan minuman cokelat hangat favorit anak muda.",
-    "address": "Jl. Asia Afrika No. 88, Bandung",
-    "coordinates": { "lat": -6.921, "lng": 107.606 },
-    "images": ["/images/roti-bakar-1.jpg", "/images/roti-bakar-2.jpg"],
-    "contact": {
-      "phone": "08137778899",
-      "instagram": "@rotibakarmalam",
-      "whatsapp": "08137778899"
-    },
-    "hours": {
-      "open": "17:00",
-      "close": "00:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
-    },
-    "featured": false,
-    "priceRange": "Rp 12.000 - Rp 35.000",
-    "popularMenu": ["Roti Bakar Nutella", "Cokelat Panas", "Susu Jahe"]
+    "priceRange": "Rp 100.000 - Rp 500.000",
+    "popularMenu": [
+      "Kain Batik",
+      "Kemeja Batik"
+    ]
   }
 ]
