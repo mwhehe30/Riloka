@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "name": "Sale Sultan",
-    "category": "makanan-minuman",
-    "description": "Sale pisang renyah dan manis, produk UMKM dari Kota Banjar. Dimiliki oleh Euis Hidayah.",
-    "address": "Jl. Brigjen Moh. Isa,SH No.20b, Purwaharja, Kec. Purwaharja, Kota Banjar, Jawa Barat 46331",
+    "name": "Ratan Bakery",
+    "category": "makanan",
+    "description": "Ratan bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue.",
+    "address": "JJ44+73X, Kujangsari, Kec. Langensari, Kota Banjar, Jawa Barat 46324",
     "coordinates": {},
     "images": [
-      "/images/sale-sultan-1.jpg",
-      "/images/sale-sultan-2.jpg"
+      "/images/ratan-bakery-1.jpg",
+      "/images/ratan-bakery-2.jpg"
     ],
     "contact": {
-      "phone": "",
+      "phone": "+62 895-0140-4065",
       "instagram": "",
-      "whatsapp": ""
+      "whatsapp": "+62 895-0140-4065"
     },
     "hours": {
       "open": "08:00",
@@ -21,10 +21,10 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": true,
-    "priceRange": "Rp 15.000 - Rp 30.000",
-    "popularMenu": [
-      "Sale Pisang Original",
-      "Sale Pisang Coklat"
+    "priceRange": "Rp 3.500 - Rp 50.000",
+    "products": [
+      "Roti Pisang Original",
+      "Roti Coklat"
     ]
   },
   {
@@ -50,7 +50,7 @@
     },
     "featured": false,
     "priceRange": "Rp 10.000 - Rp 25.000",
-    "popularMenu": [
+    "products": [
       "Rangginang Original",
       "Rangginang Terasi"
     ]
@@ -78,7 +78,7 @@
     },
     "featured": true,
     "priceRange": "Rp 50.000 per kg",
-    "popularMenu": [
+    "products": [
       "Keripik Tempe Original",
       "Keripik Tempe Pedas"
     ]
@@ -105,7 +105,7 @@
     },
     "featured": false,
     "priceRange": "Rp 15.000 - Rp 25.000",
-    "popularMenu": [
+    "products": [
       "Keripik Pisang"
     ]
   },
@@ -131,7 +131,7 @@
     },
     "featured": false,
     "priceRange": "Rp 10.000 - Rp 20.000",
-    "popularMenu": [
+    "products": [
       "Daroja"
     ]
   },
@@ -157,7 +157,7 @@
     },
     "featured": false,
     "priceRange": "Rp 10.000 - Rp 20.000",
-    "popularMenu": [
+    "products": [
       "Opak"
     ]
   },
@@ -183,7 +183,7 @@
     },
     "featured": false,
     "priceRange": "Rp 5.000 - Rp 15.000",
-    "popularMenu": [
+    "products": [
       "Mie Lidi Pedas",
       "Mie Lidi Asin"
     ]
@@ -210,7 +210,7 @@
     },
     "featured": false,
     "priceRange": "Rp 5.000 - Rp 15.000",
-    "popularMenu": [
+    "products": [
       "Mie Iteung Pedas",
       "Mie Iteung Original"
     ]
@@ -237,7 +237,7 @@
     },
     "featured": false,
     "priceRange": "Rp 15.000 - Rp 30.000",
-    "popularMenu": [
+    "products": [
       "Sale Pisang"
     ]
   },
@@ -263,7 +263,7 @@
     },
     "featured": false,
     "priceRange": "Rp 100.000 - Rp 500.000",
-    "popularMenu": [
+    "products": [
       "Kain Batik",
       "Kemeja Batik"
     ]
