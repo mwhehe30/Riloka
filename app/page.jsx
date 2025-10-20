@@ -1,30 +1,36 @@
-import NavBar from '@/components/NavBar';
-import { Search, Sparkles } from 'lucide-react';
+'use client';
 
+import Card from '@/components/Card';
+import NavBar from '@/components/NavBar';
+import { getUmkm } from '@/lib/api';
+import { Search, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const kategori = [
-  { name: "makanan", href: ""},
-  { name: "minuman", href: ""},
-  { name: "fashion", href: ""},
-  { name: "kerajinan", href: ""},
-  { name: "jasa", href: ""},
-  { name: "Pertanian", href: ""},
-]
-const unggulan = [
-  { 
-    foto: "",
-    nama: "Ratan Bakery",
-    kategori: "makanan",
-    Lokasi: "Cijurey",
-  },
-]
-
+  { name: 'makanan', href: '' },
+  { name: 'minuman', href: '' },
+  { name: 'fashion', href: '' },
+  { name: 'kerajinan', href: '' },
+  { name: 'jasa', href: '' },
+  { name: 'Pertanian', href: '' },
+];
 
 export default function Page() {
+  const [umkm, setUmkm] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const umkm = await getUmkm();
+      console.log(umkm);
+      setUmkm(umkm);
+    }
+    fetchData();
+  }, []);
+
   return (
     <main className='min-h-screen'>
       <NavBar />
-      <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center justify-center'>
+      <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center'>
         <div className='absolute inset-0 -z-10'>
           <div className='absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl' />
           <div className='absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl' />
@@ -66,24 +72,37 @@ export default function Page() {
           </p>
         </div>
       </section>
-        {/* Kategori, kalo dipencet ngarah ke filter umkm */}
-        <section className='text-center py-12'>
-          <h2 className='text-2xl font-bold mb-20'>Cari kebutuhan mu disini</h2>
-          <div className='container mx-auto p-4'>
-            <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4  mt-4'>
-              {kategori.map((kat, index)=> {
-                return (
-                  <li key={index}>
-                    <a href={kat.href} className="relative inline-block bg-gradient-to-r from-primary/20 to-accent/20 p-[2px] rounded-full hover:from-primary/80 hover:to-accent/80 hover:text-white transition duration-300 ease-in-out">
-                      <span className='capitalize text-lg block rounded-full bg-white text-primary font-medium px-6 py-3 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition duration-300'>{kat.name}</span>
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </section>
-        {/* nanti disini ada umkm unggulan abistu langsung footer dan langsung pindah kerjain hal selanjutnya aja */}
+      {/* Kategori, kalo dipencet ngarah ke filter umkm */}
+      <section className='text-center py-12'>
+        <h2 className='text-2xl font-bold mb-20 text-foreground'>
+          Cari kebutuhan mu disini
+        </h2>
+        <div className='container mx-auto p-4'>
+          <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4  mt-4'>
+            {kategori.map((kat, index) => {
+              return (
+                <li key={index}>
+                  <a
+                    href={kat.href}
+                    className='relative inline-block bg-gradient-to-r from-primary/20 to-accent/20 p-[2px] rounded-full hover:from-primary/80 hover:to-accent/80 hover:text-white transition duration-300 ease-in-out'
+                  >
+                    <span className='capitalize text-lg block rounded-full bg-white text-primary font-medium px-6 py-3 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition duration-300'>
+                      {kat.name}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+      {/* nanti disini ada umkm unggulan abistu langsung footer dan langsung pindah kerjain hal selanjutnya aja */}
+
+      <section className='min-h-screen'>
+        {umkm.map((item) => {
+          return <Card key={item.id} props={item} />;
+        })}
+      </section>
     </main>
   );
 }
