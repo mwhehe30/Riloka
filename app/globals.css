@@ -3,7 +3,7 @@
 :root {
   /* ===== Base ===== */
   --color-white: oklch(0.98 0.01 95); /* Background utama (putih hangat) */
-  --color-surface: oklch(0.96 0.01 95); /* Card / container background */
+  --color-surface: oklch(0.93 0.01 95); /* Card / container background */
   --color-border: oklch(0.85 0.02 95); /* Border halus */
   --color-muted: oklch(
     0.7 0.03 95
@@ -56,8 +56,12 @@
 
   --color-overlay: var(--color-overlay);
   --color-shadow: var(--color-shadow);
+
+  --font-inter: var(--font-inter);
+  --font-montserrat: var(--font-montserrat);
 }
 
 body {
   background: var(--color-white);
+  font-family: var(--font-inter);
 }

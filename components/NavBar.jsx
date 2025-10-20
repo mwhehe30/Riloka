@@ -1,11 +1,12 @@
 import { Store } from 'lucide-react';
+import Link from 'next/link';
 
 export default function NavBar() {
   return (
     <header className='border-b border-black/5 bg-white/90 backdrop-blur-2xl fixed w-full top-0 z-50'>
-      <div className='container mx-auto px-6 lg:px-12 py-5'>
+      <nav className='container mx-auto px-6 lg:px-12 py-5'>
         <div className='flex items-center justify-between'>
-          <div className='flex items-center gap-4'>
+          <Link href='/' className='flex items-center gap-4'>
             <div className='relative group'>
               <div className='absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300' />
               <div className='relative bg-gradient-to-br from-primary to-accent p-3 rounded-2xl shadow-2xl shadow-primary/25'>
@@ -22,9 +23,9 @@ export default function NavBar() {
                 Dukung Bisnis Lokal
               </p>
             </div>
-          </div>
+          </Link>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

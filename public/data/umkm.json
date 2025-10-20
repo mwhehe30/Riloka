@@ -7,13 +7,12 @@
     "address": "JJ44+73X, Kujangsari, Kec. Langensari, Kota Banjar, Jawa Barat 46324",
     "coordinates": {},
     "images": [
-      "/images/ratan-bakery-1.jpg",
-      "/images/ratan-bakery-2.jpg"
+      "/images/ratan-bakery-2.webp",
+      "/images/ratan-bakery-3.webp",
+      "/images/ratan-bakery-4.webp"
     ],
     "contact": {
-      "phone": "+62 895-0140-4065",
-      "instagram": "",
-      "whatsapp": "+62 895-0140-4065"
+      "phone": "+62 895-0140-4065"
     },
     "hours": {
       "open": "08:00",
@@ -22,143 +21,184 @@
     },
     "featured": true,
     "priceRange": "Rp 3.500 - Rp 50.000",
-    "products": [
-      "Roti Pisang Original",
-      "Roti Coklat"
-    ]
+    "products": ["Roti Pisang Original", "Roti Coklat"]
   },
   {
     "id": 2,
-    "name": "Rangginang De'Joan",
+    "name": "Rindu Rasa Kuliner",
     "category": "makanan-minuman",
-    "description": "Rengginang, kerupuk beras tradisional Indonesia, yang terbuat dari beras ketan berkualitas tinggi. Produk dari Sentra Rengginang Purwaharja.",
-    "address": "Purwaharja, Kota Banjar, Jawa Barat",
-    "coordinates": {},
-    "images": [
-      "/images/rangginang-dejoan-1.jpg",
-      "/images/rangginang-dejoan-2.jpg"
-    ],
+    "description": "Rindu Rasa Kuliner adalah usaha beraneka menu mulai dari makanan tradisional maupun modern",
+    "address": "Jl. Muhamad Hamim No.92, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
+    "coordinates": {
+      "Latitude": -7.373325,
+      "Longitude": 108.5343849
+    },
+    "images": ["/images/rindu-rasa-1.webp", "/images/rindu-rasa-2.webp"],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 851-6161-1893"
     },
     "hours": {
       "open": "09:00",
-      "close": "19:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+      "close": "22:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
-    "priceRange": "Rp 10.000 - Rp 25.000",
+    "priceRange": "Rp 12.000 - Rp 28.000",
     "products": [
-      "Rangginang Original",
-      "Rangginang Terasi"
+      "Paket Nasi Ayam Ungkep Tahu Tempe",
+      "Ayam Ungkep Serunding Tanpa Nasi",
+      "Paket Nasi Ayam Penyet",
+      "Ayam Penyet Tanpa Nasi",
+      "Ayam Bakar",
+      "Nasi Ayam Bakar",
+      "Indomie Ayam Penyet",
+      "Cah Kangkung",
+      "Mendoan Jawa isi 4pcs",
+      "Es Kopi Latte",
+      "Es Lemon Tea",
+      "Es Coklat"
     ]
   },
   {
     "id": 3,
-    "name": "Keripik Tempe Dinanty",
+    "name": "Dapur Mak Ndut",
     "category": "makanan-minuman",
-    "description": "Keripik tempe yang dibuat dari bumbu pilihan, tepung terigu protein tinggi, dan kedelai berkualitas. Diolah secara higienis tanpa pewarna dan pengawet buatan. Dimiliki oleh Puji Rahayu Wasita.",
-    "address": "Dusun Cijurey RT 01 RW 04 Desa Kujangsari, Kota Banjar",
-    "coordinates": { "lat": -7.395358, "lng": 108.605345 },
+    "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
+    "address": "JGVM+G9 Purwaharja, Bankar City, West Java",
+    "coordinates": {},
     "images": [
-      "/images/keripik-tempe-dinanty-1.jpg",
-      "/images/keripik-tempe-dinanty-2.jpg"
+      "/images/dapur-mak-ndut-1.webp",
+      "/images/dapur-mak-ndut-2.webp"
     ],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 812-2163-8222"
     },
     "hours": {
-      "open": "08:00",
-      "close": "17:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+      "open": "11:00",
+      "close": "19:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": true,
-    "priceRange": "Rp 50.000 per kg",
-    "products": [
-      "Keripik Tempe Original",
-      "Keripik Tempe Pedas"
-    ]
+    "priceRange": "Rp 12.000",
+    "products": ["Mie Tek-Tek", "Kwetiau"]
   },
   {
     "id": 4,
-    "name": "Keripik Pisang Tunas Mekar",
+    "name": "GokiRo Ramen & Grill",
     "category": "makanan-minuman",
-    "description": "Produk UMKM Kota Banjar.",
-    "address": "Kota Banjar, Jawa Barat",
+    "description": "Resto Ramen Ala-ala jepang",
+    "address": "JGHH+HP8 Banjar, Banjar City, West Java 46311",
     "coordinates": {},
-    "images": [
-      "/images/keripik-pisang-1.jpg"
-    ],
+    "images": ["/images/gokiro-1.webp", "/images/gokiro-2.webp"],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 812-2163-8222"
     },
     "hours": {
       "open": "08:00",
-      "close": "17:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+      "close": "21:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
-    "priceRange": "Rp 15.000 - Rp 25.000",
+    "priceRange": "Rp 11.250 - Rp 45.000",
     "products": [
-      "Keripik Pisang"
+      "Ori Ramen",
+      "Ori Ramen Chicken Katsu",
+      "Ori Ramen Beef Yakiniku",
+      "Ori Ramen Caisu",
+      "RB Chicken Katsu Special",
+      "RB Katsu Matah Special",
+      "RB Beef Yakiniku Special",
+      "RB Caisu Special",
+      "Chicken Karage",
+      "Gyoza Gokiro",
+      "Beef Yakiniku",
+      "Chicken Katsu",
+      "Garlic Rice",
+      "Electric Blue Lechee",
+      "Electric Go",
+      "Milo Tajiro Ice",
+      "Lemon Tea Ice",
+      "Japanese Ice Coffee",
+      "Japanese Milk Coffee",
+      "Hot Lemon Tea",
+      "Hot Milo Special",
+      "Excelso Drip Coffee",
+      "Exelco Milk Coffee",
+      "Curry Ramen",
+      "Curry Ramen Katsu",
+      "Curry Ramen Beef Yakiniku",
+      "Curry Ramen Caisu"
     ]
   },
   {
     "id": 5,
-    "name": "Daroja Tunas Mekar",
+    "name": "Kedai Fukunobu",
     "category": "makanan-minuman",
-    "description": "Produk UMKM Kota Banjar.",
-    "address": "Kota Banjar, Jawa Barat",
-    "coordinates": {},
-    "images": [
-      "/images/daroja-1.jpg"
-    ],
+    "description": "Kedai yang menjual berbagai menu makanan yang ramah kantong",
+    "address": "Depan SMA 1, Jl. K.H. Mustofa No.40, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
+    "coordinates": {
+      "Latitude": -7.371969743997131,
+      "Longitude": 108.52675346470684
+    },
+    "images": ["/images/fukunobu-1.webp", "/images/fukunobu-2.webp"],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 821-2454-9451"
     },
     "hours": {
-      "open": "08:00",
-      "close": "17:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+      "open": "11:00",
+      "close": "21:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
-    "priceRange": "Rp 10.000 - Rp 20.000",
+    "priceRange": "Rp 1.500 - Rp 61.000",
     "products": [
-      "Daroja"
+      "HotChick",
+      "HotChick x Iced Sweet Tea",
+      "HotChick Combo",
+      "Double Combo",
+      "HotChick Supreme",
+      "Nobu Hemat Is BAck",
+      "Tempe Goreng",
+      "Tahu Goreng",
+      "Nasi Putih",
+      "HotChick Hemat",
+      "Sambal",
+      "Air Mineral 600 ml",
+      "Air Mineral 1.5 L",
+      "EsJeruk Peras"
     ]
   },
   {
     "id": 6,
-    "name": "Opak Open",
+    "name": "Waroeng Seblak Dhero",
     "category": "makanan-minuman",
-    "description": "Produk UMKM Kota Banjar.",
-    "address": "Kota Banjar, Jawa Barat",
-    "coordinates": {},
-    "images": [
-      "/images/opak-open-1.jpg"
-    ],
+    "description": "Warung Jualan Aneka Seblak",
+    "address": "samping dokter gigi eka lina, Jalan Kapten Jamhur No.47 Mekarsari, liandari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
+    "coordinates": {
+      "Latitude": -7.373827706177174,
+      "Longitude": 108.53598778831572
+    },
+    "images": ["/images/seblak-dhero-1.webp", "/images/seblak-dhero-2.webp"],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 896-5788-9347"
     },
     "hours": {
-      "open": "08:00",
-      "close": "17:00",
-      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+      "open": "09:00",
+      "close": "22:00",
+      "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
     "priceRange": "Rp 10.000 - Rp 20.000",
     "products": [
-      "Opak"
+      "Seblak Paket A (Ceker+Baso Kecil+Banangi+Pangsit) /Topping Sesuai Selera",
+      "Paket A (Baso Besar+Pangsit+Kerupuk+Lidah) /Topping Sesuai Selera",
+      "Paket A (Tulang) /Topping Sesuai Selera",
+      "Paket A (Sayap) /Topping Sesuai Selera",
+      "Paket A (Sosis Besar+Kerupuk+Pangsit+Baso) /Topping Sesuai Selera",
+      "Paket B (Sayap+Tulang+Babangi+Baso Kecil+Pangsit) /Topping Sesuai Selera",
+      "Paket B (Tulang+Baso Besar+Babangi+Cilok+Pangsit) /Topping Sesuai Selera",
+      "Paket B (Tulang+Ceker+Baso Kecil+Kerupuk+Sayur) /Topping Sesuai Selera",
+      "Paket C (Tulang+Ceker+Sayap)"
     ]
   },
   {
@@ -168,13 +208,9 @@
     "description": "Produk UMKM Kota Banjar.",
     "address": "Kota Banjar, Jawa Barat",
     "coordinates": {},
-    "images": [
-      "/images/mie-lidi-1.jpg"
-    ],
+    "images": ["/images/mie-lidi-1.webp", "/images/mie-lidi-2.webp"],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 812-2163-8222"
     },
     "hours": {
       "open": "08:00",
@@ -183,10 +219,7 @@
     },
     "featured": false,
     "priceRange": "Rp 5.000 - Rp 15.000",
-    "products": [
-      "Mie Lidi Pedas",
-      "Mie Lidi Asin"
-    ]
+    "products": ["Mie Lidi Pedas", "Mie Lidi Asin"]
   },
   {
     "id": 8,
@@ -195,13 +228,9 @@
     "description": "Mie lidi, produk UMKM Kota Banjar.",
     "address": "Kota Banjar, Jawa Barat",
     "coordinates": {},
-    "images": [
-      "/images/mie-iteung-1.jpg"
-    ],
+    "images": ["/images/mie-iteung-1.webp", "/images/mie-iteung-2.webp"],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 812-2163-8222"
     },
     "hours": {
       "open": "08:00",
@@ -210,10 +239,7 @@
     },
     "featured": false,
     "priceRange": "Rp 5.000 - Rp 15.000",
-    "products": [
-      "Mie Iteung Pedas",
-      "Mie Iteung Original"
-    ]
+    "products": ["Mie Iteung Pedas", "Mie Iteung Original"]
   },
   {
     "id": 9,
@@ -223,12 +249,11 @@
     "address": "Kota Banjar, Jawa Barat",
     "coordinates": {},
     "images": [
-      "/images/raja-sale-kripas-1.jpg"
+      "/images/raja-sale-kripas-1.webp",
+      "/images/raja-sale-kripas-2.webp"
     ],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 812-2163-8222"
     },
     "hours": {
       "open": "08:00",
@@ -237,9 +262,7 @@
     },
     "featured": false,
     "priceRange": "Rp 15.000 - Rp 30.000",
-    "products": [
-      "Sale Pisang"
-    ]
+    "products": ["Sale Pisang"]
   },
   {
     "id": 10,
@@ -248,13 +271,9 @@
     "description": "Batik khas Kota Banjar dengan motif 'Ikan Bebeong dan Daun Tarum'.",
     "address": "Kota Banjar, Jawa Barat",
     "coordinates": {},
-    "images": [
-      "/images/batik-banjar-1.jpg"
-    ],
+    "images": ["/images/batik-banjar-1.webp", "/images/batik-banjar-2.webp"],
     "contact": {
-      "phone": "",
-      "instagram": "",
-      "whatsapp": ""
+      "phone": "+62 812-2163-8222"
     },
     "hours": {
       "open": "09:00",
@@ -263,9 +282,6 @@
     },
     "featured": false,
     "priceRange": "Rp 100.000 - Rp 500.000",
-    "products": [
-      "Kain Batik",
-      "Kemeja Batik"
-    ]
+    "products": ["Kain Batik", "Kemeja Batik"]
   }
 ]
