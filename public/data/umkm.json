@@ -66,10 +66,7 @@
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
     "address": "JGVM+G9 Purwaharja, Bankar City, West Java",
     "coordinates": {},
-    "images": [
-      "/images/dapur-mak-ndut-1.webp",
-      "/images/dapur-mak-ndut-2.webp"
-    ],
+    "images": ["/images/mak-dut-1.webp", "/images/mak-dut-2.webp"],
     "contact": {
       "phone": "+62 812-2163-8222"
     },
@@ -84,14 +81,14 @@
   },
   {
     "id": 4,
-    "name": "GokiRo Ramen & Grill",
-    "category": "makanan-minuman",
-    "description": "Resto Ramen Ala-ala jepang",
-    "address": "JGHH+HP8 Banjar, Banjar City, West Java 46311",
+    "name": "Nu Bani Fried Chicken",
+    "category": "makanan",
+    "description": "Usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam",
+    "address": "Jl. Manonjaya - Banjar No.131, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "coordinates": {},
-    "images": ["/images/gokiro-1.webp", "/images/gokiro-2.webp"],
+    "images": ["/images/nu-bani-1.webp", "/images/nu-bani-2.webp"],
     "contact": {
-      "phone": "+62 812-2163-8222"
+      "phone": "+62 895-0264-3043"
     },
     "hours": {
       "open": "08:00",
@@ -99,7 +96,7 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
-    "priceRange": "Rp 11.250 - Rp 45.000",
+    "priceRange": "Rp 4.000 - Rp 12.000",
     "products": [
       "Ori Ramen",
       "Ori Ramen Chicken Katsu",

@@ -11,7 +11,6 @@ const kategori = [
   { name: 'fashion', href: '' },
   { name: 'kerajinan', href: '' },
   { name: 'jasa', href: '' },
-  // { name: 'Pertanian', href: '' },
 ];
 
 export default function Page() {
@@ -20,7 +19,6 @@ export default function Page() {
   useEffect(() => {
     async function fetchData() {
       const umkm = await getUmkm();
-      console.log(umkm);
       setUmkm(umkm);
     }
     fetchData();
@@ -30,8 +28,8 @@ export default function Page() {
     <main className='min-h-screen'>
       <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center'>
         <div className='absolute inset-0 -z-10'>
-          <div className='absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl' />
-          <div className='absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl' />
+          <div className='absolute top-20 right-0 size-36 md:size-64 lg:size-96 bg-primary/20 lg:bg-primary/10 rounded-full blur-3xl' />
+          <div className='absolute bottom-0 left-0 size-36 md:size-64 lg:size-96 bg-accent/20 lg:bg-accent/10 rounded-full blur-3xl' />
         </div>
 
         <div className='max-w-5xl mx-auto text-center'>
@@ -77,24 +75,24 @@ export default function Page() {
 
       <div className='container mx-auto px-6 lg:px-12 py-12 md:py-16 '>
         {/* Kategori, kalo dipencet ngarah ke filter umkm */}
-        <div className='text-center mb-20  border-b border-surface'>
-          <h2 className='text-3xl font-bold text-foreground'>
-            Temukan UMKM unggulan kami
+        <div className='text-center mb-20'>
+          <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4'>
+            Temukan UMKM Unggulan Kami
           </h2>
-          <div className='p-12'>
-            <ul className='flex items-center justify-center gap-3 flex-col md:flex-row'>
-              {kategori.map((kat, index) => {
-                return (
-                  <li key={index}>
-                    <button className='cursor-pointer relative inline-block bg-gradient-to-r from-primary/20 to-accent/20 p-[2px] rounded-full hover:from-primary/80 hover:to-accent/80 hover:text-white transition duration-300 ease-in-out'>
-                      <span className='capitalize text-lg block rounded-full bg-white text-primary font-medium px-8 py-2 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition duration-300'>
-                        {kat.name}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+          <p className='text-lg text-muted-foreground max-w-3xl mx-auto mb-12'>
+            Jelajahi berbagai kategori UMKM yang telah kami kurasi secara khusus
+            untuk Anda. Temukan produk dan jasa terbaik dari para pelaku usaha
+            lokal.
+          </p>
+          <div className='flex flex-wrap justify-center gap-4'>
+            {kategori.map((kat, index) => (
+              <button
+                key={index}
+                className='px-6 py-3 font-medium text-foreground bg-surface rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg'
+              >
+                {kat.name.charAt(0).toUpperCase() + kat.name.slice(1)}
+              </button>
+            ))}
           </div>
         </div>
         {/* nanti disini ada umkm unggulan abistu langsung footer dan langsung pindah kerjain hal selanjutnya aja */}
