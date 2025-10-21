@@ -65,3 +65,22 @@ body {
   background: var(--color-white);
   font-family: var(--font-inter);
 }
+.under::after {
+  content: "";
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+
+.active.under::after, .under:hover::after {
+  width: 100%;
+}
+.leaving.under::after {
+  width: 0;
+}
