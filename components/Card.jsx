@@ -4,7 +4,6 @@ import { ArrowUpRight, Clock, MapPin, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-
 export default function UMKMCard({ umkm }) {
   return (
     <Link href={`/umkm/${umkm.id}`} className='h-full'>
@@ -41,7 +40,7 @@ export default function UMKMCard({ umkm }) {
 
           {/* Nama */}
           <div className='absolute bottom-0 left-0 right-0 p-5 text-white'>
-            <h3 className='text-xl font-bold mb-1 line-clamp-1 drop-shadow-lg'>
+            <h3 className='text-xl font-bold line-clamp-1 drop-shadow-lg'>
               {umkm.name}
             </h3>
           </div>
@@ -60,15 +59,15 @@ export default function UMKMCard({ umkm }) {
 
           {/* Rating & Clock */}
           <div className='flex justify-between items-center truncate leading-relaxed'>
-            <div className="flex items-center gap-2">
-            <Star className='w-5 h-5 fill-current text-yellow-500'/>
-            {umkm.rating || '0.0'}
+            <div className='flex items-center gap-2'>
+              <Star className='w-5 h-5 fill-current text-yellow-500' />
+              {umkm.rating || '0.0'}
             </div>
             <div className='flex items-center gap-2'>
               <Clock className='size-3.5 flex-shrink-0' />
-            <span>
-              {umkm.hours?.open} - {umkm.hours?.close}
-            </span>
+              <span>
+                {umkm.hours?.open} - {umkm.hours?.close}
+              </span>
             </div>
           </div>
 
@@ -82,7 +81,6 @@ export default function UMKMCard({ umkm }) {
                 {umkm.priceRange || '-'}
               </span>
             </div>
-
 
             <div className='text-primary hover:text-primary/90 font-semibold text-base flex items-center gap-1 transition-all duration-300'>
               Lihat detail
