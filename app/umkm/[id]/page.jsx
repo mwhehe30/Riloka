@@ -1,7 +1,7 @@
 'use client';
 
 import { getUmkmById } from '@/lib/api';
-import { Clock, MapPin, Share2, Star } from 'lucide-react';
+import { Clock, MapPin, Share2, Star, ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -30,9 +30,10 @@ export default function Page() {
     );
   }
   return (
-    <section className='container mx-auto flex justify-center pt-24 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen'>
+    <section className='container mx-auto flex justify-center pt-22 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen'>
       <div className='w-full h-full'>
-        <Link href='/umkm' className='text-primary hover:text-primary/90'>
+        <Link href='/umkm' className=' flex items-center max-w-max hover:bg-primary/10 my-4 rounded-xl hover:text-primary/90 p-4 transition duration-300'>
+        <ChevronLeft className=''/>
           Kembali ke daftar UMKM
         </Link>
 
@@ -53,8 +54,8 @@ export default function Page() {
             </span>
 
             {detailUmkm?.featured && (
-              <span className='inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ml-3 bg-yellow-400/80 text-white'>
-                <Star className='size-4 mr-1' /> Rekomendasi
+              <span className='inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ml-3 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white'>
+                 Rekomendasi
               </span>
             )}
 
@@ -64,8 +65,8 @@ export default function Page() {
 
             <div className='flex flex-wrap items-center gap-6 text-white/90'>
               <div className='flex items-center gap-2'>
-                <MapPin className='size-5' />
-                <span>{detailUmkm?.address.split(',')[0]}</span>
+                <Star className='w-5 h-5 fill-current text-yellow-500' />
+                <span>{detailUmkm?.rating || '0.0'}</span>
               </div>
               <div className='flex items-center gap-2'>
                 <Clock className='size-5' />

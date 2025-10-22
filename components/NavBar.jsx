@@ -128,11 +128,8 @@ export default function NavBar() {
                 >
                   <span>{name}</span>
                   <ChevronRight
-                    className={`size-5 transition-transform duration-300 ${
-                      isActive(href)
-                        ? 'opacity-100'
-                        : 'opacity-0 group-hover:opacity-100 group-hover:translate-x-1'
-                    }`}
+                    className={`size-5 transition-transform duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1
+                    `}
                   />
                 </Link>
               </li>

@@ -4,6 +4,7 @@ import { ArrowUpRight, Clock, MapPin, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+
 export default function UMKMCard({ umkm }) {
   return (
     <Link href={`/umkm/${umkm.id}`} className='h-full'>
@@ -21,17 +22,11 @@ export default function UMKMCard({ umkm }) {
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500' />
 
           {/* Label kategori */}
-          <div className='absolute top-4 left-4 bg-white/10 border border-surface backdrop-blur-md text-white text-sm font-medium px-3 py-1.5 rounded-full shadow-md'>
+          <div className='absolute top-4 left-4 bg-primary/90 backdrop-blur-md text-white text-sm font-medium px-3 py-1.5 rounded-full shadow-md'>
             {umkm.category}
           </div>
 
           {/* Jam buka */}
-          <div className='absolute bottom-4 right-4 bg-primary/90 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5'>
-            <Clock className='size-3.5 flex-shrink-0' />
-            <span>
-              {umkm.hours?.open} - {umkm.hours?.close}
-            </span>
-          </div>
 
           {/* Rekomendasi */}
           {umkm.featured && (
@@ -63,10 +58,19 @@ export default function UMKMCard({ umkm }) {
             <span className='font-medium line-clamp-1'>{umkm.address}</span>
           </div>
 
-          {/* Deskripsi */}
-          <p className='text-gray-600 truncate leading-relaxed'>
-            {umkm.description || ' '}
-          </p>
+          {/* Rating & Clock */}
+          <div className='flex justify-between items-center truncate leading-relaxed'>
+            <div className="flex items-center gap-2">
+            <Star className='w-5 h-5 fill-current text-yellow-500'/>
+            {umkm.rating || '0.0'}
+            </div>
+            <div className='flex items-center gap-2'>
+              <Clock className='size-3.5 flex-shrink-0' />
+            <span>
+              {umkm.hours?.open} - {umkm.hours?.close}
+            </span>
+            </div>
+          </div>
 
           {/* Footer */}
           <div className='mt-auto flex items-center justify-between pt-3 border-t border-surface'>
@@ -78,6 +82,7 @@ export default function UMKMCard({ umkm }) {
                 {umkm.priceRange || '-'}
               </span>
             </div>
+
 
             <div className='text-primary hover:text-primary/90 font-semibold text-base flex items-center gap-1 transition-all duration-300'>
               Lihat detail
