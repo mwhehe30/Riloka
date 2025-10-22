@@ -1,6 +1,5 @@
 'use client';
 
-import Card from '@/components/Card';
 import { getUmkm } from '@/lib/api';
 import { Search, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -73,38 +72,9 @@ export default function Page() {
         </div>
       </section>
 
-      <div className='container mx-auto px-6 lg:px-12 py-12 md:py-16 '>
-        {/* Kategori, kalo dipencet ngarah ke filter umkm */}
-        <div className='text-center mb-20'>
-          <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4'>
-            Temukan UMKM Unggulan Kami
-          </h2>
-          <p className='text-lg text-muted-foreground max-w-3xl mx-auto mb-12'>
-            Jelajahi berbagai kategori UMKM yang telah kami kurasi secara khusus
-            untuk Anda. Temukan produk dan jasa terbaik dari para pelaku usaha
-            lokal.
-          </p>
-          <div className='flex flex-wrap justify-center gap-4'>
-            {kategori.map((kat, index) => (
-              <button
-                key={index}
-                className='px-6 py-3 font-medium text-foreground bg-surface rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg'
-              >
-                {kat.name.charAt(0).toUpperCase() + kat.name.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
-        {/* nanti disini ada umkm unggulan abistu langsung footer dan langsung pindah kerjain hal selanjutnya aja */}
-
-        <section className='min-h-screen'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16'>
-            {umkm.map((item) => {
-              return <Card key={item.id} umkm={item} />;
-            })}
-          </div>
-        </section>
-      </div>
+      <section className='container mx-auto px-6 lg:px-12 py-12 md:py-16 min-h-screen'>
+        {/* tambahin anunya */}
+      </section>
     </main>
   );
 }

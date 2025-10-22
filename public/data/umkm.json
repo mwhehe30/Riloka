@@ -70,7 +70,7 @@
   {
     "id": 3,
     "name": "Dapur Mak Ndut",
-    "category": "makanan-minuman",
+    "category": "makanan",
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
     "address": "JGVM+G9 Purwaharja, Bankar City, West Java",
     "coordinates": {},
@@ -155,7 +155,7 @@
   {
     "id": 6,
     "name": "Waroeng Seblak Dhero",
-    "category": "makanan-minuman",
+    "category": "makanan",
     "description": "Warung Jualan Aneka Seblak",
     "address": "samping dokter gigi eka lina, Jalan Kapten Jamhur No.47 Mekarsari, liandari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "coordinates": {
