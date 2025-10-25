@@ -1,0 +1,55 @@
+[
+  {
+    "id": 7,
+    "name": "Promo 1",
+    "description": "Promo 1",
+    "image": "/images/lebiru-promo.webp",
+    "rating": 4.5,
+    "review": 100,
+    "price": 100000
+  },
+  {
+    "id": 2,
+    "name": "Promo 2",
+    "description": "Promo 2",
+    "image": "/images/nu-bani-1.webp",
+    "rating": 4.5,
+    "review": 100,
+    "price": 100000,
+    "location": "Jakarta",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "name": "Promo 3",
+    "description": "Promo 3",
+    "image": "/images/nu-bani-1.webp",
+    "rating": 4.5,
+    "review": 100,
+    "price": 100000,
+    "location": "Jakarta",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "name": "Promo 4",
+    "description": "Promo 4",
+    "image": "/images/nu-bani-1.webp",
+    "rating": 4.5,
+    "review": 100,
+    "price": 100000,
+    "location": "Jakarta",
+    "featured": true
+  },
+  {
+    "id": 5,
+    "name": "Promo 5",
+    "description": "Promo 5",
+    "image": "/images/nu-bani-1.webp",
+    "rating": 4.5,
+    "review": 100,
+    "price": 100000,
+    "location": "Jakarta",
+    "featured": true
+  }
+]

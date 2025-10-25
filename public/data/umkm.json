@@ -2,12 +2,17 @@
   {
     "id": 1,
     "name": "Ratan Bakery",
-    "category": "makanan",
+    "category": ["makanan"],
     "description": "Ratan bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue.",
     "address": "JJ44+73X, Kujangsari, Kec. Langensari, Kota Banjar, Jawa Barat 46324",
-    "coordinates": {},
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5105.507070909465!2d108.60267127605066!3d-7.394265972800987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e65894d92c95221%3A0x890f8d9e41e1c214!2sRatanBakery!5e1!3m2!1sid!2sid!4v1761210413406!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/TPP4Jdz4eq2cubXG8"
+    },
+    "thumb": "/images/thumbnail/thumb-ratan.webp",
     "images": [
       "/images/ratan-bakery-2.webp",
+      "/images/ratan-bakery-1.webp",
       "/images/ratan-bakery-3.webp",
       "/images/ratan-bakery-4.webp"
     ],
@@ -22,24 +27,58 @@
     "featured": true,
     "priceRange": "Rp 3.500 - Rp 50.000",
     "products": [
-      "Roti Pisang Coklat",
-      "Roti Coklat",
-      "Roti Keju",
-      "Roti Pizza",
-      "Roti Kopi"
+      {
+        "id": 1,
+        "name": "Roti Pisang Coklat",
+        "image": "/images/ratan-bakery-1.webp",
+        "price": 8000
+      },
+      {
+        "id": 2,
+        "name": "Roti Coklat",
+        "image": "/images/ratan-bakery-2.webp",
+        "price": 7000
+      },
+      {
+        "id": 3,
+        "name": "Roti Keju",
+        "image": "/images/ratan-bakery-3.webp",
+        "price": 10000
+      },
+      {
+        "id": 4,
+        "name": "Roti Pizza",
+        "image": "/images/ratan-bakery-4.webp",
+        "price": 15000
+      },
+      {
+        "id": 5,
+        "name": "Roti Kopi",
+        "image": "/images/ratan-bakery-5.webp",
+        "price": 12000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ahmad",
+        "comment": "Roti nya enak dan fresh, harga terjangkau"
+      },
+      {
+        "id": 2,
+        "name": "Sari",
+        "comment": "Pelayanan ramah, roti pisang coklat favorit keluarga"
+      }
     ],
     "rating": "4.6"
   },
   {
     "id": 2,
     "name": "Rindu Rasa Kuliner",
-    "category": "makanan-minuman",
+    "category": ["makanan", "minuman"],
     "description": "Rindu Rasa Kuliner adalah usaha beraneka menu mulai dari makanan tradisional maupun modern",
     "address": "Jl. Muhamad Hamim No.92, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
-    "coordinates": {
-      "Latitude": -7.373325,
-      "Longitude": 108.5343849
-    },
+    "thumb": "/images/thumbnail/thumb-rindu.webp",
     "images": ["/images/rindu-rasa-1.webp", "/images/rindu-rasa-2.webp"],
     "contact": {
       "phone": "+62 851-6161-1893"
@@ -52,18 +91,48 @@
     "featured": false,
     "priceRange": "Rp 12.000 - Rp 28.000",
     "products": [
-      "Paket Nasi Ayam Ungkep Tahu Tempe",
-      "Ayam Ungkep Serunding Tanpa Nasi",
-      "Paket Nasi Ayam Penyet",
-      "Ayam Penyet Tanpa Nasi",
-      "Ayam Bakar",
-      "Nasi Ayam Bakar",
-      "Indomie Ayam Penyet",
-      "Cah Kangkung",
-      "Mendoan Jawa isi 4pcs",
-      "Es Kopi Latte",
-      "Es Lemon Tea",
-      "Es Coklat"
+      {
+        "id": 1,
+        "name": "Paket Nasi Ayam Ungkep Tahu Tempe",
+        "image": "/images/rindu-rasa-1.webp",
+        "price": 18000
+      },
+      {
+        "id": 2,
+        "name": "Ayam Ungkep Serunding Tanpa Nasi",
+        "image": "/images/rindu-rasa-2.webp",
+        "price": 15000
+      },
+      {
+        "id": 3,
+        "name": "Paket Nasi Ayam Penyet",
+        "image": "/images/rindu-rasa-3.webp",
+        "price": 20000
+      },
+      {
+        "id": 4,
+        "name": "Ayam Penyet Tanpa Nasi",
+        "image": "/images/rindu-rasa-4.webp",
+        "price": 16000
+      },
+      {
+        "id": 5,
+        "name": "Ayam Bakar",
+        "image": "/images/rindu-rasa-5.webp",
+        "price": 22000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Budi",
+        "comment": "Ayam penyet nya pedas dan enak, porsi besar"
+      },
+      {
+        "id": 2,
+        "name": "Dewi",
+        "comment": "Tempat nyaman, makanan tradisional yang autentik"
+      }
     ],
     "rating": "4.4"
   },
@@ -73,7 +142,7 @@
     "category": "makanan",
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
     "address": "JGVM+G9 Purwaharja, Bankar City, West Java",
-    "coordinates": {},
+    "thumb": "/images/thumbnail/thumb-dut.webp",
     "images": ["/images/mak-dut-1.webp", "/images/mak-dut-2.webp"],
     "contact": {
       "phone": "+62 812-2163-8222"
@@ -85,13 +154,38 @@
     },
     "featured": true,
     "priceRange": "Rp 12.000",
-    "products": ["Mie Tek-Tek", "Kwetiau"],
+    "products": [
+      {
+        "id": 1,
+        "name": "Mie Tek-Tek",
+        "image": "/images/mak-dut-1.webp",
+        "price": 12000
+      },
+      {
+        "id": 2,
+        "name": "Kwetiau",
+        "image": "/images/mak-dut-2.webp",
+        "price": 12000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Rina",
+        "comment": "Mie tek-tek nya enak banget, rasa homemade"
+      },
+      {
+        "id": 2,
+        "name": "Fajar",
+        "comment": "Porsi hemat tapi mengenyangkan, recommended"
+      }
+    ],
     "rating": "4.3"
   },
   {
     "id": 4,
     "name": "Nu Bani Fried Chicken",
-    "category": "makanan",
+    "category": ["makanan"],
     "description": "Usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam",
     "address": "Jl. Manonjaya - Banjar No.131, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "coordinates": {},
@@ -107,16 +201,43 @@
     "featured": false,
     "priceRange": "Rp 4.000 - Rp 12.000",
     "products": [
-      "Fried Chicken Original",
-      "Fried Chicken Bani's Fire",
-      "Fried Chicken Spicy BBQ"
+      {
+        "id": 1,
+        "name": "Fried Chicken Original",
+        "image": "/images/nu-bani-1.webp",
+        "price": 12000
+      },
+      {
+        "id": 2,
+        "name": "Fried Chicken Bani's Fire",
+        "image": "/images/nu-bani-2.webp",
+        "price": 15000
+      },
+      {
+        "id": 3,
+        "name": "Fried Chicken Spicy BBQ",
+        "image": "/images/nu-bani-3.webp",
+        "price": 14000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Hendra",
+        "comment": "Ayam goreng crispy dan tidak berminyak"
+      },
+      {
+        "id": 2,
+        "name": "Lisa",
+        "comment": "Variasi rasa banyak, anak-anak suka banget"
+      }
     ],
     "rating": "4.5"
   },
   {
     "id": 5,
     "name": "Kedai Fukunobu",
-    "category": "makanan-minuman",
+    "category": ["makanan", "minuman"],
     "description": "Kedai yang menjual berbagai menu makanan yang ramah kantong",
     "address": "Depan SMA 1, Jl. K.H. Mustofa No.40, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "coordinates": {
@@ -135,27 +256,43 @@
     "featured": false,
     "priceRange": "Rp 1.500 - Rp 61.000",
     "products": [
-      "HotChick",
-      "HotChick x Iced Sweet Tea",
-      "HotChick Combo",
-      "Double Combo",
-      "HotChick Supreme",
-      "Nobu Hemat Is BAck",
-      "Tempe Goreng",
-      "Tahu Goreng",
-      "Nasi Putih",
-      "HotChick Hemat",
-      "Sambal",
-      "Air Mineral 600 ml",
-      "Air Mineral 1.5 L",
-      "EsJeruk Peras"
+      {
+        "id": 1,
+        "name": "HotChick",
+        "image": "/images/fukunobu-1.webp",
+        "price": 25000
+      },
+      {
+        "id": 2,
+        "name": "HotChick x Iced Sweet Tea",
+        "image": "/images/fukunobu-2.webp",
+        "price": 30000
+      },
+      {
+        "id": 3,
+        "name": "HotChick Combo",
+        "image": "/images/fukunobu-3.webp",
+        "price": 35000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Kevin",
+        "comment": "Tempat nongkrong asik, menu lengkap dan murah"
+      },
+      {
+        "id": 2,
+        "name": "Maya",
+        "comment": "HotChick combo worth it banget untuk harga segitu"
+      }
     ],
     "rating": "4.7"
   },
   {
     "id": 6,
     "name": "Waroeng Seblak Dhero",
-    "category": "makanan",
+    "category": ["makanan"],
     "description": "Warung Jualan Aneka Seblak",
     "address": "samping dokter gigi eka lina, Jalan Kapten Jamhur No.47 Mekarsari, liandari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "coordinates": {
@@ -174,64 +311,148 @@
     "featured": false,
     "priceRange": "Rp 10.000 - Rp 20.000",
     "products": [
-      "Seblak Paket A (Ceker+Baso Kecil+Banangi+Pangsit) /Topping Sesuai Selera",
-      "Paket A (Baso Besar+Pangsit+Kerupuk+Lidah) /Topping Sesuai Selera",
-      "Paket A (Tulang) /Topping Sesuai Selera",
-      "Paket A (Sayap) /Topping Sesuai Selera",
-      "Paket A (Sosis Besar+Kerupuk+Pangsit+Baso) /Topping Sesuai Selera",
-      "Paket B (Sayap+Tulang+Babangi+Baso Kecil+Pangsit) /Topping Sesuai Selera",
-      "Paket B (Tulang+Baso Besar+Babangi+Cilok+Pangsit) /Topping Sesuai Selera",
-      "Paket B (Tulang+Ceker+Baso Kecil+Kerupuk+Sayur) /Topping Sesuai Selera",
-      "Paket C (Tulang+Ceker+Sayap)"
+      {
+        "id": 1,
+        "name": "Seblak Paket A",
+        "image": "/images/seblak-dhero-1.webp",
+        "price": 15000
+      },
+      {
+        "id": 2,
+        "name": "Seblak Paket B",
+        "image": "/images/seblak-dhero-2.webp",
+        "price": 18000
+      },
+      {
+        "id": 3,
+        "name": "Seblak Paket C",
+        "image": "/images/seblak-dhero-3.webp",
+        "price": 20000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Nia",
+        "comment": "Seblak nya pedas dan kerupuknya masih crunchy"
+      },
+      {
+        "id": 2,
+        "name": "Rizky",
+        "comment": "Pilihan paket lengkap, bisa custom topping"
+      }
     ],
     "rating": "4.2"
   },
   {
     "id": 7,
-    "name": "Mie Lidi",
-    "category": "makanan-minuman",
+    "name": "Diatas Meja",
+    "category": ["minuman"],
     "description": "Produk UMKM Kota Banjar.",
-    "address": "Kota Banjar, Jawa Barat",
-    "coordinates": {},
-    "images": ["/images/mie-lidi-1.webp", "/images/mie-lidi-2.webp"],
+    "address": "Jl. Dr. Husein Kartasasmita No.81-79, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d319.11085860633415!2d108.5292121484555!3d-7.371169576000518!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63ea9aae3c11%3A0x5ad13fa5b8db5ecc!2sDiatas%20Meja%20Coffee%20%26%20Eatery!5e1!3m2!1sid!2sid!4v1761186761801!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/fmbT1F7UkqC8KJqa8"
+    },
+    "images": ["/images/diatas-meja-1.webp", "/images/diatas-meja-2.webp"],
     "contact": {
-      "phone": "+62 812-2163-8222"
+      "instagram": "diatasmeja.banjar"
     },
     "hours": {
-      "open": "08:00",
-      "close": "17:00",
+      "open": "09:00",
+      "close": "23:00",
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": false,
     "priceRange": "Rp 5.000 - Rp 15.000",
-    "products": ["Mie Lidi Pedas", "Mie Lidi Asin"],
-    "rating": "4.3"
+    "products": [
+      {
+        "id": 1,
+        "name": "Kopi Hitam",
+        "image": "/images/diatas-meja-1.webp",
+        "price": 8000
+      },
+      {
+        "id": 2,
+        "name": "Latte",
+        "image": "/images/diatas-meja-2.webp",
+        "price": 15000
+      },
+      {
+        "id": 3,
+        "name": "Es Teh Manis",
+        "image": "/images/diatas-meja-3.webp",
+        "price": 5000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Andi",
+        "comment": "Tempat cozy buat nongkrong, kopi nya enak"
+      },
+      {
+        "id": 2,
+        "name": "Siska",
+        "comment": "Minuman segar dan harga terjangkau"
+      }
+    ],
+    "rating": "4.5"
   },
   {
     "id": 8,
-    "name": "Mie Iteung",
-    "category": "makanan-minuman",
-    "description": "Mie lidi, produk UMKM Kota Banjar.",
-    "address": "Kota Banjar, Jawa Barat",
-    "coordinates": {},
-    "images": ["/images/mie-iteung-1.webp", "/images/mie-iteung-2.webp"],
+    "name": "LeBiru Banjar",
+    "category": ["makanan", "minuman"],
+    "description": "LeBiru Banjar adalah tempat yang menyediakan berbagai menu makanan dan minuman yang enak dan lezat.",
+    "address": "Jl. Dr. Husein Kartasasmita No.140, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d535.1575405476027!2d108.52860829095701!3d-7.371282882486261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f630022f70599%3A0xe1a03bec7718d5ea!2sLeBiru%20Banjar!5e0!3m2!1sid!2sid!4v1761211219536!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/fmbT1F7UkqC8KJqa8"
+    },
+    "images": ["/images/lebiru-1.webp", "/images/lebiru-2.webp"],
     "contact": {
-      "phone": "+62 812-2163-8222"
+      "phone": "+62 822-9551-5314",
+      "instagram": "__lebiru"
     },
     "hours": {
-      "open": "08:00",
-      "close": "17:00",
+      "open": "09:00",
+      "close": "23:00",
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
-    "featured": false,
-    "priceRange": "Rp 5.000 - Rp 15.000",
-    "products": ["Mie Iteung Pedas", "Mie Iteung Original"],
-    "rating": "4.1"
+    "featured": true,
+    "priceRange": "Rp 25.000 - Rp 50.000",
+    "products": [
+      {
+        "id": 1,
+        "name": "Mie Iteung Pedas",
+        "image": "/images/lebiru-1.webp",
+        "price": 35000
+      },
+      {
+        "id": 2,
+        "name": "Mie Iteung Original",
+        "image": "/images/lebiru-2.webp",
+        "price": 30000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "rfauce",
+        "comment": "Suasananya ambience, Tempat duduk bnyk tersedia, ada photobox Juga. Harga dan rasa makanan minuman nya sesuai. Tempat parkir cukup luas"
+      },
+      {
+        "id": 2,
+        "name": "eka ramdhani s",
+        "comment": "nyaman bgt tempatnya sekelas coffeshop di banjar, harganya jg terjangkau, makanannya enak."
+      }
+    ],
+    "rating": "4.8"
   },
   {
     "id": 9,
     "name": "Raja Sale Kripas",
-    "category": "makanan-minuman",
+    "category": ["makanan", "minuman"],
     "description": "Produk UMKM Kota Banjar.",
     "address": "Kota Banjar, Jawa Barat",
     "coordinates": {},
@@ -249,13 +470,44 @@
     },
     "featured": false,
     "priceRange": "Rp 15.000 - Rp 30.000",
-    "products": ["Sale Pisang"],
+    "products": [
+      {
+        "id": 1,
+        "name": "Sale Pisang Original",
+        "image": "/images/raja-sale-kripas-1.webp",
+        "price": 15000
+      },
+      {
+        "id": 2,
+        "name": "Sale Pisang Coklat",
+        "image": "/images/raja-sale-kripas-2.webp",
+        "price": 20000
+      },
+      {
+        "id": 3,
+        "name": "Sale Pisang Keju",
+        "image": "/images/raja-sale-kripas-3.webp",
+        "price": 25000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Wati",
+        "comment": "Sale pisangnya renyah dan manisnya pas"
+      },
+      {
+        "id": 2,
+        "name": "Joko",
+        "comment": "Cocok buat oleh-oleh, packaging rapi"
+      }
+    ],
     "rating": "4.5"
   },
   {
     "id": 10,
     "name": "Batik Banjar",
-    "category": "fashion",
+    "category": ["fashion"],
     "description": "Batik khas Kota Banjar dengan motif 'Ikan Bebeong dan Daun Tarum'.",
     "address": "Kota Banjar, Jawa Barat",
     "coordinates": {},
@@ -270,7 +522,44 @@
     },
     "featured": false,
     "priceRange": "Rp 100.000 - Rp 500.000",
-    "products": ["Kain Batik", "Kemeja Batik"],
+    "products": [
+      {
+        "id": 1,
+        "name": "Kain Batik Katun",
+        "image": "/images/batik-banjar-1.webp",
+        "price": 150000
+      },
+      {
+        "id": 2,
+        "name": "Kain Batik Sutra",
+        "image": "/images/batik-banjar-2.webp",
+        "price": 450000
+      },
+      {
+        "id": 3,
+        "name": "Kemeja Batik Pria",
+        "image": "/images/batik-banjar-3.webp",
+        "price": 250000
+      },
+      {
+        "id": 4,
+        "name": "Dress Batik Wanita",
+        "image": "/images/batik-banjar-4.webp",
+        "price": 300000
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Bu Ani",
+        "comment": "Motif batiknya unik dan khas Banjar, bahan bagus"
+      },
+      {
+        "id": 2,
+        "name": "Pak Hasan",
+        "comment": "Kualitas jahitan rapi, cocok untuk acara formal"
+      }
+    ],
     "rating": "4.8"
   }
 ]

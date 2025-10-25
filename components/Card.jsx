@@ -1,8 +1,8 @@
 'use client';
 
 import { ArrowUpRight, Clock, MapPin, Star } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
+import ImageWithFallback from './ImageWithFallback';
 
 export default function UMKMCard({ umkm }) {
   return (
@@ -10,8 +10,11 @@ export default function UMKMCard({ umkm }) {
       <article className='flex flex-col overflow-hidden cursor-pointer group border border-surface bg-white shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-black/10 transition-all duration-500 h-full rounded-2xl'>
         {/* Gambar */}
         <figure className='relative overflow-hidden aspect-video'>
-          <Image
-            src={umkm.images?.[0] || '/placeholder.jpg'}
+          <ImageWithFallback
+            src={
+              umkm.thumb ||
+              'https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg'
+            }
             alt={umkm.name}
             fill
             className='object-cover transition-transform duration-700 group-hover:scale-110'
@@ -22,7 +25,9 @@ export default function UMKMCard({ umkm }) {
 
           {/* Label kategori */}
           <div className='absolute top-4 left-4 bg-primary/90 backdrop-blur-md text-white text-sm font-medium px-3 py-1.5 rounded-full shadow-md'>
-            {umkm.category}
+            {Array.isArray(umkm.category)
+              ? umkm.category.join(' & ')
+              : umkm.category}
           </div>
 
           {/* Jam buka */}

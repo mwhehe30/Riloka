@@ -1,27 +1,76 @@
 'use client';
 
-import { getUmkm } from '@/lib/api';
-import { Search, Sparkles } from 'lucide-react';
-import { useEffect, useState } from 'react';
-
-const kategori = [
-  { name: 'makanan', href: '' },
-  { name: 'minuman', href: '' },
-  { name: 'fashion', href: '' },
-  { name: 'kerajinan', href: '' },
-  { name: 'jasa', href: '' },
-];
+import Card from '@/components/Card';
+import PromoCard from '@/components/PromoCard';
+import { getPromo, getUmkm } from '@/lib/api';
+import {
+  ArrowRight,
+  Award,
+  ChevronLeft,
+  ChevronRight,
+  Search,
+  Sparkles,
+} from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Page() {
-  const [umkm, setUmkm] = useState([]);
+  const [promo, setPromo] = useState([]);
+  const [featuredUmkm, setFeaturedUmkm] = useState([]);
+  const scrollContainerRef = useRef(null);
+  const umkmScrollRef = useRef(null);
 
   useEffect(() => {
     async function fetchData() {
-      const umkm = await getUmkm();
-      setUmkm(umkm);
+      const data = await getUmkm();
+      setFeaturedUmkm(data.filter((i) => i.featured));
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getPromo();
+      setPromo(data);
+    }
+    fetchData();
+  }, []);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -344,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 344,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollUmkmLeft = () => {
+    if (umkmScrollRef.current) {
+      umkmScrollRef.current.scrollBy({
+        left: -400,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollUmkmRight = () => {
+    if (umkmScrollRef.current) {
+      umkmScrollRef.current.scrollBy({
+        left: 400,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <main className='min-h-screen'>
@@ -72,9 +121,113 @@ export default function Page() {
         </div>
       </section>
 
-      <section className='container mx-auto px-6 lg:px-12 py-12 md:py-16 min-h-screen'>
-        {/* tambahin anunya */}
-      </section>
+      {featuredUmkm.length > 0 && (
+        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+          <div className='flex justify-between items-end mb-12'>
+            <div>
+              <div className='inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 text-yellow-700 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+                <Award className='size-4' />
+                Pilihan Terbaik
+              </div>
+              <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-3'>
+                UMKM Rekomendasi
+              </h2>
+              <p className='text-lg text-muted-foreground'>
+                Dipilih khusus untuk Anda berdasarkan kualitas dan rating
+                tertinggi
+              </p>
+            </div>
+            <Link
+              href='/umkm'
+              className='hidden md:flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group'
+            >
+              Lihat Semua
+              <ArrowRight className='size-5 group-hover:translate-x-1 transition-transform' />
+            </Link>
+          </div>
+
+          <div className='relative'>
+            <div
+              ref={umkmScrollRef}
+              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory'
+            >
+              {featuredUmkm.map((item) => (
+                <div
+                  key={item.id}
+                  className='flex-none w-80 md:w-96 snap-start'
+                >
+                  <Card umkm={item} />
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={scrollUmkmLeft}
+              className='absolute top-1/2 -left-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+            >
+              <ChevronLeft className='size-6' />
+            </button>
+            <button
+              onClick={scrollUmkmRight}
+              className='absolute top-1/2 -right-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+            >
+              <ChevronRight className='size-6' />
+            </button>
+          </div>
+
+          <Link
+            href='/umkm'
+            className='md:hidden flex items-center justify-center gap-2 text-primary font-semibold hover:gap-3 transition-all group mt-6'
+          >
+            Lihat Semua UMKM
+            <ArrowRight className='size-5 group-hover:translate-x-1 transition-transform' />
+          </Link>
+        </section>
+      )}
+
+      {/* Promo Section - Enhanced */}
+      {promo.length > 0 && (
+        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+          <div className='flex justify-between items-end mb-12'>
+            <div>
+              <div className='inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-pink-500/10 text-red-600 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+                <Sparkles className='size-4' />
+                Penawaran Spesial
+              </div>
+              <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-3'>
+                Promo Menarik
+              </h2>
+              <p className='text-lg text-muted-foreground'>
+                Jangan lewatkan penawaran terbaik dari UMKM favorit Anda
+              </p>
+            </div>
+          </div>
+
+          <div className='relative'>
+            <div
+              ref={scrollContainerRef}
+              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory'
+            >
+              {promo.map((promo) => (
+                <div key={promo.id} className='flex-none w-80 snap-start'>
+                  <PromoCard promo={promo} />
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={scrollLeft}
+              className='absolute top-1/2 -left-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+            >
+              <ChevronLeft className='size-6' />
+            </button>
+            <button
+              onClick={scrollRight}
+              className='absolute top-1/2 -right-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+            >
+              <ChevronRight className='size-6' />
+            </button>
+          </div>
+        </section>
+      )}
     </main>
   );
 }
