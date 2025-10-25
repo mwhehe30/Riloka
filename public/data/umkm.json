@@ -460,18 +460,18 @@
   },
   {
     "id": 9,
-    "slug": "raja-sale-kripas",
-    "name": "Raja Sale Kripas",
+    "slug": "steak-batmans",
+    "name": "Steak Batmans",
     "category": ["makanan", "minuman"],
     "description": "Produk UMKM Kota Banjar.",
     "address": "Kota Banjar, Jawa Barat",
-    "coordinates": {},
-    "images": [
-      "/images/raja-sale-kripas-1.webp",
-      "/images/raja-sale-kripas-2.webp"
-    ],
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.2006869696565!2d108.52762517726596!3d-7.375991748195718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f6314b6a19bc1%3A0xef482a368a11d2ab!2sSTEAK%20BATMANS!5e0!3m2!1sid!2sid!4v1761388613603!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/cQCb2NM4X1BgSCUb9"
+    },
+    "images": ["/images/steak-batmans-1.webp", "/images/steak-batmans-2.webp"],
     "contact": {
-      "phone": "+62 812-2163-8222"
+      "phone": "+62 812-2313-7731"
     },
     "hours": {
       "open": "08:00",
@@ -479,37 +479,37 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": false,
-    "priceRange": "Rp 15.000 - Rp 30.000",
+    "priceRange": "Rp 25.000 - Rp 75.000",
     "products": [
       {
         "id": 1,
-        "name": "Sale Pisang Original",
-        "image": "/images/raja-sale-kripas-1.webp",
+        "name": "Steak Original",
+        "image": "/images/steak-batmans-1.webp",
         "price": 15000
       },
       {
         "id": 2,
-        "name": "Sale Pisang Coklat",
-        "image": "/images/raja-sale-kripas-2.webp",
+        "name": "Steak Coklat",
+        "image": "/images/steak-batmans-2.webp",
         "price": 20000
       },
       {
         "id": 3,
-        "name": "Sale Pisang Keju",
-        "image": "/images/raja-sale-kripas-3.webp",
+        "name": "Steak Keju",
+        "image": "/images/steak-batmans-3.webp",
         "price": 25000
       }
     ],
     "reviews": [
       {
         "id": 1,
-        "name": "Wati",
-        "comment": "Sale pisangnya renyah dan manisnya pas"
+        "name": "Apip cms",
+        "comment": "Masakan mkanan mie beef enak , tempatnya nyaman jga"
       },
       {
         "id": 2,
-        "name": "Joko",
-        "comment": "Cocok buat oleh-oleh, packaging rapi"
+        "name": "Riyani Ceci",
+        "comment": "Makanan nya mantap berasa makan di hotel berbintang,jadi penasaran dgn koki nya pernah kerja dimana yah"
       }
     ],
     "rating": "4.5"
@@ -521,7 +521,6 @@
     "category": ["fashion"],
     "description": "Batik khas Kota Banjar dengan motif 'Ikan Bebeong dan Daun Tarum'.",
     "address": "Kota Banjar, Jawa Barat",
-    "coordinates": {},
     "images": ["/images/batik-banjar-1.webp", "/images/batik-banjar-2.webp"],
     "contact": {
       "phone": "+62 812-2163-8222"
