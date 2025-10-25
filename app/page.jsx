@@ -17,7 +17,7 @@ import { useEffect, useRef, useState } from 'react';
 export default function Page() {
   const [promo, setPromo] = useState([]);
   const [featuredUmkm, setFeaturedUmkm] = useState([]);
-  const scrollContainerRef = useRef(null);
+  const promoScrollRef = useRef(null);
   const umkmScrollRef = useRef(null);
 
   useEffect(() => {
@@ -36,18 +36,18 @@ export default function Page() {
     fetchData();
   }, []);
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
+  const scrollPromoLeft = () => {
+    if (promoScrollRef.current) {
+      promoScrollRef.current.scrollBy({
         left: -344,
         behavior: 'smooth',
       });
     }
   };
 
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
+  const scrollPromoRight = () => {
+    if (promoScrollRef.current) {
+      promoScrollRef.current.scrollBy({
         left: 344,
         behavior: 'smooth',
       });
@@ -149,12 +149,12 @@ export default function Page() {
           <div className='relative'>
             <div
               ref={umkmScrollRef}
-              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory'
+              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory px-6'
             >
               {featuredUmkm.map((item) => (
                 <div
                   key={item.id}
-                  className='flex-none w-80 md:w-96 snap-start'
+                  className='flex-none w-80 md:w-96 snap-center'
                 >
                   <Card umkm={item} />
                 </div>
@@ -162,15 +162,20 @@ export default function Page() {
             </div>
             <button
               onClick={scrollUmkmLeft}
-              className='absolute top-1/2 -left-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+              className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
+    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
+    hover:bg-primary hover:text-white transition-all z-10'
             >
-              <ChevronLeft className='size-6' />
+              <ChevronLeft className='size-4 md:size-6' />
             </button>
+
             <button
               onClick={scrollUmkmRight}
-              className='absolute top-1/2 -right-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+              className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
+    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
+    hover:bg-primary hover:text-white transition-all z-10'
             >
-              <ChevronRight className='size-6' />
+              <ChevronRight className='size-4 md:size-6' />
             </button>
           </div>
 
@@ -204,26 +209,34 @@ export default function Page() {
 
           <div className='relative'>
             <div
-              ref={scrollContainerRef}
-              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory'
+              ref={promoScrollRef}
+              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory px-6'
             >
               {promo.map((promo) => (
-                <div key={promo.id} className='flex-none w-80 snap-start'>
+                <div
+                  key={promo.id}
+                  className='flex-none w-80 md:w-96 snap-center'
+                >
                   <PromoCard promo={promo} />
                 </div>
               ))}
             </div>
             <button
-              onClick={scrollLeft}
-              className='absolute top-1/2 -left-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+              onClick={scrollPromoLeft}
+              className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
+    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
+    hover:bg-primary hover:text-white transition-all z-10'
             >
-              <ChevronLeft className='size-6' />
+              <ChevronLeft className='size-4 md:size-6' />
             </button>
+
             <button
-              onClick={scrollRight}
-              className='absolute top-1/2 -right-6 -translate-y-1/2 p-3 rounded-full bg-white border-2 border-gray-200 shadow-xl hover:bg-primary hover:text-white hover:border-primary transition-all z-10 hover:scale-110'
+              onClick={scrollPromoRight}
+              className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
+    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
+    hover:bg-primary hover:text-white transition-all z-10'
             >
-              <ChevronRight className='size-6' />
+              <ChevronRight className='size-4 md:size-6' />
             </button>
           </div>
         </section>
