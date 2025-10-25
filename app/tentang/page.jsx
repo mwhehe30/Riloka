@@ -1,4 +1,5 @@
 import { Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -24,8 +25,8 @@ export default function Page() {
 
           <p className='text-lg sm:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed'>
             Riloka adalah platform direktori UMKM yang lahir dari semangat untuk
-            mendukung dan memajukan usaha mikro, kecil, dan menengah di
-            seluruh Indonesia. Kami percaya bahwa UMKM adalah tulang punggung
+            mendukung dan memajukan usaha mikro, kecil, dan menengah di seluruh
+            Indonesia. Kami percaya bahwa UMKM adalah tulang punggung
             perekonomian bangsa yang perlu mendapatkan sorotan lebih.
           </p>
         </div>
@@ -67,12 +68,12 @@ export default function Page() {
             perekonomian bangsa. Jelajahi direktori kami, temukan UMKM
             favoritmu, dan jadilah bagian dari perubahan.
           </p>
-          <a
+          <Link
             href='/umkm'
             className='px-8 py-4 font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl'
           >
             Jelajahi UMKM Sekarang
-          </a>
+          </Link>
         </div>
       </div>
     </main>

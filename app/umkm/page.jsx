@@ -6,73 +6,166 @@ import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
-  const [umkm, setUmkm] = useState([]);
+  const [allUMKM, setAllUMKM] = useState([]);
+  const [filteredUMKM, setFilteredUMKM] = useState([]);
+  const [search, setSearch] = useState('');
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const categories = ['makanan', 'minuman', 'jasa', 'fashion', 'kerajinan'];
 
   useEffect(() => {
-    const fetchUmkm = async () => {
-      const umkm = await getUmkm();
-      setUmkm(umkm);
+    const fetchData = async () => {
+      const data = await getUmkm();
+      setAllUMKM(data);
+      setFilteredUMKM(data);
     };
-    fetchUmkm();
+    fetchData();
   }, []);
 
+  const sanitizeCategories = (item) => {
+    if (Array.isArray(item.category)) {
+      return item.category.map((c) => c.toLowerCase());
+    }
+    return [String(item.category || '').toLowerCase()];
+  };
+
+  const filterData = (
+    searchValue = search,
+    categoriesValue = selectedCategories
+  ) => {
+    let result = allUMKM;
+
+    const lowerSearch = searchValue.toLowerCase();
+
+    if (lowerSearch.trim() !== '') {
+      result = result.filter((item) => {
+        const nameMatch = item.name?.toLowerCase().includes(lowerSearch);
+        const descMatch = item.description?.toLowerCase().includes(lowerSearch);
+
+        const menuMatch = Array.isArray(item.products)
+          ? item.products.some((product) =>
+              product.name?.toLowerCase().includes(lowerSearch)
+            )
+          : false;
+
+        return nameMatch || descMatch || menuMatch;
+      });
+    }
+
+    if (categoriesValue.length > 0) {
+      result = result.filter((item) => {
+        const itemCategories = sanitizeCategories(item);
+        return itemCategories.some((cat) => categoriesValue.includes(cat));
+      });
+    }
+
+    setFilteredUMKM(result);
+  };
+
   const handleSearch = (e) => {
-    e.preventDefault();
-    const search = e.target.search.value;
-    const filteredUmkm = umkm.filter((umkm) => {
-      return umkm.name.toLowerCase().includes(search.toLowerCase());
-    });
-    setUmkm(filteredUmkm);
+    const value = e.target.value;
+    setSearch(value);
+    filterData(value, selectedCategories);
+  };
+
+  const handleCategoryChange = (category) => {
+    let updated = [...selectedCategories];
+    if (updated.includes(category)) {
+      updated = updated.filter((c) => c !== category);
+    } else {
+      updated.push(category);
+    }
+    setSelectedCategories(updated);
+    filterData(search, updated);
+  };
+
+  const resetFilters = () => {
+    setSearch('');
+    setSelectedCategories([]);
+    setFilteredUMKM(allUMKM);
   };
 
   return (
     <section className='container mx-auto pt-24 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex justify-center'>
       <div className='w-full'>
-        <form
-          onSubmit={handleSearch}
-          className='relative mx-auto mb-12 flex w-full gap-2'
-        >
-          <div className='relative flex w-full items-center gap-3 flex-8 bg-card border border-muted-foreground rounded-2xl px-6 py-4 shadow-lg '>
-            <Search className='size-5 text-muted-foreground flex-shrink-0' />
+        <div className='mb-10'>
+          <h1 className='text-4xl font-bold mb-3'>Jelajahi UMKM Lokal</h1>
+          <p className='text-muted-foreground text-lg'>
+            Temukan produk dan layanan dari UMKM terbaik di sekitar Anda
+          </p>
+        </div>
+        {/* Search */}
+        <div className='flex gap-3 mb-8'>
+          <div className='flex w-full items-center gap-3 bg-card border border-muted-foreground rounded-2xl px-5 py-4 shadow-md'>
+            <Search className='size-5 text-muted-foreground' />
             <input
               type='text'
-              placeholder='Cari UMKM, produk, atau jasa lokal...'
-              className='w-full border-0 bg-transparent outline-0 ring-0 text-base placeholder:text-muted-foreground'
+              value={search}
+              onChange={handleSearch}
+              placeholder='Cari UMKM, menu, atau produk lokal...'
+              className='w-full bg-transparent outline-none'
             />
           </div>
-          <button
-            type='submit'
-            className='cursor-pointer shadow-lg flex-1 flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover transition-all  text-white rounded-2xl'
-          >
-            <Search className='size-5 text-white flex-shrink-0' />
-            <span>Search</span>
-          </button>
-        </form>
 
-        <div className='flex flex-col gap-2 mb-12'>
-          <h3>Filter UMKM</h3>
-          <div className='flex gap-2'>
-            <div>
-              <input type='checkbox' name='umkm' id='umkm' />
-              <label htmlFor='umkm'>Umkm</label>
-            </div>
-            <div>
-              <input type='checkbox' name='umkm' id='umkm' />
-              <label htmlFor='umkm'>Umkm</label>
-            </div>
-            <div>
-              <input type='checkbox' name='umkm' id='umkm' />
-              <label htmlFor='umkm'>Umkm</label>
-            </div>
+          <button
+            type='button'
+            onClick={resetFilters}
+            className='px-6 py-3 rounded-2xl bg-primary text-white shadow-md hover:bg-primary-hover'
+          >
+            Reset
+          </button>
+        </div>
+
+        {/* Filter */}
+        <div className='mb-10'>
+          <h3 className='font-semibold text-lg mb-3'>Filter Kategori</h3>
+          <div className='flex flex-wrap gap-3'>
+            {categories.map((category) => (
+              <label
+                key={category}
+                className={`px-4 py-2 rounded-xl border cursor-pointer text-sm font-medium transition-all ${
+                  selectedCategories.includes(category)
+                    ? 'bg-primary text-white border-primary-hover'
+                    : 'border-muted-foreground text-foreground hover:bg-accent hover:text-white hover:border-accent-hover'
+                }`}
+              >
+                <input
+                  type='checkbox'
+                  className='hidden'
+                  checked={selectedCategories.includes(category)}
+                  onChange={() => handleCategoryChange(category)}
+                />
+                {category[0].toUpperCase() + category.slice(1)}
+              </label>
+            ))}
           </div>
         </div>
 
-        <h1 className='text-4xl font-bold mb-8'>UMKM</h1>
+        <div className='flex items-center justify-between mb-6'>
+          <div>
+            <h2 className='text-2xl font-bold mb-1'>
+              {search || selectedCategories.length > 0
+                ? 'Hasil Pencarian'
+                : 'Semua UMKM'}
+            </h2>
+            <p className='text-sm text-muted-foreground'>
+              Menampilkan {filteredUMKM.length} dari {allUMKM.length} UMKM
+            </p>
+          </div>
+        </div>
+        {/* Card List */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {umkm.map((umkm) => (
-            <Card key={umkm.id} umkm={umkm} />
+          {filteredUMKM.map((item) => (
+            <Card key={item.id} umkm={item} />
           ))}
         </div>
+
+        {/* Empty State */}
+        {filteredUMKM.length === 0 && (
+          <p className='text-center text-muted-foreground mt-10'>
+            Tidak ada UMKM yang cocok dengan pencarian
+          </p>
+        )}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
-import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import NavBar from '@/components/NavBar';
 import { Inter, Montserrat } from 'next/font/google';
 import './globals.css';
 const inter = Inter({
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
         <NavBar />
-        <main className="pt-20 pb-16">{children}</main>
+        {children}
         <Footer />
       </body>
     </html>
