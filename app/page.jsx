@@ -17,6 +17,18 @@ import { useEffect, useRef, useState } from 'react';
 export default function Page() {
   const [promo, setPromo] = useState([]);
   const [featuredUmkm, setFeaturedUmkm] = useState([]);
+
+  // State untuk melacak posisi scroll
+  const [promoScroll, setPromoScroll] = useState({
+    canScrollLeft: false,
+    canScrollRight: false,
+  });
+
+  const [umkmScroll, setUmkmScroll] = useState({
+    canScrollLeft: false,
+    canScrollRight: false,
+  });
+
   const promoScrollRef = useRef(null);
   const umkmScrollRef = useRef(null);
 
@@ -36,12 +48,38 @@ export default function Page() {
     fetchData();
   }, []);
 
+  // Fungsi untuk mengecek posisi scroll
+  const checkScrollPosition = (ref, setScrollState) => {
+    if (ref.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = ref.current;
+      const canScrollLeft = scrollLeft > 0;
+      const canScrollRight = scrollLeft < scrollWidth - clientWidth - 1; // -1 untuk toleransi
+
+      setScrollState({
+        canScrollLeft,
+        canScrollRight,
+      });
+    }
+  };
+
+  // Effect untuk mengecek posisi scroll saat komponen mount dan data berubah
+  useEffect(() => {
+    checkScrollPosition(promoScrollRef, setPromoScroll);
+    checkScrollPosition(umkmScrollRef, setUmkmScroll);
+  }, [promo, featuredUmkm]);
+
+  // Fungsi scroll dengan update state setelah scroll
   const scrollPromoLeft = () => {
     if (promoScrollRef.current) {
       promoScrollRef.current.scrollBy({
         left: -344,
         behavior: 'smooth',
       });
+      // Cek posisi setelah scroll selesai
+      setTimeout(
+        () => checkScrollPosition(promoScrollRef, setPromoScroll),
+        300
+      );
     }
   };
 
@@ -51,6 +89,10 @@ export default function Page() {
         left: 344,
         behavior: 'smooth',
       });
+      setTimeout(
+        () => checkScrollPosition(promoScrollRef, setPromoScroll),
+        300
+      );
     }
   };
 
@@ -60,6 +102,7 @@ export default function Page() {
         left: -400,
         behavior: 'smooth',
       });
+      setTimeout(() => checkScrollPosition(umkmScrollRef, setUmkmScroll), 300);
     }
   };
 
@@ -69,7 +112,17 @@ export default function Page() {
         left: 400,
         behavior: 'smooth',
       });
+      setTimeout(() => checkScrollPosition(umkmScrollRef, setUmkmScroll), 300);
     }
+  };
+
+  // Handler untuk scroll event
+  const handlePromoScroll = () => {
+    checkScrollPosition(promoScrollRef, setPromoScroll);
+  };
+
+  const handleUmkmScroll = () => {
+    checkScrollPosition(umkmScrollRef, setUmkmScroll);
   };
 
   return (
@@ -121,6 +174,7 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Rekomendasi Umkm */}
       {featuredUmkm.length > 0 && (
         <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
           <div className='flex justify-between items-end mb-12'>
@@ -149,6 +203,7 @@ export default function Page() {
           <div className='relative'>
             <div
               ref={umkmScrollRef}
+              onScroll={handleUmkmScroll}
               className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory px-6'
             >
               {featuredUmkm.map((item) => (
@@ -160,23 +215,30 @@ export default function Page() {
                 </div>
               ))}
             </div>
-            <button
-              onClick={scrollUmkmLeft}
-              className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
-    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
-    hover:bg-primary hover:text-white transition-all z-10'
-            >
-              <ChevronLeft className='size-4 md:size-6' />
-            </button>
 
-            <button
-              onClick={scrollUmkmRight}
-              className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
+            {/* Tombol kiri - hanya tampil jika bisa scroll ke kiri */}
+            {umkmScroll.canScrollLeft && (
+              <button
+                onClick={scrollUmkmLeft}
+                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
     p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
     hover:bg-primary hover:text-white transition-all z-10'
-            >
-              <ChevronRight className='size-4 md:size-6' />
-            </button>
+              >
+                <ChevronLeft className='size-4 md:size-6' />
+              </button>
+            )}
+
+            {/* Tombol kanan - hanya tampil jika bisa scroll ke kanan */}
+            {umkmScroll.canScrollRight && (
+              <button
+                onClick={scrollUmkmRight}
+                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
+    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
+    hover:bg-primary hover:text-white transition-all z-10'
+              >
+                <ChevronRight className='size-4 md:size-6' />
+              </button>
+            )}
           </div>
 
           <Link
@@ -189,7 +251,7 @@ export default function Page() {
         </section>
       )}
 
-      {/* Promo Section - Enhanced */}
+      {/* Promo Section */}
       {promo.length > 0 && (
         <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
           <div className='flex justify-between items-end mb-12'>
@@ -210,6 +272,7 @@ export default function Page() {
           <div className='relative'>
             <div
               ref={promoScrollRef}
+              onScroll={handlePromoScroll}
               className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory px-6'
             >
               {promo.map((promo) => (
@@ -221,23 +284,30 @@ export default function Page() {
                 </div>
               ))}
             </div>
-            <button
-              onClick={scrollPromoLeft}
-              className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
-    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
-    hover:bg-primary hover:text-white transition-all z-10'
-            >
-              <ChevronLeft className='size-4 md:size-6' />
-            </button>
 
-            <button
-              onClick={scrollPromoRight}
-              className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
+            {/* Tombol kiri - hanya tampil jika bisa scroll ke kiri */}
+            {promoScroll.canScrollLeft && (
+              <button
+                onClick={scrollPromoLeft}
+                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
     p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
     hover:bg-primary hover:text-white transition-all z-10'
-            >
-              <ChevronRight className='size-4 md:size-6' />
-            </button>
+              >
+                <ChevronLeft className='size-4 md:size-6' />
+              </button>
+            )}
+
+            {/* Tombol kanan - hanya tampil jika bisa scroll ke kanan */}
+            {promoScroll.canScrollRight && (
+              <button
+                onClick={scrollPromoRight}
+                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
+    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
+    hover:bg-primary hover:text-white transition-all z-10'
+              >
+                <ChevronRight className='size-4 md:size-6' />
+              </button>
+            )}
           </div>
         </section>
       )}

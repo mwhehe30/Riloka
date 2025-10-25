@@ -1,6 +1,7 @@
 [
   {
     "id": 7,
+    "slug": "lebiru-banjar",
     "name": "Promo 1",
     "description": "Promo 1",
     "image": "/images/lebiru-promo.webp",
@@ -10,6 +11,7 @@
   },
   {
     "id": 2,
+    "slug": "nu-bani",
     "name": "Promo 2",
     "description": "Promo 2",
     "image": "/images/nu-bani-1.webp",
@@ -21,6 +23,7 @@
   },
   {
     "id": 3,
+    "slug": "nu-bani",
     "name": "Promo 3",
     "description": "Promo 3",
     "image": "/images/nu-bani-1.webp",
@@ -32,6 +35,7 @@
   },
   {
     "id": 4,
+    "slug": "nu-bani",
     "name": "Promo 4",
     "description": "Promo 4",
     "image": "/images/nu-bani-1.webp",
@@ -43,6 +47,7 @@
   },
   {
     "id": 5,
+    "slug": "nu-bani",
     "name": "Promo 5",
     "description": "Promo 5",
     "image": "/images/nu-bani-1.webp",
