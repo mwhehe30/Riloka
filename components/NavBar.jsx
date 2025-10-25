@@ -21,7 +21,7 @@ export default function NavBar() {
   const navItems = [
     { name: 'Beranda', href: '/' },
     { name: 'UMKM', href: '/umkm' },
-    { name: 'Tentang', href: '/tentang' },
+    { name: 'Tentang Kami', href: '/tentang' },
   ];
 
   const isActive = (href) => pathname === href;
