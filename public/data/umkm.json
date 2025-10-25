@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "slug": "ratan-bakery",
     "name": "Ratan Bakery",
     "category": ["makanan"],
     "description": "Ratan bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue.",
@@ -74,6 +75,7 @@
   },
   {
     "id": 2,
+    "slug": "rindu-rasa-kuliner",
     "name": "Rindu Rasa Kuliner",
     "category": ["makanan", "minuman"],
     "description": "Rindu Rasa Kuliner adalah usaha beraneka menu mulai dari makanan tradisional maupun modern",
@@ -138,6 +140,7 @@
   },
   {
     "id": 3,
+    "slug": "dapur-mak-ndut",
     "name": "Dapur Mak Ndut",
     "category": "makanan",
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
@@ -184,6 +187,7 @@
   },
   {
     "id": 4,
+    "slug": "nu-bani-fried-chicken",
     "name": "Nu Bani Fried Chicken",
     "category": ["makanan"],
     "description": "Usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam",
@@ -236,6 +240,7 @@
   },
   {
     "id": 5,
+    "slug": "kedai-fukunobu",
     "name": "Kedai Fukunobu",
     "category": ["makanan", "minuman"],
     "description": "Kedai yang menjual berbagai menu makanan yang ramah kantong",
@@ -291,6 +296,7 @@
   },
   {
     "id": 6,
+    "slug": "waroeng-seblak-dhero",
     "name": "Waroeng Seblak Dhero",
     "category": ["makanan"],
     "description": "Warung Jualan Aneka Seblak",
@@ -346,6 +352,7 @@
   },
   {
     "id": 7,
+    "slug": "diatas-meja",
     "name": "Diatas Meja",
     "category": ["minuman"],
     "description": "Produk UMKM Kota Banjar.",
@@ -401,6 +408,7 @@
   },
   {
     "id": 8,
+    "slug": "lebiru-banjar",
     "name": "LeBiru Banjar",
     "category": ["makanan", "minuman"],
     "description": "LeBiru Banjar adalah tempat yang menyediakan berbagai menu makanan dan minuman yang enak dan lezat.",
@@ -451,6 +459,7 @@
   },
   {
     "id": 9,
+    "slug": "raja-sale-kripas",
     "name": "Raja Sale Kripas",
     "category": ["makanan", "minuman"],
     "description": "Produk UMKM Kota Banjar.",
@@ -506,6 +515,7 @@
   },
   {
     "id": 10,
+    "slug": "batik-banjar",
     "name": "Batik Banjar",
     "category": ["fashion"],
     "description": "Batik khas Kota Banjar dengan motif 'Ikan Bebeong dan Daun Tarum'.",

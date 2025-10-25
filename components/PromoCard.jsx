@@ -5,8 +5,8 @@ import Link from 'next/link';
 export default function PromoCard({ promo }) {
   return (
     <Link
-      href={`/umkm/${promo.id}`}
-      className='group block overflow-hidden rounded-2xl border border-surface transition-all duration-300 ease-in-out '
+      href={`/umkm/${promo.slug}`}
+      className='group block overflow-hidden rounded-2xl border border-surface transition-all duration-300 ease-in-out  shadow-lg shadow-black/5'
     >
       <figure className='relative'>
         <div className='aspect-video overflow-hidden'>

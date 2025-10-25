@@ -1,7 +1,7 @@
 'use client';
 
 import ImageWithFallback from '@/components/ImageWithFallback';
-import { getUmkmById } from '@/lib/api';
+import { getUmkmBySlug } from '@/lib/api';
 import {
   ChevronLeft,
   Clock,
@@ -16,27 +16,43 @@ import {
   UtensilsCrossed,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import NotFound from './not-found';
 
 export default function Page() {
-  const { id } = useParams();
+  const { slug } = useParams();
+  const router = useRouter();
   const [detailUmkm, setDetailUmkm] = useState(null);
   const [activeTab, setActiveTab] = useState('about');
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     async function fetchDetail() {
       try {
-        const res = await getUmkmById(Number(id));
-        setDetailUmkm(res);
+        setIsLoading(true);
+        const res = await getUmkmBySlug(slug);
+        if (!res) {
+          setNotFound(true);
+        } else {
+          setDetailUmkm(res);
+        }
       } catch (error) {
         console.error(error);
+        setNotFound(true);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchDetail();
-  }, [id]);
+  }, [slug]);
 
-  if (!detailUmkm) {
+  if (notFound) {
+    return <NotFound />;
+  }
+
+  if (isLoading || !detailUmkm) {
     return (
       <section className='min-h-screen bg-white'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-pulse'>
@@ -289,7 +305,7 @@ export default function Page() {
                           className='rounded-xl p-6 border border-surface hover:border-primary/40 transition-colors'
                         >
                           <div className='flex items-start gap-4'>
-                            <div className='w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center'>
+                            <div className='flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center'>
                               <User className='w-5 h-5 sm:w-6 sm:h-6 text-white' />
                             </div>
                             <div>
