@@ -3,6 +3,7 @@
 import Card from '@/components/Card';
 import { getUmkm } from '@/lib/api';
 import { Search } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
@@ -11,16 +12,26 @@ export default function Page() {
   const [search, setSearch] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
 
+  const searchParams = useSearchParams();
+  const initialSearch = searchParams.get('search') || '';
+
   const categories = ['makanan', 'minuman', 'jasa', 'fashion', 'kerajinan'];
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getUmkm();
       setAllUMKM(data);
-      setFilteredUMKM(data);
+
+      // Jika ada parameter search dari URL, set search state
+      if (initialSearch) {
+        setSearch(initialSearch);
+        filterData(initialSearch, []);
+      } else {
+        setFilteredUMKM(data);
+      }
     };
     fetchData();
-  }, []);
+  }, [initialSearch]);
 
   const sanitizeCategories = (item) => {
     if (Array.isArray(item.category)) {
@@ -83,6 +94,13 @@ export default function Page() {
     setSearch('');
     setSelectedCategories([]);
     setFilteredUMKM(allUMKM);
+
+    // Juga reset URL tanpa parameter search
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location);
+      url.searchParams.delete('search');
+      window.history.replaceState({}, '', url);
+    }
   };
 
   return (
@@ -94,6 +112,7 @@ export default function Page() {
             Temukan produk dan layanan dari UMKM terbaik di sekitar Anda
           </p>
         </div>
+
         {/* Search */}
         <div className='flex gap-3 mb-8'>
           <div className='flex w-full items-center gap-3 bg-card border border-muted-foreground rounded-2xl px-5 py-4 shadow-md'>
@@ -153,6 +172,7 @@ export default function Page() {
             </p>
           </div>
         </div>
+
         {/* Card List */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {filteredUMKM.map((item) => (

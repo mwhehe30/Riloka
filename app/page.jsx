@@ -12,11 +12,14 @@ import {
   Sparkles,
 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Page() {
   const [promo, setPromo] = useState([]);
   const [featuredUmkm, setFeaturedUmkm] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+  const router = useRouter();
 
   // State untuk melacak posisi scroll
   const [promoScroll, setPromoScroll] = useState({
@@ -53,7 +56,7 @@ export default function Page() {
     if (ref.current) {
       const { scrollLeft, scrollWidth, clientWidth } = ref.current;
       const canScrollLeft = scrollLeft > 0;
-      const canScrollRight = scrollLeft < scrollWidth - clientWidth - 1; // -1 untuk toleransi
+      const canScrollRight = scrollLeft < scrollWidth - clientWidth - 1;
 
       setScrollState({
         canScrollLeft,
@@ -75,7 +78,6 @@ export default function Page() {
         left: -344,
         behavior: 'smooth',
       });
-      // Cek posisi setelah scroll selesai
       setTimeout(
         () => checkScrollPosition(promoScrollRef, setPromoScroll),
         300
@@ -125,6 +127,26 @@ export default function Page() {
     checkScrollPosition(umkmScrollRef, setUmkmScroll);
   };
 
+  // Fungsi untuk handle pencarian
+  const handleSearch = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+
+    // Navigate ke halaman UMKM dengan parameter search
+    if (searchValue.trim()) {
+      router.push(`/umkm?search=${encodeURIComponent(searchValue.trim())}`);
+    } else {
+      router.push('/umkm');
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch(e);
+    }
+  };
+
   return (
     <main className='min-h-screen'>
       <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center'>
@@ -153,8 +175,7 @@ export default function Page() {
           </p>
 
           <form
-            method='post'
-            action=''
+            onSubmit={handleSearch}
             className='relative max-w-2xl mx-auto mb-12'
           >
             <div className='absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl' />
@@ -162,9 +183,18 @@ export default function Page() {
               <Search className='size-5 text-muted-foreground flex-shrink-0' />
               <input
                 type='text'
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                onKeyPress={handleKeyPress}
                 placeholder='Cari UMKM, produk, atau jasa lokal...'
                 className='w-full border-0 bg-transparent outline-0 ring-0 text-base placeholder:text-muted-foreground'
               />
+              <button
+                type='submit'
+                className='px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary-hover transition-colors'
+              >
+                Cari
+              </button>
             </div>
           </form>
 
@@ -216,25 +246,19 @@ export default function Page() {
               ))}
             </div>
 
-            {/* Tombol kiri - hanya tampil jika bisa scroll ke kiri */}
             {umkmScroll.canScrollLeft && (
               <button
                 onClick={scrollUmkmLeft}
-                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
-    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
-    hover:bg-primary hover:text-white transition-all z-10'
+                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
               >
                 <ChevronLeft className='size-4 md:size-6' />
               </button>
             )}
 
-            {/* Tombol kanan - hanya tampil jika bisa scroll ke kanan */}
             {umkmScroll.canScrollRight && (
               <button
                 onClick={scrollUmkmRight}
-                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
-    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
-    hover:bg-primary hover:text-white transition-all z-10'
+                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
               >
                 <ChevronRight className='size-4 md:size-6' />
               </button>
@@ -285,25 +309,19 @@ export default function Page() {
               ))}
             </div>
 
-            {/* Tombol kiri - hanya tampil jika bisa scroll ke kiri */}
             {promoScroll.canScrollLeft && (
               <button
                 onClick={scrollPromoLeft}
-                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2
-    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
-    hover:bg-primary hover:text-white transition-all z-10'
+                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
               >
                 <ChevronLeft className='size-4 md:size-6' />
               </button>
             )}
 
-            {/* Tombol kanan - hanya tampil jika bisa scroll ke kanan */}
             {promoScroll.canScrollRight && (
               <button
                 onClick={scrollPromoRight}
-                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2
-    p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg
-    hover:bg-primary hover:text-white transition-all z-10'
+                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
               >
                 <ChevronRight className='size-4 md:size-6' />
               </button>
