@@ -13,25 +13,31 @@ export default function Page() {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const searchParams = useSearchParams();
-  const initialSearch = searchParams.get('search') || '';
+  // Tambahkan reaktifitas terhadap searchParams
+  const [searchParamValue, setSearchParamValue] = useState("");
+  useEffect(()=> {
+    setSearchParamValue(searchParams.get("search") || "");
+  }, [searchParams])
 
   const categories = ['makanan', 'minuman', 'jasa', 'fashion', 'kerajinan'];
 
-  useEffect(() => {
-    const fetchData = async () => {
+  // useeffect pertama nampilin smua data dlu
+  useEffect(()=> {
+    const fetchData = async ()=> {
       const data = await getUmkm();
       setAllUMKM(data);
-
-      // Jika ada parameter search dari URL, set search state
-      if (initialSearch) {
-        setSearch(initialSearch);
-        filterData(initialSearch, []);
-      } else {
-        setFilteredUMKM(data);
-      }
-    };
+      setFilteredUMKM(data);
+    }
     fetchData();
-  }, [initialSearch]);
+  }, []);
+
+  // useeffect kedua buat filter kalo ada search param
+  useEffect(()=> {
+    if ( searchParamValue && allUMKM.length > 0) {
+      setSearch(searchParamValue);
+      filterData(searchParamValue, []);
+    }
+  }, [searchParamValue, allUMKM]);
 
   const sanitizeCategories = (item) => {
     if (Array.isArray(item.category)) {
