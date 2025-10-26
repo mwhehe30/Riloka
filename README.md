@@ -12,13 +12,6 @@ A website to easily find MSMEs (Micro, Small, and Medium Enterprises) in Indones
 
 To get a local copy up and running, follow these simple steps.
 
-### Prerequisites
-
-*   npm
-    ```sh
-    npm install npm@latest -g
-    ```
-
 ### Installation
 
 1.  Clone the repo
