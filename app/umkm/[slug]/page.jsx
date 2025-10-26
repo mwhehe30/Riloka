@@ -1,10 +1,12 @@
 'use client';
 
 import ImageWithFallback from '@/components/ImageWithFallback';
+import PromoCard from '@/components/PromoCard';
 import { getUmkmBySlug } from '@/lib/api';
 import {
   ChevronLeft,
   Clock,
+  Image,
   Info,
   Instagram,
   Mail,
@@ -82,6 +84,7 @@ export default function Page() {
 
   const tabs = [
     { id: 'tentang', label: 'Tentang', icon: Info },
+    { id: 'galeri', label: 'Galeri', icon: Image },
     { id: 'menu', label: 'Menu', icon: UtensilsCrossed },
     { id: 'ulasan', label: 'Ulasan', icon: Star },
   ];
@@ -252,6 +255,33 @@ export default function Page() {
                   </div>
                 )}
 
+                {/* Gallery Tab */}
+                {activeTab === 'galeri' && (
+                  <div className='space-y-6'>
+                    <h2 className='text-2xl font-bold text-gray-900'>Galeri</h2>
+
+                    {detailUmkm?.images?.length > 0 ? (
+                      <div className='flex gap-4 overflow-x-auto scrollbar-none scroll-smooth'>
+                        {detailUmkm.images.map((img, idx) => (
+                          <div
+                            key={idx}
+                            className='relative flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 rounded-xl overflow-hidden group'
+                          >
+                            <ImageWithFallback
+                              src={img}
+                              alt={`${detailUmkm.name} ${idx + 1}`}
+                              fill
+                              className='object-cover group-hover:scale-110 transition-transform duration-500'
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className='text-gray-500'>Belum ada foto tersedia.</p>
+                    )}
+                  </div>
+                )}
+
                 {/* Menu */}
                 {activeTab === 'menu' && (
                   <div className='space-y-6'>
@@ -324,24 +354,19 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Gallery */}
-            {detailUmkm?.images?.length > 1 && (
+            {/* Promo Section */}
+            {detailUmkm?.promo?.length > 0 && (
               <div className='bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100'>
-                <h2 className='text-2xl font-bold text-gray-900 mb-6'>
-                  Galeri
-                </h2>
-                <div className='flex gap-4 overflow-x-auto scrollbar-none scroll-smooth'>
-                  {detailUmkm.images.map((img, idx) => (
-                    <div
-                      key={idx}
-                      className='relative flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 rounded-xl overflow-hidden group'
-                    >
-                      <ImageWithFallback
-                        src={img}
-                        alt={`${detailUmkm.name} ${idx + 1}`}
-                        fill
-                        className='object-cover group-hover:scale-110 transition-transform duration-500'
-                      />
+                <div className='flex items-center justify-between mb-6'>
+                  <h2 className='text-2xl font-bold text-gray-900'>
+                    Promo Spesial
+                  </h2>
+                </div>
+
+                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-2'>
+                  {detailUmkm.promo.map((promo) => (
+                    <div key={promo.id} className='flex-none w-72 sm:w-80'>
+                      <PromoCard promo={promo} />
                     </div>
                   ))}
                 </div>

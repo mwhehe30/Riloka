@@ -1,58 +1,20 @@
 [
   {
-    "id": 7,
+    "id": 1,
     "slug": "lebiru-banjar",
     "name": "Promo 1",
     "description": "Promo 1",
     "image": "/images/lebiru/lebiru-promo.webp",
     "rating": 4.5,
-    "review": 100,
-    "price": 100000
+    "review": 100
   },
   {
     "id": 2,
     "slug": "diatas-meja",
-    "name": "Promo 2",
-    "description": "Promo 2",
+    "name": "☕️ Pagi yang baik dimulai dari secangkir kopi dan obrolan ringan.\nSelamat datang di #ngopipagi bareng Kopi Diatas Meja.\nDuduk sebentar, hirup aroma kopi, dan nikmati harimu.",
+    "description": "📍Setiap hari, jam 8 pagi—11 siang\n📣 Promo spesial & vibes hangat dan musik cuma di sini!",
     "image": "/images/diatas-meja/promo/promo-1.webp",
     "rating": 4.5,
-    "review": 100,
-    "price": 100000,
-    "location": "Jakarta",
-    "featured": true
-  },
-  {
-    "id": 3,
-    "slug": "nu-bani",
-    "name": "Promo 3",
-    "image": "/images/nu-bani/nu-bani-1.webp",
-    "rating": 4.5,
-    "review": 100,
-    "price": 100000,
-    "location": "Jakarta",
-    "featured": true
-  },
-  {
-    "id": 4,
-    "slug": "nu-bani",
-    "name": "Promo 4",
-    "image": "/images/nu-bani/nu-bani-1.webp",
-    "rating": 4.5,
-    "review": 100,
-    "price": 100000,
-    "location": "Jakarta",
-    "featured": true
-  },
-  {
-    "id": 5,
-    "slug": "nu-bani",
-    "name": "Promo 5",
-    "description": "Promo 5",
-    "image": "/images/nu-bani/nu-bani-1.webp",
-    "rating": 4.5,
-    "review": 100,
-    "price": 100000,
-    "location": "Jakarta",
-    "featured": true
+    "review": 100
   }
 ]
