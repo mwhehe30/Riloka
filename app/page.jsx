@@ -7,18 +7,13 @@ import { getPromo, getUmkm } from '@/lib/api';
 import { ArrowRight, Award, Search, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [promo, setPromo] = useState([]);
   const [featuredUmkm, setFeaturedUmkm] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();
-
-  // State untuk melacak posisi scroll
-
-  const promoScrollRef = useRef(null);
-  const umkmScrollRef = useRef(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -35,22 +30,6 @@ export default function Page() {
     }
     fetchData();
   }, []);
-
-  // Fungsi untuk mengecek posisi scroll
-  const checkScrollPosition = (ref, setScrollState) => {
-    if (ref.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = ref.current;
-      const canScrollLeft = scrollLeft > 0;
-      const canScrollRight = scrollLeft < scrollWidth - clientWidth - 1;
-
-      setScrollState({
-        canScrollLeft,
-        canScrollRight,
-      });
-    }
-  };
-
-  // Effect untuk mengecek posisi scroll saat komponen mount dan data berubah
 
   // Fungsi untuk handle pencarian
   const handleSearch = (e) => {
