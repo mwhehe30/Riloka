@@ -16,15 +16,14 @@ import {
   UtensilsCrossed,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import NotFound from './not-found';
 
 export default function Page() {
   const { slug } = useParams();
-  const router = useRouter();
   const [detailUmkm, setDetailUmkm] = useState(null);
-  const [activeTab, setActiveTab] = useState('about');
+  const [activeTab, setActiveTab] = useState('tentang');
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
@@ -82,9 +81,9 @@ export default function Page() {
   }
 
   const tabs = [
-    { id: 'about', label: 'About', icon: Info },
+    { id: 'tentang', label: 'Tentang', icon: Info },
     { id: 'menu', label: 'Menu', icon: UtensilsCrossed },
-    { id: 'reviews', label: 'Reviews', icon: Star },
+    { id: 'ulasan', label: 'Ulasan', icon: Star },
   ];
 
   return (
@@ -181,7 +180,7 @@ export default function Page() {
 
               {/* Tab Content */}
               <div className='p-4 sm:p-8'>
-                {activeTab === 'about' && (
+                {activeTab === 'tentang' && (
                   <div className='space-y-6'>
                     <h2 className='text-xl sm:text-2xl font-bold text-gray-900'>
                       Tentang {detailUmkm?.name}
@@ -293,7 +292,7 @@ export default function Page() {
                 )}
 
                 {/* Reviews */}
-                {activeTab === 'reviews' && (
+                {activeTab === 'ulasan' && (
                   <div className='space-y-6'>
                     <h2 className='text-2xl font-bold text-gray-900'>
                       Ulasan Pelanggan

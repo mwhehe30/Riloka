@@ -6,7 +6,7 @@ current_folder = os.path.dirname(os.path.abspath(__file__))
 
 # loop semua file di folder
 for filename in os.listdir(current_folder):
-    if filename.lower().endswith((".png", ".jpg", ".jpeg", ".bmp", ".tiff")):
+    if filename.lower().endswith((".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".heic")):
         img_path = os.path.join(current_folder, filename)
         img = Image.open(img_path).convert("RGB")  # pastikan RGB
 

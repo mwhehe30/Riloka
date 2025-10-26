@@ -12,10 +12,10 @@
     },
     "thumb": "/images/thumbnail/thumb-ratan.webp",
     "images": [
-      "/images/ratan-bakery-2.webp",
-      "/images/ratan-bakery-1.webp",
-      "/images/ratan-bakery-3.webp",
-      "/images/ratan-bakery-4.webp"
+      "/images/ratan-bakery/ratan-bakery-2.webp",
+      "/images/ratan-bakery/ratan-bakery-1.webp",
+      "/images/ratan-bakery/ratan-bakery-3.webp",
+      "/images/ratan-bakery/ratan-bakery-4.webp"
     ],
     "contact": {
       "phone": "+62 895-0140-4065"
@@ -31,31 +31,31 @@
       {
         "id": 1,
         "name": "Roti Pisang Coklat",
-        "image": "/images/ratan-bakery-1.webp",
+        "image": "/images/ratan-bakery/ratan-bakery-1.webp",
         "price": 8000
       },
       {
         "id": 2,
         "name": "Roti Coklat",
-        "image": "/images/ratan-bakery-2.webp",
+        "image": "/images/ratan-bakery/ratan-bakery-2.webp",
         "price": 7000
       },
       {
         "id": 3,
         "name": "Roti Keju",
-        "image": "/images/ratan-bakery-3.webp",
+        "image": "/images/ratan-bakery/ratan-bakery-3.webp",
         "price": 10000
       },
       {
         "id": 4,
         "name": "Roti Pizza",
-        "image": "/images/ratan-bakery-4.webp",
+        "image": "/images/ratan-bakery/ratan-bakery-4.webp",
         "price": 15000
       },
       {
         "id": 5,
         "name": "Roti Kopi",
-        "image": "/images/ratan-bakery-5.webp",
+        "image": "/images/ratan-bakery/ratan-bakery-5.webp",
         "price": 12000
       }
     ],
@@ -80,8 +80,15 @@
     "category": ["makanan", "minuman"],
     "description": "Rindu Rasa Kuliner adalah usaha beraneka menu mulai dari makanan tradisional maupun modern",
     "address": "Jl. Muhamad Hamim No.92, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.826631410155!2d108.53180997605033!3d-7.373319672569386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63ce724bd0ef%3A0x59b6bdca62940a2c!2sRindu%20Rasa%20Kuliner!5e0!3m2!1sid!2sid!4v1761435675292!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/ZHAhu7woLwFq9u919"
+    },
     "thumb": "/images/thumbnail/thumb-rindu.webp",
-    "images": ["/images/rindu-rasa-1.webp", "/images/rindu-rasa-2.webp"],
+    "images": [
+      "/images/rindu-rasa/rindu-rasa-1.webp",
+      "/images/rindu-rasa/rindu-rasa-2.webp"
+    ],
     "contact": {
       "phone": "+62 851-6161-1893"
     },
@@ -96,31 +103,31 @@
       {
         "id": 1,
         "name": "Paket Nasi Ayam Ungkep Tahu Tempe",
-        "image": "/images/rindu-rasa-1.webp",
+        "image": "/images/rindu-rasa/rindu-rasa-1.webp",
         "price": 18000
       },
       {
         "id": 2,
         "name": "Ayam Ungkep Serunding Tanpa Nasi",
-        "image": "/images/rindu-rasa-2.webp",
+        "image": "/images/rindu-rasa/rindu-rasa-2.webp",
         "price": 15000
       },
       {
         "id": 3,
         "name": "Paket Nasi Ayam Penyet",
-        "image": "/images/rindu-rasa-3.webp",
+        "image": "/images/rindu-rasa/rindu-rasa-3.webp",
         "price": 20000
       },
       {
         "id": 4,
         "name": "Ayam Penyet Tanpa Nasi",
-        "image": "/images/rindu-rasa-4.webp",
+        "image": "/images/rindu-rasa/rindu-rasa-4.webp",
         "price": 16000
       },
       {
         "id": 5,
         "name": "Ayam Bakar",
-        "image": "/images/rindu-rasa-5.webp",
+        "image": "/images/rindu-rasa/rindu-rasa-5.webp",
         "price": 22000
       }
     ],
@@ -146,7 +153,10 @@
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
     "address": "JGVM+G9 Purwaharja, Bankar City, West Java",
     "thumb": "/images/thumbnail/thumb-dut.webp",
-    "images": ["/images/mak-dut-1.webp", "/images/mak-dut-2.webp"],
+    "images": [
+      "/images/mak-dut/mak-dut-1.webp",
+      "/images/mak-dut/mak-dut-2.webp"
+    ],
     "contact": {
       "phone": "+62 812-2163-8222"
     },
@@ -161,13 +171,13 @@
       {
         "id": 1,
         "name": "Mie Tek-Tek",
-        "image": "/images/mak-dut-1.webp",
+        "image": "/images/mak-dut/mak-dut-1.webp",
         "price": 12000
       },
       {
         "id": 2,
         "name": "Kwetiau",
-        "image": "/images/mak-dut-2.webp",
+        "image": "/images/mak-dut/mak-dut-2.webp",
         "price": 12000
       }
     ],
@@ -192,8 +202,15 @@
     "category": ["makanan"],
     "description": "Usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam",
     "address": "Jl. Manonjaya - Banjar No.131, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
-    "coordinates": {},
-    "images": ["/images/nu-bani-1.webp", "/images/nu-bani-2.webp"],
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.840765545892!2d108.5282009!3d-7.371737899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63b9b6badc5b%3A0x9db28ec751df34c9!2sNu%20Bani%20Fried%20Chicken!5e0!3m2!1sid!2sid!4v1761435356913!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/aG1ciYZGup3SxXHs6"
+    },
+    "thumb": "/images/thumbnail/thumb-nubani.webp",
+    "images": [
+      "/images/nu-bani/nu-bani-1.webp",
+      "/images/nu-bani/nu-bani-2.webp"
+    ],
     "contact": {
       "phone": "+62 895-0264-3043"
     },
@@ -208,19 +225,19 @@
       {
         "id": 1,
         "name": "Fried Chicken Original",
-        "image": "/images/nu-bani-1.webp",
+        "image": "/images/nu-bani/nu-bani-1.webp",
         "price": 12000
       },
       {
         "id": 2,
         "name": "Fried Chicken Bani's Fire",
-        "image": "/images/nu-bani-2.webp",
+        "image": "/images/nu-bani/nu-bani-2.webp",
         "price": 15000
       },
       {
         "id": 3,
         "name": "Fried Chicken Spicy BBQ",
-        "image": "/images/nu-bani-3.webp",
+        "image": "/images/nu-bani/nu-bani-3.webp",
         "price": 14000
       }
     ],
@@ -245,11 +262,15 @@
     "category": ["makanan", "minuman"],
     "description": "Kedai yang menjual berbagai menu makanan yang ramah kantong",
     "address": "Depan SMA 1, Jl. K.H. Mustofa No.40, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
-    "coordinates": {
-      "Latitude": -7.371969743997131,
-      "Longitude": 108.52675346470684
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404.0713398070764!2d108.52653703285391!3d-7.371866709595552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f633a62f461bb%3A0x7ea1641130f9fd71!2sAyam%20Bakar%20FukuNobu!5e0!3m2!1sid!2sid!4v1761435590805!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/wZvnSxkELhLHg94B8"
     },
-    "images": ["/images/fukunobu-1.webp", "/images/fukunobu-2.webp"],
+    "thumb": "/images/thumbnail/thumb-fukunobu.webp",
+    "images": [
+      "/images/fukunobu/fukunobu-1.webp",
+      "/images/fukunobu/fukunobu-2.webp"
+    ],
     "contact": {
       "phone": "+62 821-2454-9451"
     },
@@ -264,19 +285,19 @@
       {
         "id": 1,
         "name": "HotChick",
-        "image": "/images/fukunobu-1.webp",
+        "image": "/images/fukunobu/fukunobu-1.webp",
         "price": 25000
       },
       {
         "id": 2,
         "name": "HotChick x Iced Sweet Tea",
-        "image": "/images/fukunobu-2.webp",
+        "image": "/images/fukunobu/fukunobu-2.webp",
         "price": 30000
       },
       {
         "id": 3,
         "name": "HotChick Combo",
-        "image": "/images/fukunobu-3.webp",
+        "image": "/images/fukunobu/fukunobu-3.webp",
         "price": 35000
       }
     ],
@@ -301,11 +322,15 @@
     "category": ["makanan"],
     "description": "Warung Jualan Aneka Seblak",
     "address": "samping dokter gigi eka lina, Jalan Kapten Jamhur No.47 Mekarsari, liandari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
-    "coordinates": {
-      "Latitude": -7.373827706177174,
-      "Longitude": 108.53598778831572
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.821841876505!2d108.5360757!3d-7.373855599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f620e8ed2b397%3A0x7e7d56a2611d94a7!2sWarung%20Seblak%20Dhero!5e0!3m2!1sid!2sid!4v1761435174834!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/8wxoqSd87sHm6eDW6"
     },
-    "images": ["/images/seblak-dhero-1.webp", "/images/seblak-dhero-2.webp"],
+    "thumb": "/images/thumbnail/thumb-wsd.webp",
+    "images": [
+      "/images/seblak-dhero/seblak-dhero-1.webp",
+      "/images/seblak-dhero/seblak-dhero-2.webp"
+    ],
     "contact": {
       "phone": "+62 896-5788-9347"
     },
@@ -315,24 +340,24 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
-    "priceRange": "Rp 10.000 - Rp 20.000",
+    "priceRange": "Rp 8.000 - Rp 30.000",
     "products": [
       {
         "id": 1,
         "name": "Seblak Paket A",
-        "image": "/images/seblak-dhero-1.webp",
+        "image": "/images/seblak-dhero/seblak-dhero-1.webp",
         "price": 15000
       },
       {
         "id": 2,
         "name": "Seblak Paket B",
-        "image": "/images/seblak-dhero-2.webp",
+        "image": "/images/seblak-dhero/seblak-dhero-2.webp",
         "price": 18000
       },
       {
         "id": 3,
         "name": "Seblak Paket C",
-        "image": "/images/seblak-dhero-3.webp",
+        "image": "/images/seblak-dhero/seblak-dhero-3.webp",
         "price": 20000
       }
     ],
@@ -354,14 +379,18 @@
     "id": 7,
     "slug": "diatas-meja",
     "name": "Diatas Meja",
-    "category": ["minuman"],
+    "category": ["makanan", "minuman"],
     "description": "Produk UMKM Kota Banjar.",
     "address": "Jl. Dr. Husein Kartasasmita No.81-79, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d319.11085860633415!2d108.5292121484555!3d-7.371169576000518!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63ea9aae3c11%3A0x5ad13fa5b8db5ecc!2sDiatas%20Meja%20Coffee%20%26%20Eatery!5e1!3m2!1sid!2sid!4v1761186761801!5m2!1sid!2sid",
       "link": "https://maps.app.goo.gl/fmbT1F7UkqC8KJqa8"
     },
-    "images": ["/images/diatas-meja-1.webp", "/images/diatas-meja-2.webp"],
+    "thumb": "/images/thumbnail/thumb-diatas-meja.webp",
+    "images": [
+      "/images/diatas-meja/diatas-meja-1.webp",
+      "/images/diatas-meja/diatas-meja-2.webp"
+    ],
     "contact": {
       "instagram": "diatasmeja.banjar"
     },
@@ -376,19 +405,19 @@
       {
         "id": 1,
         "name": "Kopi Hitam",
-        "image": "/images/diatas-meja-1.webp",
+        "image": "/images/diatas-meja/diatas-meja-1.webp",
         "price": 8000
       },
       {
         "id": 2,
         "name": "Latte",
-        "image": "/images/diatas-meja-2.webp",
+        "image": "/images/diatas-meja/diatas-meja-2.webp",
         "price": 15000
       },
       {
         "id": 3,
         "name": "Es Teh Manis",
-        "image": "/images/diatas-meja-3.webp",
+        "image": "/images/diatas-meja/diatas-meja-3.webp",
         "price": 5000
       }
     ],
@@ -418,7 +447,7 @@
       "link": "https://maps.app.goo.gl/fmbT1F7UkqC8KJqa8"
     },
     "thumb": "/images/thumbnail/thumb-lebiru.webp",
-    "images": ["/images/lebiru-1.webp", "/images/lebiru-2.webp"],
+    "images": ["/images/lebiru/lebiru-1.webp", "/images/lebiru/lebiru-2.webp"],
     "contact": {
       "phone": "+62 822-9551-5314",
       "instagram": "__lebiru"
@@ -434,13 +463,13 @@
       {
         "id": 1,
         "name": "Mie Iteung Pedas",
-        "image": "/images/lebiru-1.webp",
+        "image": "/images/lebiru/lebiru-1.webp",
         "price": 35000
       },
       {
         "id": 2,
         "name": "Mie Iteung Original",
-        "image": "/images/lebiru-2.webp",
+        "image": "/images/lebiru/lebiru-2.webp",
         "price": 30000
       }
     ],
@@ -464,14 +493,19 @@
     "name": "Steak Batmans",
     "category": ["makanan", "minuman"],
     "description": "Produk UMKM Kota Banjar.",
-    "address": "Kota Banjar, Jawa Barat",
+    "address": "Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.2006869696565!2d108.52762517726596!3d-7.375991748195718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f6314b6a19bc1%3A0xef482a368a11d2ab!2sSTEAK%20BATMANS!5e0!3m2!1sid!2sid!4v1761388613603!5m2!1sid!2sid",
       "link": "https://maps.app.goo.gl/cQCb2NM4X1BgSCUb9"
     },
-    "images": ["/images/steak-batmans-1.webp", "/images/steak-batmans-2.webp"],
+    "thumb": "/images/thumbnail/thumb-steak.webp",
+    "images": [
+      "/images/steak-batmans/steak-batmans-1.webp",
+      "/images/steak-batmans/steak-batmans-2.webp"
+    ],
     "contact": {
-      "phone": "+62 812-2313-7731"
+      "phone": "+62 812-2313-7731",
+      "instagram": "steakbatmans"
     },
     "hours": {
       "open": "08:00",
@@ -479,24 +513,24 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": false,
-    "priceRange": "Rp 25.000 - Rp 75.000",
+    "priceRange": "Rp 25.000 - Rp 125.000",
     "products": [
       {
         "id": 1,
         "name": "Steak Original",
-        "image": "/images/steak-batmans-1.webp",
+        "image": "/images/steak-batmans/steak-batmans-1.webp",
         "price": 15000
       },
       {
         "id": 2,
         "name": "Steak Coklat",
-        "image": "/images/steak-batmans-2.webp",
+        "image": "/images/steak-batmans/steak-batmans-2.webp",
         "price": 20000
       },
       {
         "id": 3,
         "name": "Steak Keju",
-        "image": "/images/steak-batmans-3.webp",
+        "image": "/images/steak-batmans/steak-batmans-3.webp",
         "price": 25000
       }
     ],
@@ -521,7 +555,15 @@
     "category": ["fashion"],
     "description": "Batik khas Kota Banjar dengan motif 'Ikan Bebeong dan Daun Tarum'.",
     "address": "Kota Banjar, Jawa Barat",
-    "images": ["/images/batik-banjar-1.webp", "/images/batik-banjar-2.webp"],
+    "map": {
+      "url": "",
+      "link": ""
+    },
+    "thumb": "/images/thumbnail/thumb-batik.webp",
+    "images": [
+      "/images/batik-banjar/batik-banjar-1.webp",
+      "/images/batik-banjar/batik-banjar-2.webp"
+    ],
     "contact": {
       "phone": "+62 812-2163-8222"
     },
@@ -536,25 +578,25 @@
       {
         "id": 1,
         "name": "Kain Batik Katun",
-        "image": "/images/batik-banjar-1.webp",
+        "image": "/images/batik-banjar/batik-banjar-1.webp",
         "price": 150000
       },
       {
         "id": 2,
         "name": "Kain Batik Sutra",
-        "image": "/images/batik-banjar-2.webp",
+        "image": "/images/batik-banjar/batik-banjar-2.webp",
         "price": 450000
       },
       {
         "id": 3,
         "name": "Kemeja Batik Pria",
-        "image": "/images/batik-banjar-3.webp",
+        "image": "/images/batik-banjar/batik-banjar-3.webp",
         "price": 250000
       },
       {
         "id": 4,
         "name": "Dress Batik Wanita",
-        "image": "/images/batik-banjar-4.webp",
+        "image": "/images/batik-banjar/batik-banjar-4.webp",
         "price": 300000
       }
     ],
