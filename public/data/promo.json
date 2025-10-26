@@ -16,5 +16,32 @@
     "image": "/images/diatas-meja/promo/promo-1.webp",
     "rating": 4.5,
     "review": 100
+  },
+  {
+    "id": 3,
+    "slug": "lebiru-banjar",
+    "name": "Promo 1",
+    "description": "Promo 1",
+    "image": "/images/lebiru/lebiru-promo.webp",
+    "rating": 4.5,
+    "review": 100
+  },
+  {
+    "id": 4,
+    "slug": "lebiru-banjar",
+    "name": "Promo 1",
+    "description": "Promo 1",
+    "image": "/images/lebiru/lebiru-promo.webp",
+    "rating": 4.5,
+    "review": 100
+  },
+  {
+    "id": 5,
+    "slug": "lebiru-banjar",
+    "name": "Promo 1",
+    "description": "Promo 1",
+    "image": "/images/lebiru/lebiru-promo.webp",
+    "rating": 4.5,
+    "review": 100
   }
 ]

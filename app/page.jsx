@@ -1,16 +1,10 @@
 'use client';
 
 import Card from '@/components/Card';
+import HorizontalScroll from '@/components/HorizontalScroll';
 import PromoCard from '@/components/PromoCard';
 import { getPromo, getUmkm } from '@/lib/api';
-import {
-  ArrowRight,
-  Award,
-  ChevronLeft,
-  ChevronRight,
-  Search,
-  Sparkles,
-} from 'lucide-react';
+import { ArrowRight, Award, Search, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -22,15 +16,6 @@ export default function Page() {
   const router = useRouter();
 
   // State untuk melacak posisi scroll
-  const [promoScroll, setPromoScroll] = useState({
-    canScrollLeft: false,
-    canScrollRight: false,
-  });
-
-  const [umkmScroll, setUmkmScroll] = useState({
-    canScrollLeft: false,
-    canScrollRight: false,
-  });
 
   const promoScrollRef = useRef(null);
   const umkmScrollRef = useRef(null);
@@ -66,66 +51,6 @@ export default function Page() {
   };
 
   // Effect untuk mengecek posisi scroll saat komponen mount dan data berubah
-  useEffect(() => {
-    checkScrollPosition(promoScrollRef, setPromoScroll);
-    checkScrollPosition(umkmScrollRef, setUmkmScroll);
-  }, [promo, featuredUmkm]);
-
-  // Fungsi scroll dengan update state setelah scroll
-  const scrollPromoLeft = () => {
-    if (promoScrollRef.current) {
-      promoScrollRef.current.scrollBy({
-        left: -344,
-        behavior: 'smooth',
-      });
-      setTimeout(
-        () => checkScrollPosition(promoScrollRef, setPromoScroll),
-        300
-      );
-    }
-  };
-
-  const scrollPromoRight = () => {
-    if (promoScrollRef.current) {
-      promoScrollRef.current.scrollBy({
-        left: 344,
-        behavior: 'smooth',
-      });
-      setTimeout(
-        () => checkScrollPosition(promoScrollRef, setPromoScroll),
-        300
-      );
-    }
-  };
-
-  const scrollUmkmLeft = () => {
-    if (umkmScrollRef.current) {
-      umkmScrollRef.current.scrollBy({
-        left: -400,
-        behavior: 'smooth',
-      });
-      setTimeout(() => checkScrollPosition(umkmScrollRef, setUmkmScroll), 300);
-    }
-  };
-
-  const scrollUmkmRight = () => {
-    if (umkmScrollRef.current) {
-      umkmScrollRef.current.scrollBy({
-        left: 400,
-        behavior: 'smooth',
-      });
-      setTimeout(() => checkScrollPosition(umkmScrollRef, setUmkmScroll), 300);
-    }
-  };
-
-  // Handler untuk scroll event
-  const handlePromoScroll = () => {
-    checkScrollPosition(promoScrollRef, setPromoScroll);
-  };
-
-  const handleUmkmScroll = () => {
-    checkScrollPosition(umkmScrollRef, setUmkmScroll);
-  };
 
   // Fungsi untuk handle pencarian
   const handleSearch = (e) => {
@@ -230,40 +155,13 @@ export default function Page() {
             </Link>
           </div>
 
-          <div className='relative'>
-            <div
-              ref={umkmScrollRef}
-              onScroll={handleUmkmScroll}
-              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory px-6'
-            >
-              {featuredUmkm.map((item) => (
-                <div
-                  key={item.id}
-                  className='flex-none w-80 md:w-96 snap-center'
-                >
-                  <Card umkm={item} />
-                </div>
-              ))}
-            </div>
-
-            {umkmScroll.canScrollLeft && (
-              <button
-                onClick={scrollUmkmLeft}
-                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
-              >
-                <ChevronLeft className='size-4 md:size-6' />
-              </button>
-            )}
-
-            {umkmScroll.canScrollRight && (
-              <button
-                onClick={scrollUmkmRight}
-                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
-              >
-                <ChevronRight className='size-4 md:size-6' />
-              </button>
-            )}
-          </div>
+          <HorizontalScroll>
+            {featuredUmkm.map((item) => (
+              <div key={item.id} className='flex-none w-80 md:w-96 snap-center'>
+                <Card umkm={item} />
+              </div>
+            ))}
+          </HorizontalScroll>
 
           <Link
             href='/umkm'
@@ -293,40 +191,16 @@ export default function Page() {
             </div>
           </div>
 
-          <div className='relative'>
-            <div
-              ref={promoScrollRef}
-              onScroll={handlePromoScroll}
-              className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory px-6'
-            >
-              {promo.map((promo) => (
-                <div
-                  key={promo.id}
-                  className='flex-none w-80 md:w-96 snap-center'
-                >
-                  <PromoCard promo={promo} />
-                </div>
-              ))}
-            </div>
-
-            {promoScroll.canScrollLeft && (
-              <button
-                onClick={scrollPromoLeft}
-                className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
+          <HorizontalScroll>
+            {promo.map((promo) => (
+              <div
+                key={promo.id}
+                className='flex-none w-80 md:w-96 snap-center'
               >
-                <ChevronLeft className='size-4 md:size-6' />
-              </button>
-            )}
-
-            {promoScroll.canScrollRight && (
-              <button
-                onClick={scrollPromoRight}
-                className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
-              >
-                <ChevronRight className='size-4 md:size-6' />
-              </button>
-            )}
-          </div>
+                <PromoCard promo={promo} />
+              </div>
+            ))}
+          </HorizontalScroll>
         </section>
       )}
     </main>

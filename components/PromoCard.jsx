@@ -47,7 +47,7 @@ export default function PromoCard({ promo }) {
           <p className='mt-1 text-muted-foreground truncate'>
             {promo.description}
           </p>
-          <button className='px-4 py-2 bg-primary text-white rounded-full text-sm shadow-lg active:scale-95 transition hover:bg-primary-hover'>
+          <button className='px-4 py-2 bg-primary text-white rounded-full text-sm shadow-lg active:scale-95 transition hover:bg-primary-hover cursor-pointer'>
             Lihat Detail
           </button>
         </figcaption>
@@ -78,14 +78,14 @@ export default function PromoCard({ promo }) {
             <div className='flex items-center justify-end gap-3'>
               <button
                 onClick={handleClose}
-                className='px-5 py-2 border rounded-lg text-error'
+                className='px-5 py-2 border rounded-lg text-error cursor-pointer'
               >
                 Tutup
               </button>
 
               <Link
                 href={`/umkm/${promo.slug}`}
-                className='px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition'
+                className='px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition cursor-pointer'
               >
                 Lihat UMKM
               </Link>
