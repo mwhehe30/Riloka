@@ -45,18 +45,18 @@ export default function HorizontalSlider({ children }) {
       {scrollState.canScrollLeft && (
         <button
           onClick={() => scrollBy(-400)}
-          className='hidden sm:flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
+          className='flex absolute top-1/2 -left-3 md:-left-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
         >
-          <ChevronLeft className='size-4 md:size-6' />
+          <ChevronLeft className='size-6' />
         </button>
       )}
 
       {scrollState.canScrollRight && (
         <button
           onClick={() => scrollBy(400)}
-          className='hidden sm:flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
+          className='flex absolute top-1/2 -right-3 md:-right-6 -translate-y-1/2 p-2 md:p-3 rounded-full bg-white border border-gray-200 shadow-lg hover:bg-primary hover:text-white transition-all z-10'
         >
-          <ChevronRight className='size-4 md:size-6' />
+          <ChevronRight className='size-6' />
         </button>
       )}
     </div>

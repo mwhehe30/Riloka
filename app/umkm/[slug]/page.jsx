@@ -29,6 +29,25 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
+  const handleShare = async () => {
+    const shareData = {
+      title: detailUmkm.name,
+      text: detailUmkm.description || 'Cek UMKM lokal ini!',
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        alert('Share gagal, coba salin link ini: ' + window.location.href);
+      }
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link disalin ke clipboard ✅');
+    }
+  };
+
   useEffect(() => {
     async function fetchDetail() {
       try {
@@ -153,7 +172,10 @@ export default function Page() {
             </div>
           </div>
 
-          <button className='absolute top-4 right-4 sm:top-6 sm:right-6 p-3 bg-white/20 backdrop-blur-xl rounded-full border border-white/30 text-white hover:bg-white/30 hover:scale-110 transition-all duration-300 shadow-lg'>
+          <button
+            onClick={handleShare}
+            className='absolute top-4 right-4 sm:top-6 sm:right-6 p-3 bg-white/20 backdrop-blur-xl rounded-full border border-white/30 text-white hover:bg-white/30 hover:scale-110 transition-all duration-300 shadow-lg'
+          >
             <Share2 className='w-5 h-5 sm:w-6 sm:h-6' />
           </button>
         </article>
