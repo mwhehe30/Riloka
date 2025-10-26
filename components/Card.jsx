@@ -24,13 +24,11 @@ export default function UMKMCard({ umkm }) {
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500' />
 
           {/* Label kategori */}
-          <div className='absolute top-4 left-4 bg-primary/90 backdrop-blur-md text-white text-sm font-medium px-3 py-1.5 rounded-full shadow-md'>
+          <div className='absolute top-4 left-4 bg-primary/90 backdrop-blur-md text-white text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full shadow-md'>
             {Array.isArray(umkm.category)
               ? umkm.category.join(' & ')
               : umkm.category}
           </div>
-
-          {/* Jam buka */}
 
           {/* Rekomendasi */}
           {umkm.featured && (
@@ -39,7 +37,9 @@ export default function UMKMCard({ umkm }) {
                 className='size-3.5 fill-current flex-shrink-0'
                 strokeWidth={0}
               />
-              <span className='text-sm font-semibold'>Rekomendasi</span>
+              <span className='text-xs sm:text-sm font-semibold'>
+                Rekomendasi
+              </span>
             </div>
           )}
 
@@ -77,7 +77,7 @@ export default function UMKMCard({ umkm }) {
           </div>
 
           {/* Footer */}
-          <div className='mt-auto flex items-center justify-between pt-3 border-t border-surface'>
+          <div className='mt-auto flex flex-col sm:flex-row items-start gap-4 sm:items-center justify-between pt-3 border-t border-surface'>
             <div className='flex flex-col'>
               <span className='text-xs text-gray-500 font-medium'>
                 Rentang Harga

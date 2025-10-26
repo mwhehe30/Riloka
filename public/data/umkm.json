@@ -469,14 +469,14 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": true,
-    "priceRange": "Rp 25.000 - Rp 50.000",
+    "priceRange": "Rp 18.000 - Rp 125.000",
     "promo": [
       {
         "id": 1,
         "slug": "lebiru-banjar",
         "name": "Promo 1",
         "description": "Promo 1",
-        "image": "/images/lebiru/lebiru-promo.webp",
+        "image": "/images/lebiru/promo/promo-1.webp",
         "rating": 4.5,
         "review": 100
       }

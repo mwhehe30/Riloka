@@ -117,7 +117,9 @@ export default function Page() {
           <div className='absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-12 text-white'>
             <div className='flex flex-wrap gap-3 mb-4'>
               <span className='inline-flex items-center rounded-full px-3 py-1 text-xs sm:text-sm font-medium bg-white/20 backdrop-blur-xl border border-white/30'>
-                {detailUmkm?.category}
+                {Array.isArray(detailUmkm.category)
+                  ? detailUmkm.category.join(' & ')
+                  : detailUmkm.category}
               </span>
               {detailUmkm?.featured && (
                 <span className='inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs sm:text-sm font-medium bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg'>
@@ -161,20 +163,21 @@ export default function Page() {
           {/* Main Content */}
           <div className='lg:col-span-2 space-y-8'>
             {/* Tabs */}
+            {/* Tabs - UPDATED */}
             <div className='bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden'>
-              <div className='flex flex-wrap border-b border-gray-200'>
+              <div className='flex overflow-x-auto border-b border-gray-200 scrollbar-none'>
                 {tabs.map(({ id, label, icon: Icon }) => {
                   return (
                     <button
                       key={id}
                       onClick={() => setActiveTab(id)}
-                      className={`flex-1 flex items-center justify-center gap-2 py-3 sm:py-4 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all ${
+                      className={`flex flex-1 items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium transition-all whitespace-nowrap ${
                         activeTab === id
                           ? 'text-primary border-b-2 border-primary'
                           : 'text-gray-500 hover:text-gray-700'
                       }`}
                     >
-                      <Icon className='w-4 h-4 sm:w-5 sm:h-5' />
+                      <Icon className='w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0' />
                       <span>{label}</span>
                     </button>
                   );

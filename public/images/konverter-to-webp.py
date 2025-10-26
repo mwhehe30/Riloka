@@ -4,23 +4,34 @@ from PIL import Image
 # folder tempat script ini berada
 current_folder = os.path.dirname(os.path.abspath(__file__))
 
-# loop semua file di folder
-for filename in os.listdir(current_folder):
-    if filename.lower().endswith((".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".heic")):
-        img_path = os.path.join(current_folder, filename)
-        img = Image.open(img_path).convert("RGB")  # pastikan RGB
+# Ekstensi gambar yang didukung
+IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".heic")
 
-        # buat nama baru (ganti extension ke .webp)
-        new_filename = os.path.splitext(filename)[0] + ".webp"
-        output_path = os.path.join(current_folder, new_filename)
+for root, dirs, files in os.walk(current_folder):
+    for filename in files:
+        if filename.lower().endswith(IMAGE_EXTENSIONS):
+            img_path = os.path.join(root, filename)
 
-        # simpan sebagai WebP
-        img.save(output_path, "WEBP", quality=85)
+            try:
+                img = Image.open(img_path).convert("RGB")
+            except Exception as e:
+                print(f"❌ Gagal membuka {img_path}: {e}")
+                continue
 
-        # hapus file asli (kalau bukan .webp)
-        if not filename.lower().endswith(".webp"):
-            os.remove(img_path)
+            new_filename = os.path.splitext(filename)[0] + ".webp"
+            output_path = os.path.join(root, new_filename)
 
-        print(f"Converted & replaced: {filename} → {new_filename}")
+            # Simpan sebagai WebP Lossless
+            try:
+                img.save(output_path, "WEBP", quality=70)
+                print(f"✅ Converted (lossless): {img_path} → {output_path}")
 
-print("✅ Semua gambar berhasil dikonversi ke WebP & file asli dihapus!")
+                # Hapus file asli jika beda nama (hindari delete diri sendiri)
+                if img_path != output_path:
+                    os.remove(img_path)
+                    print(f"🗑️ Deleted original: {img_path}")
+
+            except Exception as e:
+                print(f"❌ Gagal convert {img_path}: {e}")
+
+print("🎯 Semua gambar berhasil dipaksa menjadi WebP Lossless!")
