@@ -312,7 +312,14 @@ export default function Page() {
 
       {/* marquee */}
       <div className='bg-primary'>
-        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'></section>
+        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+          <h2 className='text-white text-center font-bold text-2xl'>UMKM Yang Telah Bergabung</h2>
+          <div className='overflow-hidden whitespace-nowrap'>
+            <div className='marquee'>
+               🛍️ Batik Banjar — ☕ Kopi Lembah Hijau — 🍰 Roti Enak — 🎨 Lukisan Lokal — 🧵 Tenun Nusantara — 🍯 Madu Alam — 🌾 Beras Organik
+            </div>
+          </div>
+        </section>
       </div>
 
       {/* testimonial */}

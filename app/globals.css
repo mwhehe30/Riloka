@@ -90,6 +90,22 @@ body {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  display: flex;
+  width: 200%;
+  animation: marquee 15s linear infinite;
+}
+
+
 .animate-gradient {
   animation: gradient 8s ease infinite;
 }
