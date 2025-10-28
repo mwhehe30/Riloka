@@ -26,8 +26,13 @@ export default function UMKMCard({ umkm }) {
           {/* Label kategori */}
           <div className='absolute top-4 left-4 bg-primary/90 backdrop-blur-md text-white text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full shadow-md'>
             {Array.isArray(umkm.category)
-              ? umkm.category.join(' & ')
-              : umkm.category}
+              ? umkm.category
+                  .map(
+                    (category) =>
+                      category.charAt(0).toUpperCase() + category.slice(1)
+                  )
+                  .join(' & ')
+              : umkm.category.charAt(0).toUpperCase() + umkm.category.slice(1)}
           </div>
 
           {/* Rekomendasi */}

@@ -149,9 +149,13 @@
     "id": 3,
     "slug": "dapur-mak-ndut",
     "name": "Dapur Mak Ndut",
-    "category": "makanan",
+    "category": ["makanan"],
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
-    "address": "JGVM+G9 Purwaharja, Bankar City, West Java",
+    "address": "Perum GBR Blok A6 No. 3, Purwaharja, Kec. Purwaharja, Kota Banjar, Jawa Barat 46331",
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255.39122593438108!2d108.53346740386246!3d-7.356034846803632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63383978ee2f%3A0x8a3a5d7c8a1d4f31!2sWARUNG%20SEBLAK%20MAK%20NDUT!5e0!3m2!1sid!2sid!4v1761624110659!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/nwxizQ87JiT1YSss8"
+    },
     "thumb": "/images/thumbnail/thumb-dut.webp",
     "images": [
       "/images/mak-dut/mak-dut-1.webp",
@@ -399,7 +403,7 @@
       "close": "23:00",
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
-    "featured": false,
+    "featured": true,
     "priceRange": "Rp 5.000 - Rp 15.000",
     "promo": [
       {
@@ -572,53 +576,54 @@
   },
   {
     "id": 10,
-    "slug": "batik-banjar",
-    "name": "Batik Banjar",
-    "category": ["fashion"],
-    "description": "Batik khas Kota Banjar dengan motif 'Ikan Bebeong dan Daun Tarum'.",
-    "address": "Kota Banjar, Jawa Barat",
+    "slug": "papito-barbershop",
+    "name": "Papito Barbershop",
+    "category": ["jasa"],
+    "description": "Papito Barbershop berdiri pada tanggal 1 Februari 2024. Papito Barbershop berdiri dengan tujuan memberikan layanan potong rambut terbaik. Berawal dari passion terhadap gaya dan perawatan pria, kami terus berkembang menjadi tempat kepercayaan untuk penampilan yang stylish dan profesional.",
+    "address": "Jl. Kapten Jamhur No.78, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
-      "url": "",
-      "link": ""
+      "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7913.651684119883!2d108.536182!3d-7.373408!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f635341d992ed%3A0x5cb33e53ab997267!2sPAPITO%20BARBERSHOP!5e0!3m2!1sid!2sid!4v1761621893129!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/95u8KiHTfAWgtLjV9"
     },
-    "thumb": "/images/thumbnail/thumb-batik.webp",
+    "thumb": "/images/thumbnail/thumb-papito.webp",
     "images": [
-      "/images/batik-banjar/batik-banjar-1.webp",
-      "/images/batik-banjar/batik-banjar-2.webp"
+      "/images/papito-barbershop/papito-barbershop-1.webp",
+      "/images/papito-barbershop/papito-barbershop-2.webp"
     ],
     "contact": {
-      "phone": "+62 812-2163-8222"
+      "phone": "+62 855-7012-010",
+      "instagram": "papitobarberstudio"
     },
     "hours": {
       "open": "09:00",
-      "close": "20:00",
+      "close": "21:00",
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": false,
-    "priceRange": "Rp 100.000 - Rp 500.000",
+    "priceRange": "Rp 15.000 - Rp 50.000",
     "products": [
       {
         "id": 1,
-        "name": "Kain Batik Katun",
-        "image": "/images/batik-banjar/batik-banjar-1.webp",
-        "price": 150000
+        "name": "",
+        "image": "/images/papito-barbershop/papito-barbershop-1.webp",
+        "price": 14000
       },
       {
         "id": 2,
-        "name": "Kain Batik Sutra",
-        "image": "/images/batik-banjar/batik-banjar-2.webp",
-        "price": 450000
+        "name": "",
+        "image": "/images/papito-barbershop/papito-barbershop-2.webp",
+        "price": 50000
       },
       {
         "id": 3,
-        "name": "Kemeja Batik Pria",
-        "image": "/images/batik-banjar/batik-banjar-3.webp",
+        "name": "",
+        "image": "/images/papito-barbershop/papito-barbershop-3.webp",
         "price": 250000
       },
       {
         "id": 4,
-        "name": "Dress Batik Wanita",
-        "image": "/images/batik-banjar/batik-banjar-4.webp",
+        "name": "",
+        "image": "/images/papito-barbershop/papito-barbershop-4.webp",
         "price": 300000
       }
     ],

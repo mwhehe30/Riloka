@@ -3,38 +3,39 @@
 
 :root {
   /* ===== Base ===== */
-  --color-white: oklch(0.98 0.01 95); /* Background utama (putih hangat) */
-  --color-surface: oklch(0.93 0.01 95); /* Card / container background */
-  --color-border: oklch(0.85 0.02 95); /* Border halus */
-  --color-muted: oklch(
-    0.7 0.03 95
-  ); /* Background lembut untuk elemen sekunder */
+  --color-white: oklch(0.98 0.008 95);
+  --color-surface: oklch(0.96 0.01 95);
+  --color-border: oklch(0.88 0.015 95);
+  --color-muted: oklch(0.92 0.01 95);
 
   /* ===== Text ===== */
-  --color-foreground: oklch(0.35 0.03 95); /* Teks utama */
-  --color-muted-foreground: oklch(
-    0.52 0.03 70
-  ); /* Teks sekunder / placeholder */
+  --color-foreground: oklch(0.25 0.02 95);
+  --color-muted-foreground: oklch(0.55 0.02 95);
 
   /* ===== Brand & Accent ===== */
-  --color-primary: oklch(0.55 0.14 145); /* Hijau alami — identitas utama */
-  --color-primary-hover: oklch(0.5 0.14 145);
-  --color-accent: oklch(0.72 0.19 65); /* Oranye lembut — tombol atau CTA */
-  --color-accent-hover: oklch(0.68 0.18 65);
-  --color-secondary: oklch(
-    0.68 0.17 80
-  ); /* Kuning hangat — highlight, rating, badge */
-  --color-secondary-hover: oklch(0.63 0.17 80);
+  --color-primary: oklch(0.52 0.16 160);
+  --color-primary-hover: oklch(0.47 0.16 160);
+  --color-accent: oklch(0.65 0.18 55);
+  --color-accent-hover: oklch(0.6 0.18 55);
+  --color-secondary: #fab12f;
+  --color-secondary-hover: #fab12f;
 
-  /* ===== Semantic (opsional) ===== */
-  --color-success: oklch(0.63 0.15 150); /* Hijau cerah */
-  --color-warning: oklch(0.75 0.19 90); /* Kuning-oranye */
-  --color-error: oklch(0.58 0.2 25); /* Merah alami */
-  --color-error-hover: oklch(0.55 0.2 25);
+  /* ===== Category Colors ===== */
+  --color-category-makanan: oklch(0.6 0.15 25);
+  --color-category-minuman: oklch(0.55 0.12 230);
+  --color-category-jasa: oklch(0.55 0.14 300);
+  --color-category-fashion: oklch(0.58 0.16 330);
+  --color-category-kerajinan: oklch(0.52 0.13 70);
 
-  /* ===== Overlay / UI Depth ===== */
-  --color-overlay: oklch(0.25 0.02 95 / 0.6);
-  --color-shadow: oklch(0.25 0.02 95 / 0.15);
+  /* ===== Semantic ===== */
+  --color-success: oklch(0.58 0.16 150);
+  --color-warning: oklch(0.72 0.16 85);
+  --color-error: oklch(0.55 0.18 25);
+  --color-error-hover: oklch(0.5 0.18 25);
+
+  /* ===== UI Depth ===== */
+  --color-overlay: oklch(0.2 0.02 95 / 0.5);
+  --color-shadow: oklch(0.3 0.02 95 / 0.1);
 }
 @theme {
   --color-white: var(--color-white);

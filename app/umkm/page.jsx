@@ -18,9 +18,11 @@ export default function Page() {
 
   const searchParams = useSearchParams();
   const [searchParamValue, setSearchParamValue] = useState('');
+  const [categoryParamValue, setCategoryParamValue] = useState('');
 
   useEffect(() => {
     setSearchParamValue(searchParams.get('search') || '');
+    setCategoryParamValue(searchParams.get('category') || '');
   }, [searchParams]);
 
   const categories = ['makanan', 'minuman', 'jasa', 'fashion', 'kerajinan'];
@@ -37,6 +39,15 @@ export default function Page() {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (categoryParamValue && allUMKM.length > 0) {
+      const categoryLower = categoryParamValue.toLowerCase();
+      setSelectedCategories([categoryLower]);
+      handleSearchWithPagination(search, [categoryLower]);
+      setCurrentPage(1);
+    }
+  }, [categoryParamValue, allUMKM]);
 
   // useEffect untuk filter kalo ada search param
   useEffect(() => {

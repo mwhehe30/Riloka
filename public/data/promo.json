@@ -2,19 +2,34 @@
   {
     "id": 1,
     "slug": "lebiru-banjar",
-    "name": "Good mornings taste better at Lebiru! 🌞✨",
-    "description": "Mulai weekend ini, Lebiru akan buka lebih pagi khusus untuk kamu yang ingin menikmati menu sarapan spesial 🍳🥐☕️\nBangun lebih awal, nikmati suasana hangat, dan biarkan pagi kamu dimulai dengan cita rasa terbaik\n📍 Every weekend, only at Lebiru, 07:00 am - 11:00 am",
+    "name": "Sarapan Lebih Seru di Lebiru! 🌞",
+    "description": "Weekend jadi lebih nikmat di Lebiru! Mulai pagi kamu dengan menu sarapan spesial, suasana cozy, dan aroma kopi yang bikin semangat. Datang lebih awal, biar hari kamu mulai dengan cerita yang lezat.\n📍 Weekend only — pukul 07:00–11:00",
     "image": "/images/lebiru/promo/promo-1.webp",
+    "date": "2025-10-27",
     "rating": 4.5,
+    "status": true,
     "review": 100
   },
   {
     "id": 2,
     "slug": "diatas-meja",
-    "name": "☕️ Pagi yang baik dimulai dari secangkir kopi dan obrolan ringan.\nSelamat datang di #ngopipagi bareng Kopi Diatas Meja.\nDuduk sebentar, hirup aroma kopi, dan nikmati harimu.",
-    "description": "📍Setiap hari, jam 8 pagi—11 siang\n📣 Promo spesial & vibes hangat dan musik cuma di sini!",
+    "name": "Ngopi Pagi Bareng? Duduk Dulu Sini ☕✨",
+    "description": "Mulai harimu pelan-pelan dengan kopi yang nikmat dan obrolan ringan. Musik yang hangat, suasana yang akrab, kopi yang selalu siap menemani.\n📍 Setiap hari — 08:00–11:00\n🎉 Ada promo spesial pagi!",
     "image": "/images/diatas-meja/promo/promo-1.webp",
+    "date": "2025-10-27",
     "rating": 4.5,
+    "status": true,
+    "review": 100
+  },
+  {
+    "id": 3,
+    "slug": "steak-batmans",
+    "name": "TENANT SUBMISSION | STEAK BATMANS",
+    "description": "Selamat datang kepada Tenant terbaik kami!\nDengan penuh antusiasme, kami menyambut kehadiran @steakbatmans | Steak Batmans\n\n📅 Tanggal: 30 Agustus 2025\n📍 Lokasi: PUSDAI Kota Banjar",
+    "image": "/images/steak-batmans/promo/promo-1.webp",
+    "date": "2025-08-30",
+    "rating": 4.5,
+    "status": false,
     "review": 100
   }
 ]

@@ -1,6 +1,6 @@
 'use client';
 
-import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Facebook, Instagram, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -83,14 +83,6 @@ export default function Footer() {
                 className='inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors'
               >
                 <Instagram className='h-4 w-4' />
-              </Link>
-              <Link
-                href='https://linkedin.com'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors'
-              >
-                <Linkedin className='h-4 w-4' />
               </Link>
             </div>
           </div>

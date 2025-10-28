@@ -4,6 +4,7 @@ import ImageWithFallback from '@/components/ImageWithFallback';
 import PromoCard from '@/components/PromoCard';
 import { getUmkmBySlug } from '@/lib/api';
 import {
+  Box,
   ChevronLeft,
   Clock,
   Image,
@@ -12,10 +13,10 @@ import {
   Mail,
   MapPin,
   Phone,
+  Pin,
   Share2,
   Star,
   User,
-  UtensilsCrossed,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -44,7 +45,7 @@ export default function Page() {
       }
     } else {
       navigator.clipboard.writeText(window.location.href);
-      alert('Link disalin ke clipboard ✅');
+      alert('Link disalin ke clipboard');
     }
   };
 
@@ -104,12 +105,21 @@ export default function Page() {
   const tabs = [
     { id: 'tentang', label: 'Tentang', icon: Info },
     { id: 'galeri', label: 'Galeri', icon: Image },
-    { id: 'menu', label: 'Menu', icon: UtensilsCrossed },
+    { id: 'products', label: 'Produk', icon: Box },
     { id: 'ulasan', label: 'Ulasan', icon: Star },
   ];
 
   return (
-    <section className='min-h-screen bg-white'>
+    <section className='min-h-screen bg-white pt-20'>
+      <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] overflow-hidden'>
+        <ImageWithFallback
+          src={detailUmkm?.thumb}
+          alt={detailUmkm?.name}
+          fill
+          className='object-cover'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent backdrop-blur-xs' />
+      </div>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-26'>
         {/* Back Button */}
         <Link
@@ -219,20 +229,6 @@ export default function Page() {
 
                     {/* Contact Info */}
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-gray-100 pt-6'>
-                      <InfoItem
-                        icon={MapPin}
-                        color='text-primary'
-                        bg='bg-primary/10'
-                        title='Alamat'
-                        value={detailUmkm?.address}
-                      />
-                      <InfoItem
-                        icon={Clock}
-                        color='text-orange-600'
-                        bg='bg-orange-50'
-                        title='Jam Operasional'
-                        value={`${detailUmkm?.hours?.open} - ${detailUmkm?.hours?.close}`}
-                      />
                       {detailUmkm?.contact?.phone && (
                         <InfoItem
                           icon={Phone}
@@ -308,10 +304,10 @@ export default function Page() {
                 )}
 
                 {/* Menu */}
-                {activeTab === 'menu' && (
+                {activeTab === 'products' && (
                   <div className='space-y-6'>
                     <h2 className='text-2xl font-bold text-gray-900'>
-                      Menu Kami
+                      Produk Kami
                     </h2>
                     <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6'>
                       {detailUmkm?.products?.map(
@@ -380,7 +376,7 @@ export default function Page() {
             </div>
 
             {/* Promo Section */}
-            {detailUmkm?.promo?.length > 0 && (
+            {detailUmkm?.promo?.length > 0 ? (
               <div className='bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100'>
                 <div className='flex items-center justify-between mb-6'>
                   <h2 className='text-2xl font-bold text-gray-900'>
@@ -396,15 +392,52 @@ export default function Page() {
                   ))}
                 </div>
               </div>
+            ) : (
+              <div className='bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100'>
+                <div className='flex items-center justify-between mb-6'>
+                  <h2 className='text-2xl font-bold text-gray-900'>
+                    Promo Spesial
+                  </h2>
+                </div>
+
+                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-2'>
+                  <p className='text-gray-500'>Belum ada promo tersedia.</p>
+                </div>
+              </div>
             )}
           </div>
 
           {/* Sidebar */}
           <aside className='space-y-6'>
             <div className='bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden sticky top-8'>
-              <div className='p-6'>
-                <h3 className='text-xl font-bold text-gray-900 mb-4'>Lokasi</h3>
-                <div className='w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden mb-4'>
+              <h3 className='text-xl font-bold mb-4 flex items-center gap-2 bg-primary text-white p-4 justify-center'>
+                <MapPin className='w-5 h-5' /> Lokasi
+              </h3>
+              <div className='px-6 pb-6 space-y-6'>
+                <div className='flex flex-col gap-2'>
+                  <div className='flex items-center gap-2'>
+                    <Pin className='w-5 h-5' />
+                    <p>Alamat</p>
+                  </div>
+                  <p className='text-gray-600'>{detailUmkm?.address}</p>
+                </div>
+                <div className='space-y-2'>
+                  <div className='flex items-center gap-2 text-foreground'>
+                    <Clock className='w-5 h-5' />
+                    <p>Jam Operasional</p>
+                  </div>
+                  <div className='flex gap-2 flex-col text-gray-600 font-medium'>
+                    <p>
+                      {detailUmkm?.hours?.days.slice(0, -1).join(', ') +
+                        ' dan ' +
+                        detailUmkm?.hours?.days.slice(-1)}
+                    </p>
+                    <p>
+                      {detailUmkm?.hours?.open} - {detailUmkm?.hours?.close} WIB
+                    </p>
+                  </div>
+                </div>
+                <div className='w-full h-[400px] rounded-xl overflow-hidden mb-4'>
                   <iframe
                     src={detailUmkm?.map?.url}
                     width='100%'
