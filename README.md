@@ -1,36 +1,37 @@
 # Riloka
 
-A website to easily find MSMEs (Micro, Small, and Medium Enterprises) in Indonesia.
+Sebuah situs web untuk mencari UMKM (Usaha Mikro, Kecil, dan Menengah) di Indonesia dengan mudah.
 
-## Tech Stack
+## Tech Stack yang Digunakan
 
 *   [Next.js](https://nextjs.org/)
 *   [React](https://react.dev/)
 *   [Tailwind CSS](https://tailwindcss.com/)
 
-## Getting Started
+## Cara Menjalankan Project
 
-To get a local copy up and running, follow these simple steps.
+Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah sederhana berikut.
 
-### Installation
+### Instalasi
 
-1.  Clone the repo
+1.  Clone repositori
     ```sh
     git clone https://github.com/your_username_/Riloka.git
     ```
-2.  Install NPM packages
+2.  Instal paket NPM
     ```sh
     npm install
     ```
-3.  Run the development server
+3.  Jalankan server pengembangan
     ```sh
     npm run dev
     ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) dengan browser Anda untuk melihat hasilnya.
 
-## Current Progress
+## Progress Saat Ini
 
-*   Landing Page
-*   UMKM List Page
-*   UMKM Detail Page
+*   Halaman Utama
+*   Halaman Daftar UMKM
+*   Halaman Detail UMKM
+*   Halaman Tentang
