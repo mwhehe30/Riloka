@@ -5,6 +5,7 @@
     "name": "Ratan Bakery",
     "category": ["makanan"],
     "description": "Ratan bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue.",
+    "long-desc": "Ratan Bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue. Toko ini dikenal karena menghasilkan berbagai jenis roti dan kue yang lezat, lembut, dan berkualitas tinggi. Setiap produk dibuat dengan bahan-bahan pilihan dan melalui proses pembuatan yang higienis, sehingga terjamin rasa serta keamanannya. Selain menjual roti dan kue siap saji, Ratan Bakery juga menerima pesanan untuk berbagai acara seperti ulang tahun, pernikahan, dan perayaan lainnya. Dengan pelayanan yang ramah dan cita rasa yang khas, Ratan Bakery berkomitmen untuk memberikan kepuasan kepada setiap pelanggan.",
     "address": "JJ44+73X, Kujangsari, Kec. Langensari, Kota Banjar, Jawa Barat 46324",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5105.507070909465!2d108.60267127605066!3d-7.394265972800987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e65894d92c95221%3A0x890f8d9e41e1c214!2sRatanBakery!5e1!3m2!1sid!2sid!4v1761210413406!5m2!1sid!2sid",
@@ -79,6 +80,7 @@
     "name": "Rindu Rasa Kuliner",
     "category": ["makanan", "minuman"],
     "description": "Rindu Rasa Kuliner adalah usaha beraneka menu mulai dari makanan tradisional maupun modern",
+    "long-desc": "Rindu Rasa Kuliner adalah sebuah usaha yang menyajikan berbagai macam menu, mulai dari makanan tradisional hingga hidangan modern. Tempat ini menghadirkan cita rasa autentik dari masakan nusantara yang berpadu dengan inovasi kuliner masa kini. Setiap hidangan diolah dengan bahan-bahan segar dan bumbu pilihan untuk memberikan pengalaman rasa yang memuaskan bagi setiap pelanggan. Dengan suasana yang nyaman dan pelayanan yang ramah, Rindu Rasa Kuliner menjadi pilihan tepat bagi siapa pun yang ingin menikmati kelezatan makanan dengan sentuhan tradisional dan modern dalam satu tempat.",
     "address": "Jl. Muhamad Hamim No.92, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.826631410155!2d108.53180997605033!3d-7.373319672569386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63ce724bd0ef%3A0x59b6bdca62940a2c!2sRindu%20Rasa%20Kuliner!5e0!3m2!1sid!2sid!4v1761435675292!5m2!1sid!2sid",
@@ -151,6 +153,7 @@
     "name": "Dapur Mak Ndut",
     "category": ["makanan"],
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
+    "long-desc": "Dapur Mak Ndut adalah sebuah usaha kecil-kecilan yang menyajikan masakan yang simple, murah dan enak. dan hanya menerima delivery only",
     "address": "Perum GBR Blok A6 No. 3, Purwaharja, Kec. Purwaharja, Kota Banjar, Jawa Barat 46331",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255.39122593438108!2d108.53346740386246!3d-7.356034846803632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63383978ee2f%3A0x8a3a5d7c8a1d4f31!2sWARUNG%20SEBLAK%20MAK%20NDUT!5e0!3m2!1sid!2sid!4v1761624110659!5m2!1sid!2sid",
@@ -205,6 +208,7 @@
     "name": "Nu Bani Fried Chicken",
     "category": ["makanan"],
     "description": "Usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam",
+    "long-desc": "Nu Bani Chicken adalah sebuah usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam sesuai selera pelanggan. Setiap potongan ayam digoreng dengan bumbu khas yang meresap hingga ke dalam, menghasilkan rasa gurih dan tekstur renyah di luar namun tetap lembut di dalam. Selain itu, Nu Bani Chicken juga menjaga kualitas dengan menggunakan bahan-bahan segar dan proses pengolahan yang higienis. Dengan cita rasa yang lezat dan pelayanan yang cepat, Nu Bani Chicken menjadi pilihan tepat bagi pecinta ayam goreng yang ingin menikmati kelezatan dalam setiap gigitan.",
     "address": "Jl. Manonjaya - Banjar No.131, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.840765545892!2d108.5282009!3d-7.371737899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63b9b6badc5b%3A0x9db28ec751df34c9!2sNu%20Bani%20Fried%20Chicken!5e0!3m2!1sid!2sid!4v1761435356913!5m2!1sid!2sid",
@@ -265,6 +269,7 @@
     "name": "Kedai Fukunobu",
     "category": ["makanan", "minuman"],
     "description": "Kedai yang menjual berbagai menu makanan yang ramah kantong",
+    "long-desc": "Kedai Fukunobu adalah sebuah kedai yang menjual berbagai macam menu makanan dengan harga yang ramah di kantong. Tempat ini menghadirkan aneka hidangan lezat yang cocok untuk semua kalangan, mulai dari pelajar hingga pekerja. Meskipun harganya terjangkau, kualitas rasa dan penyajiannya tetap terjaga dengan baik. Setiap menu diolah dari bahan-bahan segar dan disajikan dengan penuh perhatian, sehingga menciptakan cita rasa yang memuaskan. Dengan suasana yang nyaman dan pelayanan yang bersahabat, Kedai Fukunobu menjadi pilihan tepat bagi siapa pun yang ingin menikmati makanan enak tanpa perlu merogoh kocek terlalu dalam.",
     "address": "Depan SMA 1, Jl. K.H. Mustofa No.40, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404.0713398070764!2d108.52653703285391!3d-7.371866709595552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f633a62f461bb%3A0x7ea1641130f9fd71!2sAyam%20Bakar%20FukuNobu!5e0!3m2!1sid!2sid!4v1761435590805!5m2!1sid!2sid",
@@ -325,6 +330,7 @@
     "name": "Waroeng Seblak Dhero",
     "category": ["makanan"],
     "description": "Warung Jualan Aneka Seblak",
+    "long-desc": "Warung Seblak Dhero adalah warung yang menjual berbagai macam seblak dengan cita rasa khas dan menggugah selera. Di sini, pelanggan dapat menikmati beragam pilihan seblak, mulai dari seblak original hingga seblak dengan tambahan topping seperti ceker, sosis, bakso, dan makaroni. Setiap porsi seblak diolah menggunakan bumbu rempah pilihan yang memberikan rasa pedas gurih yang nikmat. Dengan harga yang terjangkau dan suasana yang sederhana namun nyaman, Warung Seblak Dhero menjadi tempat favorit bagi pecinta makanan pedas yang ingin menikmati kelezatan seblak khas sunda.",
     "address": "samping dokter gigi eka lina, Jalan Kapten Jamhur No.47 Mekarsari, liandari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.821841876505!2d108.5360757!3d-7.373855599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f620e8ed2b397%3A0x7e7d56a2611d94a7!2sWarung%20Seblak%20Dhero!5e0!3m2!1sid!2sid!4v1761435174834!5m2!1sid!2sid",
@@ -384,7 +390,8 @@
     "slug": "diatas-meja",
     "name": "Diatas Meja",
     "category": ["makanan", "minuman"],
-    "description": "Produk UMKM Kota Banjar.",
+    "description": "Cafe Diatas Meja, cafe yang menyediakan berbagai kopi kekinian.",
+    "long-desc": "Cafe Diatas Meja adalah sebuah kafe yang menyediakan berbagai jenis kopi kekinian dengan cita rasa unik dan menarik. Di sini, pengunjung dapat menikmati aneka racikan kopi mulai dari kopi klasik hingga kreasi modern yang disajikan dengan tampilan estetik. Selain kopi, kafe ini juga menawarkan suasana yang nyaman dan instagramable, cocok untuk tempat bersantai, bekerja, maupun berkumpul bersama teman. Dengan pelayanan yang ramah dan harga yang terjangkau, Cafe Diatas Meja menjadi pilihan tepat bagi para pecinta kopi yang ingin menikmati suasana santai dan minuman berkualitas.",
     "address": "Jl. Dr. Husein Kartasasmita No.81-79, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d319.11085860633415!2d108.5292121484555!3d-7.371169576000518!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63ea9aae3c11%3A0x5ad13fa5b8db5ecc!2sDiatas%20Meja%20Coffee%20%26%20Eatery!5e1!3m2!1sid!2sid!4v1761186761801!5m2!1sid!2sid",
@@ -456,13 +463,14 @@
     "name": "LeBiru Banjar",
     "category": ["makanan", "minuman"],
     "description": "LeBiru Banjar adalah tempat yang menyediakan berbagai menu makanan dan minuman yang enak dan lezat.",
+    "long-desc": "LeBiru Banjar adalah tempat yang menyediakan berbagai menu makanan dan minuman dengan cita rasa yang enak dan lezat. Setiap hidangan disajikan dengan bahan-bahan berkualitas dan diolah dengan penuh perhatian untuk memberikan pengalaman kuliner yang memuaskan. Selain pilihan menu yang beragam, LeBiru Banjar juga menghadirkan suasana yang nyaman dan pelayanan yang ramah, sehingga cocok untuk tempat bersantai bersama keluarga maupun teman. Dengan rasa yang menggugah selera dan harga yang bersahabat, LeBiru Banjar menjadi destinasi kuliner favorit bagi pecinta makanan dan minuman yang berkualitas.",
     "address": "Jl. Dr. Husein Kartasasmita No.140, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d535.1575405476027!2d108.52860829095701!3d-7.371282882486261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f630022f70599%3A0xe1a03bec7718d5ea!2sLeBiru%20Banjar!5e0!3m2!1sid!2sid!4v1761211219536!5m2!1sid!2sid",
-      "link": "https://maps.app.goo.gl/fmbT1F7UkqC8KJqa8"
+      "link": "https://maps.app.goo.gl/eV1wW9kwPMUDFWmQ7"
     },
     "thumb": "/images/thumbnail/thumb-lebiru.webp",
-    "images": ["/images/lebiru/lebiru-1.webp", "/images/lebiru/lebiru-2.webp"],
+    "images": ["/images/lebiru/lebiru.webp", "/images/lebiru/lebiru-2.webp"],
     "contact": {
       "phone": "+62 822-9551-5314",
       "instagram": "__lebiru"
@@ -488,17 +496,516 @@
     "products": [
       {
         "id": 1,
-        "name": "Mie Iteung Pedas",
+        "name": "French Fries Cheese Sauce",
         "image": "/images/lebiru/lebiru-1.webp",
-        "price": 35000
+        "price": 21600
       },
       {
         "id": 2,
-        "name": "Mie Iteung Original",
+        "name": "Jamur Crispy",
         "image": "/images/lebiru/lebiru-2.webp",
-        "price": 30000
+        "price": 14400
+      },
+      {
+        "id": 3,
+        "name": "Dimsum Mentai",
+        "image": "/images/lebiru/lebiru-3.webp",
+        "price": 16800
+      },
+      {
+        "id": 4,
+        "name": "Lebiru Java Aren",
+        "image": "/images/lebiru/lebiru-4.webp",
+        "price": 26400
+      },
+      {
+        "id": 5,
+        "name": "Chicken Skin",
+        "image": "/images/lebiru/lebiru-5.webp",
+        "price": 14400
+      },
+      {
+        "id": 6,
+        "name": "Paket Hemat 1 (Paru Mercon With Ice Lemon Tea)",
+        "image": "/images/lebiru/lebiru-6.webp",
+        "price": 38400
+      },
+      {
+        "id": 7,
+        "name": "Ayam Suwir Daun Jeruk With Ice Lemon Tea",
+        "image": "/images/lebiru/lebiru-7.webp",
+        "price": 38400
+      },
+      {
+        "id": 8,
+        "name": "Ayam Goreng Lebiru With Ice Lemon Tea",
+        "image": "/images/lebiru/lebiru-8.webp",
+        "price": 38400
+      },
+      {
+        "id": 9,
+        "name": "Americano",
+        "image": "/images/lebiru/lebiru-9.webp",
+        "price": 21600
+      },
+      {
+        "id": 10,
+        "name": "Caffe Latte",
+        "image": "/images/lebiru/lebiru-10.webp",
+        "price": 24000
+      },
+      {
+        "id": 11,
+        "name": "Cappucino",
+        "image": "/images/lebiru/lebiru-11.webp",
+        "price": 24000
+      },
+      {
+        "id": 12,
+        "name": "Magic",
+        "image": "/images/lebiru/lebiru-12.webp",
+        "price": 28800
+      },
+      {
+        "id": 13,
+        "name": "Affogatto",
+        "image": "/images/lebiru/lebiru-13.webp",
+        "price": 28800
+      },
+      {
+        "id": 14,
+        "name": "Ion Booster",
+        "image": "/images/lebiru/lebiru-14.webp",
+        "price": 24000
+      },
+      {
+        "id": 15,
+        "name": "Espresso On The Rock",
+        "image": "/images/lebiru/lebiru-15.webp",
+        "price": 21600
+      },
+      {
+        "id": 16,
+        "name": "Moccacino",
+        "image": "/images/lebiru/lebiru-16.webp",
+        "price": 28800
+      },
+      {
+        "id": 17,
+        "name": "Le Cinamon",
+        "image": "/images/lebiru/lebiru-17.webp",
+        "price": 28800
+      },
+      {
+        "id": 18,
+        "name": "Le Myth",
+        "image": "/images/lebiru/lebiru-18.webp",
+        "price": 26400
+      },
+      {
+        "id": 19,
+        "name": "Lebiru Latte",
+        "image": "/images/lebiru/lebiru-19.webp",
+        "price": 26400
+      },
+      {
+        "id": 20,
+        "name": "Le Butterscotch",
+        "image": "/images/lebiru/lebiru-20.webp",
+        "price": 28800
+      },
+      {
+        "id": 21,
+        "name": "Matcha Latte",
+        "image": "/images/lebiru/lebiru-21.webp",
+        "price": 24000
+      },
+      {
+        "id": 22,
+        "name": "Matchafogatto",
+        "image": "/images/lebiru/lebiru-22.webp",
+        "price": 26400
+      },
+      {
+        "id": 23,
+        "name": "Matcha On Cloud Marsmallow",
+        "image": "/images/lebiru/lebiru-23.webp",
+        "price": 28800
+      },
+      {
+        "id": 24,
+        "name": "Pink Blossom Matcha",
+        "image": "/images/lebiru/lebiru-24.webp",
+        "price": 26400
+      },
+      {
+        "id": 25,
+        "name": "Chocolate",
+        "image": "/images/lebiru/lebiru-25.webp",
+        "price": 24000
+      },
+      {
+        "id": 26,
+        "name": "Red Velvet",
+        "image": "/images/lebiru/lebiru-26.webp",
+        "price": 24000
+      },
+      {
+        "id": 27,
+        "name": "Charcoal",
+        "image": "/images/lebiru/lebiru-27.webp",
+        "price": 24000
+      },
+      {
+        "id": 28,
+        "name": "Le Mon Coffe",
+        "image": "/images/lebiru/lebiru-28.webp",
+        "price": 28800
+      },
+      {
+        "id": 29,
+        "name": "Le Chee Coffe",
+        "image": "/images/lebiru/lebiru-29.webp",
+        "price": 28800
+      },
+      {
+        "id": 30,
+        "name": "Haz Orange Coffe",
+        "image": "/images/lebiru/lebiru-30.webp",
+        "price": 28800
+      },
+      {
+        "id": 31,
+        "name": "Mojito Strawberry",
+        "image": "/images/lebiru/lebiru-31.webp",
+        "price": 24000
+      },
+      {
+        "id": 32,
+        "name": "Mojito Lychee",
+        "image": "/images/lebiru/lebiru-32.webp",
+        "price": 24000
+      },
+      {
+        "id": 33,
+        "name": "Mojito Lime",
+        "image": "/images/lebiru/lebiru-33.webp",
+        "price": 24000
+      },
+      {
+        "id": 34,
+        "name": "Mojito Cucumber",
+        "image": "/images/lebiru/lebiru-34.webp",
+        "price": 24000
+      },
+      {
+        "id": 35,
+        "name": "Caramel Latte",
+        "image": "/images/lebiru/lebiru-35.webp",
+        "price": 28800
+      },
+      {
+        "id": 36,
+        "name": "Vanilla Latte",
+        "image": "/images/lebiru/lebiru-36.webp",
+        "price": 28800
+      },
+      {
+        "id": 37,
+        "name": "Caramel Macchiato",
+        "image": "/images/lebiru/lebiru-37.webp",
+        "price": 28800
+      },
+      {
+        "id": 38,
+        "name": "Hazelnut Latte",
+        "image": "/images/lebiru/lebiru-38.webp",
+        "price": 28800
+      },
+      {
+        "id": 39,
+        "name": "Berry Punk",
+        "image": "/images/lebiru/lebiru-39.webp",
+        "price": 21600
+      },
+      {
+        "id": 40,
+        "name": "Le Burs",
+        "image": "/images/lebiru/lebiru-40.webp",
+        "price": 26400
+      },
+      {
+        "id": 41,
+        "name": "Tropical Simp",
+        "image": "/images/lebiru/lebiru-41.webp",
+        "price": 26400
+      },
+      {
+        "id": 42,
+        "name": "Blue Orchid",
+        "image": "/images/lebiru/lebiru-42.webp",
+        "price": 28800
+      },
+      {
+        "id": 43,
+        "name": "Vyn Grappe",
+        "image": "/images/lebiru/lebiru-43.webp",
+        "price": 28800
+      },
+      {
+        "id": 44,
+        "name": "Cool Garden",
+        "image": "/images/lebiru/lebiru-44.webp",
+        "price": 26400
+      },
+      {
+        "id": 45,
+        "name": "Lemon Squash",
+        "image": "/images/lebiru/lebiru-45.webp",
+        "price": 21600
+      },
+      {
+        "id": 46,
+        "name": "Orange Squash",
+        "image": "/images/lebiru/lebiru-46.webp",
+        "price": 21600
+      },
+      {
+        "id": 47,
+        "name": "Mojito Mango",
+        "image": "/images/lebiru/lebiru-47.webp",
+        "price": 21600
+      },
+      {
+        "id": 48,
+        "name": "Lychee Tea",
+        "image": "/images/lebiru/lebiru-48.webp",
+        "price": 21600
+      },
+      {
+        "id": 49,
+        "name": "Black Tea",
+        "image": "/images/lebiru/lebiru-49.webp",
+        "price": 14400
+      },
+      {
+        "id": 50,
+        "name": "Lemon Tea",
+        "image": "/images/lebiru/lebiru-50.webp",
+        "price": 21600
+      },
+      {
+        "id": 51,
+        "name": "Tea Berry",
+        "image": "/images/lebiru/lebiru-51.webp",
+        "price": 26400
+      },
+      {
+        "id": 52,
+        "name": "Sunshine Shake",
+        "image": "/images/lebiru/lebiru-52.webp",
+        "price": 26400
+      },
+      {
+        "id": 53,
+        "name": "Teapple Mint",
+        "image": "/images/lebiru/lebiru-53.webp",
+        "price": 26400
+      },
+      {
+        "id": 54,
+        "name": "Le Candy Fluff",
+        "image": "/images/lebiru/lebiru-54.webp",
+        "price": 24000
+      },
+      {
+        "id": 55,
+        "name": "Strawberry Swirl",
+        "image": "/images/lebiru/lebiru-55.webp",
+        "price": 24000
+      },
+      {
+        "id": 56,
+        "name": "Kiwi Glace",
+        "image": "/images/lebiru/lebiru-56.webp",
+        "price": 24000
+      },
+      {
+        "id": 57,
+        "name": "Milky Melon",
+        "image": "/images/lebiru/lebiru-57.webp",
+        "price": 24000
+      },
+      {
+        "id": 58,
+        "name": "Le Mango",
+        "image": "/images/lebiru/lebiru-58.webp",
+        "price": 24000
+      },
+      {
+        "id": 59,
+        "name": "Nasi Ayam Katsu",
+        "image": "/images/lebiru/lebiru-59.webp",
+        "price": 28800
+      },
+      {
+        "id": 60,
+        "name": "Nasi Ayam Sambal Manis",
+        "image": "/images/lebiru/lebiru-60.webp",
+        "price": 28800
+      },
+      {
+        "id": 61,
+        "name": "Nasi Ayam Teriyaki",
+        "image": "/images/lebiru/lebiru-61.webp",
+        "price": 28800
+      },
+      {
+        "id": 62,
+        "name": "Nasi Ayam Suwir Sambal Matah",
+        "image": "/images/lebiru/lebiru-62.webp",
+        "price": 28800
+      },
+      {
+        "id": 63,
+        "name": "Nasi Beef Teriyaki",
+        "image": "/images/lebiru/lebiru-63.webp",
+        "price": 42000
+      },
+      {
+        "id": 64,
+        "name": "Nasi Paru Mercon",
+        "image": "/images/lebiru/lebiru-64.webp",
+        "price": 28800
+      },
+      {
+        "id": 65,
+        "name": "Nasi Ayam Daun Jeruk",
+        "image": "/images/lebiru/lebiru-65.webp",
+        "price": 28800
+      },
+      {
+        "id": 66,
+        "name": "Chicken Rolls",
+        "image": "/images/lebiru/lebiru-66.webp",
+        "price": 33600
+      },
+      {
+        "id": 67,
+        "name": "Chicken Cheese Baked Rice",
+        "image": "/images/lebiru/lebiru-67.webp",
+        "price": 33600
+      },
+      {
+        "id": 68,
+        "name": "Chicken Steak",
+        "image": "/images/lebiru/lebiru-68.webp",
+        "price": 28800
+      },
+      {
+        "id": 69,
+        "name": "Chicken Steak Crispy",
+        "image": "/images/lebiru/lebiru-69.webp",
+        "price": 31200
+      },
+      {
+        "id": 70,
+        "name": "Nasi Goreng Sambal Hijau",
+        "image": "/images/lebiru/lebiru-70.webp",
+        "price": 27600
+      },
+      {
+        "id": 71,
+        "name": "Nasi Goreng Kebuli Lebiru",
+        "image": "/images/lebiru/lebiru-71.webp",
+        "price": 33600
+      },
+      {
+        "id": 72,
+        "name": "Nasi Goreng Lebiru",
+        "image": "/images/lebiru/lebiru-72.webp",
+        "price": 27600
+      },
+      {
+        "id": 73,
+        "name": "Spaghetty Bolognese",
+        "image": "/images/lebiru/lebiru-73.webp",
+        "price": 25200
+      },
+      {
+        "id": 74,
+        "name": "Spaghetty Creamy Pasta",
+        "image": "/images/lebiru/lebiru-74.webp",
+        "price": 27600
+      },
+      {
+        "id": 75,
+        "name": "Pisang Crispy",
+        "image": "/images/lebiru/lebiru-75.webp",
+        "price": 14400
+      },
+      {
+        "id": 76,
+        "name": "Churos Matcha",
+        "image": "/images/lebiru/lebiru-76.webp",
+        "price": 14400
+      },
+      {
+        "id": 77,
+        "name": "Banana Queen",
+        "image": "/images/lebiru/lebiru-77.webp",
+        "price": 14400
+      },
+      {
+        "id": 78,
+        "name": "Tiramisu Coklat",
+        "image": "/images/lebiru/lebiru-78.webp",
+        "price": 18000
+      },
+      {
+        "id": 79,
+        "name": "Corn Ribs",
+        "image": "/images/lebiru/lebiru-79.webp",
+        "price": 15600
+      },
+      {
+        "id": 80,
+        "name": "Cireng Banjur",
+        "image": "/images/lebiru/lebiru-80.webp",
+        "price": 14400
+      },
+      {
+        "id": 81,
+        "name": "French Fries",
+        "image": "/images/lebiru/lebiru-81.webp",
+        "price": 16800
+      },
+      {
+        "id": 82,
+        "name": "French Fries Cheese Mozarela Sauce",
+        "image": "/images/lebiru/lebiru-82.webp",
+        "price": 25200
+      },
+      {
+        "id": 83,
+        "name": "Tahu Aci",
+        "image": "/images/lebiru/lebiru-83.webp",
+        "price": 14400
+      },
+      {
+        "id": 84,
+        "name": "Tomyam Steamboat",
+        "image": "/images/lebiru/lebiru-84.webp",
+        "price": 22800
+      },
+      {
+        "id": 85,
+        "name": "Lumpia Ayam",
+        "image": "/images/lebiru/lebiru-85.webp",
+        "price": 14400
       }
     ],
+
     "reviewer": "100",
     "reviews": [
       {
@@ -519,7 +1026,8 @@
     "slug": "steak-batmans",
     "name": "Steak Batmans",
     "category": ["makanan", "minuman"],
-    "description": "Produk UMKM Kota Banjar.",
+    "description": "Dari Barat sampai Nusantara, semua rasa lezat bertemu di Steak Batmans.",
+    "long-desc": "Steak Batmans adalah tempat yang menyajikan berbagai pilihan menu lezat seperti steak, burrito, dan nasi goreng dengan cita rasa yang khas. Setiap hidangan diolah dengan bahan-bahan berkualitas dan bumbu pilihan, menghasilkan rasa yang menggugah selera di setiap gigitan. Dengan beragam varian menu, pelanggan dapat menikmati perpaduan rasa Barat dan Nusantara dalam satu tempat. Selain makanannya yang lezat, Steak Batmans juga menghadirkan suasana yang nyaman dan pelayanan yang ramah, menjadikannya pilihan tepat untuk menikmati santapan bersama keluarga maupun teman.",
     "address": "Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.2006869696565!2d108.52762517726596!3d-7.375991748195718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f6314b6a19bc1%3A0xef482a368a11d2ab!2sSTEAK%20BATMANS!5e0!3m2!1sid!2sid!4v1761388613603!5m2!1sid!2sid",
@@ -544,21 +1052,81 @@
     "products": [
       {
         "id": 1,
-        "name": "Steak Original",
+        "name": "Nasi Goreng BBQ",
         "image": "/images/steak-batmans/steak-batmans-1.webp",
-        "price": 15000
+        "price": 35000
       },
       {
         "id": 2,
-        "name": "Steak Coklat",
+        "name": "Nasi Goreng Premium",
         "image": "/images/steak-batmans/steak-batmans-2.webp",
-        "price": 20000
+        "price": 33000
       },
       {
         "id": 3,
-        "name": "Steak Keju",
+        "name": "Mongolian Chicken Rice",
         "image": "/images/steak-batmans/steak-batmans-3.webp",
+        "price": 50000
+      },
+      {
+        "id": 4,
+        "name": "Chicken Steak Reguler",
+        "image": "/images/steak-batmans/steak-batmans-4.webp",
+        "price": 55000
+      },
+      {
+        "id": 5,
+        "name": "Crispy Chicken Steak",
+        "image": "/images/steak-batmans/steak-batmans-5.webp",
+        "price": 55000
+      },
+      {
+        "id": 6,
+        "name": "Lecikul",
+        "image": "/images/steak-batmans/steak-batmans-6.webp",
+        "price": 20000
+      },
+      {
+        "id": 7,
+        "name": "Leci Moji",
+        "image": "/images/steak-batmans/steak-batmans-7.webp",
+        "price": 20000
+      },
+      {
+        "id": 8,
+        "name": "Potato Wedges",
+        "image": "/images/steak-batmans/steak-batmans-8.webp",
         "price": 25000
+      },
+      {
+        "id": 9,
+        "name": "Burritos Vegie Salad",
+        "image": "/images/steak-batmans/steak-batmans-9.webp",
+        "price": 30000
+      },
+      {
+        "id": 10,
+        "name": "Vegetable Salad",
+        "image": "/images/steak-batmans/steak-batmans-10.webp",
+        "price": 25000
+      },
+      {
+        "id": 11,
+        "name": "Burritos Single",
+        "image": "/images/steak-batmans/steak-batmans-11.webp",
+        "price": 9800
+      },
+      {
+        "id": 12,
+        "name": "Burritos Double",
+        "image": "/images/steak-batmans/steak-batmans-12.webp",
+        "price": 11800
+      },
+      {
+        "id": 13,
+        "name": "Burritos Premium",
+        "image": "/images/steak-batmans/steak-batmans-13.webp",
+        "price": 17400
       }
     ],
     "reviews": [
@@ -580,7 +1148,8 @@
     "slug": "papito-barbershop",
     "name": "Papito Barbershop",
     "category": ["jasa"],
-    "description": "Papito Barbershop berdiri pada tanggal 1 Februari 2024. Papito Barbershop berdiri dengan tujuan memberikan layanan potong rambut terbaik. Berawal dari passion terhadap gaya dan perawatan pria, kami terus berkembang menjadi tempat kepercayaan untuk penampilan yang stylish dan profesional.",
+    "description": "Dari passion menjadi gaya, Papito Barbershop menghadirkan potongan rambut profesional yang selalu on point.",
+    "long-desc": "Papito Barbershop berdiri pada tanggal 1 Februari 2024 dengan tujuan memberikan layanan potong rambut terbaik bagi setiap pelanggan. Berawal dari passion terhadap gaya dan perawatan pria, Papito Barbershop terus berkembang menjadi tempat yang dipercaya untuk menciptakan penampilan yang stylish dan profesional. Dengan tim barber berpengalaman dan suasana yang nyaman, kami berkomitmen untuk memberikan pengalaman grooming yang tidak hanya memuaskan, tetapi juga membuat setiap pelanggan tampil lebih percaya diri.",
     "address": "Jl. Kapten Jamhur No.78, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7913.651684119883!2d108.536182!3d-7.373408!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f635341d992ed%3A0x5cb33e53ab997267!2sPAPITO%20BARBERSHOP!5e0!3m2!1sid!2sid!4v1761621893129!5m2!1sid!2sid",
