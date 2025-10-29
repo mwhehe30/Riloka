@@ -1,6 +1,7 @@
 'use client';
 
 import Card from '@/components/Card';
+import Marquee from "@/components/Marquee";
 import HorizontalScroll from '@/components/HorizontalScroll';
 import PromoCard from '@/components/PromoCard';
 import { getPromo, getUmkm } from '@/lib/api';
@@ -312,14 +313,7 @@ export default function Page() {
 
       {/* marquee */}
       <div className='bg-primary'>
-        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
-          <h2 className='text-white text-center font-bold text-2xl'>UMKM Yang Telah Bergabung</h2>
-          <div className='overflow-hidden whitespace-nowrap'>
-            <div className='marquee'>
-               🛍️ Batik Banjar — ☕ Kopi Lembah Hijau — 🍰 Roti Enak — 🎨 Lukisan Lokal — 🧵 Tenun Nusantara — 🍯 Madu Alam — 🌾 Beras Organik
-            </div>
-          </div>
-        </section>
+        <Marquee />
       </div>
 
       {/* testimonial */}
