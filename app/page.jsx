@@ -1,6 +1,7 @@
 'use client';
 
 import Card from '@/components/Card';
+import Marquee from "@/components/Marquee";
 import HorizontalScroll from '@/components/HorizontalScroll';
 import Marquee from '@/components/Marquee';
 import PromoCard from '@/components/PromoCard';
