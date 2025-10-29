@@ -90,6 +90,25 @@ body {
   }
 }
 
+/* styles/globals.css */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 6));
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Untuk hover pause */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 .animate-gradient {
   animation: gradient 8s ease infinite;
 }

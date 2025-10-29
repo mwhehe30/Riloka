@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowUpRight, Clock, MapPin, Star } from 'lucide-react';
+import { ArrowUpRight, Clock, MapPin, Star, ThumbsUp } from 'lucide-react';
 import Link from 'next/link';
 import ImageWithFallback from './ImageWithFallback';
 
@@ -11,10 +11,7 @@ export default function UMKMCard({ umkm }) {
         {/* Gambar */}
         <figure className='relative overflow-hidden aspect-video'>
           <ImageWithFallback
-            src={
-              umkm.thumb ||
-              'https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg'
-            }
+            src={umkm.thumb}
             alt={umkm.name}
             fill
             className='object-cover transition-transform duration-700 group-hover:scale-110'
@@ -38,10 +35,7 @@ export default function UMKMCard({ umkm }) {
           {/* Rekomendasi */}
           {umkm.featured && (
             <div className='absolute top-4 right-4 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg'>
-              <Star
-                className='size-3.5 fill-current flex-shrink-0'
-                strokeWidth={0}
-              />
+              <ThumbsUp className='size-3.5 flex-shrink-0' />
               <span className='text-xs sm:text-sm font-semibold'>
                 Rekomendasi
               </span>

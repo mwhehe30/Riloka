@@ -2,6 +2,7 @@
 
 import Card from '@/components/Card';
 import HorizontalScroll from '@/components/HorizontalScroll';
+import Marquee from '@/components/Marquee';
 import PromoCard from '@/components/PromoCard';
 import { getPromo, getUmkm } from '@/lib/api';
 import {
@@ -312,7 +313,7 @@ export default function Page() {
 
       {/* marquee */}
       <div className='bg-primary'>
-        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'></section>
+        <Marquee />
       </div>
 
       {/* testimonial */}

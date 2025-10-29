@@ -11,16 +11,12 @@ export default function ImageWithFallback({
 }) {
   const [imgSrc, setImgSrc] = useState(src || fallback);
 
-  const validSrc = imgSrc?.trim() ? imgSrc : fallback;
-
   return (
-    validSrc && (
-      <Image
-        src={validSrc}
-        alt={alt}
-        onError={() => setImgSrc(fallback)}
-        {...props}
-      />
-    )
+    <Image
+      src={imgSrc || fallback}
+      alt={alt}
+      onError={() => setImgSrc(fallback)}
+      {...props}
+    />
   );
 }

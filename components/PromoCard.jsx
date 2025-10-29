@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import { CalendarIcon, StarIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -45,7 +44,7 @@ const PromoCard = ({ promo }) => {
   return (
     <>
       {/* Promo Card */}
-      <div className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4'>
+      <div className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2`'>
         <div className='bg-white rounded-2xl shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full hover:shadow-xl'>
           <div className='relative w-full pt-[100%] overflow-hidden'>
             <ImageWithFallback
@@ -82,9 +81,11 @@ const PromoCard = ({ promo }) => {
               <div className='flex items-center gap-2 text-gray-500 mb-4'>
                 <CalendarIcon className='w-5 h-5 text-amber-500' />
                 <span className='text-sm'>
-                  {promoData.date
-                    ? format(new Date(promoData.date), 'dd MMM yyyy')
-                    : 'No date'}
+                  {new Date(promoData.date).toLocaleDateString('id-ID', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
                 </span>
               </div>
               <button
@@ -165,9 +166,11 @@ const PromoCard = ({ promo }) => {
                       Tanggal Promo
                     </h4>
                     <p className='font-semibold text-gray-800'>
-                      {promoData.date
-                        ? format(new Date(promoData.date), 'dd MMMM yyyy')
-                        : 'Tidak tersedia'}
+                      {new Date(promoData.date).toLocaleDateString('id-ID', {
+                        day: '2-digit',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
                     </p>
                   </div>
                   <div>

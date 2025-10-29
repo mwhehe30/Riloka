@@ -5,7 +5,6 @@ import PromoCard from '@/components/PromoCard';
 import { getUmkmBySlug } from '@/lib/api';
 import {
   Box,
-  ChevronLeft,
   Clock,
   Image,
   Info,
@@ -16,9 +15,9 @@ import {
   Pin,
   Share2,
   Star,
+  ThumbsUp,
   User,
 } from 'lucide-react';
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import NotFound from './not-found';
@@ -29,6 +28,12 @@ export default function Page() {
   const [activeTab, setActiveTab] = useState('tentang');
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [activeImage, setActiveImage] = useState(null);
+
+  function handleImageClick(image) {
+    setActiveImage(image);
+    console.log(image);
+  }
 
   const handleShare = async () => {
     const shareData = {
@@ -111,35 +116,70 @@ export default function Page() {
 
   return (
     <section className='min-h-screen bg-white pt-20'>
-      <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] overflow-hidden'>
+      <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] overflow-hidden rounded-b-4xl'>
         <ImageWithFallback
           src={detailUmkm?.thumb}
           alt={detailUmkm?.name}
           fill
           className='object-cover'
         />
-        <div className='absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent backdrop-blur-xs' />
+        <div className='absolute inset-0 bg-black/40 backdrop-blur-md flex flex-col gap-4 items-center justify-center p-4'>
+          {detailUmkm.featured && (
+            <div className='inline-flex items-center gap-2 bg-secondary/10 text-yellow-300 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+              <ThumbsUp className='size-4' />
+              Rekomendasi
+            </div>
+          )}
+
+          <h1 className='text-4xl md:text-6xl font-bold text-white'>
+            {detailUmkm?.name}
+          </h1>
+
+          <p className='text-white/90 text-sm sm:text-base text-center'>
+            {detailUmkm?.description}
+          </p>
+
+          <div className='flex flex-wrap items-center gap-4 text-white/90 text-sm sm:text-base'>
+            <div className='flex items-center gap-2'>
+              <div className='p-2 bg-white/10 rounded-lg'>
+                <Star className='w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400' />
+              </div>
+              <span className='font-semibold text-base'>
+                {detailUmkm?.rating || '0.0'}({detailUmkm?.reviewer || '0'}{' '}
+                ulasan)
+              </span>
+            </div>
+            <div className='flex items-center gap-2'>
+              <div className='p-2 bg-white/10 rounded-lg '>
+                <Clock className='w-4 h-4 sm:w-5 sm:h-5' />
+              </div>
+              <span className='font-medium'>
+                {detailUmkm?.hours?.open} - {detailUmkm?.hours?.close}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-10 pt-26'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Back Button */}
-        <Link
+        {/* <Link
           href='/umkm'
           className='inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors duration-300 mb-6 group'
         >
           <ChevronLeft className='w-5 h-5 group-hover:-translate-x-1 transition-transform' />
           <span className='font-medium'>Kembali ke daftar UMKM</span>
-        </Link>
+        </Link> */}
 
         {/* Hero Section */}
         <article className='relative overflow-hidden rounded-3xl shadow-2xl mb-8'>
-          <figure className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden'>
+          {/* <figure className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden'>
             <ImageWithFallback
               src={detailUmkm?.thumb}
               alt={detailUmkm?.name}
               fill
               className='object-cover hover:scale-105 transition-transform duration-700'
             />
-          </figure>
+          </figure> */}
 
           <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent' />
 
@@ -281,20 +321,32 @@ export default function Page() {
                   <div className='space-y-6'>
                     <h2 className='text-2xl font-bold text-gray-900'>Galeri</h2>
 
+                    <div className='relative w-full h-[400px] rounded-xl overflow-hidden group border border-border'>
+                      <ImageWithFallback
+                        src={activeImage}
+                        alt={detailUmkm?.name || 'Gallery Image'}
+                        fill
+                        className='object-contain group-hover:scale-110 transition-transform duration-500'
+                      />
+                    </div>
+
                     {detailUmkm?.images?.length > 0 ? (
                       <div className='flex gap-4 overflow-x-auto scrollbar-none scroll-smooth'>
                         {detailUmkm.images.map((img, idx) => (
-                          <div
+                          <button
                             key={idx}
-                            className='relative flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 rounded-xl overflow-hidden group'
+                            onClick={() => handleImageClick(img)}
+                            className={`relative flex-shrink-0 w-32 h-20 rounded-lg overflow-hidden border
+              ${activeImage === img ? 'border-primary' : 'border-transparent'}
+            `}
                           >
                             <ImageWithFallback
                               src={img}
-                              alt={`${detailUmkm.name} ${idx + 1}`}
+                              alt={`${detailUmkm?.name} ${idx + 1}`}
                               fill
-                              className='object-cover group-hover:scale-110 transition-transform duration-500'
+                              className='object-cover hover:scale-110 transition-transform duration-300'
                             />
-                          </div>
+                          </button>
                         ))}
                       </div>
                     ) : (
@@ -417,14 +469,14 @@ export default function Page() {
                 <div className='flex flex-col gap-2'>
                   <div className='flex items-center gap-2'>
                     <Pin className='w-5 h-5' />
-                    <p>Alamat</p>
+                    <p className='font-bold'>Alamat</p>
                   </div>
                   <p className='text-gray-600'>{detailUmkm?.address}</p>
                 </div>
                 <div className='space-y-2'>
                   <div className='flex items-center gap-2 text-foreground'>
                     <Clock className='w-5 h-5' />
-                    <p>Jam Operasional</p>
+                    <p className='font-bold'>Jam Operasional</p>
                   </div>
                   <div className='flex gap-2 flex-col text-gray-600 font-medium'>
                     <p>

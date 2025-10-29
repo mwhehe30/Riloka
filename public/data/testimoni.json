@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "rating": 5,
+    "review": "Saya sangat senang dengan UMKM ini. Makanan enak dan harga terjangkau.",
+    "date": "2023-01-01"
+  },
+  {
+    "id": 2,
+    "name": "John Doe",
+    "rating": 5,
+    "review": "Saya sangat senang dengan UMKM ini. Makanan enak dan harga terjangkau.",
+    "date": "2023-01-01"
+  },
+  {
+    "id": 3,
+    "name": "John Doe",
+    "rating": 5,
+    "review": "Saya sangat senang dengan UMKM ini. Makanan enak dan harga terjangkau.",
+    "date": "2023-01-01"
+  }
+]
