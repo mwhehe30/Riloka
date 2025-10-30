@@ -45,7 +45,7 @@ const PromoCard = ({ promo }) => {
     <>
       {/* Promo Card */}
       <div className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2`'>
-        <div className='bg-white rounded-2xl shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full hover:shadow-xl'>
+        <div className='bg-white rounded-2xl shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full '>
           <div className='relative w-full pt-[100%] overflow-hidden'>
             <ImageWithFallback
               src={promoData.image}
@@ -60,7 +60,7 @@ const PromoCard = ({ promo }) => {
             </span>
           </div>
           <div className='p-6 flex flex-col flex-grow'>
-            <h3 className='text-xl font-semibold text-gray-800 mb-2 line-clamp-2 min-h-[3.5rem]'>
+            <h3 className='text-xl font-semibold text-gray-800 mb-2 truncate'>
               {promoData.name}
             </h3>
 

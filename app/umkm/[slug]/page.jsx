@@ -30,11 +30,6 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
-  // Debug activeImage changes
-  useEffect(() => {
-    console.log('Active Image changed:', activeImage);
-  }, [activeImage]);
-
   const handleShare = async () => {
     const shareData = {
       title: detailUmkm.name,
@@ -55,7 +50,6 @@ export default function Page() {
   };
 
   const handleImageClick = (img) => {
-    console.log('Clicked image:', img);
     setActiveImage(img);
   };
 
@@ -70,7 +64,6 @@ export default function Page() {
           setDetailUmkm(res);
           // Set gambar aktif pertama kali ketika data berubah
           if (res?.images?.length > 0) {
-            console.log('Setting initial image:', res.images[0]);
             setActiveImage(res.images[0]);
           }
         }
@@ -90,27 +83,81 @@ export default function Page() {
 
   if (isLoading || !detailUmkm) {
     return (
-      <section className='min-h-screen bg-white'>
-        <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-pulse'>
-          <div className='w-48 h-5 bg-gray-200 rounded mb-6'></div>
-          <div className='w-full aspect-[21/9] bg-gray-200 rounded-3xl mb-8'></div>
-          <div className='grid lg:grid-cols-3 gap-8'>
+      <section className='min-h-screen bg-white pt-20'>
+        {/* Hero Section Skeleton */}
+        <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] bg-gray-200 animate-pulse'>
+          <div className='absolute inset-0 bg-gradient-to-t from-gray-300 to-transparent'></div>
+        </div>
+
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-10'>
+          {/* Content Grid */}
+          <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+            {/* Main Content Skeleton */}
             <div className='lg:col-span-2 space-y-8'>
-              <div className='bg-white rounded-2xl shadow-lg border border-gray-100 p-8 space-y-6'>
-                <div className='w-2/3 h-6 bg-gray-200 rounded'></div>
-                <div className='w-full h-4 bg-gray-200 rounded'></div>
-                <div className='w-5/6 h-4 bg-gray-200 rounded'></div>
+              {/* Tabs Skeleton */}
+              <div className='bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden animate-pulse'>
+                <div className='flex border-b border-gray-200'>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className='flex-1 py-4 px-6'>
+                      <div className='h-5 bg-gray-200 rounded mx-auto w-20'></div>
+                    </div>
+                  ))}
+                </div>
+                <div className='p-8 space-y-4'>
+                  <div className='h-6 bg-gray-200 rounded w-1/3'></div>
+                  <div className='h-4 bg-gray-200 rounded w-full'></div>
+                  <div className='h-4 bg-gray-200 rounded w-5/6'></div>
+                  <div className='h-4 bg-gray-200 rounded w-4/5'></div>
+
+                  {/* Contact Info Skeleton */}
+                  <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6'>
+                    {[1, 2].map((i) => (
+                      <div key={i} className='flex gap-4'>
+                        <div className='w-12 h-12 bg-gray-200 rounded-xl'></div>
+                        <div className='flex-1 space-y-2'>
+                          <div className='h-3 bg-gray-200 rounded w-16'></div>
+                          <div className='h-4 bg-gray-200 rounded w-32'></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className='h-12 bg-gray-200 rounded-xl w-full'></div>
+                </div>
               </div>
-            </div>
-            <div className='space-y-6'>
-              <div className='bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden sticky top-8'>
-                <div className='p-6'>
-                  <div className='w-24 h-6 bg-gray-200 rounded mb-4'></div>
-                  <div className='w-full h-[300px] sm:h-[400px] md:h-[500px] bg-gray-200 rounded-xl mb-4'></div>
-                  <div className='w-full h-10 bg-gray-300 rounded-xl'></div>
+
+              {/* Promo Section Skeleton */}
+              <div className='bg-white rounded-2xl shadow-lg p-8 border border-gray-100 animate-pulse'>
+                <div className='h-6 bg-gray-200 rounded w-40 mb-6'></div>
+                <div className='flex gap-6 overflow-hidden'>
+                  {[1, 2].map((i) => (
+                    <div key={i} className='flex-none w-72 sm:w-80'>
+                      <div className='h-48 bg-gray-200 rounded-xl'></div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
+
+            {/* Sidebar Skeleton */}
+            <aside className='space-y-6'>
+              <div className='bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden sticky top-8 animate-pulse'>
+                <div className='h-14 bg-gray-200'></div>
+                <div className='px-6 pb-6 space-y-6 pt-4'>
+                  <div className='space-y-2'>
+                    <div className='h-5 bg-gray-200 rounded w-20'></div>
+                    <div className='h-4 bg-gray-200 rounded w-full'></div>
+                    <div className='h-4 bg-gray-200 rounded w-3/4'></div>
+                  </div>
+                  <div className='space-y-2'>
+                    <div className='h-5 bg-gray-200 rounded w-32'></div>
+                    <div className='h-4 bg-gray-200 rounded w-40'></div>
+                    <div className='h-4 bg-gray-200 rounded w-36'></div>
+                  </div>
+                  <div className='w-full h-[400px] bg-gray-200 rounded-xl'></div>
+                  <div className='h-12 bg-gray-200 rounded-xl w-full'></div>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -126,7 +173,7 @@ export default function Page() {
 
   return (
     <section className='min-h-screen bg-white pt-20'>
-      <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] overflow-hidden rounded-b-4xl'>
+      <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] overflow-hidden rounded-b-xl md:rounded-b-2xl'>
         <ImageWithFallback
           src={detailUmkm?.thumb}
           alt={detailUmkm?.name}
@@ -170,7 +217,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-10'>
         <article className='relative overflow-hidden rounded-3xl shadow-2xl mb-8'>
           <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent' />
 
@@ -235,7 +282,7 @@ export default function Page() {
                       onClick={() => setActiveTab(id)}
                       className={`flex flex-1 items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium transition-all whitespace-nowrap ${
                         activeTab === id
-                          ? 'text-primary border-b-2 border-primary'
+                          ? 'text-white bg-primary'
                           : 'text-gray-500 hover:text-gray-700'
                       }`}
                     >
@@ -254,7 +301,7 @@ export default function Page() {
                       Tentang {detailUmkm?.name}
                     </h2>
                     <p className='text-gray-600 leading-relaxed text-base sm:text-lg'>
-                      {detailUmkm?.description}
+                      {detailUmkm?.long_desc}
                     </p>
 
                     {/* Contact Info */}
@@ -290,7 +337,7 @@ export default function Page() {
                         />
                       )}
                     </div>
-                    {detailUmkm?.contact?.phone && (
+                    {/* {detailUmkm?.contact?.phone && (
                       <a
                         href={`https://wa.me/${detailUmkm?.contact?.phone?.replace(
                           /\D/g,
@@ -302,7 +349,7 @@ export default function Page() {
                       >
                         Hubungi via WhatsApp
                       </a>
-                    )}
+                    )} */}
                   </div>
                 )}
 

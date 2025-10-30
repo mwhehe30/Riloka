@@ -75,7 +75,7 @@ export default function Page() {
       icon: Utensils,
       color: 'var(--color-category-makanan)',
       description: 'Warung makan, restoran, kafe',
-      count: umkm.filter((i) => i.category.includes('makanan')).length,
+      count: umkm.filter(({ category }) => category.includes('makanan')).length,
     },
     {
       id: 2,
@@ -83,7 +83,7 @@ export default function Page() {
       icon: Coffee,
       color: 'var(--color-category-minuman)',
       description: 'Kedai kopi, juice bar, teh',
-      count: umkm.filter((i) => i.category.includes('minuman')).length,
+      count: umkm.filter(({ category }) => category.includes('minuman')).length,
     },
     {
       id: 3,
@@ -91,7 +91,7 @@ export default function Page() {
       icon: Scissors,
       color: 'var(--color-category-jasa)',
       description: 'Barber, servis, konsultan',
-      count: umkm.filter((i) => i.category.includes('jasa')).length,
+      count: umkm.filter(({ category }) => category.includes('jasa')).length,
     },
     {
       id: 4,
@@ -99,7 +99,7 @@ export default function Page() {
       icon: Shirt,
       color: 'var(--color-category-fashion)',
       description: 'Pakaian, aksesoris, sepatu',
-      count: umkm.filter((i) => i.category.includes('fashion')).length,
+      count: umkm.filter(({ category }) => category.includes('fashion')).length,
     },
     {
       id: 5,
@@ -107,7 +107,8 @@ export default function Page() {
       icon: Hammer,
       color: 'var(--color-category-kerajinan)',
       description: 'Handmade, souvenir, seni',
-      count: umkm.filter((i) => i.category.includes('kerajinan')).length,
+      count: umkm.filter(({ category }) => category.includes('kerajinan'))
+        .length,
     },
   ];
 
@@ -234,87 +235,80 @@ export default function Page() {
           })}
         </div>
       </section>
-      {featuredUmkm.length > 0 && (
-        <div className='bg-surface'>
-          <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
-            <div className='flex justify-center items-center flex-col gap-4'>
-              <div className='text-center mb-8'>
-                <div className='inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 text-yellow-700 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
-                  <Award className='size-4' />
-                  Pilihan Terbaik
-                </div>
-                <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-3'>
-                  UMKM Rekomendasi
-                </h2>
-                <p className='text-lg text-muted-foreground'>
-                  Dipilih khusus untuk Anda berdasarkan kualitas dan rating
-                  tertinggi
-                </p>
-              </div>
-            </div>
 
-            <HorizontalScroll>
-              {featuredUmkm.map((umkm) => (
-                <div
-                  key={umkm.id}
-                  className='flex-none w-80 md:w-96 snap-center'
-                >
-                  <Card umkm={umkm} />
-                </div>
-              ))}
-            </HorizontalScroll>
-
-            <div className='flex justify-center items-center mt-8'>
-              <Link
-                href='/umkm'
-                className='w-max bg-primary rounded-full px-6 py-4 shadow-lg hover:bg-primary-hover hover:shadow-xl hover:-translate-y-1 text-white font-semibold hover:gap-3 transition-all group'
-              >
-                Lihat Semua UMKM
-              </Link>
-            </div>
-          </section>
-        </div>
-      )}
-      {/* Promo Section */}
-      {promo.length > 0 && (
-        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+      <section className='bg-surface'>
+        <div className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
           <div className='flex justify-center items-center flex-col gap-4'>
             <div className='text-center mb-8'>
-              <div className='inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-pink-500/10 text-red-600 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
-                <Sparkles className='size-4' />
-                Penawaran Spesial
+              <div className='inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 text-yellow-700 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+                <Award className='size-4' />
+                Pilihan Terbaik
               </div>
               <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-3'>
-                Promo Menarik
+                UMKM Rekomendasi
               </h2>
               <p className='text-lg text-muted-foreground'>
-                Jangan lewatkan penawaran terbaik dari UMKM favorit Anda
+                Dipilih khusus untuk Anda berdasarkan kualitas dan rating
+                tertinggi
               </p>
             </div>
           </div>
 
           <HorizontalScroll>
-            {promo.map((promo) => (
-              <div
-                key={promo.id}
-                className='flex-none w-80 md:w-96 snap-center'
-              >
-                <PromoCard promo={promo} />
+            {featuredUmkm.map((umkm) => (
+              <div key={umkm.id} className='flex-none w-88 md:w-96 snap-center'>
+                <Card umkm={umkm} />
               </div>
             ))}
           </HorizontalScroll>
-        </section>
-      )}
+
+          <div className='flex justify-center items-center mt-8'>
+            <Link
+              href='/umkm'
+              className='w-max bg-primary rounded-full px-6 py-4 shadow-lg hover:bg-primary-hover hover:shadow-xl hover:-translate-y-1 text-white font-semibold hover:gap-3 transition-all group'
+            >
+              Lihat Semua UMKM
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Promo Section */}
+      <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+        <div className='flex justify-center items-center flex-col gap-4'>
+          <div className='text-center mb-8'>
+            <div className='inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-pink-500/10 text-red-600 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+              <Sparkles className='size-4' />
+              Penawaran Spesial
+            </div>
+            <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-3'>
+              Promo Menarik
+            </h2>
+            <p className='text-lg text-muted-foreground'>
+              Jangan lewatkan penawaran terbaik dari UMKM favorit Anda
+            </p>
+          </div>
+        </div>
+
+        <HorizontalScroll>
+          {promo.map((promo) => (
+            <div key={promo.id} className='flex-none w-80 md:w-96 snap-center'>
+              <PromoCard promo={promo} />
+            </div>
+          ))}
+        </HorizontalScroll>
+      </section>
+
       {/* marquee */}
-      <div className='bg-primary'>
+      <section className='bg-primary'>
         <Marquee />
-      </div>
+      </section>
       {/* testimonial */}
-      <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'></section>
+      {/* <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'></section> */}
 
       {/* cta */}
-      <div className='bg-primary'>
-        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+      <section className='bg-primary'>
+        <div className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
           <div className='flex flex-col items-center justify-center text-center w-full max-w-3xl mx-auto gap-6'>
             <h1 className='text-2xl md:text-4xl font-bold text-white'>
               Siap dukung UMKM Lokal?
@@ -332,8 +326,8 @@ export default function Page() {
               Lihat Semua UMKM
             </Link>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }

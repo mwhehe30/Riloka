@@ -344,7 +344,7 @@
       "/images/seblak-dhero/seblak-dhero-2.webp"
     ],
     "contact": {
-      "phone": "+62 896-5788-9347 jaaw"
+      "phone": "+62 896-5788-9347"
     },
     "hours": {
       "open": "09:00",
@@ -1052,6 +1052,19 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": false,
+    "promo": [
+      {
+        "id": 3,
+        "slug": "steak-batmans",
+        "name": "TENANT SUBMISSION | STEAK BATMANS",
+        "description": "Selamat datang kepada Tenant terbaik kami!\nDengan penuh antusiasme, kami menyambut kehadiran @steakbatmans | Steak Batmans\n\n📅 Tanggal: 30 Agustus 2025\n📍 Lokasi: PUSDAI Kota Banjar",
+        "image": "/images/steak-batmans/promo/promo-1.webp",
+        "date": "2025-08-30",
+        "rating": 4.5,
+        "status": false,
+        "review": 100
+      }
+    ],
     "priceRange": "Rp 25.000 - Rp 125.000",
     "products": [
       {

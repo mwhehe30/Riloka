@@ -289,7 +289,7 @@ export default function Page() {
           <div className='flex flex-col lg:flex-row gap-4'>
             {/* Search Input */}
             <div className='flex-1 relative'>
-              <div className='flex items-center gap-3 bg-muted/50 border border-border rounded-2xl px-5 py-4 hover:shadow-md transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
+              <div className='flex items-center gap-3 bg-muted/50 border border-border rounded-lg px-5 py-4 hover:shadow-md transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
                 <Search className='w-5 h-5 text-muted-foreground' />
                 <input
                   type='text'
