@@ -18,7 +18,7 @@
   --color-accent: oklch(0.65 0.18 55);
   --color-accent-hover: oklch(0.6 0.18 55);
   --color-secondary: #fab12f;
-  --color-secondary-hover: #fab12f;
+  --color-secondary-hover: #e09f29;
 
   /* ===== Category Colors ===== */
   --color-category-makanan: oklch(0.6 0.15 25);
@@ -52,6 +52,12 @@
   --color-accent-hover: var(--color-accent-hover);
   --color-secondary: var(--color-secondary);
   --color-secondary-hover: var(--color-secondary-hover);
+
+  --color-category-makanan: var(--color-category-makanan);
+  --color-category-minuman: var(--color-category-minuman);
+  --color-category-jasa: var(--color-category-jasa);
+  --color-category-fashion: var(--color-category-fashion);
+  --color-category-kerajinan: var(--color-category-kerajinan);
 
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);

@@ -5,7 +5,7 @@
     "name": "Ratan Bakery",
     "category": ["makanan"],
     "description": "Ratan bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue.",
-    "long-desc": "Ratan Bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue. Toko ini dikenal karena menghasilkan berbagai jenis roti dan kue yang lezat, lembut, dan berkualitas tinggi. Setiap produk dibuat dengan bahan-bahan pilihan dan melalui proses pembuatan yang higienis, sehingga terjamin rasa serta keamanannya. Selain menjual roti dan kue siap saji, Ratan Bakery juga menerima pesanan untuk berbagai acara seperti ulang tahun, pernikahan, dan perayaan lainnya. Dengan pelayanan yang ramah dan cita rasa yang khas, Ratan Bakery berkomitmen untuk memberikan kepuasan kepada setiap pelanggan.",
+    "long_desc": "Ratan Bakery adalah sebuah usaha yang bergerak di bidang pembuatan roti dan kue. Toko ini dikenal karena menghasilkan berbagai jenis roti dan kue yang lezat, lembut, dan berkualitas tinggi. Setiap produk dibuat dengan bahan-bahan pilihan dan melalui proses pembuatan yang higienis, sehingga terjamin rasa serta keamanannya. Selain menjual roti dan kue siap saji, Ratan Bakery juga menerima pesanan untuk berbagai acara seperti ulang tahun, pernikahan, dan perayaan lainnya. Dengan pelayanan yang ramah dan cita rasa yang khas, Ratan Bakery berkomitmen untuk memberikan kepuasan kepada setiap pelanggan.",
     "address": "JJ44+73X, Kujangsari, Kec. Langensari, Kota Banjar, Jawa Barat 46324",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5105.507070909465!2d108.60267127605066!3d-7.394265972800987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e65894d92c95221%3A0x890f8d9e41e1c214!2sRatanBakery!5e1!3m2!1sid!2sid!4v1761210413406!5m2!1sid!2sid",
@@ -80,7 +80,7 @@
     "name": "Rindu Rasa Kuliner",
     "category": ["makanan", "minuman"],
     "description": "Rindu Rasa Kuliner adalah usaha beraneka menu mulai dari makanan tradisional maupun modern",
-    "long-desc": "Rindu Rasa Kuliner adalah sebuah usaha yang menyajikan berbagai macam menu, mulai dari makanan tradisional hingga hidangan modern. Tempat ini menghadirkan cita rasa autentik dari masakan nusantara yang berpadu dengan inovasi kuliner masa kini. Setiap hidangan diolah dengan bahan-bahan segar dan bumbu pilihan untuk memberikan pengalaman rasa yang memuaskan bagi setiap pelanggan. Dengan suasana yang nyaman dan pelayanan yang ramah, Rindu Rasa Kuliner menjadi pilihan tepat bagi siapa pun yang ingin menikmati kelezatan makanan dengan sentuhan tradisional dan modern dalam satu tempat.",
+    "long_desc": "Rindu Rasa Kuliner adalah sebuah usaha yang menyajikan berbagai macam menu, mulai dari makanan tradisional hingga hidangan modern. Tempat ini menghadirkan cita rasa autentik dari masakan nusantara yang berpadu dengan inovasi kuliner masa kini. Setiap hidangan diolah dengan bahan-bahan segar dan bumbu pilihan untuk memberikan pengalaman rasa yang memuaskan bagi setiap pelanggan. Dengan suasana yang nyaman dan pelayanan yang ramah, Rindu Rasa Kuliner menjadi pilihan tepat bagi siapa pun yang ingin menikmati kelezatan makanan dengan sentuhan tradisional dan modern dalam satu tempat.",
     "address": "Jl. Muhamad Hamim No.92, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.826631410155!2d108.53180997605033!3d-7.373319672569386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63ce724bd0ef%3A0x59b6bdca62940a2c!2sRindu%20Rasa%20Kuliner!5e0!3m2!1sid!2sid!4v1761435675292!5m2!1sid!2sid",
@@ -153,7 +153,7 @@
     "name": "Dapur Mak Ndut",
     "category": ["makanan"],
     "description": "Usaha kecil ibu rumah tangga yang simple, enak dengan porsi cukup",
-    "long-desc": "Dapur Mak Ndut adalah sebuah usaha kecil-kecilan yang menyajikan masakan yang simple, murah dan enak. dan hanya menerima delivery only",
+    "long_desc": "Dapur Mak Ndut adalah sebuah usaha kecil-kecilan yang menyajikan masakan yang simple, murah dan enak. dan hanya menerima delivery only",
     "address": "Perum GBR Blok A6 No. 3, Purwaharja, Kec. Purwaharja, Kota Banjar, Jawa Barat 46331",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255.39122593438108!2d108.53346740386246!3d-7.356034846803632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63383978ee2f%3A0x8a3a5d7c8a1d4f31!2sWARUNG%20SEBLAK%20MAK%20NDUT!5e0!3m2!1sid!2sid!4v1761624110659!5m2!1sid!2sid",
@@ -204,51 +204,53 @@
   },
   {
     "id": 4,
-    "slug": "nu-bani-fried-chicken",
-    "name": "Nu Bani Fried Chicken",
+    "slug": "otakiri",
+    "name": "Otakiri",
     "category": ["makanan"],
     "description": "Usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam",
-    "long-desc": "Nu Bani Chicken adalah sebuah usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam sesuai selera pelanggan. Setiap potongan ayam digoreng dengan bumbu khas yang meresap hingga ke dalam, menghasilkan rasa gurih dan tekstur renyah di luar namun tetap lembut di dalam. Selain itu, Nu Bani Chicken juga menjaga kualitas dengan menggunakan bahan-bahan segar dan proses pengolahan yang higienis. Dengan cita rasa yang lezat dan pelayanan yang cepat, Nu Bani Chicken menjadi pilihan tepat bagi pecinta ayam goreng yang ingin menikmati kelezatan dalam setiap gigitan.",
-    "address": "Jl. Manonjaya - Banjar No.131, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
+    "long_desc": "Otakiri adalah sebuah usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam sesuai selera pelanggan. Setiap potongan ayam digoreng dengan bumbu khas yang meresap hingga ke dalam, menghasilkan rasa gurih dan tekstur renyah di luar namun tetap lembut di dalam. Selain itu, Otakiri juga menjaga kualitas dengan menggunakan bahan-bahan segar dan proses pengolahan yang higienis. Dengan cita rasa yang lezat dan pelayanan yang cepat, Otakiri menjadi pilihan tepat bagi pecinta ayam goreng yang ingin menikmati kelezatan dalam setiap gigitan.",
+    "address": "Unnamed Road, Langensari, Banjar City, West Java 46324",
     "map": {
-      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.840765545892!2d108.5282009!3d-7.371737899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63b9b6badc5b%3A0x9db28ec751df34c9!2sNu%20Bani%20Fried%20Chicken!5e0!3m2!1sid!2sid!4v1761435356913!5m2!1sid!2sid",
-      "link": "https://maps.app.goo.gl/aG1ciYZGup3SxXHs6"
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.2137050395081!2d108.63195462820114!3d-7.370164692279047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f7d22a6e3c081%3A0x5bc307e7a99955b3!2sOtakiri%20Cafe%20%26%20Resto!5e0!3m2!1sid!2sid!4v1761782225159!5m2!1sid!2sid",
+      "link": "https://maps.app.goo.gl/9BuZwoo43tJnTFRk6"
     },
-    "thumb": "/images/thumbnail/thumb-nubani.webp",
+    "thumb": "/images/thumbnail/thumb-otakiri.webp",
     "images": [
-      "/images/nu-bani/nu-bani-1.webp",
-      "/images/nu-bani/nu-bani-2.webp"
+      "/images/otakiri/otakiri-1.webp",
+      "/images/otakiri/otakiri-2.webp"
     ],
     "contact": {
-      "phone": "+62 895-0264-3043"
+      "phone": "+62 811-2278-282",
+      "instagram": "otakiri.coffee"
     },
     "hours": {
-      "open": "08:00",
-      "close": "21:00",
+      "open": "10:00",
+      "close": "22:00",
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
-    "priceRange": "Rp 4.000 - Rp 12.000",
+    "priceRange": "Rp 25.000 - Rp 50.000",
     "products": [
       {
         "id": 1,
         "name": "Fried Chicken Original",
-        "image": "/images/nu-bani/nu-bani-1.webp",
+        "image": "/images/otakiri/otakiri-1.webp",
         "price": 12000
       },
       {
         "id": 2,
         "name": "Fried Chicken Bani's Fire",
-        "image": "/images/nu-bani/nu-bani-2.webp",
+        "image": "/images/otakiri/otakiri-2.webp",
         "price": 15000
       },
       {
         "id": 3,
         "name": "Fried Chicken Spicy BBQ",
-        "image": "/images/nu-bani/nu-bani-3.webp",
+        "image": "/images/otakiri/otakiri-3.webp",
         "price": 14000
       }
     ],
+    "reviewer": "361",
     "reviews": [
       {
         "id": 1,
@@ -261,7 +263,7 @@
         "comment": "Variasi rasa banyak, anak-anak suka banget"
       }
     ],
-    "rating": "4.5"
+    "rating": "4.7"
   },
   {
     "id": 5,
@@ -269,7 +271,7 @@
     "name": "Kedai Fukunobu",
     "category": ["makanan", "minuman"],
     "description": "Kedai yang menjual berbagai menu makanan yang ramah kantong",
-    "long-desc": "Kedai Fukunobu adalah sebuah kedai yang menjual berbagai macam menu makanan dengan harga yang ramah di kantong. Tempat ini menghadirkan aneka hidangan lezat yang cocok untuk semua kalangan, mulai dari pelajar hingga pekerja. Meskipun harganya terjangkau, kualitas rasa dan penyajiannya tetap terjaga dengan baik. Setiap menu diolah dari bahan-bahan segar dan disajikan dengan penuh perhatian, sehingga menciptakan cita rasa yang memuaskan. Dengan suasana yang nyaman dan pelayanan yang bersahabat, Kedai Fukunobu menjadi pilihan tepat bagi siapa pun yang ingin menikmati makanan enak tanpa perlu merogoh kocek terlalu dalam.",
+    "long_desc": "Kedai Fukunobu adalah sebuah kedai yang menjual berbagai macam menu makanan dengan harga yang ramah di kantong. Tempat ini menghadirkan aneka hidangan lezat yang cocok untuk semua kalangan, mulai dari pelajar hingga pekerja. Meskipun harganya terjangkau, kualitas rasa dan penyajiannya tetap terjaga dengan baik. Setiap menu diolah dari bahan-bahan segar dan disajikan dengan penuh perhatian, sehingga menciptakan cita rasa yang memuaskan. Dengan suasana yang nyaman dan pelayanan yang bersahabat, Kedai Fukunobu menjadi pilihan tepat bagi siapa pun yang ingin menikmati makanan enak tanpa perlu merogoh kocek terlalu dalam.",
     "address": "Depan SMA 1, Jl. K.H. Mustofa No.40, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404.0713398070764!2d108.52653703285391!3d-7.371866709595552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f633a62f461bb%3A0x7ea1641130f9fd71!2sAyam%20Bakar%20FukuNobu!5e0!3m2!1sid!2sid!4v1761435590805!5m2!1sid!2sid",
@@ -330,7 +332,7 @@
     "name": "Waroeng Seblak Dhero",
     "category": ["makanan"],
     "description": "Warung Jualan Aneka Seblak",
-    "long-desc": "Warung Seblak Dhero adalah warung yang menjual berbagai macam seblak dengan cita rasa khas dan menggugah selera. Di sini, pelanggan dapat menikmati beragam pilihan seblak, mulai dari seblak original hingga seblak dengan tambahan topping seperti ceker, sosis, bakso, dan makaroni. Setiap porsi seblak diolah menggunakan bumbu rempah pilihan yang memberikan rasa pedas gurih yang nikmat. Dengan harga yang terjangkau dan suasana yang sederhana namun nyaman, Warung Seblak Dhero menjadi tempat favorit bagi pecinta makanan pedas yang ingin menikmati kelezatan seblak khas sunda.",
+    "long_desc": "Warung Seblak Dhero adalah warung yang menjual berbagai macam seblak dengan cita rasa khas dan menggugah selera. Di sini, pelanggan dapat menikmati beragam pilihan seblak, mulai dari seblak original hingga seblak dengan tambahan topping seperti ceker, sosis, bakso, dan makaroni. Setiap porsi seblak diolah menggunakan bumbu rempah pilihan yang memberikan rasa pedas gurih yang nikmat. Dengan harga yang terjangkau dan suasana yang sederhana namun nyaman, Warung Seblak Dhero menjadi tempat favorit bagi pecinta makanan pedas yang ingin menikmati kelezatan seblak khas sunda.",
     "address": "samping dokter gigi eka lina, Jalan Kapten Jamhur No.47 Mekarsari, liandari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.821841876505!2d108.5360757!3d-7.373855599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f620e8ed2b397%3A0x7e7d56a2611d94a7!2sWarung%20Seblak%20Dhero!5e0!3m2!1sid!2sid!4v1761435174834!5m2!1sid!2sid",
@@ -391,7 +393,7 @@
     "name": "Diatas Meja",
     "category": ["makanan", "minuman"],
     "description": "Cafe Diatas Meja, cafe yang menyediakan berbagai kopi kekinian.",
-    "long-desc": "Cafe Diatas Meja adalah sebuah kafe yang menyediakan berbagai jenis kopi kekinian dengan cita rasa unik dan menarik. Di sini, pengunjung dapat menikmati aneka racikan kopi mulai dari kopi klasik hingga kreasi modern yang disajikan dengan tampilan estetik. Selain kopi, kafe ini juga menawarkan suasana yang nyaman dan instagramable, cocok untuk tempat bersantai, bekerja, maupun berkumpul bersama teman. Dengan pelayanan yang ramah dan harga yang terjangkau, Cafe Diatas Meja menjadi pilihan tepat bagi para pecinta kopi yang ingin menikmati suasana santai dan minuman berkualitas.",
+    "long_desc": "Cafe Diatas Meja adalah sebuah kafe yang menyediakan berbagai jenis kopi kekinian dengan cita rasa unik dan menarik. Di sini, pengunjung dapat menikmati aneka racikan kopi mulai dari kopi klasik hingga kreasi modern yang disajikan dengan tampilan estetik. Selain kopi, kafe ini juga menawarkan suasana yang nyaman dan instagramable, cocok untuk tempat bersantai, bekerja, maupun berkumpul bersama teman. Dengan pelayanan yang ramah dan harga yang terjangkau, Cafe Diatas Meja menjadi pilihan tepat bagi para pecinta kopi yang ingin menikmati suasana santai dan minuman berkualitas.",
     "address": "Jl. Dr. Husein Kartasasmita No.81-79, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d319.11085860633415!2d108.5292121484555!3d-7.371169576000518!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f63ea9aae3c11%3A0x5ad13fa5b8db5ecc!2sDiatas%20Meja%20Coffee%20%26%20Eatery!5e1!3m2!1sid!2sid!4v1761186761801!5m2!1sid!2sid",
@@ -399,8 +401,8 @@
     },
     "thumb": "/images/thumbnail/thumb-diatas-meja.webp",
     "images": [
-      "/images/diatas-meja/diatas-meja-1.webp",
-      "/images/diatas-meja/diatas-meja-2.webp"
+      "/images/diatas-meja/diatas-meja-coffee.webp",
+      "/images/diatas-meja/es-teh.webp"
     ],
     "contact": {
       "instagram": "diatasmeja.banjar"
@@ -427,19 +429,19 @@
       {
         "id": 1,
         "name": "Kopi Hitam",
-        "image": "/images/diatas-meja/diatas-meja-1.webp",
+        "image": "/images/diatas-meja/diatas-meja-coffee.webp",
         "price": 8000
       },
       {
         "id": 2,
         "name": "Latte",
-        "image": "/images/diatas-meja/diatas-meja-2.webp",
+        "image": "/images/diatas-meja/Latte.webp",
         "price": 15000
       },
       {
         "id": 3,
         "name": "Es Teh Manis",
-        "image": "/images/diatas-meja/diatas-meja-3.webp",
+        "image": "/images/diatas-meja/es-teh.webp",
         "price": 5000
       }
     ],
@@ -463,7 +465,7 @@
     "name": "LeBiru Banjar",
     "category": ["makanan", "minuman"],
     "description": "LeBiru Banjar adalah tempat yang menyediakan berbagai menu makanan dan minuman yang enak dan lezat.",
-    "long-desc": "LeBiru Banjar adalah tempat yang menyediakan berbagai menu makanan dan minuman dengan cita rasa yang enak dan lezat. Setiap hidangan disajikan dengan bahan-bahan berkualitas dan diolah dengan penuh perhatian untuk memberikan pengalaman kuliner yang memuaskan. Selain pilihan menu yang beragam, LeBiru Banjar juga menghadirkan suasana yang nyaman dan pelayanan yang ramah, sehingga cocok untuk tempat bersantai bersama keluarga maupun teman. Dengan rasa yang menggugah selera dan harga yang bersahabat, LeBiru Banjar menjadi destinasi kuliner favorit bagi pecinta makanan dan minuman yang berkualitas.",
+    "long_desc": "LeBiru Banjar adalah tempat yang menyediakan berbagai menu makanan dan minuman dengan cita rasa yang enak dan lezat. Setiap hidangan disajikan dengan bahan-bahan berkualitas dan diolah dengan penuh perhatian untuk memberikan pengalaman kuliner yang memuaskan. Selain pilihan menu yang beragam, LeBiru Banjar juga menghadirkan suasana yang nyaman dan pelayanan yang ramah, sehingga cocok untuk tempat bersantai bersama keluarga maupun teman. Dengan rasa yang menggugah selera dan harga yang bersahabat, LeBiru Banjar menjadi destinasi kuliner favorit bagi pecinta makanan dan minuman yang berkualitas.",
     "address": "Jl. Dr. Husein Kartasasmita No.140, Banjar, Kec. Banjar, Kota Banjar, Jawa Barat 46311",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d535.1575405476027!2d108.52860829095701!3d-7.371282882486261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f630022f70599%3A0xe1a03bec7718d5ea!2sLeBiru%20Banjar!5e0!3m2!1sid!2sid!4v1761211219536!5m2!1sid!2sid",
@@ -481,7 +483,7 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
     },
     "featured": true,
-    "priceRange": "Rp 18.000 - Rp 125.000",
+    "priceRange": "Rp 18.000 - Rp 34.000",
     "promo": [
       {
         "id": 1,
@@ -1011,6 +1013,8 @@
       {
         "id": 1,
         "name": "rfauce",
+        "star": 5,
+        "date": "2024-01-01",
         "comment": "Suasananya ambience, Tempat duduk bnyk tersedia, ada photobox Juga. Harga dan rasa makanan minuman nya sesuai. Tempat parkir cukup luas"
       },
       {
@@ -1027,7 +1031,7 @@
     "name": "Steak Batmans",
     "category": ["makanan", "minuman"],
     "description": "Dari Barat sampai Nusantara, semua rasa lezat bertemu di Steak Batmans.",
-    "long-desc": "Steak Batmans adalah tempat yang menyajikan berbagai pilihan menu lezat seperti steak, burrito, dan nasi goreng dengan cita rasa yang khas. Setiap hidangan diolah dengan bahan-bahan berkualitas dan bumbu pilihan, menghasilkan rasa yang menggugah selera di setiap gigitan. Dengan beragam varian menu, pelanggan dapat menikmati perpaduan rasa Barat dan Nusantara dalam satu tempat. Selain makanannya yang lezat, Steak Batmans juga menghadirkan suasana yang nyaman dan pelayanan yang ramah, menjadikannya pilihan tepat untuk menikmati santapan bersama keluarga maupun teman.",
+    "long_desc": "Steak Batmans adalah tempat yang menyajikan berbagai pilihan menu lezat seperti steak, burrito, dan nasi goreng dengan cita rasa yang khas. Setiap hidangan diolah dengan bahan-bahan berkualitas dan bumbu pilihan, menghasilkan rasa yang menggugah selera di setiap gigitan. Dengan beragam varian menu, pelanggan dapat menikmati perpaduan rasa Barat dan Nusantara dalam satu tempat. Selain makanannya yang lezat, Steak Batmans juga menghadirkan suasana yang nyaman dan pelayanan yang ramah, menjadikannya pilihan tepat untuk menikmati santapan bersama keluarga maupun teman.",
     "address": "Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.2006869696565!2d108.52762517726596!3d-7.375991748195718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f6314b6a19bc1%3A0xef482a368a11d2ab!2sSTEAK%20BATMANS!5e0!3m2!1sid!2sid!4v1761388613603!5m2!1sid!2sid",
@@ -1149,7 +1153,7 @@
     "name": "Papito Barbershop",
     "category": ["jasa"],
     "description": "Dari passion menjadi gaya, Papito Barbershop menghadirkan potongan rambut profesional yang selalu on point.",
-    "long-desc": "Papito Barbershop berdiri pada tanggal 1 Februari 2024 dengan tujuan memberikan layanan potong rambut terbaik bagi setiap pelanggan. Berawal dari passion terhadap gaya dan perawatan pria, Papito Barbershop terus berkembang menjadi tempat yang dipercaya untuk menciptakan penampilan yang stylish dan profesional. Dengan tim barber berpengalaman dan suasana yang nyaman, kami berkomitmen untuk memberikan pengalaman grooming yang tidak hanya memuaskan, tetapi juga membuat setiap pelanggan tampil lebih percaya diri.",
+    "long_desc": "Papito Barbershop berdiri pada tanggal 1 Februari 2024 dengan tujuan memberikan layanan potong rambut terbaik bagi setiap pelanggan. Berawal dari passion terhadap gaya dan perawatan pria, Papito Barbershop terus berkembang menjadi tempat yang dipercaya untuk menciptakan penampilan yang stylish dan profesional. Dengan tim barber berpengalaman dan suasana yang nyaman, kami berkomitmen untuk memberikan pengalaman grooming yang tidak hanya memuaskan, tetapi juga membuat setiap pelanggan tampil lebih percaya diri.",
     "address": "Jl. Kapten Jamhur No.78, Mekarsari, Kec. Banjar, Kota Banjar, Jawa Barat 46321",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7913.651684119883!2d108.536182!3d-7.373408!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f635341d992ed%3A0x5cb33e53ab997267!2sPAPITO%20BARBERSHOP!5e0!3m2!1sid!2sid!4v1761621893129!5m2!1sid!2sid",

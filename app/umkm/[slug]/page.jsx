@@ -26,14 +26,14 @@ export default function Page() {
   const { slug } = useParams();
   const [detailUmkm, setDetailUmkm] = useState(null);
   const [activeTab, setActiveTab] = useState('tentang');
+  const [activeImage, setActiveImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
-  const [activeImage, setActiveImage] = useState(null);
 
-  function handleImageClick(image) {
-    setActiveImage(image);
-    console.log(image);
-  }
+  // Debug activeImage changes
+  useEffect(() => {
+    console.log('Active Image changed:', activeImage);
+  }, [activeImage]);
 
   const handleShare = async () => {
     const shareData = {
@@ -54,6 +54,11 @@ export default function Page() {
     }
   };
 
+  const handleImageClick = (img) => {
+    console.log('Clicked image:', img);
+    setActiveImage(img);
+  };
+
   useEffect(() => {
     async function fetchDetail() {
       try {
@@ -63,6 +68,11 @@ export default function Page() {
           setNotFound(true);
         } else {
           setDetailUmkm(res);
+          // Set gambar aktif pertama kali ketika data berubah
+          if (res?.images?.length > 0) {
+            console.log('Setting initial image:', res.images[0]);
+            setActiveImage(res.images[0]);
+          }
         }
       } catch (error) {
         console.error(error);
@@ -161,26 +171,7 @@ export default function Page() {
         </div>
       </div>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-        {/* Back Button */}
-        {/* <Link
-          href='/umkm'
-          className='inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors duration-300 mb-6 group'
-        >
-          <ChevronLeft className='w-5 h-5 group-hover:-translate-x-1 transition-transform' />
-          <span className='font-medium'>Kembali ke daftar UMKM</span>
-        </Link> */}
-
-        {/* Hero Section */}
         <article className='relative overflow-hidden rounded-3xl shadow-2xl mb-8'>
-          {/* <figure className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden'>
-            <ImageWithFallback
-              src={detailUmkm?.thumb}
-              alt={detailUmkm?.name}
-              fill
-              className='object-cover hover:scale-105 transition-transform duration-700'
-            />
-          </figure> */}
-
           <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent' />
 
           <div className='absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-12 text-white'>
@@ -235,7 +226,6 @@ export default function Page() {
           {/* Main Content */}
           <div className='lg:col-span-2 space-y-8'>
             {/* Tabs */}
-            {/* Tabs - UPDATED */}
             <div className='bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden'>
               <div className='flex overflow-x-auto border-b border-gray-200 scrollbar-none'>
                 {tabs.map(({ id, label, icon: Icon }) => {
@@ -318,41 +308,11 @@ export default function Page() {
 
                 {/* Gallery Tab */}
                 {activeTab === 'galeri' && (
-                  <div className='space-y-6'>
-                    <h2 className='text-2xl font-bold text-gray-900'>Galeri</h2>
-
-                    <div className='relative w-full h-[400px] rounded-xl overflow-hidden group border border-border'>
-                      <ImageWithFallback
-                        src={activeImage}
-                        alt={detailUmkm?.name || 'Gallery Image'}
-                        fill
-                        className='object-contain group-hover:scale-110 transition-transform duration-500'
-                      />
-                    </div>
-
-                    {detailUmkm?.images?.length > 0 ? (
-                      <div className='flex gap-4 overflow-x-auto scrollbar-none scroll-smooth'>
-                        {detailUmkm.images.map((img, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => handleImageClick(img)}
-                            className={`relative flex-shrink-0 w-32 h-20 rounded-lg overflow-hidden border
-              ${activeImage === img ? 'border-primary' : 'border-transparent'}
-            `}
-                          >
-                            <ImageWithFallback
-                              src={img}
-                              alt={`${detailUmkm?.name} ${idx + 1}`}
-                              fill
-                              className='object-cover hover:scale-110 transition-transform duration-300'
-                            />
-                          </button>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className='text-gray-500'>Belum ada foto tersedia.</p>
-                    )}
-                  </div>
+                  <GallerySection
+                    detailUmkm={detailUmkm}
+                    activeImage={activeImage}
+                    onImageClick={handleImageClick}
+                  />
                 )}
 
                 {/* Menu */}
@@ -514,6 +474,57 @@ export default function Page() {
         </div>
       </div>
     </section>
+  );
+}
+
+// Komponen Gallery Terpisah
+function GallerySection({ detailUmkm, activeImage, onImageClick }) {
+  return (
+    <div className='space-y-6'>
+      <h2 className='text-2xl font-bold text-gray-900'>Galeri</h2>
+
+      {/* Main Image */}
+      <div className='relative w-full h-[400px] rounded-xl overflow-hidden group border border-border'>
+        <ImageWithFallback
+          src={activeImage || detailUmkm?.images?.[0] || detailUmkm?.thumb}
+          alt={detailUmkm?.name || 'Gallery Image'}
+          fill
+          className='object-contain group-hover:scale-110 transition-transform duration-500'
+          key={activeImage}
+        />
+      </div>
+
+      {/* Thumbnails */}
+      {detailUmkm?.images?.length > 0 ? (
+        <div className='flex gap-4 overflow-x-auto scrollbar-none scroll-smooth'>
+          {detailUmkm.images.map((img, idx) => (
+            <button
+              key={idx}
+              onClick={() => onImageClick(img)}
+              className={`relative flex-shrink-0 w-32 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300
+                ${
+                  activeImage === img
+                    ? 'border-primary'
+                    : 'border-transparent opacity-70 hover:opacity-100'
+                }
+              `}
+            >
+              <ImageWithFallback
+                src={img}
+                alt={`${detailUmkm?.name} ${idx + 1}`}
+                fill
+                className='object-cover hover:scale-110 transition-transform duration-300'
+              />
+              {activeImage === img && (
+                <div className='absolute inset-0 bg-primary/20' />
+              )}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <p className='text-gray-500'>Belum ada foto tersedia.</p>
+      )}
+    </div>
   );
 }
 

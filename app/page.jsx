@@ -1,7 +1,6 @@
 'use client';
 
 import Card from '@/components/Card';
-import Marquee from "@/components/Marquee";
 import HorizontalScroll from '@/components/HorizontalScroll';
 import Marquee from '@/components/Marquee';
 import PromoCard from '@/components/PromoCard';
@@ -26,7 +25,6 @@ export default function Page() {
   const [promo, setPromo] = useState([]);
   const [umkm, setUmkm] = useState([]);
   const featuredUmkm = umkm.filter((i) => i.featured);
-  const totalUmkm = umkm.length;
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();
 
@@ -165,11 +163,10 @@ export default function Page() {
           </p>
         </div>
       </section>
-
       {/* Kategori Section */}
       <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
         <div className='flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto'>
-          <div className='inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-accent/10 text-primary px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+          <div className='inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-4 font-medium text-sm'>
             <Tag className='size-4' />
             Kategori
           </div>
@@ -237,7 +234,6 @@ export default function Page() {
           })}
         </div>
       </section>
-
       {featuredUmkm.length > 0 && (
         <div className='bg-surface'>
           <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
@@ -271,16 +267,14 @@ export default function Page() {
             <div className='flex justify-center items-center mt-8'>
               <Link
                 href='/umkm'
-                className='w-max flex bg-primary items-center gap-2 rounded-full px-6 py-4 shadow-lg hover:shadow-xl  text-white font-semibold hover:gap-3 transition-all group'
+                className='w-max bg-primary rounded-full px-6 py-4 shadow-lg hover:bg-primary-hover hover:shadow-xl hover:-translate-y-1 text-white font-semibold hover:gap-3 transition-all group'
               >
-                Lihat Semua
-                <ArrowRight className='size-5 group-hover:translate-x-1 transition-transform' />
+                Lihat Semua UMKM
               </Link>
             </div>
           </section>
         </div>
       )}
-
       {/* Promo Section */}
       {promo.length > 0 && (
         <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
@@ -311,14 +305,35 @@ export default function Page() {
           </HorizontalScroll>
         </section>
       )}
-
       {/* marquee */}
       <div className='bg-primary'>
         <Marquee />
       </div>
-
       {/* testimonial */}
       <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'></section>
+
+      {/* cta */}
+      <div className='bg-primary'>
+        <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+          <div className='flex flex-col items-center justify-center text-center w-full max-w-3xl mx-auto gap-6'>
+            <h1 className='text-2xl md:text-4xl font-bold text-white'>
+              Siap dukung UMKM Lokal?
+            </h1>
+
+            <p className='text-lg text-white'>
+              Bergabunglah dengan komunitas kami untuk menemukan dan mendukung
+              usaha kecil menengah di Kota Banjar
+            </p>
+
+            <Link
+              href='/umkm'
+              className='w-max bg-secondary rounded-full px-6 py-4 shadow-lg hover:bg-secondary-hover hover:shadow-xl hover:-translate-y-1 text-white font-semibold hover:gap-3 transition-all group'
+            >
+              Lihat Semua UMKM
+            </Link>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

@@ -20,7 +20,7 @@ export default function NavBar() {
 
   const navItems = [
     { name: 'Beranda', href: '/' },
-    { name: 'UMKM', href: '/umkm' },
+    { name: 'List UMKM', href: '/umkm' },
     { name: 'Tentang Kami', href: '/tentang' },
   ];
 
