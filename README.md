@@ -16,7 +16,7 @@ Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah sederhana berik
 
 1.  Clone repositori
     ```sh
-    git clone https://github.com/your_username_/Riloka.git
+    git clone https://github.com/mwhehe30/Riloka.git
     ```
 2.  Instal paket NPM
     ```sh
