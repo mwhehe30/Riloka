@@ -1,6 +1,7 @@
 'use client';
 
 import Card from '@/components/Card';
+import UMKMListSkeleton from '@/components/UMKMListSkeleton';
 import { getUmkm } from '@/lib/api';
 import {
   ChevronLeft,
@@ -26,6 +27,7 @@ export default function Page() {
   const [search, setSearch] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
@@ -75,10 +77,15 @@ export default function Page() {
   // useEffect untuk load data
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getUmkm();
-      setAllUMKM(data);
-      const initialItems = data.slice(0, itemsPerPage);
-      setDisplayedUMKM(initialItems);
+      setIsLoading(true); // Set loading to true when starting to fetch
+      try {
+        const data = await getUmkm();
+        setAllUMKM(data);
+        const initialItems = data.slice(0, itemsPerPage);
+        setDisplayedUMKM(initialItems);
+      } finally {
+        setIsLoading(false); // Set loading to false when fetch completes
+      }
     };
     fetchData();
   }, []);
@@ -253,6 +260,11 @@ export default function Page() {
     return pageNumbers;
   };
 
+  // Show skeleton while loading
+  if (isLoading && allUMKM.length === 0) {
+    return <UMKMListSkeleton />;
+  }
+
   return (
     <section className='min-h-screen bg-white'>
       {/* Header Section */}
@@ -420,18 +432,42 @@ export default function Page() {
 
         {/* Card Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
-          {displayedUMKM.map((item, index) => (
-            <div
-              key={item.id}
-              className='animate-slideIn'
-              style={{
-                animationDelay: `${index * 100}ms`,
-                animationFillMode: 'both',
-              }}
-            >
-              <Card umkm={item} />
-            </div>
-          ))}
+          {isLoading ? (
+            // Show skeleton cards while loading
+            [...Array(6)].map((_, index) => (
+              <div key={index} className='animate-pulse'>
+                <div className='flex flex-col overflow-hidden border border-surface bg-white shadow-lg shadow-black/5 h-full rounded-2xl'>
+                  <div className='relative overflow-hidden aspect-video'>
+                    <div className="w-full h-full bg-muted rounded-md" />
+                  </div>
+                  <div className='flex flex-col flex-1 p-6 space-y-4'>
+                    <div className='h-4 w-3/4 bg-muted rounded' />
+                    <div className='flex justify-between items-center'>
+                      <div className='h-4 w-1/4 bg-muted rounded' />
+                      <div className='h-4 w-1/3 bg-muted rounded' />
+                    </div>
+                    <div className='mt-auto flex flex-col sm:flex-row items-start gap-4 sm:items-center justify-between pt-3 border-t border-surface'>
+                      <div className='h-4 w-1/3 bg-muted rounded' />
+                      <div className='h-4 w-1/4 bg-muted rounded' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            displayedUMKM.map((item, index) => (
+              <div
+                key={item.id}
+                className='animate-slideIn'
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animationFillMode: 'both',
+                }}
+              >
+                <Card umkm={item} />
+              </div>
+            ))
+          )}
         </div>
 
         {/* Empty State */}

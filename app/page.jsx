@@ -4,6 +4,9 @@ import Card from '@/components/Card';
 import HorizontalScroll from '@/components/HorizontalScroll';
 import Marquee from '@/components/Marquee';
 import PromoCard from '@/components/PromoCard';
+import PageSkeleton from '@/components/PageSkeleton';
+import CardSkeleton from '@/components/CardSkeleton';
+import PromoCardSkeleton from '@/components/PromoCardSkeleton';
 import { getPromo, getUmkm } from '@/lib/api';
 import {
   ArrowRight,
@@ -24,22 +27,24 @@ import { useEffect, useState } from 'react';
 export default function Page() {
   const [promo, setPromo] = useState([]);
   const [umkm, setUmkm] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const featuredUmkm = umkm.filter((i) => i.featured);
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getUmkm();
-      setUmkm(data);
-    }
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await getPromo();
-      setPromo(data);
+      setIsLoading(true); // Set loading to true when starting to fetch
+      try {
+        const [umkmData, promoData] = await Promise.all([
+          getUmkm(),
+          getPromo()
+        ]);
+        setUmkm(umkmData);
+        setPromo(promoData);
+      } finally {
+        setIsLoading(false); // Set loading to false when both fetches complete
+      }
     }
     fetchData();
   }, []);
@@ -111,6 +116,11 @@ export default function Page() {
         .length,
     },
   ];
+
+  // Show skeleton while loading
+  if (isLoading) {
+    return <PageSkeleton />;
+  }
 
   return (
     <main className='min-h-screen'>
@@ -255,11 +265,20 @@ export default function Page() {
           </div>
 
           <HorizontalScroll>
-            {featuredUmkm.map((umkm) => (
-              <div key={umkm.id} className='flex-none w-88 md:w-96 snap-center'>
-                <Card umkm={umkm} />
-              </div>
-            ))}
+            {isLoading ? (
+              // Show skeleton cards while loading
+              [...Array(3)].map((_, index) => (
+                <div key={index} className='flex-none w-88 md:w-96 snap-center'>
+                  <CardSkeleton />
+                </div>
+              ))
+            ) : (
+              featuredUmkm.map((umkm) => (
+                <div key={umkm.id} className='flex-none w-88 md:w-96 snap-center'>
+                  <Card umkm={umkm} />
+                </div>
+              ))
+            )}
           </HorizontalScroll>
 
           <div className='flex justify-center items-center mt-8'>
@@ -291,11 +310,20 @@ export default function Page() {
         </div>
 
         <HorizontalScroll>
-          {promo.map((promo) => (
-            <div key={promo.id} className='flex-none w-80 md:w-96 snap-center'>
-              <PromoCard promo={promo} />
-            </div>
-          ))}
+          {isLoading ? (
+            // Show skeleton promo cards while loading
+            [...Array(2)].map((_, index) => (
+              <div key={index} className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'>
+                <PromoCardSkeleton />
+              </div>
+            ))
+          ) : (
+            promo.map((promo) => (
+              <div key={promo.id} className='flex-none w-80 md:w-96 snap-center'>
+                <PromoCard promo={promo} />
+              </div>
+            ))
+          )}
         </HorizontalScroll>
       </section>
 
