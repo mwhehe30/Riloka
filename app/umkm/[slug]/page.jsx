@@ -5,6 +5,7 @@ import PromoCard from '@/components/PromoCard';
 import { getUmkmBySlug } from '@/lib/api';
 import {
   Box,
+  ChevronDown,
   Clock,
   Image,
   Info,
@@ -29,6 +30,7 @@ export default function Page() {
   const [activeImage, setActiveImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleShare = async () => {
     const shareData = {
@@ -171,6 +173,8 @@ export default function Page() {
     { id: 'ulasan', label: 'Ulasan', icon: Star },
   ];
 
+  const activeTabData = tabs.find((tab) => tab.id === activeTab);
+
   return (
     <section className='min-h-screen bg-white pt-20'>
       <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] overflow-hidden rounded-b-xl md:rounded-b-2xl'>
@@ -272,25 +276,73 @@ export default function Page() {
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {/* Main Content */}
           <div className='lg:col-span-2 space-y-8'>
-            {/* Tabs */}
+            {/* Responsive Tabs - Custom Dropdown on mobile, horizontal on larger screens */}
             <div className='bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden'>
-              <div className='flex overflow-x-auto border-b border-gray-200 scrollbar-none'>
-                {tabs.map(({ id, label, icon: Icon }) => {
-                  return (
-                    <button
-                      key={id}
-                      onClick={() => setActiveTab(id)}
-                      className={`flex flex-1 items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium transition-all whitespace-nowrap ${
-                        activeTab === id
-                          ? 'text-white bg-primary'
-                          : 'text-gray-500 hover:text-gray-700'
+              <div className='border-b border-gray-200'>
+                {/* Mobile: Custom Dropdown */}
+                <div className='sm:hidden'>
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className='w-full p-4 text-base font-medium bg-primary text-white border-none focus:outline-none focus:ring-2 focus:ring-primary/50 flex items-center justify-between rounded-t-2xl hover:bg-gray-50 transition-colors'
+                  >
+                    <div className='flex items-center gap-3'>
+                      {activeTabData && (
+                        <activeTabData.icon className='w-5 h-5' />
+                      )}
+                      <span className='font-semibold'>
+                        {activeTabData?.label}
+                      </span>
+                    </div>
+                    <ChevronDown
+                      className={`w-5 h-5 text-white transition-transform duration-200 ${
+                        isDropdownOpen ? 'rotate-180' : ''
                       }`}
-                    >
-                      <Icon className='w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0' />
-                      <span>{label}</span>
-                    </button>
-                  );
-                })}
+                    />
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {isDropdownOpen && (
+                    <div className='absolute left-4 right-4 bg-white border border-gray-200 rounded-xl shadow-lg z-10 mt-1 max-h-60 overflow-y-auto'>
+                      {tabs.map(({ id, label, icon: Icon }) => (
+                        <button
+                          key={id}
+                          onClick={() => {
+                            setActiveTab(id);
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`w-full flex items-center gap-3 p-4 text-left transition-colors border-b border-gray-100 last:border-b-0 ${
+                            activeTab === id
+                              ? 'bg-primary/10 text-primary font-semibold'
+                              : 'text-gray-700 hover:bg-gray-50'
+                          } first:rounded-t-xl last:rounded-b-xl`}
+                        >
+                          <Icon className='w-5 h-5 flex-shrink-0' />
+                          <span className='font-medium'>{label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Desktop: Horizontal tabs */}
+                <div className='hidden sm:flex overflow-x-auto scrollbar-none'>
+                  {tabs.map(({ id, label, icon: Icon }) => {
+                    return (
+                      <button
+                        key={id}
+                        onClick={() => setActiveTab(id)}
+                        className={`flex flex-1 items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium transition-all whitespace-nowrap min-w-0 border-b-2 ${
+                          activeTab === id
+                            ? 'text-white bg-primary border-primary'
+                            : 'text-gray-500 hover:text-gray-700 border-transparent hover:bg-gray-50'
+                        }`}
+                      >
+                        <Icon className='w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0' />
+                        <span className='truncate'>{label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Tab Content */}
@@ -337,19 +389,6 @@ export default function Page() {
                         />
                       )}
                     </div>
-                    {/* {detailUmkm?.contact?.phone && (
-                      <a
-                        href={`https://wa.me/${detailUmkm?.contact?.phone?.replace(
-                          /\D/g,
-                          ''
-                        )}`}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='block w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-xl transition-colors text-center shadow-lg hover:shadow-xl'
-                      >
-                        Hubungi via WhatsApp
-                      </a>
-                    )} */}
                   </div>
                 )}
 
@@ -436,14 +475,14 @@ export default function Page() {
 
             {/* Promo Section */}
             {detailUmkm?.promo?.length > 0 ? (
-              <div className='bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100'>
-                <div className='flex items-center justify-between mb-6'>
-                  <h2 className='text-2xl font-bold text-gray-900'>
+              <div className='bg-white rounded-2xl shadow-lg border border-gray-100'>
+                <div className='flex items-center justify-between bg-primary px-6 py-4 md:px-8 rounded-t-2xl'>
+                  <h2 className='text-2xl font-bold text-white'>
                     Promo Spesial
                   </h2>
                 </div>
 
-                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-2'>
+                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth p-4'>
                   {detailUmkm.promo.map((promo) => (
                     <div key={promo.id} className='flex-none w-72 sm:w-80'>
                       <PromoCard promo={promo} />
@@ -452,14 +491,14 @@ export default function Page() {
                 </div>
               </div>
             ) : (
-              <div className='bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100'>
-                <div className='flex items-center justify-between mb-6'>
-                  <h2 className='text-2xl font-bold text-gray-900'>
+              <div className='bg-white rounded-2xl shadow-lg border border-gray-100'>
+                <div className='flex items-center justify-between mb-6 bg-primary px-6 py-4 md:px-8 rounded-t-2xl'>
+                  <h2 className='text-2xl font-bold text-white'>
                     Promo Spesial
                   </h2>
                 </div>
 
-                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-2'>
+                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth p-4'>
                   <p className='text-gray-500'>Belum ada promo tersedia.</p>
                 </div>
               </div>
@@ -469,7 +508,7 @@ export default function Page() {
           {/* Sidebar */}
           <aside className='space-y-6'>
             <div className='bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden sticky top-8'>
-              <h3 className='text-xl font-bold mb-4 flex items-center gap-2 bg-primary text-white p-4 justify-center'>
+              <h3 className='text-xl font-bold mb-4 flex items-center gap-2 bg-primary text-white px-6 py-4 md:justify-center'>
                 <MapPin className='w-5 h-5' /> Lokasi
               </h3>
               <div className='px-6 pb-6 space-y-6'>

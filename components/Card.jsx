@@ -21,7 +21,28 @@ export default function UMKMCard({ umkm }) {
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500' />
 
           {/* Label kategori */}
-          <div className='absolute top-4 left-4 bg-primary/90 backdrop-blur-md text-white text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full shadow-md'>
+          <div 
+            className={`absolute top-4 left-4 backdrop-blur-md text-white text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full shadow-md ${
+              Array.isArray(umkm.category) && umkm.category.length === 2
+                ? 'bg-gradient-to-r ' + 
+                  (umkm.category[0] === 'makanan' ? 'from-[var(--color-category-makanan)] ' : 
+                   umkm.category[0] === 'minuman' ? 'from-[var(--color-category-minuman)] ' : 
+                   umkm.category[0] === 'jasa' ? 'from-[var(--color-category-jasa)] ' : 
+                   umkm.category[0] === 'fashion' ? 'from-[var(--color-category-fashion)] ' : 
+                   umkm.category[0] === 'kerajinan' ? 'from-[var(--color-category-kerajinan)] ' : 'from-primary/90 ') +
+                  (umkm.category[1] === 'makanan' ? 'to-[var(--color-category-makanan)]' : 
+                   umkm.category[1] === 'minuman' ? 'to-[var(--color-category-minuman)]' : 
+                   umkm.category[1] === 'jasa' ? 'to-[var(--color-category-jasa)]' : 
+                   umkm.category[1] === 'fashion' ? 'to-[var(--color-category-fashion)]' : 
+                   umkm.category[1] === 'kerajinan' ? 'to-[var(--color-category-kerajinan)]' : 'to-primary/90')
+                : (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'makanan' ? 'bg-[var(--color-category-makanan)]' :
+                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'minuman' ? 'bg-[var(--color-category-minuman)]' :
+                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'jasa' ? 'bg-[var(--color-category-jasa)]' :
+                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'fashion' ? 'bg-[var(--color-category-fashion)]' :
+                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'kerajinan' ? 'bg-[var(--color-category-kerajinan)]' :
+                  'bg-primary/90'
+            }`}
+          >
             {Array.isArray(umkm.category)
               ? umkm.category
                   .map(

@@ -1,11 +1,11 @@
 'use client';
 
 import Card from '@/components/Card';
+import CardSkeleton from '@/components/CardSkeleton';
 import HorizontalScroll from '@/components/HorizontalScroll';
 import Marquee from '@/components/Marquee';
-import PromoCard from '@/components/PromoCard';
 import PageSkeleton from '@/components/PageSkeleton';
-import CardSkeleton from '@/components/CardSkeleton';
+import PromoCard from '@/components/PromoCard';
 import PromoCardSkeleton from '@/components/PromoCardSkeleton';
 import { getPromo, getUmkm } from '@/lib/api';
 import {
@@ -38,7 +38,7 @@ export default function Page() {
       try {
         const [umkmData, promoData] = await Promise.all([
           getUmkm(),
-          getPromo()
+          getPromo(),
         ]);
         setUmkm(umkmData);
         setPromo(promoData);
@@ -265,20 +265,24 @@ export default function Page() {
           </div>
 
           <HorizontalScroll>
-            {isLoading ? (
-              // Show skeleton cards while loading
-              [...Array(3)].map((_, index) => (
-                <div key={index} className='flex-none w-88 md:w-96 snap-center'>
-                  <CardSkeleton />
-                </div>
-              ))
-            ) : (
-              featuredUmkm.map((umkm) => (
-                <div key={umkm.id} className='flex-none w-88 md:w-96 snap-center'>
-                  <Card umkm={umkm} />
-                </div>
-              ))
-            )}
+            {isLoading
+              ? // Show skeleton cards while loading
+                [...Array(3)].map((_, index) => (
+                  <div
+                    key={index}
+                    className='flex-none w-88 md:w-96 snap-center'
+                  >
+                    <CardSkeleton />
+                  </div>
+                ))
+              : featuredUmkm.map((umkm) => (
+                  <div
+                    key={umkm.id}
+                    className='flex-none w-88 md:w-96 snap-center'
+                  >
+                    <Card umkm={umkm} />
+                  </div>
+                ))}
           </HorizontalScroll>
 
           <div className='flex justify-center items-center mt-8'>
@@ -310,20 +314,24 @@ export default function Page() {
         </div>
 
         <HorizontalScroll>
-          {isLoading ? (
-            // Show skeleton promo cards while loading
-            [...Array(2)].map((_, index) => (
-              <div key={index} className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'>
-                <PromoCardSkeleton />
-              </div>
-            ))
-          ) : (
-            promo.map((promo) => (
-              <div key={promo.id} className='flex-none w-80 md:w-96 snap-center'>
-                <PromoCard promo={promo} />
-              </div>
-            ))
-          )}
+          {isLoading
+            ? // Show skeleton promo cards while loading
+              [...Array(2)].map((_, index) => (
+                <div
+                  key={index}
+                  className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'
+                >
+                  <PromoCardSkeleton />
+                </div>
+              ))
+            : promo.map((promo) => (
+                <div
+                  key={promo.id}
+                  className='flex-none w-80 md:w-96 snap-center'
+                >
+                  <PromoCard promo={promo} />
+                </div>
+              ))}
         </HorizontalScroll>
       </section>
 

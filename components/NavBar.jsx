@@ -1,6 +1,5 @@
 'use client';
 
-import { ChevronRight, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -88,7 +87,7 @@ export default function NavBar() {
         </ul>
 
         {/* MOBILE TOGGLE */}
-        <button
+        {/* <button
           onClick={() => setOpen((prev) => !prev)}
           className='md:hidden relative p-2.5 rounded-xl hover:bg-black/5 active:scale-95 transition-all duration-200 group'
           aria-label='Toggle navigation menu'
@@ -99,10 +98,10 @@ export default function NavBar() {
           ) : (
             <Menu className='size-6 relative z-10 transition-transform duration-300' />
           )}
-        </button>
+        </button> */}
 
         {/* MOBILE MENU */}
-        <div
+        {/* <div
           className={`absolute top-full left-0 w-full overflow-hidden bg-white/98 backdrop-blur-xl border-t border-black/10 shadow-2xl transition-all duration-500 md:hidden ${
             open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}
@@ -135,7 +134,7 @@ export default function NavBar() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </nav>
     </header>
   );

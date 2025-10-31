@@ -1,4 +1,3 @@
-import React from 'react';
 import Skeleton from '@/components/Skeleton';
 
 const UMKMListSkeleton = () => {
@@ -11,7 +10,7 @@ const UMKMListSkeleton = () => {
           <Skeleton className='h-5 w-96 mx-auto' />
         </div>
       </div>
-      
+
       {/* Search & Filter Section Skeleton */}
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10'>
         <div className='bg-white rounded-2xl p-6 mb-8'>
@@ -19,7 +18,7 @@ const UMKMListSkeleton = () => {
             <Skeleton className='flex-1 h-14' />
             <Skeleton className='hidden lg:block px-6 py-4 rounded-2xl w-32' />
           </div>
-          
+
           <div className='mt-6'>
             <Skeleton className='h-6 w-40 mb-4' />
             <div className='flex flex-wrap gap-3'>

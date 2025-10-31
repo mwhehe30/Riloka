@@ -1,4 +1,3 @@
-// components/Marquee.tsx
 import Image from 'next/image';
 
 const partnerLogos = [

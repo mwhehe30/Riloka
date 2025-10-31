@@ -1,4 +1,3 @@
-import React from 'react';
 import Skeleton from './Skeleton';
 
 const PageSkeleton = () => {
@@ -83,7 +82,10 @@ const PageSkeleton = () => {
         </div>
         <div className='flex space-x-6 pb-4 px-6 overflow-x-auto'>
           {[...Array(2)].map((_, i) => (
-            <div key={i} className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'>
+            <div
+              key={i}
+              className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'
+            >
               <div className='bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full'>
                 <div className='relative w-full pt-[100%] overflow-hidden'>
                   <Skeleton className='absolute top-0 left-0 w-full h-full' />

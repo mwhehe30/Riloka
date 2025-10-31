@@ -1,6 +1,5 @@
 import { Award, Globe, Heart, Sparkles, Users } from 'lucide-react';
 import Link from 'next/link';
-import styles from './tentang.module.css';
 
 export default function Page() {
   return (
@@ -13,25 +12,25 @@ export default function Page() {
 
         <div className='max-w-5xl mx-auto text-center relative z-10'>
           <div
-            className={`inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 font-medium text-sm ${styles['fade-in-up']}`}
+            className={`inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 font-medium text-sm `}
           >
-            <Sparkles className={`size-4 ${styles.iconHover}`} />
+            <Sparkles className={`size-4`} />
             Mengenal Riloka Lebih Dekat
           </div>
 
           <h1
-            className={`text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 leading-tight font-montserrat ${styles['fade-in-up']} ${styles['delay-100']}`}
+            className={`text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 leading-tight font-montserrat`}
           >
             Tentang{' '}
             <span
-              className={`text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent ${styles.gradient}`}
+              className={`text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent`}
             >
               Riloka
             </span>
           </h1>
 
           <p
-            className={`text-lg sm:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed ${styles['fade-in-up']} ${styles['delay-200']}`}
+            className={`text-lg sm:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed`}
           >
             Riloka adalah platform direktori UMKM yang lahir dari semangat untuk
             mendukung dan memajukan usaha mikro, kecil, dan menengah di seluruh
@@ -46,40 +45,40 @@ export default function Page() {
         <div className='container mx-auto px-6 lg:px-12'>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center'>
             <div
-              className={`p-6 hover:scale-105 transition-transform duration-300 ${styles['fade-in-up']}`}
+              className={`p-6 hover:scale-105 transition-transform duration-300`}
             >
               <div
-                className={`text-4xl md:text-5xl font-bold text-primary mb-2 ${styles['count-up']}`}
+                className={`text-4xl md:text-5xl font-bold text-primary mb-2`}
               >
                 10
               </div>
               <div className='text-muted-foreground'>UMKM Terdaftar</div>
             </div>
             <div
-              className={`p-6 hover:scale-105 transition-transform duration-300 ${styles['fade-in-up']} ${styles['delay-100']}`}
+              className={`p-6 hover:scale-105 transition-transform duration-300`}
             >
               <div
-                className={`text-4xl md:text-5xl font-bold text-primary mb-2 ${styles['count-up']} ${styles['delay-100']}`}
+                className={`text-4xl md:text-5xl font-bold text-primary mb-2`}
               >
                 3
               </div>
               <div className='text-muted-foreground'>Pelanggan Aktif</div>
             </div>
             <div
-              className={`p-6 hover:scale-105 transition-transform duration-300 ${styles['fade-in-up']} ${styles['delay-200']}`}
+              className={`p-6 hover:scale-105 transition-transform duration-300`}
             >
               <div
-                className={`text-4xl md:text-5xl font-bold text-primary mb-2 ${styles['count-up']} ${styles['delay-200']}`}
+                className={`text-4xl md:text-5xl font-bold text-primary mb-2`}
               >
                 1
               </div>
               <div className='text-muted-foreground'>Kota di Indonesia</div>
             </div>
             <div
-              className={`p-6 hover:scale-105 transition-transform duration-300 ${styles['fade-in-up']} ${styles['delay-300']}`}
+              className={`p-6 hover:scale-105 transition-transform duration-300`}
             >
               <div
-                className={`text-4xl md:text-5xl font-bold text-primary mb-2 ${styles['count-up']} ${styles['delay-300']}`}
+                className={`text-4xl md:text-5xl font-bold text-primary mb-2`}
               >
                 1
               </div>
@@ -92,7 +91,7 @@ export default function Page() {
       <div className='container mx-auto px-6 lg:px-12 py-12 md:py-16'>
         {/* Mission and Vision */}
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 ${styles['fade-in-up']} ${styles['delay-100']}`}
+          className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20`}
         >
           <div className='text-left hover:translate-y-[-5px] transition-transform duration-300'>
             <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4'>
@@ -120,49 +119,43 @@ export default function Page() {
         </div>
 
         {/* Our Values */}
-        <div className={`mb-20 ${styles['fade-in-up']} ${styles['delay-200']}`}>
+        <div className={`mb-20 `}>
           <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-12 text-center'>
             Nilai-Nilai Kami
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             <div
-              className={`bg-card p-8 rounded-xl shadow-sm border border-border text-center hover:shadow-lg transition-shadow duration-300 group ${styles.cardHover}`}
+              className={`bg-card p-8 rounded-xl shadow-sm border border-border text-center hover:shadow-lg transition-shadow duration-300`}
             >
-              <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300'>
+              <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Heart className='size-8 text-primary' />
               </div>
-              <h3 className='text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300'>
-                Penuh Empati
-              </h3>
-              <p className='text-muted-foreground group-hover:text-foreground transition-colors duration-300'>
+              <h3 className='text-xl font-bold mb-3'>Penuh Empati</h3>
+              <p className='text-muted-foreground'>
                 Kami memahami tantangan yang dihadapi pelaku UMKM dan berusaha
                 menjadi solusi terbaik untuk mereka.
               </p>
             </div>
             <div
-              className={`bg-card p-8 rounded-xl shadow-sm border border-border text-center hover:shadow-lg transition-shadow duration-300 group ${styles.cardHover}`}
+              className={`bg-card p-8 rounded-xl shadow-sm border border-border text-center hover:shadow-lg transition-shadow duration-300`}
             >
-              <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300'>
+              <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Globe className='size-8 text-primary' />
               </div>
-              <h3 className='text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300'>
-                Berorientasi Global
-              </h3>
-              <p className='text-muted-foreground group-hover:text-foreground transition-colors duration-300'>
+              <h3 className='text-xl font-bold mb-3'>Berorientasi Global</h3>
+              <p className='text-muted-foreground'>
                 Kami membantu UMKM lokal bersaing di pasar global dengan
                 memanfaatkan teknologi digital.
               </p>
             </div>
             <div
-              className={`bg-card p-8 rounded-xl shadow-sm border border-border text-center hover:shadow-lg transition-shadow duration-300 group ${styles.cardHover}`}
+              className={`bg-card p-8 rounded-xl shadow-sm border border-border text-center hover:shadow-lg transition-shadow duration-300`}
             >
-              <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300'>
+              <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Award className='size-8 text-primary' />
               </div>
-              <h3 className='text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300'>
-                Komitmen Kualitas
-              </h3>
-              <p className='text-muted-foreground group-hover:text-foreground transition-colors duration-300'>
+              <h3 className='text-xl font-bold mb-3'>Komitmen Kualitas</h3>
+              <p className='text-muted-foreground'>
                 Kami menjamin kualitas UMKM yang terdaftar di platform kami
                 melalui proses verifikasi yang ketat.
               </p>
@@ -171,7 +164,7 @@ export default function Page() {
         </div>
 
         {/* Our Team */}
-        <div className={`mb-20 ${styles['fade-in-up']} ${styles['delay-300']}`}>
+        <div className={`mb-20`}>
           <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4 text-center'>
             Tim Kami
           </h2>
@@ -196,22 +189,18 @@ export default function Page() {
             ].map((item) => (
               <div
                 key={item.name}
-                className={`text-center group hover:translate-y-[-10px] transition-transform duration-300 ${styles.cardHover}`}
+                className={`text-center group hover:translate-y-[-10px] transition-transform duration-300`}
               >
                 <div className='w-32 h-32 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
                   <Users className='size-12 text-muted-foreground' />
                 </div>
-                <h3 className='text-xl font-bold group-hover:text-primary transition-colors duration-300'>
-                  {item.name}
-                </h3>
+                <h3 className='text-xl font-bold'>{item.name}</h3>
                 <p className='text-muted-foreground'>{item.role}</p>
               </div>
             ))}
           </div>
         </div>
-        <div
-          className={`text-center ${styles['fade-in-up']} ${styles['delay-500']}`}
-        >
+        <div className={`text-center`}>
           <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4'>
             Bergabunglah dengan Gerakan Kami
           </h2>
