@@ -356,6 +356,19 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": false,
+    "promo": [
+      {
+        "id": 4,
+        "slug": "waroeng-seblak-dhero",
+        "name": "Seblak instan DHERO( siap kirim)",
+        "description": "untuk pembelian 30 pcs ada harga husus lochh..\nSeblak instan kuah dari Jawa Barat dengan bumbu cikur yang khas dan wangi bumbunya membuat ketagihan. 1kg bisa untuk 5pcs\n\nKomposisi :\n\n✨ Mie Kuning\n\n✨ Makaroni\n\n✨ Batagor\n\n✨ Siomay\n\n✨ Kerupuk\n\n✨ Gula\n\n✨ Bumbu Kencur\n\n✨ Bubuk Cabai",
+        "image": "/images/seblak-dhero/promo/promo-1.webp",
+        "date": "2025-10-27",
+        "rating": 4.5,
+        "status": true,
+        "review": 100
+      }
+    ],
     "priceRange": "Rp 8.000 - Rp 30.000",
     "products": [
       {

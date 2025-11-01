@@ -1,4 +1,6 @@
+'use client';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
 const partnerLogos = [
   '/logo.png',
@@ -9,7 +11,17 @@ const partnerLogos = [
   '/images/logo-steak-batmans.webp',
 ];
 
-const Marquee = () => {
+export default function Marquee() {
+  const marqueeRef = useRef(null);
+
+  useEffect(() => {
+    const container = marqueeRef.current;
+    if (!container) return;
+
+    const clone = container.innerHTML;
+    container.insertAdjacentHTML('beforeend', clone);
+  }, []);
+
   return (
     <section className='py-12 pb-16 overflow-hidden'>
       <div className='container mx-auto px-6 lg:px-12'>
@@ -17,43 +29,28 @@ const Marquee = () => {
           UMKM Yang Telah Bergabung
         </h2>
 
-        {/* Marquee Container */}
         <div className='relative overflow-hidden'>
-          {/* Gradient Overlays */}
           <div className='absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-primary to-transparent z-10'></div>
           <div className='absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-primary to-transparent z-10'></div>
 
-          {/* Marquee Track */}
-          <div className='flex animate-marquee whitespace-nowrap'>
-            {/* First Set */}
+          <div
+            ref={marqueeRef}
+            className='flex whitespace-nowrap animate-marquee'
+          >
             {partnerLogos.map((src, index) => (
               <div
-                key={`first-${index}`}
-                className='mx-4 md:mx-8 shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:scale-105'
+                key={index}
+                className='mx-4 md:mx-8 shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300'
               >
-                <Image
-                  src={src}
-                  alt={`Partner logo ${index + 1}`}
-                  width={200}
-                  height={100}
-                  className='w-32 h-16 md:w-40 md:h-20 object-contain'
-                />
-              </div>
-            ))}
-
-            {/* Duplicate Set for Seamless Loop */}
-            {partnerLogos.map((src, index) => (
-              <div
-                key={`second-${index}`}
-                className='mx-4 md:mx-8 shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:scale-105'
-              >
-                <Image
-                  src={src}
-                  alt={`Partner logo ${index + 1}`}
-                  width={200}
-                  height={100}
-                  className='w-32 h-16 md:w-40 md:h-20 object-contain'
-                />
+                <div className='flex items-center justify-center rounded-xl overflow-hidden'>
+                  <Image
+                    src={src}
+                    alt={`Partner logo ${index + 1}`}
+                    width={200}
+                    height={100}
+                    className='w-20 h-20 md:w-30 md:h-30 object-contain hover:scale-105 transition-transform duration-300'
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -61,6 +58,4 @@ const Marquee = () => {
       </div>
     </section>
   );
-};
-
-export default Marquee;
+}
