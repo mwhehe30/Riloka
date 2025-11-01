@@ -50,8 +50,8 @@ const PromoCard = ({ promo }) => {
             <ImageWithFallback
               src={promoData.image}
               alt={promoData.name}
-              width={500}
-              height={500}
+              fill
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
               className='absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105'
               priority={false}
             />

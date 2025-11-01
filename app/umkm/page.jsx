@@ -358,8 +358,8 @@ export default function Page() {
         <div className='bg-white rounded-2xl p-6 mb-8'>
           <div className='flex flex-col lg:flex-row gap-4'>
             {/* Search Input dengan Tombol */}
-            <div className='flex-1 relative'>
-              <div className='flex items-center gap-3 bg-muted/50 border border-border rounded-lg px-5 py-4 hover:shadow-md transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
+            <div className='flex-1 relative flex gap-3'>
+              <div className='flex flex-9 items-center gap-3 bg-muted/50 border border-border/80 rounded-lg px-5 py-4 hover:shadow-md transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
                 <Search className='w-5 h-5 text-muted-foreground' />
                 <input
                   type='text'
@@ -369,14 +369,14 @@ export default function Page() {
                   placeholder='Cari UMKM, menu, atau produk lokal...'
                   className='w-full bg-transparent outline-none placeholder-muted-foreground text-foreground'
                 />
-                <button
-                  onClick={handleSearchSubmit}
-                  className='px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition-all flex items-center gap-2 font-medium'
-                >
-                  <Search className='w-4 h-4' />
-                  Cari
-                </button>
               </div>
+              <button
+                onClick={handleSearchSubmit}
+                className='px-4 py-2 bg-primary flex-1 text-white hover:shadow-md rounded-lg hover:bg-primary-hover transition-all flex items-center gap-2 justify-center font-medium'
+              >
+                <Search className='w-4 h-4' />
+                Cari
+              </button>
             </div>
 
             {/* Filter Button untuk Mobile */}
@@ -396,30 +396,29 @@ export default function Page() {
               Filter Kategori
             </h3>
             <div className='flex flex-wrap gap-3'>
-              {categories.map((cat) => {
-                const IconComponent = cat.icon;
-                const isSelected = selectedCategories.includes(cat.name);
+              {categories.map(({ name, icon: Icon, color }) => {
+                const isSelected = selectedCategories.includes(name);
                 return (
                   <button
-                    key={cat.name}
-                    onClick={() => handleCategoryChange(cat.name)}
+                    key={name}
+                    onClick={() => handleCategoryChange(name)}
                     className={`group relative overflow-hidden px-5 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${
                       isSelected
-                        ? `${cat.color} text-white shadow-lg scale-105`
-                        : 'bg-white text-foreground border border-border hover:shadow-md hover:scale-105'
+                        ? `${color} text-white shadow-lg scale-105`
+                        : 'bg-white text-foreground border border-border hover:shadow-md'
                     }`}
                   >
-                    <IconComponent
+                    <Icon
                       className={`w-4 h-4 ${
                         isSelected ? 'text-white' : 'text-muted-foreground'
                       }`}
                     />
-                    <span className='capitalize'>{cat.name}</span>
+                    <span className='capitalize'>{name}</span>
 
                     {/* Hover effect */}
                     {!isSelected && (
                       <div
-                        className={`absolute inset-0 ${cat.color} opacity-0 group-hover:opacity-10 transition-opacity`}
+                        className={`absolute inset-0 ${color} opacity-0 group-hover:opacity-10 transition-opacity`}
                       />
                     )}
                   </button>
@@ -476,20 +475,22 @@ export default function Page() {
                   </button>
                 </span>
               )}
-              {selectedCategories.map((cat) => {
-                const categoryConfig = categories.find((c) => c.name === cat);
+              {selectedCategories.map((name) => {
+                const categoryConfig = categories.find(
+                  ({ name }) => name === name
+                );
                 return (
                   <span
-                    key={cat}
+                    key={name}
                     className={`px-3 py-1 rounded-full text-sm flex items-center gap-1 border ${
                       categoryConfig
                         ? `${categoryConfig.color} text-white border-transparent`
                         : 'bg-muted text-foreground border-border'
                     }`}
                   >
-                    {cat}
+                    {name}
                     <button
-                      onClick={() => handleCategoryChange(cat)}
+                      onClick={() => handleCategoryChange(name)}
                       className='ml-1 opacity-80 hover:opacity-100'
                     >
                       <X className='w-3 h-3' />

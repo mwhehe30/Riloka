@@ -182,6 +182,8 @@ export default function Page() {
           src={detailUmkm?.thumb}
           alt={detailUmkm?.name}
           fill
+          priority
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           className='object-cover'
         />
         <div className='absolute inset-0 bg-black/40 backdrop-blur-md flex flex-col gap-4 items-center justify-center p-4'>
@@ -334,7 +336,7 @@ export default function Page() {
                         className={`flex flex-1 items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium transition-all whitespace-nowrap min-w-0 border-b-2 ${
                           activeTab === id
                             ? 'text-white bg-primary border-primary'
-                            : 'text-gray-500 hover:text-gray-700 border-transparent hover:bg-gray-50'
+                            : 'text-gray-500 hover:text-primary border-transparent hover:bg-primary/10'
                         }`}
                       >
                         <Icon className='w-4 h-4 sm:w-5 sm:h-5 shrink-0' />
@@ -549,7 +551,7 @@ export default function Page() {
                   href={detailUmkm?.map?.link}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-4 rounded-xl transition-colors shadow-lg hover:shadow-xl'
+                  className='flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-4 rounded-xl transition-colors shadow-lg hover:shadow-xl'
                 >
                   <MapPin className='w-5 h-5' />
                   Buka di Google Maps
@@ -575,6 +577,7 @@ function GallerySection({ detailUmkm, activeImage, onImageClick }) {
           src={activeImage || detailUmkm?.images?.[0] || detailUmkm?.thumb}
           alt={detailUmkm?.name || 'Gallery Image'}
           fill
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           className='object-contain group-hover:scale-110 transition-transform duration-500'
           key={activeImage}
         />
@@ -599,6 +602,7 @@ function GallerySection({ detailUmkm, activeImage, onImageClick }) {
                 src={img}
                 alt={`${detailUmkm?.name} ${idx + 1}`}
                 fill
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 className='object-cover hover:scale-110 transition-transform duration-300'
               />
               {activeImage === img && (
