@@ -137,12 +137,16 @@
       {
         "id": 1,
         "name": "Budi",
-        "comment": "Ayam penyet nya pedas dan enak, porsi besar"
+        "comment": "Ayam penyet nya pedas dan enak, porsi besar",
+        "rating": 4,
+        "date": "2025-10-20"
       },
       {
         "id": 2,
         "name": "Dewi",
-        "comment": "Tempat nyaman, makanan tradisional yang autentik"
+        "comment": "Tempat nyaman, makanan tradisional yang autentik",
+        "rating": 5,
+        "date": "2025-10-20"
       }
     ],
     "rating": "4.4"

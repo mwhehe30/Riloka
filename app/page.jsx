@@ -7,12 +7,15 @@ import Marquee from '@/components/Marquee';
 import PageSkeleton from '@/components/PageSkeleton';
 import PromoCard from '@/components/PromoCard';
 import PromoCardSkeleton from '@/components/PromoCardSkeleton';
-import { getPromo, getUmkm } from '@/lib/api';
+import TestimonialSlider from '@/components/TestimonialSlider';
+import TestimonialSliderSkeleton from '@/components/TestimonialSliderSkeleton';
+import { getPromo, getTestimonials, getUmkm } from '@/lib/api';
 import {
   ArrowRight,
   Award,
   Coffee,
   Hammer,
+  Mail,
   Scissors,
   Search,
   Shirt,
@@ -27,7 +30,9 @@ import { useEffect, useState } from 'react';
 export default function Page() {
   const [promo, setPromo] = useState([]);
   const [umkm, setUmkm] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [testimonialLoading, setTestimonialLoading] = useState(true); // Loading state for testimonials
   const featuredUmkm = umkm.filter((i) => i.featured);
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();
@@ -47,6 +52,19 @@ export default function Page() {
       }
     }
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchTestimonials() {
+      setTestimonialLoading(true);
+      try {
+        const testimonialsData = await getTestimonials();
+        setTestimonials(testimonialsData);
+      } finally {
+        setTestimonialLoading(false);
+      }
+    }
+    fetchTestimonials();
   }, []);
 
   // Fungsi untuk handle pencarian
@@ -340,7 +358,28 @@ export default function Page() {
         <Marquee />
       </section>
       {/* testimonial */}
-      {/* <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'></section> */}
+      <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
+        <div className='flex justify-center items-center flex-col gap-4 mb-12'>
+          <div className='text-center'>
+            <div className='inline-flex items-center gap-2 bg-linear-to-r from-purple-500/10 to-indigo-500/10 text-purple-700 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+              <Mail className='size-4' />
+              Testimoni
+            </div>
+            <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-3'>
+              Apa Kata Mereka?
+            </h2>
+            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+              Pengalaman nyata dari pelanggan yang telah mendukung UMKM lokal
+            </p>
+          </div>
+        </div>
+
+        {testimonialLoading ? (
+          <TestimonialSliderSkeleton />
+        ) : (
+          <TestimonialSlider testimonials={testimonials} />
+        )}
+      </section>
 
       {/* cta */}
       <section className='bg-primary'>

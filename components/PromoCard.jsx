@@ -29,17 +29,17 @@ const PromoCard = ({ promo }) => {
   };
 
   // Data fallback
-  const promoData = {
-    id: promo.id || 0,
-    slug: promo.slug || 'unknown',
-    name: promo.name || 'Untitled Promo',
-    description: promo.description || 'Tidak ada deskripsi.',
-    image: promo.image || '/default-image.jpg',
-    date: promo.date || new Date().toISOString(),
-    status: promo.status || false,
-    rating: promo.rating || 0,
-    review: promo.review || 0,
-  };
+  // const promoData = {
+  //   id: promo.id || 0,
+  //   slug: promo.slug || 'unknown',
+  //   name: promo.name || 'Untitled Promo',
+  //   description: promo.description || 'Tidak ada deskripsi.',
+  //   image: promo.image || '/default-image.jpg',
+  //   date: promo.date || new Date().toISOString(),
+  //   status: promo.status || false,
+  //   rating: promo.rating || 0,
+  //   review: promo.review || 0,
+  // };
 
   return (
     <>
@@ -48,8 +48,8 @@ const PromoCard = ({ promo }) => {
         <div className='bg-white rounded-2xl shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full '>
           <div className='relative w-full pt-[100%] overflow-hidden'>
             <ImageWithFallback
-              src={promoData.image}
-              alt={promoData.name}
+              src={promo.image}
+              alt={promo.name}
               fill
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
               className='absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105'
@@ -61,7 +61,7 @@ const PromoCard = ({ promo }) => {
           </div>
           <div className='p-6 flex flex-col grow'>
             <h3 className='text-xl font-semibold text-gray-800 mb-2 truncate'>
-              {promoData.name}
+              {promo.name}
             </h3>
 
             {/* Rating Section */}
@@ -69,11 +69,11 @@ const PromoCard = ({ promo }) => {
               <div className='flex items-center gap-1'>
                 <StarIcon className='w-4 h-4 fill-amber-500 text-amber-500' />
                 <span className='text-sm font-semibold text-gray-800'>
-                  {promoData.rating}
+                  {promo.rating}
                 </span>
               </div>
               <span className='text-gray-500 text-sm'>
-                ({promoData.review} reviews)
+                ({promo.review} reviews)
               </span>
             </div>
 
@@ -81,7 +81,7 @@ const PromoCard = ({ promo }) => {
               <div className='flex items-center gap-2 text-gray-500 mb-4'>
                 <CalendarIcon className='w-5 h-5 text-amber-500' />
                 <span className='text-sm'>
-                  {new Date(promoData.date).toLocaleDateString('id-ID', {
+                  {new Date(promo.date).toLocaleDateString('id-ID', {
                     day: '2-digit',
                     month: 'long',
                     year: 'numeric',
@@ -103,25 +103,25 @@ const PromoCard = ({ promo }) => {
       {isModalOpen && (
         <div className='fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50 animate-fade-in'>
           <div
-            className='bg-white rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-y-auto shadow-2xl animate-scale-in scrollbar-none'
+            className='bg-white rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden shadow-2xl animate-scale-in flex flex-col'
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className='flex justify-between items-center p-6 border-b border-gray-200 sticky top-0 bg-white z-10'>
+            <div className='flex justify-between items-center p-6 border-b border-gray-200 sticky top-0 bg-white z-10 shrink-0'>
               <div className='flex-1 min-w-0'>
                 <h3 className='text-2xl font-bold text-green-800 truncate pr-4'>
-                  {promoData.name}
+                  {promo.name}
                 </h3>
                 {/* Rating in Header */}
                 <div className='flex items-center gap-2 mt-2'>
                   <div className='flex items-center gap-1'>
                     <StarIcon className='w-4 h-4 fill-amber-500 text-amber-500' />
                     <span className='text-sm font-semibold text-gray-800'>
-                      {promoData.rating}
+                      {promo.rating}
                     </span>
                   </div>
                   <span className='text-gray-500 text-sm'>
-                    ({promoData.review} reviews)
+                    ({promo.review} reviews)
                   </span>
                 </div>
               </div>
@@ -134,13 +134,14 @@ const PromoCard = ({ promo }) => {
               </button>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2'>
-              {/* Image Section - Diperbaiki agar gambar full */}
-              <div className='bg-gray-50 flex items-center justify-center p-4'>
-                <div className='relative w-full h-96 md:h-full'>
+            {/* Content Area - Flex container untuk gambar dan konten */}
+            <div className='flex flex-col lg:flex-row flex-1 overflow-hidden'>
+              {/* Image Section - Tetap statis, tidak bisa di-scroll */}
+              <div className='bg-gray-50 flex items-center justify-center p-4 lg:w-1/2 shrink-0'>
+                <div className='relative w-full h-64 md:h-80 lg:h-full'>
                   <ImageWithFallback
-                    src={promoData.image}
-                    alt={promoData.name}
+                    src={promo.image}
+                    alt={promo.name}
                     fill
                     className='object-contain rounded-lg'
                     sizes='(max-width: 1024px) 100vw, 50vw'
@@ -149,8 +150,8 @@ const PromoCard = ({ promo }) => {
                 </div>
               </div>
 
-              {/* Content Section */}
-              <div className='p-6 lg:p-8 flex flex-col gap-6'>
+              {/* Content Section - Bisa di-scroll */}
+              <div className='p-6 lg:p-8 flex flex-col gap-6 lg:w-1/2 overflow-y-auto scrollbar-none'>
                 {/* Details Grid */}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <div>
@@ -158,7 +159,7 @@ const PromoCard = ({ promo }) => {
                       Nama UMKM
                     </h4>
                     <p className='font-semibold text-gray-800 capitalize'>
-                      {promoData.slug?.replace(/-/g, ' ') || 'Tidak tersedia'}
+                      {promo.slug?.replace(/-/g, ' ') || 'Tidak tersedia'}
                     </p>
                   </div>
                   <div>
@@ -166,7 +167,7 @@ const PromoCard = ({ promo }) => {
                       Tanggal Promo
                     </h4>
                     <p className='font-semibold text-gray-800'>
-                      {new Date(promoData.date).toLocaleDateString('id-ID', {
+                      {new Date(promo.date).toLocaleDateString('id-ID', {
                         day: '2-digit',
                         month: 'long',
                         year: 'numeric',
@@ -180,10 +181,10 @@ const PromoCard = ({ promo }) => {
                     <div className='flex items-center gap-2'>
                       <StarIcon className='w-4 h-4 fill-amber-500 text-amber-500' />
                       <span className='font-semibold text-gray-800'>
-                        {promoData.rating}
+                        {promo.rating}
                       </span>
                       <span className='text-gray-500 text-sm'>
-                        ({promoData.review})
+                        ({promo.review})
                       </span>
                     </div>
                   </div>
@@ -193,12 +194,12 @@ const PromoCard = ({ promo }) => {
                     </h4>
                     <span
                       className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
-                        promoData.status
+                        promo.status
                           ? 'bg-green-100 text-green-800'
                           : 'bg-red-100 text-red-800'
                       }`}
                     >
-                      {promoData.status ? 'Aktif' : 'Tidak Aktif'}
+                      {promo.status ? 'Aktif' : 'Tidak Aktif'}
                     </span>
                   </div>
                 </div>
@@ -209,7 +210,7 @@ const PromoCard = ({ promo }) => {
                     Deskripsi Promo
                   </h4>
                   <div className='text-gray-700 leading-relaxed whitespace-pre-line'>
-                    {promoData.description}
+                    {promo.description}
                   </div>
                 </div>
 
@@ -228,8 +229,8 @@ const PromoCard = ({ promo }) => {
                     <div className='flex items-start gap-3'>
                       <div className='w-2 h-2 bg-amber-500 rounded-full mt-2 shrink-0'></div>
                       <p className='text-gray-700'>
-                        Dapatkan pengalaman terbaik dengan rating{' '}
-                        {promoData.rating} dari {promoData.review} review
+                        Dapatkan pengalaman terbaik dengan rating {promo.rating}{' '}
+                        dari {promo.review} review
                       </p>
                     </div>
                     <div className='flex items-start gap-3'>

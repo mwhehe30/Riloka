@@ -449,26 +449,44 @@ export default function Page() {
                       Ulasan Pelanggan
                     </h2>
                     <div className='space-y-4'>
-                      {detailUmkm?.reviews?.map(({ id, name, comment }) => (
-                        <div
-                          key={id}
-                          className='rounded-xl p-6 border border-surface hover:border-primary/40 transition-colors'
-                        >
-                          <div className='flex items-start gap-4'>
-                            <div className='shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-primary to-primary/70 rounded-full flex items-center justify-center'>
-                              <User className='w-5 h-5 sm:w-6 sm:h-6 text-white' />
-                            </div>
-                            <div>
-                              <h4 className='font-bold text-gray-900'>
-                                {name}
-                              </h4>
-                              <p className='text-gray-600 leading-relaxed text-sm sm:text-base'>
-                                {comment}
-                              </p>
+                      {detailUmkm?.reviews?.map(
+                        ({ id, name, comment, date, rating }) => (
+                          <div
+                            key={id}
+                            className='rounded-xl p-6 border border-surface hover:border-primary/40 transition-colors'
+                          >
+                            <div className='flex items-start gap-4'>
+                              <div className='shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-primary to-primary/70 rounded-full flex items-center justify-center'>
+                                <User className='w-5 h-5 sm:w-6 sm:h-6 text-white' />
+                              </div>
+                              <div className='w-full'>
+                                <div className='flex items-center justify-between'>
+                                  <h4 className='font-bold text-gray-900'>
+                                    {name}
+                                  </h4>
+                                  <p className='text-gray-600'>
+                                    {new Date(date).toLocaleDateString(
+                                      'id-ID',
+                                      {
+                                        day: '2-digit',
+                                        month: 'short',
+                                        year: 'numeric',
+                                      }
+                                    )}
+                                  </p>
+                                </div>
+                                <p className='flex items-center gap-2 text-amber-400'>
+                                  <Star className='size-5 fill-amber-400' />
+                                  {rating}
+                                </p>
+                                <p className='text-gray-600 leading-relaxed text-sm sm:text-base'>
+                                  {comment}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      )}
                     </div>
                   </div>
                 )}

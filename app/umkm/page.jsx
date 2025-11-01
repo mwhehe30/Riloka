@@ -359,7 +359,7 @@ export default function Page() {
           <div className='flex flex-col lg:flex-row gap-4'>
             {/* Search Input dengan Tombol */}
             <div className='flex-1 relative flex gap-3'>
-              <div className='flex flex-9 items-center gap-3 bg-muted/50 border border-border/80 rounded-lg px-5 py-4 hover:shadow-md transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
+              <div className='flex flex-9 items-center gap-3 bg-muted/50 border border-border/80 rounded-lg px-5 py-4 shadow-lg transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
                 <Search className='w-5 h-5 text-muted-foreground' />
                 <input
                   type='text'
@@ -372,7 +372,7 @@ export default function Page() {
               </div>
               <button
                 onClick={handleSearchSubmit}
-                className='px-4 py-2 bg-primary flex-1 text-white hover:shadow-md rounded-lg hover:bg-primary-hover transition-all flex items-center gap-2 justify-center font-medium'
+                className='px-4 py-2 bg-primary flex-1 text-white shadow-lg rounded-lg hover:bg-primary-hover transition-all flex items-center gap-2 justify-center font-medium'
               >
                 <Search className='w-4 h-4' />
                 Cari

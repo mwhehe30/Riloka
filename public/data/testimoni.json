@@ -1,23 +1,44 @@
 [
   {
     "id": 1,
-    "name": "John Doe",
+    "name": "Ahmad Saputra",
     "rating": 5,
-    "review": "Saya sangat senang dengan UMKM ini. Makanan enak dan harga terjangkau.",
-    "date": "2023-01-01"
+    "review": "Luar biasa! Saya menemukan UMKM kuliner yang luar biasa melalui platform ini. Pemiliknya ramah dan makanannya sangat lezat. Harga terjangkau dengan kualitas terbaik!",
+    "date": "2024-02-15"
   },
   {
     "id": 2,
-    "name": "John Doe",
+    "name": "Siti Nurhaliza",
     "rating": 5,
-    "review": "Saya sangat senang dengan UMKM ini. Makanan enak dan harga terjangkau.",
-    "date": "2023-01-01"
+    "review": "Kualitas produk UMKM lokal di sini benar-benar mengagumkan. Saya telah membeli beberapa produk kerajinan tangan yang sangat bagus dan unik. Dukungan pelanggan juga sangat responsif.",
+    "date": "2024-03-10"
   },
   {
     "id": 3,
-    "name": "John Doe",
+    "name": "Budi Santoso",
+    "rating": 4,
+    "review": "Pengalaman belanja yang menyenangkan. Banyak pilihan UMKM yang bisa saya jelajahi dari rumah. Hanya sedikit kecewa dengan waktu pengiriman, tapi produknya tetap bagus.",
+    "date": "2024-01-22"
+  },
+  {
+    "id": 4,
+    "name": "Dewi Anggraini",
     "rating": 5,
-    "review": "Saya sangat senang dengan UMKM ini. Makanan enak dan harga terjangkau.",
-    "date": "2023-01-01"
+    "review": "Platform ini benar-benar membantu saya menemukan jasa servis elektronik terdekat. Pekerjaannya rapi, harga wajar, dan lokasinya mudah dijangkau. Terima kasih Riloka!",
+    "date": "2024-04-05"
+  },
+  {
+    "id": 5,
+    "name": "Rizki Pratama",
+    "rating": 5,
+    "review": "Sebagai pelaku UMKM, saya merasa sangat terbantu dengan adanya platform ini. Banyak pelanggan baru yang datang setelah produk saya terdaftar di Riloka. Ini solusi terbaik untuk UMKM lokal!",
+    "date": "2024-05-18"
+  },
+  {
+    "id": 6,
+    "name": "Maya Lestari",
+    "rating": 4,
+    "review": "Saya menemukan toko pakaian lokal yang menjual baju-baju unik dengan desain yang tidak pasaran. Kualitasnya bagus dan harganya bersaing. Terima kasih telah mendukung kreator lokal!",
+    "date": "2024-06-30"
   }
 ]

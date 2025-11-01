@@ -75,7 +75,7 @@ export default function NavBar() {
 
                 {/* Animated underline */}
                 <span
-                  className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-[3px] rounded-full bg-linear-to-r from-primary to-accent transform transition-all duration-300 ${
+                  className={`absolute left-1/2 -translate-x-1/2 bottom-0 h-[3px] rounded-full bg-linear-to-r from-primary to-accent transform transition-all duration-300 ${
                     isActive(href)
                       ? 'w-8 opacity-100'
                       : 'w-0 opacity-0 group-hover:w-8 group-hover:opacity-100'
