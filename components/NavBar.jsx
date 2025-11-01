@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 export default function NavBar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -42,10 +42,10 @@ export default function NavBar() {
         <Link href='/' className='flex items-center gap-3 group relative'>
           <div className='relative'>
             {/* Glow effect on hover */}
-            <div className='absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+            <div className='absolute inset-0 bg-linear-to-r from-primary/20 to-accent/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
 
             <div className='relative'>
-              <h1 className='text-2xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300'>
+              <h1 className='text-2xl font-bold tracking-tight bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300'>
                 Riloka
               </h1>
               <p className='text-sm text-muted-foreground font-medium leading-tight group-hover:text-muted-foreground/80 transition-colors'>
@@ -68,14 +68,14 @@ export default function NavBar() {
                 }`}
               >
                 {/* Background hover effect */}
-                <span className='absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
+                <span className='absolute inset-0 bg-linear-to-r from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
 
                 {/* Text */}
                 <span className='relative z-10'>{name}</span>
 
                 {/* Animated underline */}
                 <span
-                  className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-[3px] rounded-full bg-gradient-to-r from-primary to-accent transform transition-all duration-300 ${
+                  className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-[3px] rounded-full bg-linear-to-r from-primary to-accent transform transition-all duration-300 ${
                     isActive(href)
                       ? 'w-8 opacity-100'
                       : 'w-0 opacity-0 group-hover:w-8 group-hover:opacity-100'
@@ -92,7 +92,7 @@ export default function NavBar() {
           className='md:hidden relative p-2.5 rounded-xl hover:bg-black/5 active:scale-95 transition-all duration-200 group'
           aria-label='Toggle navigation menu'
         >
-          <div className='absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+          <div className='absolute inset-0 bg-linear-to-r from-primary/10 to-accent/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
           {open ? (
             <X className='size-6 relative z-10 transition-transform duration-300 rotate-0 group-hover:rotate-90' />
           ) : (
@@ -121,7 +121,7 @@ export default function NavBar() {
                   onClick={() => setOpen(false)}
                   className={`flex items-center justify-between px-5 py-3.5 rounded-xl font-semibold text-lg transition-all duration-300 group ${
                     isActive(href)
-                      ? 'text-black bg-gradient-to-r from-primary/5 to-accent/5'
+                      ? 'text-black bg-linear-to-r from-primary/5 to-accent/5'
                       : 'text-muted-foreground hover:text-black hover:bg-black/5'
                   }`}
                 >

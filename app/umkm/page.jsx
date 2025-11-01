@@ -18,8 +18,8 @@ import {
   Utensils,
   X,
 } from 'lucide-react';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export default function Page() {
   const [allUMKM, setAllUMKM] = useState([]);
@@ -27,18 +27,39 @@ export default function Page() {
   const [search, setSearch] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
 
   const searchParams = useSearchParams();
-  const [searchParamValue, setSearchParamValue] = useState('');
-  const [categoryParamValue, setCategoryParamValue] = useState('');
+  const router = useRouter();
 
+  // State untuk menangani input search sementara
+  const [tempSearch, setTempSearch] = useState('');
+
+  // Gunakan ref untuk menghindari dependencies yang berubah
+  const searchRef = useRef('');
+  const selectedCategoriesRef = useRef([]);
+
+  // Update ref ketika state berubah
   useEffect(() => {
-    setSearchParamValue(searchParams.get('search') || '');
-    setCategoryParamValue(searchParams.get('category') || '');
+    searchRef.current = search;
+    selectedCategoriesRef.current = selectedCategories;
+  }, [search, selectedCategories]);
+
+  // Initialize dari URL parameters
+  useEffect(() => {
+    const searchFromUrl = searchParams.get('search') || '';
+    const categoryFromUrl = searchParams.get('category') || '';
+
+    setSearch(searchFromUrl);
+    setTempSearch(searchFromUrl);
+
+    if (categoryFromUrl) {
+      const categories = categoryFromUrl.toLowerCase().split(',');
+      setSelectedCategories(categories);
+    }
   }, [searchParams]);
 
   const categories = [
@@ -74,44 +95,6 @@ export default function Page() {
     },
   ];
 
-  // useEffect untuk load data
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true); // Set loading to true when starting to fetch
-      try {
-        const data = await getUmkm();
-        setAllUMKM(data);
-        const initialItems = data.slice(0, itemsPerPage);
-        setDisplayedUMKM(initialItems);
-      } finally {
-        setIsLoading(false); // Set loading to false when fetch completes
-      }
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (categoryParamValue && allUMKM.length > 0) {
-      const categoryLower = categoryParamValue.toLowerCase();
-      setSelectedCategories([categoryLower]);
-      handleSearchWithPagination(search, [categoryLower]);
-      setCurrentPage(1);
-    }
-  }, [categoryParamValue, allUMKM]);
-
-  useEffect(() => {
-    if (searchParamValue && allUMKM.length > 0) {
-      setSearch(searchParamValue);
-      handleSearchWithPagination(searchParamValue, []);
-    }
-  }, [searchParamValue, allUMKM]);
-
-  useEffect(() => {
-    if (allUMKM.length > 0) {
-      updateDisplayedUMKM();
-    }
-  }, [currentPage, allUMKM]);
-
   const sanitizeCategories = (item) => {
     if (Array.isArray(item.category)) {
       return item.category.map((c) => c.toLowerCase());
@@ -119,58 +102,132 @@ export default function Page() {
     return [String(item.category || '').toLowerCase()];
   };
 
-  const filterData = (
-    searchValue = search,
-    categoriesValue = selectedCategories
-  ) => {
-    let result = allUMKM;
+  // Fungsi untuk update URL dengan search params
+  const updateURLParams = useCallback(
+    (newSearch, newCategories) => {
+      const params = new URLSearchParams();
 
-    const lowerSearch = searchValue.toLowerCase();
+      if (newSearch) {
+        params.set('search', newSearch);
+      }
 
-    if (lowerSearch.trim() !== '') {
-      result = result.filter((item) => {
-        const nameMatch = item.name?.toLowerCase().includes(lowerSearch);
-        const descMatch = item.description?.toLowerCase().includes(lowerSearch);
+      if (newCategories.length > 0) {
+        params.set('category', newCategories.join(','));
+      }
 
-        const menuMatch = Array.isArray(item.products)
-          ? item.products.some((product) =>
-              product.name?.toLowerCase().includes(lowerSearch)
-            )
-          : false;
+      const newUrl = params.toString() ? `?${params.toString()}` : '/umkm';
+      router.push(newUrl, { scroll: false });
+    },
+    [router]
+  );
 
-        return nameMatch || descMatch || menuMatch;
-      });
-    }
+  // Fungsi filterData tanpa dependencies yang problematic
+  const filterData = useCallback(
+    (
+      searchValue = searchRef.current,
+      categoriesValue = selectedCategoriesRef.current
+    ) => {
+      let result = allUMKM;
 
-    if (categoriesValue.length > 0) {
-      result = result.filter((item) => {
-        const itemCategories = sanitizeCategories(item);
-        return itemCategories.some((cat) => categoriesValue.includes(cat));
-      });
-    }
+      const lowerSearch = searchValue.toLowerCase();
 
-    return result;
-  };
+      if (lowerSearch.trim() !== '') {
+        result = result.filter((item) => {
+          const nameMatch = item.name?.toLowerCase().includes(lowerSearch);
+          const descMatch = item.description
+            ?.toLowerCase()
+            .includes(lowerSearch);
 
-  const updateDisplayedUMKM = () => {
+          const menuMatch = Array.isArray(item.products)
+            ? item.products.some((product) =>
+                product.name?.toLowerCase().includes(lowerSearch)
+              )
+            : false;
+
+          return nameMatch || descMatch || menuMatch;
+        });
+      }
+
+      if (categoriesValue.length > 0) {
+        result = result.filter((item) => {
+          const itemCategories = sanitizeCategories(item);
+          return itemCategories.some((cat) => categoriesValue.includes(cat));
+        });
+      }
+
+      return result;
+    },
+    [allUMKM]
+  );
+
+  const updateDisplayedUMKM = useCallback(() => {
     const filteredData = filterData();
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
     setDisplayedUMKM(currentItems);
-  };
+  }, [filterData, currentPage, itemsPerPage]);
 
-  const handleSearchWithPagination = (searchValue, categoriesValue) => {
+  const handleSearchWithPagination = useCallback(
+    (searchValue, categoriesValue) => {
+      setCurrentPage(1);
+      const filteredData = filterData(searchValue, categoriesValue);
+      const currentItems = filteredData.slice(0, itemsPerPage);
+      setDisplayedUMKM(currentItems);
+    },
+    [filterData, itemsPerPage]
+  );
+
+  // useEffect untuk load data
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const data = await getUmkm();
+        setAllUMKM(data);
+
+        // Setelah data loaded, apply filters dari URL
+        if (search || selectedCategories.length > 0) {
+          handleSearchWithPagination(search, selectedCategories);
+        } else {
+          const initialItems = data.slice(0, itemsPerPage);
+          setDisplayedUMKM(initialItems);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [itemsPerPage]);
+
+  useEffect(() => {
+    if (allUMKM.length > 0) {
+      updateDisplayedUMKM();
+    }
+  }, [currentPage, allUMKM, updateDisplayedUMKM]);
+
+  // Fungsi untuk handle search dengan tombol
+  const handleSearchSubmit = () => {
+    setSearch(tempSearch);
     setCurrentPage(1);
-    const filteredData = filterData(searchValue, categoriesValue);
-    const currentItems = filteredData.slice(0, itemsPerPage);
-    setDisplayedUMKM(currentItems);
+
+    // Update URL
+    updateURLParams(tempSearch, selectedCategories);
+
+    // Apply filter
+    handleSearchWithPagination(tempSearch, selectedCategories);
   };
 
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setSearch(value);
-    handleSearchWithPagination(value, selectedCategories);
+  // Fungsi untuk handle input change (hanya update temp search)
+  const handleTempSearchChange = (e) => {
+    setTempSearch(e.target.value);
+  };
+
+  // Fungsi untuk handle enter key di input search
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchSubmit();
+    }
   };
 
   const handleCategoryChange = (category) => {
@@ -181,23 +238,25 @@ export default function Page() {
       updated.push(category);
     }
     setSelectedCategories(updated);
+
+    // Update URL dan apply filter
+    updateURLParams(search, updated);
     handleSearchWithPagination(search, updated);
   };
 
   const resetFilters = () => {
     setSearch('');
+    setTempSearch('');
     setSelectedCategories([]);
     setCurrentPage(1);
     setIsFilterOpen(false);
 
+    // Reset URL
+    router.push('/umkm', { scroll: false });
+
+    // Reset ke data awal
     const initialItems = allUMKM.slice(0, itemsPerPage);
     setDisplayedUMKM(initialItems);
-
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location);
-      url.searchParams.delete('search');
-      window.history.replaceState({}, '', url);
-    }
   };
 
   const paginate = (pageNumber) => {
@@ -268,7 +327,7 @@ export default function Page() {
   return (
     <section className='min-h-screen bg-white'>
       {/* Header Section */}
-      <div className='bg-gradient-to-br from-primary via-primary/90 to-accent pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden'>
+      <div className='bg-linear-to-br from-primary via-primary/90 to-accent pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden'>
         {/* Background Pattern */}
         <div className='absolute inset-0 opacity-10'>
           <div className='absolute top-10 left-10 w-20 h-20 bg-white rounded-full'></div>
@@ -291,25 +350,32 @@ export default function Page() {
             </span>{' '}
             dari pelaku UMKM terbaik di sekitarmu
           </p>
-
-          {/* Stats Cards */}
         </div>
       </div>
+
       {/* Search & Filter Section */}
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10'>
         <div className='bg-white rounded-2xl p-6 mb-8'>
           <div className='flex flex-col lg:flex-row gap-4'>
-            {/* Search Input */}
+            {/* Search Input dengan Tombol */}
             <div className='flex-1 relative'>
               <div className='flex items-center gap-3 bg-muted/50 border border-border rounded-lg px-5 py-4 hover:shadow-md transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
                 <Search className='w-5 h-5 text-muted-foreground' />
                 <input
                   type='text'
-                  value={search}
-                  onChange={handleSearch}
+                  value={tempSearch}
+                  onChange={handleTempSearchChange}
+                  onKeyPress={handleKeyPress}
                   placeholder='Cari UMKM, menu, atau produk lokal...'
                   className='w-full bg-transparent outline-none placeholder-muted-foreground text-foreground'
                 />
+                <button
+                  onClick={handleSearchSubmit}
+                  className='px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition-all flex items-center gap-2 font-medium'
+                >
+                  <Search className='w-4 h-4' />
+                  Cari
+                </button>
               </div>
             </div>
 
@@ -398,7 +464,12 @@ export default function Page() {
                 <span className='px-3 py-1 bg-primary/10 text-primary rounded-full text-sm flex items-center gap-1 border border-primary/20'>
                   "{search}"
                   <button
-                    onClick={() => setSearch('')}
+                    onClick={() => {
+                      setSearch('');
+                      setTempSearch('');
+                      updateURLParams('', selectedCategories);
+                      handleSearchWithPagination('', selectedCategories);
+                    }}
                     className='ml-1 hover:text-primary-hover'
                   >
                     <X className='w-3 h-3' />
@@ -431,47 +502,8 @@ export default function Page() {
         </div>
 
         {/* Card Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
-          {isLoading ? (
-            // Show skeleton cards while loading
-            [...Array(6)].map((_, index) => (
-              <div key={index} className='animate-pulse'>
-                <div className='flex flex-col overflow-hidden border border-surface bg-white shadow-lg shadow-black/5 h-full rounded-2xl'>
-                  <div className='relative overflow-hidden aspect-video'>
-                    <div className="w-full h-full bg-muted rounded-md" />
-                  </div>
-                  <div className='flex flex-col flex-1 p-6 space-y-4'>
-                    <div className='h-4 w-3/4 bg-muted rounded' />
-                    <div className='flex justify-between items-center'>
-                      <div className='h-4 w-1/4 bg-muted rounded' />
-                      <div className='h-4 w-1/3 bg-muted rounded' />
-                    </div>
-                    <div className='mt-auto flex flex-col sm:flex-row items-start gap-4 sm:items-center justify-between pt-3 border-t border-surface'>
-                      <div className='h-4 w-1/3 bg-muted rounded' />
-                      <div className='h-4 w-1/4 bg-muted rounded' />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            displayedUMKM.map((item, index) => (
-              <div
-                key={item.id}
-                className='animate-slideIn'
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                  animationFillMode: 'both',
-                }}
-              >
-                <Card umkm={item} />
-              </div>
-            ))
-          )}
-        </div>
-
-        {/* Empty State */}
-        {filteredUMKM.length === 0 && (
+        {!isLoading && displayedUMKM.length === 0 ? (
+          /* Empty State - TAMPIL ketika TIDAK loading dan TIDAK ada UMKM */
           <div className='text-center py-16'>
             <div className='max-w-md mx-auto'>
               <div className='w-20 h-20 mx-auto mb-4 bg-muted rounded-full flex items-center justify-center'>
@@ -492,73 +524,113 @@ export default function Page() {
               </button>
             </div>
           </div>
-        )}
-
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className='flex flex-col sm:flex-row items-center justify-between gap-6 mb-12'>
-            <div className='text-muted-foreground font-medium'>
-              Menampilkan{' '}
-              <span className='text-primary font-bold'>
-                {Math.min(
-                  (currentPage - 1) * itemsPerPage + 1,
-                  filteredUMKM.length
-                )}
-              </span>
-              -
-              <span className='text-primary font-bold'>
-                {Math.min(currentPage * itemsPerPage, filteredUMKM.length)}
-              </span>{' '}
-              dari{' '}
-              <span className='text-primary font-bold'>
-                {filteredUMKM.length}
-              </span>{' '}
-              UMKM
+        ) : (
+          /* Card Grid - TAMPIL ketika loading ATAU ada UMKM */
+          <>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
+              {isLoading
+                ? // Show skeleton cards while loading
+                  [...Array(6)].map((_, index) => (
+                    <div key={index} className='animate-pulse'>
+                      <div className='flex flex-col overflow-hidden border border-surface bg-white shadow-lg shadow-black/5 h-full rounded-2xl'>
+                        <div className='relative overflow-hidden aspect-video'>
+                          <div className='w-full h-full bg-muted rounded-md' />
+                        </div>
+                        <div className='flex flex-col flex-1 p-6 space-y-4'>
+                          <div className='h-4 w-3/4 bg-muted rounded' />
+                          <div className='flex justify-between items-center'>
+                            <div className='h-4 w-1/4 bg-muted rounded' />
+                            <div className='h-4 w-1/3 bg-muted rounded' />
+                          </div>
+                          <div className='mt-auto flex flex-col sm:flex-row items-start gap-4 sm:items-center justify-between pt-3 border-t border-surface'>
+                            <div className='h-4 w-1/3 bg-muted rounded' />
+                            <div className='h-4 w-1/4 bg-muted rounded' />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                : displayedUMKM.map((item, index) => (
+                    <div
+                      key={item.id}
+                      className='animate-slideIn'
+                      style={{
+                        animationDelay: `${index * 100}ms`,
+                        animationFillMode: 'both',
+                      }}
+                    >
+                      <Card umkm={item} />
+                    </div>
+                  ))}
             </div>
 
-            <div className='flex items-center gap-2'>
-              {/* Previous Button */}
-              <button
-                onClick={prevPage}
-                disabled={currentPage === 1}
-                className={`p-3 rounded-lg border-2 font-semibold transition-all ${
-                  currentPage === 1
-                    ? 'text-muted-foreground border-border cursor-not-allowed'
-                    : 'text-foreground border-border hover:bg-primary hover:text-white hover:border-primary transform hover:scale-105'
-                }`}
-              >
-                <ChevronLeft className='w-5 h-5' />
-              </button>
+            {/* Pagination - HANYA tampil ketika ada UMKM dan totalPages > 1 */}
+            {!isLoading && totalPages > 1 && (
+              <div className='flex flex-col sm:flex-row items-center justify-between gap-6 mb-12'>
+                <div className='text-muted-foreground font-medium'>
+                  Menampilkan{' '}
+                  <span className='text-primary font-bold'>
+                    {Math.min(
+                      (currentPage - 1) * itemsPerPage + 1,
+                      filteredUMKM.length
+                    )}
+                  </span>
+                  -
+                  <span className='text-primary font-bold'>
+                    {Math.min(currentPage * itemsPerPage, filteredUMKM.length)}
+                  </span>{' '}
+                  dari{' '}
+                  <span className='text-primary font-bold'>
+                    {filteredUMKM.length}
+                  </span>{' '}
+                  UMKM
+                </div>
 
-              {/* Page Numbers */}
-              {getPageNumbers().map((number) => (
-                <button
-                  key={number}
-                  onClick={() => paginate(number)}
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg border-2 text-sm font-bold transition-all ${
-                    currentPage === number
-                      ? 'bg-primary text-white border-primary shadow-lg'
-                      : 'border-border text-foreground hover:bg-primary hover:text-white hover:border-primary'
-                  }`}
-                >
-                  {number}
-                </button>
-              ))}
+                <div className='flex items-center gap-2'>
+                  {/* Previous Button */}
+                  <button
+                    onClick={prevPage}
+                    disabled={currentPage === 1}
+                    className={`p-3 rounded-lg border-2 font-semibold transition-all ${
+                      currentPage === 1
+                        ? 'text-muted-foreground border-border cursor-not-allowed'
+                        : 'text-foreground border-border hover:bg-primary hover:text-white hover:border-primary transform hover:scale-105'
+                    }`}
+                  >
+                    <ChevronLeft className='w-5 h-5' />
+                  </button>
 
-              {/* Next Button */}
-              <button
-                onClick={nextPage}
-                disabled={currentPage === totalPages}
-                className={`p-3 rounded-lg border-2 font-semibold transition-all ${
-                  currentPage === totalPages
-                    ? 'text-muted-foreground border-border cursor-not-allowed'
-                    : 'text-foreground border-border hover:bg-primary hover:text-white hover:border-primary transform hover:scale-105'
-                }`}
-              >
-                <ChevronRight className='w-5 h-5' />
-              </button>
-            </div>
-          </div>
+                  {/* Page Numbers */}
+                  {getPageNumbers().map((number) => (
+                    <button
+                      key={number}
+                      onClick={() => paginate(number)}
+                      className={`w-10 h-10 flex items-center justify-center rounded-lg border-2 text-sm font-bold transition-all ${
+                        currentPage === number
+                          ? 'bg-primary text-white border-primary shadow-lg'
+                          : 'border-border text-foreground hover:bg-primary hover:text-white hover:border-primary'
+                      }`}
+                    >
+                      {number}
+                    </button>
+                  ))}
+
+                  {/* Next Button */}
+                  <button
+                    onClick={nextPage}
+                    disabled={currentPage === totalPages}
+                    className={`p-3 rounded-lg border-2 font-semibold transition-all ${
+                      currentPage === totalPages
+                        ? 'text-muted-foreground border-border cursor-not-allowed'
+                        : 'text-foreground border-border hover:bg-primary hover:text-white hover:border-primary transform hover:scale-105'
+                    }`}
+                  >
+                    <ChevronRight className='w-5 h-5' />
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

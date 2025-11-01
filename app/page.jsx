@@ -134,7 +134,7 @@ export default function Page() {
           </div>
 
           <h1 className='text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 leading-tight font-montserrat'>
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent'>
+            <span className='text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent'>
               Riloka
             </span>{' '}
             — Jelajahi Dunia UMKM Lokal
@@ -151,7 +151,7 @@ export default function Page() {
           >
             {/* <div className='absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl' /> */}
             <div className='relative flex items-center gap-3 bg-white/90 border border-muted-foreground rounded-full px-6 py-4 shadow-lg hover:shadow-xl transition-shadow'>
-              <Search className='size-5 text-muted-foreground flex-shrink-0' />
+              <Search className='size-5 text-muted-foreground shrink-0' />
               <input
                 type='text'
                 value={searchValue}
@@ -201,7 +201,7 @@ export default function Page() {
               >
                 {/* Background gradient effect on hover */}
                 <div
-                  className='absolute inset-0 rounded-2xl bg-gradient-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
+                  className='absolute inset-0 rounded-2xl bg-linear-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
                   style={{
                     background: `linear-gradient(135deg, ${category.color}15 0%, white 100%)`,
                   }}
@@ -250,7 +250,7 @@ export default function Page() {
         <div className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
           <div className='flex justify-center items-center flex-col gap-4'>
             <div className='text-center mb-8'>
-              <div className='inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 text-yellow-700 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+              <div className='inline-flex items-center gap-2 bg-linear-to-r from-yellow-500/10 to-orange-500/10 text-yellow-700 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
                 <Award className='size-4' />
                 Pilihan Terbaik
               </div>
@@ -300,7 +300,7 @@ export default function Page() {
       <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
         <div className='flex justify-center items-center flex-col gap-4'>
           <div className='text-center mb-8'>
-            <div className='inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-pink-500/10 text-red-600 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
+            <div className='inline-flex items-center gap-2 bg-linear-to-r from-red-500/10 to-pink-500/10 text-red-600 px-4 py-2 rounded-full mb-4 font-medium text-sm'>
               <Sparkles className='size-4' />
               Penawaran Spesial
             </div>

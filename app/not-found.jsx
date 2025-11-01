@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, Search, ArrowLeft, MapPin } from 'lucide-react';
+import { ArrowLeft, Home, MapPin, Search } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -8,7 +8,7 @@ export default function NotFound() {
   const router = useRouter();
 
   return (
-    <section className='min-h-screen bg-gradient-to-br from-primary/5 via-white to-orange-50 flex items-center justify-center px-4 py-16'>
+    <section className='min-h-screen bg-linear-to-br from-primary/5 via-white to-orange-50 flex items-center justify-center px-4 py-16'>
       <div className='container mx-auto max-w-4xl'>
         <div className='text-center space-y-8'>
           {/* Illustration Area */}
@@ -19,7 +19,7 @@ export default function NotFound() {
                 404
               </h1>
               <div className='absolute inset-0 flex items-center justify-center'>
-                <div className='w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center shadow-2xl animate-pulse'>
+                <div className='w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-linear-to-br from-primary to-primary/70 rounded-full flex items-center justify-center shadow-2xl animate-pulse'>
                   <MapPin className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 text-white' />
                 </div>
               </div>
@@ -49,7 +49,7 @@ export default function NotFound() {
 
             <Link
               href='/'
-              className='group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto'
+              className='group inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto'
             >
               <Home className='w-5 h-5' />
               <span>Halaman Utama</span>
@@ -57,7 +57,7 @@ export default function NotFound() {
 
             <Link
               href='/umkm'
-              className='group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto'
+              className='group inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto'
             >
               <Search className='w-5 h-5' />
               <span>Jelajahi UMKM</span>

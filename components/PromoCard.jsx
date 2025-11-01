@@ -59,7 +59,7 @@ const PromoCard = ({ promo }) => {
               Promo
             </span>
           </div>
-          <div className='p-6 flex flex-col flex-grow'>
+          <div className='p-6 flex flex-col grow'>
             <h3 className='text-xl font-semibold text-gray-800 mb-2 truncate'>
               {promoData.name}
             </h3>
@@ -127,7 +127,7 @@ const PromoCard = ({ promo }) => {
               </div>
               <button
                 onClick={handleCloseModal}
-                className='text-gray-500 hover:text-error text-2xl transition-colors duration-200 flex-shrink-0 w-8 h-8 flex items-center justify-center'
+                className='text-gray-500 hover:text-error text-2xl transition-colors duration-200 shrink-0 w-8 h-8 flex items-center justify-center'
                 aria-label='Close modal'
               >
                 &times;
@@ -220,20 +220,20 @@ const PromoCard = ({ promo }) => {
                   </h4>
                   <div className='space-y-3'>
                     <div className='flex items-start gap-3'>
-                      <div className='w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0'></div>
+                      <div className='w-2 h-2 bg-amber-500 rounded-full mt-2 shrink-0'></div>
                       <p className='text-gray-700'>
                         Promo ini berlaku untuk semua pelanggan
                       </p>
                     </div>
                     <div className='flex items-start gap-3'>
-                      <div className='w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0'></div>
+                      <div className='w-2 h-2 bg-amber-500 rounded-full mt-2 shrink-0'></div>
                       <p className='text-gray-700'>
                         Dapatkan pengalaman terbaik dengan rating{' '}
                         {promoData.rating} dari {promoData.review} review
                       </p>
                     </div>
                     <div className='flex items-start gap-3'>
-                      <div className='w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0'></div>
+                      <div className='w-2 h-2 bg-amber-500 rounded-full mt-2 shrink-0'></div>
                       <p className='text-gray-700'>
                         Kunjungi lokasi UMKM untuk informasi lebih lanjut
                       </p>

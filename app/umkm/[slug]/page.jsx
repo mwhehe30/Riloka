@@ -44,6 +44,7 @@ export default function Page() {
         await navigator.share(shareData);
       } catch (err) {
         alert('Share gagal, coba salin link ini: ' + window.location.href);
+        console.error(err);
       }
     } else {
       navigator.clipboard.writeText(window.location.href);
@@ -64,7 +65,6 @@ export default function Page() {
           setNotFound(true);
         } else {
           setDetailUmkm(res);
-          // Set gambar aktif pertama kali ketika data berubah
           if (res?.images?.length > 0) {
             setActiveImage(res.images[0]);
           }
@@ -87,8 +87,8 @@ export default function Page() {
     return (
       <section className='min-h-screen bg-white pt-20'>
         {/* Hero Section Skeleton */}
-        <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] bg-gray-200 animate-pulse'>
-          <div className='absolute inset-0 bg-gradient-to-t from-gray-300 to-transparent'></div>
+        <div className='relative aspect-4/3 sm:aspect-video md:aspect-21/7 bg-gray-200 animate-pulse'>
+          <div className='absolute inset-0 bg-linear-to-t from-gray-300 to-transparent'></div>
         </div>
 
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-10'>
@@ -177,7 +177,7 @@ export default function Page() {
 
   return (
     <section className='min-h-screen bg-white pt-20'>
-      <div className='relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/7] overflow-hidden rounded-b-xl md:rounded-b-2xl'>
+      <div className='relative aspect-4/3 sm:aspect-video md:aspect-21/7 overflow-hidden rounded-b-xl md:rounded-b-2xl'>
         <ImageWithFallback
           src={detailUmkm?.thumb}
           alt={detailUmkm?.name}
@@ -223,7 +223,7 @@ export default function Page() {
       </div>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-10'>
         <article className='relative overflow-hidden rounded-3xl shadow-2xl mb-8'>
-          <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent' />
+          <div className='absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent' />
 
           <div className='absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-12 text-white'>
             <div className='flex flex-wrap gap-3 mb-4'>
@@ -233,7 +233,7 @@ export default function Page() {
                   : detailUmkm.category}
               </span>
               {detailUmkm?.featured && (
-                <span className='inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs sm:text-sm font-medium bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg'>
+                <span className='inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs sm:text-sm font-medium bg-linear-to-r from-yellow-500 to-yellow-600 text-white shadow-lg'>
                   <Star className='w-4 h-4 fill-current' />
                   Rekomendasi
                 </span>
@@ -316,7 +316,7 @@ export default function Page() {
                               : 'text-gray-700 hover:bg-gray-50'
                           } first:rounded-t-xl last:rounded-b-xl`}
                         >
-                          <Icon className='w-5 h-5 flex-shrink-0' />
+                          <Icon className='w-5 h-5 shrink-0' />
                           <span className='font-medium'>{label}</span>
                         </button>
                       ))}
@@ -337,7 +337,7 @@ export default function Page() {
                             : 'text-gray-500 hover:text-gray-700 border-transparent hover:bg-gray-50'
                         }`}
                       >
-                        <Icon className='w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0' />
+                        <Icon className='w-4 h-4 sm:w-5 sm:h-5 shrink-0' />
                         <span className='truncate'>{label}</span>
                       </button>
                     );
@@ -453,7 +453,7 @@ export default function Page() {
                           className='rounded-xl p-6 border border-surface hover:border-primary/40 transition-colors'
                         >
                           <div className='flex items-start gap-4'>
-                            <div className='flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center'>
+                            <div className='shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-primary to-primary/70 rounded-full flex items-center justify-center'>
                               <User className='w-5 h-5 sm:w-6 sm:h-6 text-white' />
                             </div>
                             <div>
@@ -587,7 +587,7 @@ function GallerySection({ detailUmkm, activeImage, onImageClick }) {
             <button
               key={idx}
               onClick={() => onImageClick(img)}
-              className={`relative flex-shrink-0 w-32 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300
+              className={`relative shrink-0 w-32 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300
                 ${
                   activeImage === img
                     ? 'border-primary'
@@ -619,7 +619,7 @@ function InfoItem({ icon: Icon, color, bg, title, value, link }) {
   return (
     <div className='flex gap-4 items-start'>
       <div
-        className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 ${bg} rounded-xl flex items-center justify-center`}
+        className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 ${bg} rounded-xl flex items-center justify-center`}
       >
         <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${color}`} />
       </div>
@@ -635,7 +635,7 @@ function InfoItem({ icon: Icon, color, bg, title, value, link }) {
             {value}
           </a>
         ) : (
-          <p className='text-gray-900 break-words'>{value}</p>
+          <p className='text-gray-900 wrap-break-word'>{value}</p>
         )}
       </div>
     </div>

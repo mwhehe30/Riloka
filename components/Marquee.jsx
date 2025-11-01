@@ -20,8 +20,8 @@ const Marquee = () => {
         {/* Marquee Container */}
         <div className='relative overflow-hidden'>
           {/* Gradient Overlays */}
-          <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-primary to-transparent z-10'></div>
-          <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-primary to-transparent z-10'></div>
+          <div className='absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-primary to-transparent z-10'></div>
+          <div className='absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-primary to-transparent z-10'></div>
 
           {/* Marquee Track */}
           <div className='flex animate-marquee whitespace-nowrap'>
@@ -29,7 +29,7 @@ const Marquee = () => {
             {partnerLogos.map((src, index) => (
               <div
                 key={`first-${index}`}
-                className='mx-4 md:mx-8 flex-shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:scale-105'
+                className='mx-4 md:mx-8 shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:scale-105'
               >
                 <Image
                   src={src}
@@ -45,7 +45,7 @@ const Marquee = () => {
             {partnerLogos.map((src, index) => (
               <div
                 key={`second-${index}`}
-                className='mx-4 md:mx-8 flex-shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:scale-105'
+                className='mx-4 md:mx-8 shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:scale-105'
               >
                 <Image
                   src={src}

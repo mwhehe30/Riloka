@@ -8,7 +8,7 @@ const PromoCardSkeleton = () => {
           <Skeleton className='absolute top-0 left-0 w-full h-full' />
           <Skeleton className='absolute top-4 right-4 w-20 h-8 rounded-full' />
         </div>
-        <div className='p-6 flex flex-col flex-grow'>
+        <div className='p-6 flex flex-col grow'>
           <Skeleton className='text-xl font-semibold text-gray-800 mb-2 h-6 w-3/4' />
 
           {/* Rating Section */}

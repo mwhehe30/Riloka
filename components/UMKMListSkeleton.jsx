@@ -4,7 +4,7 @@ const UMKMListSkeleton = () => {
   return (
     <section className='min-h-screen bg-white'>
       {/* Header Section Skeleton */}
-      <div className='bg-gradient-to-br from-primary via-primary/90 to-accent pt-24 pb-16 px-4 sm:px-6 lg:px-8'>
+      <div className='bg-linear-to-br from-primary via-primary/90 to-accent pt-24 pb-16 px-4 sm:px-6 lg:px-8'>
         <div className='container mx-auto text-center py-8'>
           <Skeleton className='h-10 w-64 mx-auto mb-4' />
           <Skeleton className='h-5 w-96 mx-auto' />

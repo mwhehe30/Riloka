@@ -14,7 +14,7 @@ export default function NotFound() {
           {/* Icon */}
           <div className='flex justify-center'>
             <div className='relative'>
-              <div className='w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center'>
+              <div className='w-32 h-32 sm:w-40 sm:h-40 bg-linear-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center'>
                 <Store className='w-16 h-16 sm:w-20 sm:h-20 text-gray-400' />
               </div>
               <div className='absolute -top-2 -right-2 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg'>
@@ -35,7 +35,7 @@ export default function NotFound() {
           </div>
 
           {/* Stats or Info Box */}
-          <div className='bg-gradient-to-br from-primary/5 to-orange-50 rounded-2xl p-6 border border-primary/10'>
+          <div className='bg-linear-to-br from-primary/5 to-orange-50 rounded-2xl p-6 border border-primary/10'>
             <p className='text-sm text-gray-600'>
               <span className='font-semibold text-primary'>Tips:</span> Coba cek
               kembali URL yang Anda masukkan atau jelajahi daftar UMKM kami
@@ -55,7 +55,7 @@ export default function NotFound() {
 
             <Link
               href='/umkm'
-              className='group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto'
+              className='group inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto'
             >
               <Search className='w-5 h-5' />
               <span>Lihat Semua UMKM</span>
