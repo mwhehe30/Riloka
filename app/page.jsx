@@ -3,6 +3,7 @@
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/CardSkeleton';
 import HorizontalScroll from '@/components/HorizontalScroll';
+import ImageWithFallback from '@/components/ImageWithFallback';
 import Marquee from '@/components/Marquee';
 import PageSkeleton from '@/components/PageSkeleton';
 import PromoCard from '@/components/PromoCard';
@@ -31,15 +32,15 @@ export default function Page() {
   const [promo, setPromo] = useState([]);
   const [umkm, setUmkm] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
-  const [testimonialLoading, setTestimonialLoading] = useState(true); // Loading state for testimonials
+  const [isLoading, setIsLoading] = useState(true);
+  const [testimonialLoading, setTestimonialLoading] = useState(true);
   const featuredUmkm = umkm.filter((i) => i.featured);
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();
 
   useEffect(() => {
     async function fetchData() {
-      setIsLoading(true); // Set loading to true when starting to fetch
+      setIsLoading(true);
       try {
         const [umkmData, promoData] = await Promise.all([
           getUmkm(),
@@ -48,7 +49,7 @@ export default function Page() {
         setUmkm(umkmData);
         setPromo(promoData);
       } finally {
-        setIsLoading(false); // Set loading to false when both fetches complete
+        setIsLoading(false);
       }
     }
     fetchData();
@@ -142,7 +143,17 @@ export default function Page() {
 
   return (
     <main className='min-h-screen'>
-      <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center bg-[url(/images/bg.webp)] bg-cover bg-center bg-no-repeat'>
+      <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center'>
+        <ImageWithFallback
+          src='/images/bg.webp'
+          alt='Background'
+          width={1920}
+          height={1080}
+          priority
+          fetchPriority='high'
+          className='absolute inset-0 w-full h-full object-cover object-center'
+        />
+
         <div className='inset-0 bg-white/70 absolute backdrop-blur-xs'></div>
 
         <div className='max-w-5xl mx-auto text-center z-10'>
