@@ -18,29 +18,56 @@ export default function UMKMCard({ umkm }) {
           />
 
           {/* Overlay gradient */}
-          <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500' />
+          <div className='absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500' />
 
           {/* Label kategori */}
-          <div 
+          <div
             className={`absolute top-4 left-4 backdrop-blur-md text-white text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full shadow-md ${
               Array.isArray(umkm.category) && umkm.category.length === 2
-                ? 'bg-gradient-to-r ' + 
-                  (umkm.category[0] === 'makanan' ? 'from-[var(--color-category-makanan)] ' : 
-                   umkm.category[0] === 'minuman' ? 'from-[var(--color-category-minuman)] ' : 
-                   umkm.category[0] === 'jasa' ? 'from-[var(--color-category-jasa)] ' : 
-                   umkm.category[0] === 'fashion' ? 'from-[var(--color-category-fashion)] ' : 
-                   umkm.category[0] === 'kerajinan' ? 'from-[var(--color-category-kerajinan)] ' : 'from-primary/90 ') +
-                  (umkm.category[1] === 'makanan' ? 'to-[var(--color-category-makanan)]' : 
-                   umkm.category[1] === 'minuman' ? 'to-[var(--color-category-minuman)]' : 
-                   umkm.category[1] === 'jasa' ? 'to-[var(--color-category-jasa)]' : 
-                   umkm.category[1] === 'fashion' ? 'to-[var(--color-category-fashion)]' : 
-                   umkm.category[1] === 'kerajinan' ? 'to-[var(--color-category-kerajinan)]' : 'to-primary/90')
-                : (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'makanan' ? 'bg-[var(--color-category-makanan)]' :
-                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'minuman' ? 'bg-[var(--color-category-minuman)]' :
-                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'jasa' ? 'bg-[var(--color-category-jasa)]' :
-                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'fashion' ? 'bg-[var(--color-category-fashion)]' :
-                  (Array.isArray(umkm.category) ? umkm.category[0] : umkm.category) === 'kerajinan' ? 'bg-[var(--color-category-kerajinan)]' :
-                  'bg-primary/90'
+                ? 'bg-linear-to-r ' +
+                  (umkm.category[0] === 'makanan'
+                    ? 'from-category-makanan '
+                    : umkm.category[0] === 'minuman'
+                    ? 'from-category-minuman '
+                    : umkm.category[0] === 'jasa'
+                    ? 'from-category-jasa '
+                    : umkm.category[0] === 'fashion'
+                    ? 'from-category-fashion '
+                    : umkm.category[0] === 'kerajinan'
+                    ? 'from-category-kerajinan '
+                    : 'from-primary/90 ') +
+                  (umkm.category[1] === 'makanan'
+                    ? 'to-category-makanan'
+                    : umkm.category[1] === 'minuman'
+                    ? 'to-category-minuman'
+                    : umkm.category[1] === 'jasa'
+                    ? 'to-category-jasa'
+                    : umkm.category[1] === 'fashion'
+                    ? 'to-category-fashion'
+                    : umkm.category[1] === 'kerajinan'
+                    ? 'to-category-kerajinan'
+                    : 'to-primary/90')
+                : (Array.isArray(umkm.category)
+                    ? umkm.category[0]
+                    : umkm.category) === 'makanan'
+                ? 'bg-category-makanan'
+                : (Array.isArray(umkm.category)
+                    ? umkm.category[0]
+                    : umkm.category) === 'minuman'
+                ? 'bg-category-minuman'
+                : (Array.isArray(umkm.category)
+                    ? umkm.category[0]
+                    : umkm.category) === 'jasa'
+                ? 'bg-category-jasa'
+                : (Array.isArray(umkm.category)
+                    ? umkm.category[0]
+                    : umkm.category) === 'fashion'
+                ? 'bg-category-fashion'
+                : (Array.isArray(umkm.category)
+                    ? umkm.category[0]
+                    : umkm.category) === 'kerajinan'
+                ? 'bg-category-kerajinan'
+                : 'bg-primary/90'
             }`}
           >
             {Array.isArray(umkm.category)
@@ -55,8 +82,8 @@ export default function UMKMCard({ umkm }) {
 
           {/* Rekomendasi */}
           {umkm.featured && (
-            <div className='absolute top-4 right-4 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg'>
-              <ThumbsUp className='size-3.5 flex-shrink-0' />
+            <div className='absolute top-4 right-4 bg-linear-to-br from-yellow-500 to-yellow-600 text-white px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg'>
+              <ThumbsUp className='size-3.5 shrink-0' />
               <span className='text-xs sm:text-sm font-semibold'>
                 Rekomendasi
               </span>
@@ -75,10 +102,7 @@ export default function UMKMCard({ umkm }) {
         <figcaption className='flex flex-col flex-1 p-6 space-y-4'>
           {/* Alamat */}
           <div className='flex items-center gap-2 text-sm text-gray-700 overflow-hidden'>
-            <MapPin
-              className='size-4 text-gray-500 flex-shrink-0'
-              strokeWidth={2}
-            />
+            <MapPin className='size-4 text-gray-500 shrink-0' strokeWidth={2} />
             <span className='font-medium line-clamp-1'>{umkm.address}</span>
           </div>
 
@@ -89,7 +113,7 @@ export default function UMKMCard({ umkm }) {
               {umkm.rating || '0.0'}
             </div>
             <div className='flex items-center gap-2'>
-              <Clock className='size-3.5 flex-shrink-0' />
+              <Clock className='size-3.5  shrink-0' />
               <span>
                 {umkm.hours?.open} - {umkm.hours?.close}
               </span>
@@ -109,10 +133,7 @@ export default function UMKMCard({ umkm }) {
 
             <div className='text-primary hover:text-primary/90 font-semibold text-base flex items-center gap-1 transition-all duration-300'>
               Lihat detail
-              <ArrowUpRight
-                className='size-5 flex-shrink-0'
-                strokeWidth={2.5}
-              />
+              <ArrowUpRight className='size-5 shrink-0' strokeWidth={2.5} />
             </div>
           </div>
         </figcaption>

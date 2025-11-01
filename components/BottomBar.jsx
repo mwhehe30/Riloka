@@ -36,7 +36,7 @@ export default function BottomBar() {
               />
               <p className='text-xs'>{name}</p>
               <span
-                className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-[3px] rounded-full bg-gradient-to-r from-primary to-accent w-0 transition-all duration-300 ${
+                className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-[3px] rounded-full bg-linear-to-r from-primary to-accent w-0 transition-all duration-300 ${
                   isActive(href) ? 'w-4 opacity-100' : 'w-0 opacity-0'
                 }`}
               ></span>
