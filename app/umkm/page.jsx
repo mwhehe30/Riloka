@@ -21,7 +21,7 @@ import {
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-export default function Page() {
+const Page = () => {
   const [allUMKM, setAllUMKM] = useState([]);
   const [displayedUMKM, setDisplayedUMKM] = useState([]);
   const [search, setSearch] = useState('');
@@ -636,4 +636,6 @@ export default function Page() {
       </div>
     </section>
   );
-}
+};
+
+export default Page;

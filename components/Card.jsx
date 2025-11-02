@@ -4,7 +4,7 @@ import { ArrowUpRight, Clock, MapPin, Star, ThumbsUp } from 'lucide-react';
 import Link from 'next/link';
 import ImageWithFallback from './ImageWithFallback';
 
-export default function UMKMCard({ umkm }) {
+const UMKMCard = ({ umkm }) => {
   return (
     <Link href={`/umkm/${umkm.slug}`} className='h-full'>
       <article className='flex flex-col overflow-hidden cursor-pointer group border border-surface bg-white shadow-lg shadow-black/5 transition-all duration-500 h-full rounded-2xl'>
@@ -142,4 +142,6 @@ export default function UMKMCard({ umkm }) {
       </article>
     </Link>
   );
-}
+};
+
+export default UMKMCard;

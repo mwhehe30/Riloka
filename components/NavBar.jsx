@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function NavBar() {
+const NavBar = () => {
   const pathname = usePathname();
   // const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -138,4 +138,6 @@ export default function NavBar() {
       </nav>
     </header>
   );
-}
+};
+
+export default NavBar;

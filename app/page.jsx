@@ -28,7 +28,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function Page() {
+const Page = () => {
   const [promo, setPromo] = useState([]);
   const [umkm, setUmkm] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
@@ -416,4 +416,6 @@ export default function Page() {
       </section>
     </main>
   );
-}
+};
+
+export default Page;

@@ -1,7 +1,7 @@
 import { Award, Globe, Heart, Sparkles, Users } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Page() {
+const Page = () => {
   return (
     <main className='min-h-screen'>
       <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center'>
@@ -219,4 +219,6 @@ export default function Page() {
       </div>
     </main>
   );
-}
+};
+
+export default Page;

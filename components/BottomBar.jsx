@@ -4,7 +4,7 @@ import { Home, Info, Store } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function BottomBar() {
+const BottomBar = () => {
   const pathname = usePathname();
 
   const navItems = [
@@ -46,4 +46,6 @@ export default function BottomBar() {
       </div>
     </div>
   );
-}
+};
+
+export default BottomBar;

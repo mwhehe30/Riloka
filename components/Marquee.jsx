@@ -11,7 +11,7 @@ const partnerLogos = [
   '/images/logo-steak-batmans.webp',
 ];
 
-export default function Marquee() {
+const Marquee = () => {
   const marqueeRef = useRef(null);
 
   useEffect(() => {
@@ -58,4 +58,6 @@ export default function Marquee() {
       </div>
     </section>
   );
-}
+};
+
+export default Marquee;

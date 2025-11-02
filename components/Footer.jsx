@@ -3,7 +3,7 @@
 import { Facebook, Instagram, Mail } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className='bg-surface border-t border-border'>
       <div className='container mx-auto px-6 lg:px-12 py-12'>
@@ -110,4 +110,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

@@ -3,7 +3,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
-export default function HorizontalSlider({ children }) {
+const HorizontalSlider = ({ children }) => {
   const containerRef = useRef(null);
   const [scrollState, setScrollState] = useState({
     canScrollLeft: false,
@@ -61,4 +61,6 @@ export default function HorizontalSlider({ children }) {
       )}
     </div>
   );
-}
+};
+
+export default HorizontalSlider;

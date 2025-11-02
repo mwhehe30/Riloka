@@ -3,12 +3,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function ImageWithFallback({
+const ImageWithFallback = ({
   src,
   alt = 'Image',
   fallback = '/images/fallback.webp',
   ...props
-}) {
+}) => {
   const [imgSrc, setImgSrc] = useState(src || fallback);
 
   return (
@@ -19,4 +19,6 @@ export default function ImageWithFallback({
       {...props}
     />
   );
-}
+};
+
+export default ImageWithFallback;

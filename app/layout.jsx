@@ -1,6 +1,6 @@
+import BottomBar from '@/components/BottomBar';
 import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
-import BottomBar from '@/components/BottomBar';
 import { Inter, Montserrat } from 'next/font/google';
 import './globals.css';
 const inter = Inter({
@@ -16,10 +16,12 @@ export const metadata = {
   description: 'Website untuk memudahkan pencarian UMKM',
 };
 
-export default function RootLayout({ children }) {
+const RootLayout = ({ children }) => {
   return (
     <html lang='id'>
-      <body className={`${inter.variable} ${montserrat.variable} antialiased pb-20 md:pb-0`}>
+      <body
+        className={`${inter.variable} ${montserrat.variable} antialiased pb-20 md:pb-0`}
+      >
         <NavBar />
         {children}
         <BottomBar />
@@ -27,4 +29,6 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

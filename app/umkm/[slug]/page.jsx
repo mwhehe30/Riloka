@@ -23,7 +23,7 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import NotFound from './not-found';
 
-export default function Page() {
+const Page = () => {
   const { slug } = useParams();
   const [detailUmkm, setDetailUmkm] = useState(null);
   const [activeTab, setActiveTab] = useState('tentang');
@@ -584,7 +584,7 @@ export default function Page() {
       </div>
     </section>
   );
-}
+};
 
 // Komponen Gallery Terpisah
 function GallerySection({ detailUmkm, activeImage, onImageClick }) {
@@ -666,3 +666,5 @@ function InfoItem({ icon: Icon, color, bg, title, value, link }) {
     </div>
   );
 }
+
+export default Page;
