@@ -27,52 +27,56 @@
       "days": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
     },
     "featured": true,
-    "priceRange": "Rp 3.500 - Rp 50.000",
+    "priceRange": "Rp 3.500",
     "products": [
       {
         "id": 1,
         "name": "Roti Pisang Coklat",
-        "image": "/images/ratan-bakery/ratan-bakery-1.webp",
-        "price": 8000
+        "image": "/images/ratan-bakery/piscok.webp",
+        "price": 3500
       },
       {
         "id": 2,
         "name": "Roti Coklat",
-        "image": "/images/ratan-bakery/ratan-bakery-2.webp",
-        "price": 7000
+        "image": "/images/ratan-bakery/ratan-bakery-3.webp",
+        "price": 3500
       },
       {
         "id": 3,
         "name": "Roti Keju",
-        "image": "/images/ratan-bakery/ratan-bakery-3.webp",
-        "price": 10000
+        "image": "/images/ratan-bakery/ratan-bakery-2.webp",
+        "price": 3500
       },
       {
         "id": 4,
         "name": "Roti Pizza",
         "image": "/images/ratan-bakery/ratan-bakery-4.webp",
-        "price": 15000
+        "price": 3500
       },
       {
         "id": 5,
         "name": "Roti Kopi",
         "image": "/images/ratan-bakery/ratan-bakery-5.webp",
-        "price": 12000
+        "price": 3500
       }
     ],
     "reviews": [
       {
         "id": 1,
-        "name": "Ahmad",
-        "comment": "Roti nya enak dan fresh, harga terjangkau"
+        "name": "I'd",
+        "rating": 4,
+        "comment": "Kebagian roti anget yg langsung dari oven, rasanya enak harga bersahabat",
+        "date": "2024-04-15"
       },
       {
         "id": 2,
-        "name": "Sari",
-        "comment": "Pelayanan ramah, roti pisang coklat favorit keluarga"
+        "name": "boink 73",
+        "rating": 4,
+        "comment": "Rotinya enak2...",
+        "date": "2024-05-22"
       }
     ],
-    "rating": "4.6"
+    "rating": "4.8"
   },
   {
     "id": 2,
@@ -136,20 +140,20 @@
     "reviews": [
       {
         "id": 1,
-        "name": "Budi",
-        "comment": "Ayam penyet nya pedas dan enak, porsi besar",
-        "rating": 4,
-        "date": "2025-10-20"
+        "name": "Ita Gustiani",
+        "rating": 5,
+        "comment": "Mie jebew pedas manis nya enak",
+        "date": "2024-06-10"
       },
       {
         "id": 2,
         "name": "Dewi",
+        "rating": 4,
         "comment": "Tempat nyaman, makanan tradisional yang autentik",
-        "rating": 5,
-        "date": "2025-10-20"
+        "date": "2024-07-18"
       }
     ],
-    "rating": "4.4"
+    "rating": "4.9"
   },
   {
     "id": 3,
@@ -196,12 +200,16 @@
       {
         "id": 1,
         "name": "Rina",
-        "comment": "Mie tek-tek nya enak banget, rasa homemade"
+        "rating": 5,
+        "comment": "Mie tek-tek nya enak banget, rasa homemade",
+        "date": "2024-08-05"
       },
       {
         "id": 2,
         "name": "Fajar",
-        "comment": "Porsi hemat tapi mengenyangkan, recommended"
+        "rating": 5,
+        "comment": "Porsi hemat tapi mengenyangkan, recommended",
+        "date": "2024-09-12"
       }
     ],
     "rating": "4.3"
@@ -210,9 +218,9 @@
     "id": 4,
     "slug": "otakiri",
     "name": "Otakiri",
-    "category": ["makanan"],
-    "description": "Usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam",
-    "long_desc": "Otakiri adalah sebuah usaha yang menjual ayam goreng dengan berbagai pilihan bagian ayam sesuai selera pelanggan. Setiap potongan ayam digoreng dengan bumbu khas yang meresap hingga ke dalam, menghasilkan rasa gurih dan tekstur renyah di luar namun tetap lembut di dalam. Selain itu, Otakiri juga menjaga kualitas dengan menggunakan bahan-bahan segar dan proses pengolahan yang higienis. Dengan cita rasa yang lezat dan pelayanan yang cepat, Otakiri menjadi pilihan tepat bagi pecinta ayam goreng yang ingin menikmati kelezatan dalam setiap gigitan.",
+    "category": ["makanan", "minuman"],
+    "description": "Cafe yag menyediakan berbagai hidangan premium seperti gelatto steak nasi goreng dan lain lain, tempatnya bernama Otakiri",
+    "long_desc": "Otakiri adalah kafe yang memadukan konsep premium dan lokal dalam satu harmoni rasa. Tempat ini dikenal dengan menu eklektik yang luar biasa, mulai dari sajian utama seperti Steak yang dimasak sempurna dan Nasi Goreng premium, hingga penutup yang menyegarkan seperti Gelato dengan berbagai varian. Selain hidangan yang memuaskan, Otakiri menawarkan suasana yang estetik dan nyaman (seringkali dengan pemandangan alam seperti sawah), menjadikannya spot ideal untuk fine dining santai, berkumpul, atau sekadar menikmati kopi berkualitas.",
     "address": "Unnamed Road, Langensari, Banjar City, West Java 46324",
     "map": {
       "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.2137050395081!2d108.63195462820114!3d-7.370164692279047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f7d22a6e3c081%3A0x5bc307e7a99955b3!2sOtakiri%20Cafe%20%26%20Resto!5e0!3m2!1sid!2sid!4v1761782225159!5m2!1sid!2sid",
@@ -237,34 +245,82 @@
     "products": [
       {
         "id": 1,
-        "name": "Fried Chicken Original",
+        "name": "Cappucino",
         "image": "/images/otakiri/otakiri-1.webp",
-        "price": 12000
+        "price": 27000
       },
       {
         "id": 2,
-        "name": "Fried Chicken Bani's Fire",
+        "name": "Tomahawk Steak",
         "image": "/images/otakiri/otakiri-2.webp",
-        "price": 15000
+        "price": 98000
       },
       {
         "id": 3,
-        "name": "Fried Chicken Spicy BBQ",
+        "name": "Chicken Wings",
         "image": "/images/otakiri/otakiri-3.webp",
-        "price": 14000
+        "price": 40000
+      },
+      {
+        "id": 4,
+        "name": "Beef Crispy Steak Mushroom",
+        "image": "/images/otakiri/otakiri-4.webp",
+        "price": 48000
+      },
+      {
+        "id": 5,
+        "name": "Otakiri Desserts",
+        "image": "/images/otakiri/otakiri-5.webp",
+        "price": 25000
+      },
+      {
+        "id": 6,
+        "name": "Chicken Nuggets & French Fries",
+        "image": "/images/otakiri/otakiri-6.webp",
+        "price": 50000
+      },
+      {
+        "id": 7,
+        "name": "Churros Choco Dip",
+        "image": "/images/otakiri/otakiri-7.webp",
+        "price": 28000
+      },
+      {
+        "id": 8,
+        "name": "Nasi Goreng Daun Jeruk",
+        "image": "/images/otakiri/otakiri-8.webp",
+        "price": 40000
       }
     ],
     "reviewer": "361",
     "reviews": [
       {
         "id": 1,
-        "name": "Hendra",
-        "comment": "Ayam goreng crispy dan tidak berminyak"
+        "name": "Sofi Reksoyudo",
+        "rating": 5,
+        "comment": "Sulit dipercaya menemukan tempat seperti ini di tengah pedesaan! Terasa sangat segar, baru, dan tampak bagus. Kopinya lumayan, mungkin porsinya agak terlalu kecil dan harganya agak mahal. Tapi secara keseluruhan, saya akan mampir ke sini lagi lain kali karena suasananya sungguh berbeda!",
+        "date": "2024-10-01"
       },
       {
         "id": 2,
-        "name": "Lisa",
-        "comment": "Variasi rasa banyak, anak-anak suka banget"
+        "name": "DMX",
+        "rating": 5,
+        "comment": "Di daerah Banjar, saya berani bilang ini kafe terbaik. Makanan yang mereka jual kebanyakan berbeda dari kafe lain... Mereka juga menjual steak.Suasananya bagus. Ada 2 ruangan ber-AC dan ada area luar ruangan... Anda akan merasa seperti di rumah sendiri di sini. Para pelayan bekerja dengan baik dan sopan.",
+        "date": "2024-10-15"
+      },
+      {
+        "id": 3,
+        "name": "Awang Heranto",
+        "rating": 5,
+        "comment": "Permata tersembunyi yang sesungguhnya di jalan menuju Pangandaran. Makanan dan suasananya luar biasa dengan pemandangan sawah yang indah. Jangan lewatkan pilihan steak dan gelato asli mereka!",
+        "date": "2024-11-02"
+      },
+      {
+        "id": 4,
+        "name": "Agnes R",
+        "rating": 5,
+        "comment": "Saya sudah mencoba beberapa minuman dan makanan di sana. Americano panas, rasa kopinya pas, keasaman dan manisnya seimbang. Ikan dan Kentang Goreng, dagingnya empuk sekali, saus tartarnya pas di lidah saya. 😆 Iced Berryliebe, segar sekali! Bistik Ayam Krispi dengan Saus Lada Hitam, saya suka sekali sausnya sampai saya pesan satu lagi 🤣🙏😅 Bistiknya juga enak. Kafe ini memang di kota kecil, tapi semua yang ada di sana enak, penyajiannya seperti di restoran mewah, profesional banget 🤩 Pelayanannya juga 100000000000/10 dari saya✨",
+        "date": "2024-11-20"
       }
     ],
     "rating": "4.7"
@@ -300,35 +356,46 @@
       {
         "id": 1,
         "name": "HotChick",
-        "image": "/images/fukunobu/fukunobu-1.webp",
+        "image": "/images/fukunobu/hotchick.webp",
         "price": 25000
       },
       {
         "id": 2,
         "name": "HotChick x Iced Sweet Tea",
-        "image": "/images/fukunobu/fukunobu-2.webp",
+        "image": "/images/fukunobu/hotchickXice-tea.webp",
         "price": 30000
       },
       {
         "id": 3,
         "name": "HotChick Combo",
-        "image": "/images/fukunobu/fukunobu-3.webp",
+        "image": "/images/fukunobu/combo.webp",
         "price": 35000
       }
     ],
     "reviews": [
       {
         "id": 1,
-        "name": "Kevin",
-        "comment": "Tempat nongkrong asik, menu lengkap dan murah"
+        "name": "ELANI “eyang'elang” JAYA",
+        "rating": 5,
+        "comment": "Yg suka kuliner bakar ayam+Nasi Yahoo( FukuNobu ) dan JajananWarung, Minuman Dingin/panas, kopi dll. Mari datang ajah ke Kedai ini/ Pohon Kersen SMANSA. Kami siap melayani Anda semua 🙋🙏 textAlign",
+        "date": "2024-05-30"
       },
       {
         "id": 2,
-        "name": "Maya",
-        "comment": "HotChick combo worth it banget untuk harga segitu"
+        "name": "Angga Budiyanto",
+        "rating": 4,
+        "comment": "Ayam Bakar Enak",
+        "date": "2024-06-25"
+      },
+      {
+        "id": 3,
+        "name": "Asep Heriana Efendi",
+        "rating": 5,
+        "comment": "Makanan terbaik tempatnya bagus",
+        "date": "2024-07-22"
       }
     ],
-    "rating": "4.7"
+    "rating": "4.9"
   },
   {
     "id": 6,
@@ -393,13 +460,24 @@
     "reviews": [
       {
         "id": 1,
-        "name": "Nia",
-        "comment": "Seblak nya pedas dan kerupuknya masih crunchy"
+        "name": "Rahmah Syarif",
+        "rating": 5,
+        "comment": "sejauh ini cobain seblak dhero instan aja dan bener-bener nagih akhirnya iseng cobain makan langsung di warung dhero ternyata jauh lebih enak pilihan suka suka dan harga toping juga murah , sedikit saran untuk taruh harga di setiap toping supaya customer bisa tau harga hehe.. sukses selalu Seblak DheroQu!!",
+        "date": "2024-04-18"
       },
       {
         "id": 2,
-        "name": "Rizky",
-        "comment": "Pilihan paket lengkap, bisa custom topping"
+        "name": "Anisa Deasty Malela",
+        "rating": 4,
+        "comment": "Alhamdulillah nemu tempat makan seblak yang rasanya sesuai dengan selera lidah Rasa pedasnya sesuai dengan level yang di tawarkan, ada banyak pilihan toping seblak yang bisa dipilih, juga ada aneka minuman yang tersedia. Harga bisa disesuaikan dengan isi kantong, warga Banjar mesti coba seblak di sini",
+        "date": "2024-08-14"
+      },
+      {
+        "id": 3,
+        "name": "Lylie Yustia",
+        "rating": 4,
+        "comment": "Seblaknya mantap.. Enak dan banyak pilihan toping. Mohon maaf.. Tempatnya terkesan kurang bersih. Ada karyawan yang suka nonton tiktok suaranya keras banget jadi sedikit kurang nyaman.",
+        "date": "2024-09-09"
       }
     ],
     "rating": "4.2"
@@ -465,13 +543,17 @@
     "reviews": [
       {
         "id": 1,
-        "name": "Andi",
-        "comment": "Tempat cozy buat nongkrong, kopi nya enak"
+        "name": "Adly Muhammad",
+        "rating": 4,
+        "comment": "Berawal dari mencari coffeeshop didaerah banjarsari - banjar sudah closed order semua, akhirnya nemu tempat ini. Tempatnya luas ada indoor dan outdoor, banyak pilihan minuman dan makanan. Kopinya enak makanannya juga. Pelayanannya ramah dan tempatnya bersih. Rekomend buat yang mau nongkrong dikota Banjar",
+        "date": "2024-03-12"
       },
       {
         "id": 2,
-        "name": "Siska",
-        "comment": "Minuman segar dan harga terjangkau"
+        "name": "Mahfud Syuhada",
+        "rating": 5,
+        "comment": "Pertama datang ke tempat ini, lokasinya mudah sekali diakses karena tepat di pinggir jalan raya alternatif Banjar-Ciamis/Tasik. Lahan parkir luas untuk sepeda motor maupun mobil. Parkiran juga rapi. Pelayanan ramah, pertama masuk langsung disambut crew. Untuk pemesanan dilakukan di dalam kedai secara langsung, antrean tertib. Banyak menu yang bisa dipilih dari teh, kopi dan lain-lain, kebetulan ke sini pas ada promo 30k dapat 3 jenis minuman ehe Buat nongkrong asik, tempat lumayan bagus, meskipun di tenda luar sedikit gelap karena penerangan yang kurang. Tersedia wifi juga. Toilet di sini juga cukup bagus, bersih dan harum, tapi masih dilakukan pengembangan juga, mungkin biar lebih banyak karena kemarin kunjungan terakhir ke sini hanya tersedia 1 kamar toilet. Yang kurang dari tempat ini protokol kesehatan saat pandemi covid-19 kurang tertib, karena meja-meja terlalu berdekatan dan tidak banyak tempat cuci tangan/handsanitizer.",
+        "date": "2024-05-17"
       }
     ],
     "rating": "4.5"
@@ -617,427 +699,375 @@
       },
       {
         "id": 18,
-        "name": "Le Myth",
+        "name": "Lebiru Latte",
         "image": "/images/lebiru/lebiru-18.webp",
         "price": 26400
       },
       {
         "id": 19,
-        "name": "Lebiru Latte",
-        "image": "/images/lebiru/lebiru-19.webp",
-        "price": 26400
-      },
-      {
-        "id": 20,
-        "name": "Le Butterscotch",
-        "image": "/images/lebiru/lebiru-20.webp",
-        "price": 28800
-      },
-      {
-        "id": 21,
         "name": "Matcha Latte",
-        "image": "/images/lebiru/lebiru-21.webp",
+        "image": "/images/lebiru/lebiru-19.webp",
         "price": 24000
       },
       {
-        "id": 22,
+        "id": 20,
         "name": "Matchafogatto",
+        "image": "/images/lebiru/lebiru-20.webp",
+        "price": 26400
+      },
+      {
+        "id": 21,
+        "name": "Matcha On Cloud Marsmallow",
+        "image": "/images/lebiru/lebiru-21.webp",
+        "price": 28800
+      },
+      {
+        "id": 22,
+        "name": "Pink Blossom Matcha",
         "image": "/images/lebiru/lebiru-22.webp",
         "price": 26400
       },
       {
         "id": 23,
-        "name": "Matcha On Cloud Marsmallow",
+        "name": "Chocolate",
         "image": "/images/lebiru/lebiru-23.webp",
-        "price": 28800
+        "price": 24000
       },
       {
         "id": 24,
-        "name": "Pink Blossom Matcha",
+        "name": "Red Velvet",
         "image": "/images/lebiru/lebiru-24.webp",
-        "price": 26400
+        "price": 24000
       },
       {
         "id": 25,
-        "name": "Chocolate",
+        "name": "Le Mon Coffe",
         "image": "/images/lebiru/lebiru-25.webp",
-        "price": 24000
+        "price": 28800
       },
       {
         "id": 26,
-        "name": "Red Velvet",
+        "name": "Le Chee Coffe",
         "image": "/images/lebiru/lebiru-26.webp",
-        "price": 24000
+        "price": 28800
       },
       {
         "id": 27,
-        "name": "Charcoal",
+        "name": "Haz Orange Coffe",
         "image": "/images/lebiru/lebiru-27.webp",
-        "price": 24000
+        "price": 28800
       },
       {
         "id": 28,
-        "name": "Le Mon Coffe",
+        "name": "Mojito Strawberry",
         "image": "/images/lebiru/lebiru-28.webp",
-        "price": 28800
+        "price": 24000
       },
       {
         "id": 29,
-        "name": "Le Chee Coffe",
+        "name": "Mojito Lychee",
         "image": "/images/lebiru/lebiru-29.webp",
-        "price": 28800
+        "price": 24000
       },
       {
         "id": 30,
-        "name": "Haz Orange Coffe",
+        "name": "Mojito Lime",
         "image": "/images/lebiru/lebiru-30.webp",
-        "price": 28800
+        "price": 24000
       },
       {
         "id": 31,
-        "name": "Mojito Strawberry",
+        "name": "Caramel Latte",
         "image": "/images/lebiru/lebiru-31.webp",
-        "price": 24000
+        "price": 28800
       },
       {
         "id": 32,
-        "name": "Mojito Lychee",
+        "name": "Vanilla Latte",
         "image": "/images/lebiru/lebiru-32.webp",
-        "price": 24000
+        "price": 28800
       },
       {
         "id": 33,
-        "name": "Mojito Lime",
+        "name": "Caramel Macchiato",
         "image": "/images/lebiru/lebiru-33.webp",
-        "price": 24000
+        "price": 28800
       },
       {
         "id": 34,
-        "name": "Mojito Cucumber",
+        "name": "Berry Punk",
         "image": "/images/lebiru/lebiru-34.webp",
-        "price": 24000
+        "price": 21600
       },
       {
         "id": 35,
-        "name": "Caramel Latte",
+        "name": "Le Burs",
         "image": "/images/lebiru/lebiru-35.webp",
-        "price": 28800
+        "price": 26400
       },
       {
         "id": 36,
-        "name": "Vanilla Latte",
+        "name": "Tropical Simp",
         "image": "/images/lebiru/lebiru-36.webp",
-        "price": 28800
+        "price": 26400
       },
       {
         "id": 37,
-        "name": "Caramel Macchiato",
+        "name": "Blue Orchid",
         "image": "/images/lebiru/lebiru-37.webp",
         "price": 28800
       },
       {
         "id": 38,
-        "name": "Hazelnut Latte",
+        "name": "Vyn Grappe",
         "image": "/images/lebiru/lebiru-38.webp",
         "price": 28800
       },
       {
         "id": 39,
-        "name": "Berry Punk",
+        "name": "Cool Garden",
         "image": "/images/lebiru/lebiru-39.webp",
-        "price": 21600
+        "price": 26400
       },
       {
         "id": 40,
-        "name": "Le Burs",
+        "name": "Lemon Squash",
         "image": "/images/lebiru/lebiru-40.webp",
-        "price": 26400
+        "price": 21600
       },
       {
         "id": 41,
-        "name": "Tropical Simp",
+        "name": "Orange Squash",
         "image": "/images/lebiru/lebiru-41.webp",
-        "price": 26400
+        "price": 21600
       },
       {
         "id": 42,
-        "name": "Blue Orchid",
+        "name": "Mojito Mango",
         "image": "/images/lebiru/lebiru-42.webp",
-        "price": 28800
+        "price": 21600
       },
       {
         "id": 43,
-        "name": "Vyn Grappe",
+        "name": "Lychee Tea",
         "image": "/images/lebiru/lebiru-43.webp",
-        "price": 28800
+        "price": 21600
       },
       {
         "id": 44,
-        "name": "Cool Garden",
+        "name": "Black Tea",
         "image": "/images/lebiru/lebiru-44.webp",
-        "price": 26400
+        "price": 14400
       },
       {
         "id": 45,
-        "name": "Lemon Squash",
+        "name": "Lemon Tea",
         "image": "/images/lebiru/lebiru-45.webp",
         "price": 21600
       },
       {
         "id": 46,
-        "name": "Orange Squash",
+        "name": "Tea Berry",
         "image": "/images/lebiru/lebiru-46.webp",
-        "price": 21600
+        "price": 26400
       },
       {
         "id": 47,
-        "name": "Mojito Mango",
+        "name": "Strawberry Swirl",
         "image": "/images/lebiru/lebiru-47.webp",
-        "price": 21600
+        "price": 24000
       },
       {
         "id": 48,
-        "name": "Lychee Tea",
+        "name": "Le Mango",
         "image": "/images/lebiru/lebiru-48.webp",
-        "price": 21600
+        "price": 24000
       },
       {
         "id": 49,
-        "name": "Black Tea",
+        "name": "Nasi Ayam Katsu",
         "image": "/images/lebiru/lebiru-49.webp",
-        "price": 14400
+        "price": 28800
       },
       {
         "id": 50,
-        "name": "Lemon Tea",
+        "name": "Nasi Ayam Sambal Manis",
         "image": "/images/lebiru/lebiru-50.webp",
-        "price": 21600
+        "price": 28800
       },
       {
         "id": 51,
-        "name": "Tea Berry",
+        "name": "Nasi Ayam Teriyaki",
         "image": "/images/lebiru/lebiru-51.webp",
-        "price": 26400
+        "price": 28800
       },
       {
         "id": 52,
-        "name": "Sunshine Shake",
+        "name": "Nasi Ayam Suwir Sambal Matah",
         "image": "/images/lebiru/lebiru-52.webp",
-        "price": 26400
+        "price": 28800
       },
       {
         "id": 53,
-        "name": "Teapple Mint",
-        "image": "/images/lebiru/lebiru-53.webp",
-        "price": 26400
-      },
-      {
-        "id": 54,
-        "name": "Le Candy Fluff",
-        "image": "/images/lebiru/lebiru-54.webp",
-        "price": 24000
-      },
-      {
-        "id": 55,
-        "name": "Strawberry Swirl",
-        "image": "/images/lebiru/lebiru-55.webp",
-        "price": 24000
-      },
-      {
-        "id": 56,
-        "name": "Kiwi Glace",
-        "image": "/images/lebiru/lebiru-56.webp",
-        "price": 24000
-      },
-      {
-        "id": 57,
-        "name": "Milky Melon",
-        "image": "/images/lebiru/lebiru-57.webp",
-        "price": 24000
-      },
-      {
-        "id": 58,
-        "name": "Le Mango",
-        "image": "/images/lebiru/lebiru-58.webp",
-        "price": 24000
-      },
-      {
-        "id": 59,
-        "name": "Nasi Ayam Katsu",
-        "image": "/images/lebiru/lebiru-59.webp",
-        "price": 28800
-      },
-      {
-        "id": 60,
-        "name": "Nasi Ayam Sambal Manis",
-        "image": "/images/lebiru/lebiru-60.webp",
-        "price": 28800
-      },
-      {
-        "id": 61,
-        "name": "Nasi Ayam Teriyaki",
-        "image": "/images/lebiru/lebiru-61.webp",
-        "price": 28800
-      },
-      {
-        "id": 62,
-        "name": "Nasi Ayam Suwir Sambal Matah",
-        "image": "/images/lebiru/lebiru-62.webp",
-        "price": 28800
-      },
-      {
-        "id": 63,
         "name": "Nasi Beef Teriyaki",
-        "image": "/images/lebiru/lebiru-63.webp",
+        "image": "/images/lebiru/lebiru-53.webp",
         "price": 42000
       },
       {
-        "id": 64,
+        "id": 54,
         "name": "Nasi Paru Mercon",
-        "image": "/images/lebiru/lebiru-64.webp",
+        "image": "/images/lebiru/lebiru-54.webp",
         "price": 28800
       },
       {
-        "id": 65,
+        "id": 55,
         "name": "Nasi Ayam Daun Jeruk",
-        "image": "/images/lebiru/lebiru-65.webp",
+        "image": "/images/lebiru/lebiru-55.webp",
         "price": 28800
       },
       {
-        "id": 66,
+        "id": 56,
         "name": "Chicken Rolls",
-        "image": "/images/lebiru/lebiru-66.webp",
+        "image": "/images/lebiru/lebiru-56.webp",
         "price": 33600
       },
       {
-        "id": 67,
+        "id": 57,
         "name": "Chicken Cheese Baked Rice",
-        "image": "/images/lebiru/lebiru-67.webp",
+        "image": "/images/lebiru/lebiru-57.webp",
         "price": 33600
       },
       {
-        "id": 68,
+        "id": 58,
         "name": "Chicken Steak",
-        "image": "/images/lebiru/lebiru-68.webp",
+        "image": "/images/lebiru/lebiru-58.webp",
         "price": 28800
       },
       {
-        "id": 69,
+        "id": 59,
         "name": "Chicken Steak Crispy",
-        "image": "/images/lebiru/lebiru-69.webp",
+        "image": "/images/lebiru/lebiru-59.webp",
         "price": 31200
       },
       {
-        "id": 70,
+        "id": 60,
         "name": "Nasi Goreng Sambal Hijau",
-        "image": "/images/lebiru/lebiru-70.webp",
+        "image": "/images/lebiru/lebiru-60.webp",
         "price": 27600
       },
       {
-        "id": 71,
+        "id": 61,
         "name": "Nasi Goreng Kebuli Lebiru",
-        "image": "/images/lebiru/lebiru-71.webp",
+        "image": "/images/lebiru/lebiru-61.webp",
         "price": 33600
       },
       {
-        "id": 72,
+        "id": 62,
         "name": "Nasi Goreng Lebiru",
-        "image": "/images/lebiru/lebiru-72.webp",
+        "image": "/images/lebiru/lebiru-62.webp",
         "price": 27600
       },
       {
-        "id": 73,
+        "id": 63,
         "name": "Spaghetty Bolognese",
-        "image": "/images/lebiru/lebiru-73.webp",
+        "image": "/images/lebiru/lebiru-63.webp",
         "price": 25200
       },
       {
-        "id": 74,
+        "id": 64,
         "name": "Spaghetty Creamy Pasta",
-        "image": "/images/lebiru/lebiru-74.webp",
+        "image": "/images/lebiru/lebiru-64.webp",
         "price": 27600
       },
       {
-        "id": 75,
+        "id": 65,
         "name": "Pisang Crispy",
-        "image": "/images/lebiru/lebiru-75.webp",
+        "image": "/images/lebiru/lebiru-65.webp",
         "price": 14400
       },
       {
-        "id": 76,
+        "id": 66,
         "name": "Churos Matcha",
-        "image": "/images/lebiru/lebiru-76.webp",
+        "image": "/images/lebiru/lebiru-66.webp",
         "price": 14400
       },
       {
-        "id": 77,
+        "id": 67,
         "name": "Banana Queen",
-        "image": "/images/lebiru/lebiru-77.webp",
+        "image": "/images/lebiru/lebiru-67.webp",
         "price": 14400
       },
       {
-        "id": 78,
+        "id": 68,
         "name": "Tiramisu Coklat",
-        "image": "/images/lebiru/lebiru-78.webp",
+        "image": "/images/lebiru/lebiru-68.webp",
         "price": 18000
       },
       {
-        "id": 79,
+        "id": 69,
         "name": "Corn Ribs",
-        "image": "/images/lebiru/lebiru-79.webp",
+        "image": "/images/lebiru/lebiru-69.webp",
         "price": 15600
       },
       {
-        "id": 80,
+        "id": 70,
         "name": "Cireng Banjur",
-        "image": "/images/lebiru/lebiru-80.webp",
+        "image": "/images/lebiru/lebiru-70.webp",
         "price": 14400
       },
       {
-        "id": 81,
+        "id": 71,
         "name": "French Fries",
-        "image": "/images/lebiru/lebiru-81.webp",
+        "image": "/images/lebiru/lebiru-71.webp",
         "price": 16800
       },
       {
-        "id": 82,
+        "id": 72,
         "name": "French Fries Cheese Mozarela Sauce",
-        "image": "/images/lebiru/lebiru-82.webp",
+        "image": "/images/lebiru/lebiru-72.webp",
         "price": 25200
       },
       {
-        "id": 83,
+        "id": 73,
         "name": "Tahu Aci",
-        "image": "/images/lebiru/lebiru-83.webp",
+        "image": "/images/lebiru/lebiru-73.webp",
         "price": 14400
       },
       {
-        "id": 84,
+        "id": 74,
         "name": "Tomyam Steamboat",
-        "image": "/images/lebiru/lebiru-84.webp",
+        "image": "/images/lebiru/lebiru-74.webp",
         "price": 22800
       },
       {
-        "id": 85,
+        "id": 75,
         "name": "Lumpia Ayam",
-        "image": "/images/lebiru/lebiru-85.webp",
+        "image": "/images/lebiru/lebiru-75.webp",
         "price": 14400
       }
     ],
-
     "reviewer": "100",
     "reviews": [
       {
         "id": 1,
         "name": "rfauce",
-        "star": 5,
-        "date": "2024-01-01",
-        "comment": "Suasananya ambience, Tempat duduk bnyk tersedia, ada photobox Juga. Harga dan rasa makanan minuman nya sesuai. Tempat parkir cukup luas"
+        "rating": 5,
+        "comment": "Suasananya ambience, Tempat duduk bnyk tersedia, ada photobox Juga. Harga dan rasa makanan minuman nya sesuai. Tempat parkir cukup luas",
+        "date": "2024-06-08"
       },
       {
         "id": 2,
         "name": "eka ramdhani s",
-        "comment": "nyaman bgt tempatnya sekelas coffeshop di banjar, harganya jg terjangkau, makanannya enak."
+        "rating": 5,
+        "comment": "nyaman bgt tempatnya sekelas coffeshop di banjar, harganya jg terjangkau, makanannya enak.",
+        "date": "2024-07-25"
+      },
+      {
+        "id": 3,
+        "name": "sasa safitri",
+        "rating": 4,
+        "comment": "pertama kali kesini sempet nyasar ternyata tempatnya dibelakang alfa jadi agak susah buat keliatan, pas masuk ternyata tempatnya luas banget atau indoor sm outdoor nya dua duanya nyaman buat nongkrong, buat makannya aku pesen chicken steak sm cireng harganya termasuk yang affordable rasanya juga enak enak minumannya apalagi aku pesen mocktail seger bangett 🤩 worth to visit 💯.",
+        "date": "2024-08-30"
       }
     ],
     "rating": "4.8"
@@ -1166,13 +1196,31 @@
     "reviews": [
       {
         "id": 1,
-        "name": "Apip cms",
-        "comment": "Masakan mkanan mie beef enak , tempatnya nyaman jga"
+        "name": "Yuni Nurita",
+        "rating": 5,
+        "comment": "Suasana nyaman ada lesehan ada kursi duduk juga, full music, banyak pilihan menu, makanannya enak2 banget, minumannya juga enak, langsung pesen makanan ditempat juga oke. Cuma agak susah buat parkir karena lahan parkirnya kurang luas. Pokoknya kalau untuk makanan rekomended banget",
+        "date": "2024-04-22"
       },
       {
         "id": 2,
         "name": "Riyani Ceci",
-        "comment": "Makanan nya mantap berasa makan di hotel berbintang,jadi penasaran dgn koki nya pernah kerja dimana yah"
+        "rating": 5,
+        "comment": "Makanan nya mantap berasa makan di hotel berbintang,jadi penasaran dgn koki nya pernah kerja dimana yah",
+        "date": "2024-05-18"
+      },
+      {
+        "id": 3,
+        "name": "titin supriatin",
+        "rating": 4,
+        "comment": "Cari tempat makan yang pilihannya banyak dan enak semua? Yuk, mampir ke kafe ini! Disini kamu bisa nikmatin steak empuk dan juicy yang bikin nagih ketagihan, pas buat yang pengen makan berat dan puas. Tapi nggak cuma itu, buat penggemar karbohidrat, ada juga beragam menu nasi yang lezat, dari yang tradisional sampai yang modern. Nggak ketinggalan pilihan noodle yang beragama juga siap memanjakan lidahmu. Plus ada live music nya juga Jadi mau makan apa aja, semua ada di satu tempat ini! Dijamin nggak bakal binggung lagi milih makanan. Cocok banget buat kumpul bareng teman dan keluarga. Yuk, cobain sekarang!",
+        "date": "2024-06-30"
+      },
+      {
+        "id": 4,
+        "name": "Septina Priyanti",
+        "rating": 4,
+        "comment": "MTempatnya Deket stasiun Ciamis, depan shottime Cafe. Tempat sederhana tidak terlalu luas, parkiran pinggir jalan doang. Makanan Mie goreng premiumnya enak manis gurih 8/10, Nasi goreng BBQ Beefnya juga enak nasi gorengnya gurih, Beefnya masih juicy ga kering dan keras 8/10, Spaghetti aglio olionya standar menurutku bumbunya bisa lebih Umami lagi 7/10. Waktu kesana ga pesen steak. Next time mau cobain smoga steaknya juicy dan tasty. Harga masih ramah dikantong dengan kualitas makanan yang enak bumbunya ga pelit dan ga nanggung",
+        "date": "2024-07-28"
       }
     ],
     "rating": "4.5"
@@ -1234,13 +1282,24 @@
     "reviews": [
       {
         "id": 1,
-        "name": "Bu Ani",
-        "comment": "Motif batiknya unik dan khas Banjar, bahan bagus"
+        "name": "Regi Rizqi Arafiz Abidin",
+        "rating": 4,
+        "comment": "Sangat profesional, tempatnya bersih hasil sangat rapih dan detail",
+        "date": "2024-09-15"
       },
       {
         "id": 2,
-        "name": "Pak Hasan",
-        "comment": "Kualitas jahitan rapi, cocok untuk acara formal"
+        "name": "Indonesia Raya",
+        "rating": 1,
+        "comment": "Cukuran nya jelek banget ga sesuai yg di inginkan 👎👎 …",
+        "date": "2024-10-05"
+      },
+      {
+        "id": 3,
+        "name": "Fajar Sidiq Romdhon",
+        "rating": 5,
+        "comment": "Owner nya ramah,baik, banyak wawasan terkait menjaga rambut yang baik",
+        "date": "2024-11-10"
       }
     ],
     "rating": "4.8"
