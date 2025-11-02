@@ -16,7 +16,7 @@ export default function BottomBar() {
   const isActive = (href) => pathname === href;
 
   return (
-    <div className='fixed bottom-0 left-0 right-0 bg-white border-t border-surface backdrop-blur-xl md:hidden z-50'>
+    <div className='fixed bottom-0 left-0 right-0 bg-white-brighter/90 border-t-2 border-surface backdrop-blur-xl md:hidden z-50'>
       <div className='grid grid-cols-3 py-3'>
         {navItems.map(({ name, href, icon: Icon }) => (
           <Link

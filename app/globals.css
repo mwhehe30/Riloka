@@ -5,8 +5,10 @@
   /* ===== Base ===== */
   --color-white: oklch(0.98 0.008 95);
   --color-surface: oklch(0.96 0.01 95);
-  --color-border: oklch(0.88 0.015 95);
+  --color-border: oklch(0.92 0.015 95);
   --color-muted: oklch(0.92 0.01 95);
+
+  --color-white-brighter: oklch(0.995 0.004 95);
 
   /* ===== Text ===== */
   --color-foreground: oklch(0.25 0.02 95);
@@ -42,6 +44,8 @@
   --color-surface: var(--color-surface);
   --color-border: var(--color-border);
   --color-muted: var(--color-muted);
+
+  --color-white-brighter: var(--color-white-brighter);
 
   --color-foreground: var(--color-foreground);
   --color-muted-foreground: var(--color-muted-foreground);

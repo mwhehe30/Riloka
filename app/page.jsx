@@ -162,7 +162,7 @@ export default function Page() {
             Temukan UMKM di Sekitar Anda
           </div>
 
-          <h1 className='text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 leading-tight font-montserrat'>
+          <h1 className='text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight font-montserrat'>
             <span className='text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent'>
               Riloka
             </span>{' '}
@@ -179,7 +179,7 @@ export default function Page() {
             className='relative max-w-2xl mx-auto mb-12'
           >
             {/* <div className='absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl' /> */}
-            <div className='relative flex items-center gap-3 bg-white/90 border border-muted-foreground rounded-full px-6 py-4 shadow-lg hover:shadow-xl transition-shadow'>
+            <div className='relative flex items-center gap-3 bg-white/90 border border-muted-foreground/70 rounded-full px-6 py-4 shadow-lg hover:shadow-xl transition-shadow'>
               <Search className='size-5 text-muted-foreground shrink-0' />
               <input
                 type='text'
