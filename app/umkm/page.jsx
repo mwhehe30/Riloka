@@ -19,7 +19,7 @@ import {
   X,
 } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 
 // Main content component that uses useSearchParams
 const UMKMContent = () => {
@@ -38,30 +38,6 @@ const UMKMContent = () => {
 
   // State untuk menangani input search sementara
   const [tempSearch, setTempSearch] = useState('');
-
-  // Gunakan ref untuk menghindari dependencies yang berubah
-  const searchRef = useRef('');
-  const selectedCategoriesRef = useRef([]);
-
-  // Update ref ketika state berubah
-  useEffect(() => {
-    searchRef.current = search;
-    selectedCategoriesRef.current = selectedCategories;
-  }, [search, selectedCategories]);
-
-  // Initialize dari URL parameters
-  useEffect(() => {
-    const searchFromUrl = searchParams.get('search') || '';
-    const categoryFromUrl = searchParams.get('category') || '';
-
-    setSearch(searchFromUrl);
-    setTempSearch(searchFromUrl);
-
-    if (categoryFromUrl) {
-      const categories = categoryFromUrl.toLowerCase().split(',');
-      setSelectedCategories(categories);
-    }
-  }, [searchParams]);
 
   const categories = [
     {
@@ -122,23 +98,19 @@ const UMKMContent = () => {
     [router]
   );
 
-  // Fungsi filterData tanpa dependencies yang problematic
+  // Fungsi filterData yang sederhana dan efektif
   const filterData = useCallback(
-    (
-      searchValue = searchRef.current,
-      categoriesValue = selectedCategoriesRef.current
-    ) => {
-      let result = allUMKM;
+    (searchValue, categoriesValue, data = allUMKM) => {
+      let result = data;
 
-      const lowerSearch = searchValue.toLowerCase();
-
-      if (lowerSearch.trim() !== '') {
+      // Filter by search
+      if (searchValue && searchValue.trim() !== '') {
+        const lowerSearch = searchValue.toLowerCase();
         result = result.filter((item) => {
           const nameMatch = item.name?.toLowerCase().includes(lowerSearch);
           const descMatch = item.description
             ?.toLowerCase()
             .includes(lowerSearch);
-
           const menuMatch = Array.isArray(item.products)
             ? item.products.some((product) =>
                 product.name?.toLowerCase().includes(lowerSearch)
@@ -149,7 +121,8 @@ const UMKMContent = () => {
         });
       }
 
-      if (categoriesValue.length > 0) {
+      // Filter by categories
+      if (categoriesValue && categoriesValue.length > 0) {
         result = result.filter((item) => {
           const itemCategories = sanitizeCategories(item);
           return itemCategories.some((cat) => categoriesValue.includes(cat));
@@ -161,23 +134,39 @@ const UMKMContent = () => {
     [allUMKM]
   );
 
-  const updateDisplayedUMKM = useCallback(() => {
-    const filteredData = filterData();
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-    setDisplayedUMKM(currentItems);
-  }, [filterData, currentPage, itemsPerPage]);
-
-  const handleSearchWithPagination = useCallback(
-    (searchValue, categoriesValue) => {
-      setCurrentPage(1);
+  // Fungsi untuk apply filter dan update displayed UMKM
+  const applyFilters = useCallback(
+    (
+      searchValue = search,
+      categoriesValue = selectedCategories,
+      page = currentPage
+    ) => {
       const filteredData = filterData(searchValue, categoriesValue);
-      const currentItems = filteredData.slice(0, itemsPerPage);
+      const indexOfLastItem = page * itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+      const currentItems = filteredData.slice(
+        indexOfFirstItem,
+        indexOfLastItem
+      );
+
       setDisplayedUMKM(currentItems);
     },
-    [filterData, itemsPerPage]
+    [filterData, itemsPerPage, search, selectedCategories, currentPage]
   );
+
+  // Initialize dari URL parameters
+  useEffect(() => {
+    const searchFromUrl = searchParams.get('search') || '';
+    const categoryFromUrl = searchParams.get('category') || '';
+
+    setSearch(searchFromUrl);
+    setTempSearch(searchFromUrl);
+
+    if (categoryFromUrl) {
+      const categories = categoryFromUrl.toLowerCase().split(',');
+      setSelectedCategories(categories);
+    }
+  }, [searchParams]);
 
   // useEffect untuk load data
   useEffect(() => {
@@ -186,37 +175,41 @@ const UMKMContent = () => {
       try {
         const data = await getUmkm();
         setAllUMKM(data);
-
-        // Setelah data loaded, apply filters dari URL
-        if (search || selectedCategories.length > 0) {
-          handleSearchWithPagination(search, selectedCategories);
-        } else {
-          const initialItems = data.slice(0, itemsPerPage);
-          setDisplayedUMKM(initialItems);
-        }
+      } catch (error) {
+        console.error('Error fetching UMKM data:', error);
       } finally {
         setIsLoading(false);
       }
     };
     fetchData();
-  }, [itemsPerPage]);
+  }, []);
 
+  // Apply filters ketika allUMKM berubah (data pertama kali load)
   useEffect(() => {
     if (allUMKM.length > 0) {
-      updateDisplayedUMKM();
+      applyFilters();
     }
-  }, [currentPage, allUMKM, updateDisplayedUMKM]);
+  }, [allUMKM.length, applyFilters]); // ← PERBAIKAN: tambah allUMKM.length
+
+  // Apply filters ketika search atau selectedCategories berubah
+  useEffect(() => {
+    if (allUMKM.length > 0) {
+      setCurrentPage(1); // Reset ke halaman 1 ketika filter berubah
+      applyFilters(search, selectedCategories, 1);
+    }
+  }, [search, selectedCategories, allUMKM.length, applyFilters]); // ← PERBAIKAN: tambah semua dependencies
+
+  // Update displayed UMKM ketika page berubah
+  useEffect(() => {
+    if (allUMKM.length > 0) {
+      applyFilters(search, selectedCategories, currentPage);
+    }
+  }, [currentPage, search, selectedCategories, allUMKM.length, applyFilters]); // ← PERBAIKAN: tambah semua dependencies
 
   // Fungsi untuk handle search dengan tombol
   const handleSearchSubmit = () => {
     setSearch(tempSearch);
-    setCurrentPage(1);
-
-    // Update URL
     updateURLParams(tempSearch, selectedCategories);
-
-    // Apply filter
-    handleSearchWithPagination(tempSearch, selectedCategories);
   };
 
   // Fungsi untuk handle input change (hanya update temp search)
@@ -239,10 +232,7 @@ const UMKMContent = () => {
       updated.push(category);
     }
     setSelectedCategories(updated);
-
-    // Update URL dan apply filter
     updateURLParams(search, updated);
-    handleSearchWithPagination(search, updated);
   };
 
   const resetFilters = () => {
@@ -251,55 +241,26 @@ const UMKMContent = () => {
     setSelectedCategories([]);
     setCurrentPage(1);
     setIsFilterOpen(false);
-
-    // Reset URL
     router.push('/umkm', { scroll: false });
-
-    // Reset ke data awal
-    const initialItems = allUMKM.slice(0, itemsPerPage);
-    setDisplayedUMKM(initialItems);
   };
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    const filteredData = filterData();
-    const indexOfLastItem = pageNumber * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-    setDisplayedUMKM(currentItems);
   };
 
   const nextPage = () => {
     if (currentPage < totalPages) {
-      const nextPageNum = currentPage + 1;
-      setCurrentPage(nextPageNum);
-      const filteredData = filterData();
-      const indexOfLastItem = nextPageNum * itemsPerPage;
-      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-      const currentItems = filteredData.slice(
-        indexOfFirstItem,
-        indexOfLastItem
-      );
-      setDisplayedUMKM(currentItems);
+      setCurrentPage(currentPage + 1);
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
-      const prevPageNum = currentPage - 1;
-      setCurrentPage(prevPageNum);
-      const filteredData = filterData();
-      const indexOfLastItem = prevPageNum * itemsPerPage;
-      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-      const currentItems = filteredData.slice(
-        indexOfFirstItem,
-        indexOfLastItem
-      );
-      setDisplayedUMKM(currentItems);
+      setCurrentPage(currentPage - 1);
     }
   };
 
-  const filteredUMKM = filterData();
+  const filteredUMKM = filterData(search, selectedCategories);
   const totalPages = Math.ceil(filteredUMKM.length / itemsPerPage);
 
   const getPageNumbers = () => {
@@ -468,7 +429,6 @@ const UMKMContent = () => {
                       setSearch('');
                       setTempSearch('');
                       updateURLParams('', selectedCategories);
-                      handleSearchWithPagination('', selectedCategories);
                     }}
                     className='ml-1 hover:text-primary-hover'
                   >
