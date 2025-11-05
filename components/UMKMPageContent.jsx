@@ -19,10 +19,9 @@ import {
   X,
 } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-// Main content component that uses useSearchParams
-const UMKMContent = () => {
+const UMKMPageContent = () => {
   const [allUMKM, setAllUMKM] = useState([]);
   const [displayedUMKM, setDisplayedUMKM] = useState([]);
   const [search, setSearch] = useState('');
@@ -476,22 +475,22 @@ const UMKMContent = () => {
                   </button>
                 </span>
               )}
-              {selectedCategories.map((category) => {
+              {selectedCategories.map((name) => {
                 const categoryConfig = categories.find(
-                  (cat) => cat.name === category
+                  ({ name }) => name === name
                 );
                 return (
                   <span
-                    key={category}
+                    key={name}
                     className={`px-3 py-1 rounded-full text-sm flex items-center gap-1 border ${
                       categoryConfig
                         ? `${categoryConfig.color} text-white border-transparent`
                         : 'bg-muted text-foreground border-border'
                     }`}
                   >
-                    {category}
+                    {name}
                     <button
-                      onClick={() => handleCategoryChange(category)}
+                      onClick={() => handleCategoryChange(name)}
                       className='ml-1 opacity-80 hover:opacity-100'
                     >
                       <X className='w-3 h-3' />
@@ -639,13 +638,4 @@ const UMKMContent = () => {
   );
 };
 
-// Main page component with Suspense
-const Page = () => {
-  return (
-    <Suspense fallback={<UMKMListSkeleton />}>
-      <UMKMContent />
-    </Suspense>
-  );
-};
-
-export default Page;
+export default UMKMPageContent;

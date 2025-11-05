@@ -1,17 +1,15 @@
-import React from 'react';
-
 const PrivacyPolicyPage = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
         Kebijakan Privasi
       </h1>
-      
+
       <div className="prose prose-lg max-w-none">
         <p className="text-gray-700 mb-6">
-          Kebijakan privasi ini menjelaskan bagaimana Riloka mengumpulkan, 
-          menggunakan, dan melindungi informasi pribadi Anda saat menggunakan 
-          layanan kami. Kami berkomitmen untuk menjaga privasi dan keamanan 
+          Kebijakan privasi ini menjelaskan bagaimana Riloka mengumpulkan,
+          menggunakan, dan melindungi informasi pribadi Anda saat menggunakan
+          layanan kami. Kami berkomitmen untuk menjaga privasi dan keamanan
           data Anda.
         </p>
 
@@ -41,7 +39,7 @@ const PrivacyPolicyPage = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Perlindungan Data</h2>
           <p className="text-gray-700 mb-4">
-            Kami menerapkan berbagai langkah keamanan untuk melindungi informasi 
+            Kami menerapkan berbagai langkah keamanan untuk melindungi informasi
             Anda dari akses, perubahan, pengungkapan, atau penghancuran yang tidak sah.
           </p>
         </section>
@@ -49,8 +47,8 @@ const PrivacyPolicyPage = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Kebijakan Cookie</h2>
           <p className="text-gray-700 mb-4">
-            Kami menggunakan cookie untuk meningkatkan pengalaman pengguna dan 
-            menganalisis lalu lintas website. Anda dapat memilih untuk menerima 
+            Kami menggunakan cookie untuk meningkatkan pengalaman pengguna dan
+            menganalisis lalu lintas website. Anda dapat memilih untuk menerima
             atau menolak cookie tersebut.
           </p>
         </section>
@@ -58,8 +56,8 @@ const PrivacyPolicyPage = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Perubahan Kebijakan</h2>
           <p className="text-gray-700 mb-4">
-            Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu. 
-            Perubahan akan diumumkan di website kami dan tanggal diperbarui 
+            Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu.
+            Perubahan akan diumumkan di website kami dan tanggal diperbarui
             akan ditampilkan di atas.
           </p>
         </section>
@@ -67,8 +65,8 @@ const PrivacyPolicyPage = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Hubungi Kami</h2>
           <p className="text-gray-700">
-            Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, 
-            silakan hubungi kami melalui informasi kontak yang tersedia 
+            Jika Anda memiliki pertanyaan tentang kebijakan privasi ini,
+            silakan hubungi kami melalui informasi kontak yang tersedia
             di halaman "Tentang" atau melalui email resmi kami.
           </p>
         </section>
