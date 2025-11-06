@@ -93,7 +93,7 @@ const UMKMContent = () => {
       }
 
       const newUrl = params.toString() ? `?${params.toString()}` : '/umkm';
-      router.push(newUrl, { scroll: false });
+      router.replace(newUrl, { scroll: false });
     },
     [router]
   );

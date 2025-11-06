@@ -88,14 +88,10 @@ const Page = () => {
     }
   };
 
-  const handleCategoryClick = (category) => {
-    router.push(`/umkm?category=${category.toLowerCase()}`);
-  };
-
   const categories = [
     {
       id: 1,
-      name: 'Makanan',
+      name: 'makanan',
       icon: Utensils,
       color: 'var(--color-category-makanan)',
       description: 'Warung makan, restoran, kafe',
@@ -103,7 +99,7 @@ const Page = () => {
     },
     {
       id: 2,
-      name: 'Minuman',
+      name: 'minuman',
       icon: Coffee,
       color: 'var(--color-category-minuman)',
       description: 'Kedai kopi, juice bar, teh',
@@ -111,7 +107,7 @@ const Page = () => {
     },
     {
       id: 3,
-      name: 'Jasa',
+      name: 'jasa',
       icon: Scissors,
       color: 'var(--color-category-jasa)',
       description: 'Barber, servis, konsultan',
@@ -119,7 +115,7 @@ const Page = () => {
     },
     {
       id: 4,
-      name: 'Fashion',
+      name: 'fashion',
       icon: Shirt,
       color: 'var(--color-category-fashion)',
       description: 'Pakaian, aksesoris, sepatu',
@@ -127,7 +123,7 @@ const Page = () => {
     },
     {
       id: 5,
-      name: 'Kerajinan',
+      name: 'kerajinan',
       icon: Hammer,
       color: 'var(--color-category-kerajinan)',
       description: 'Handmade, souvenir, seni',
@@ -220,58 +216,57 @@ const Page = () => {
 
         {/* Grid Kategori */}
         <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-6xl mx-auto'>
-          {categories.map((category) => {
-            const IconComponent = category.icon;
-            return (
-              <button
-                key={category.id}
-                onClick={() => handleCategoryClick(category.name)}
-                className='group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/20 hover:-translate-y-1 text-left cursor-pointer'
-              >
-                {/* Background gradient effect on hover */}
-                <div
-                  className='absolute inset-0 rounded-2xl bg-linear-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
-                  style={{
-                    background: `linear-gradient(135deg, ${category.color}15 0%, white 100%)`,
-                  }}
-                />
-
-                <div className='relative z-10'>
+          {categories.map(
+            ({ id, name, icon: Icon, color, description, count }) => {
+              return (
+                <Link
+                  key={id}
+                  href={`/umkm?category=${name}`}
+                  // onClick={() => handleCategoryClick(category.name)}
+                  className='group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/20 hover:-translate-y-1 text-left cursor-pointer'
+                >
+                  {/* Background gradient effect on hover */}
                   <div
-                    className='w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'
+                    className='absolute inset-0 rounded-2xl bg-linear-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
                     style={{
-                      backgroundColor: `${category.color}15`,
-                      color: category.color,
+                      background: `linear-gradient(135deg, ${color}15 0%, white 100%)`,
                     }}
-                  >
-                    <IconComponent className='size-7' />
-                  </div>
+                  />
 
-                  <h3
-                    className='text-xl font-bold mb-2 group-hover:translate-x-1 transition-transform duration-300'
-                    style={{ color: category.color }}
-                  >
-                    {category.name}
-                  </h3>
+                  <div className='relative z-10'>
+                    <div
+                      className='w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'
+                      style={{
+                        backgroundColor: `${color}15`,
+                        color,
+                      }}
+                    >
+                      <Icon className='size-7' />
+                    </div>
 
-                  <p className='text-muted-foreground text-sm mb-3 leading-relaxed'>
-                    {category.description}
-                  </p>
-                  <div className='flex items-center justify-between'>
-                    <span className='text-xs font-medium text-muted-foreground'>
-                      {category.count}
-                    </span>
-                    <div className='opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300'>
-                      <ArrowRight
-                        className='size-4'
-                        style={{ color: category.color }}
-                      />
+                    <h3
+                      className='text-xl font-bold mb-2 group-hover:translate-x-1 transition-transform duration-300'
+                      style={{ color }}
+                    >
+                      {name}
+                    </h3>
+
+                    <p className='text-muted-foreground text-sm mb-3 leading-relaxed'>
+                      {description}
+                    </p>
+                    <div className='flex items-center justify-between'>
+                      <span className='text-xs font-medium text-muted-foreground'>
+                        {count}
+                      </span>
+                      <div className='opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300'>
+                        <ArrowRight className='size-4' style={{ color }} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </button>
-            );
-          })}
+                </Link>
+              );
+            }
+          )}
         </div>
       </section>
 
