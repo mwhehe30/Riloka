@@ -14,10 +14,12 @@
     "thumb": "/images/thumbnail/thumb-ratan.webp",
     "images": [
       "/images/ratan-bakery/image-1.webp",
-      "/images/ratan-bakery/ratan-bakery-2.webp",
+      "/images/ratan-bakery/piscok.webp",
       "/images/ratan-bakery/ratan-bakery-1.webp",
+      "/images/ratan-bakery/ratan-bakery-2.webp",
       "/images/ratan-bakery/ratan-bakery-3.webp",
-      "/images/ratan-bakery/ratan-bakery-4.webp"
+      "/images/ratan-bakery/ratan-bakery-4.webp",
+      "/images/ratan-bakery/ratan-bakery-5.webp"
     ],
     "contact": {
       "phone": "+62 895-0140-4065"
@@ -94,7 +96,13 @@
     "thumb": "/images/thumbnail/thumb-rindu.webp",
     "images": [
       "/images/rindu-rasa/rindu-rasa-1.webp",
-      "/images/rindu-rasa/rindu-rasa-2.webp"
+      "/images/rindu-rasa/rindu-rasa-2.webp",
+      "/images/rindu-rasa/rindu-rasa-3.webp",
+      "/images/rindu-rasa/rindu-rasa-4.webp",
+      "/images/rindu-rasa/rindu-rasa-5.webp",
+      "/images/rindu-rasa/rindu-rasa1.webp",
+      "/images/rindu-rasa/rindu-rasa2.webp",
+      "/images/rindu-rasa/rindu-rasa3.webp"
     ],
     "contact": {
       "phone": "+62 851-6161-1893"
@@ -171,7 +179,8 @@
     "thumb": "/images/thumbnail/thumb-dut.webp",
     "images": [
       "/images/mak-dut/mak-dut-1.webp",
-      "/images/mak-dut/mak-dut-2.webp"
+      "/images/mak-dut/mak-dut-2.webp",
+      "/images/mak-dut/mak-dut1.webp"
     ],
     "contact": {
       "phone": "+62 812-2163-8222"
@@ -230,7 +239,16 @@
     "thumb": "/images/thumbnail/thumb-otakiri.webp",
     "images": [
       "/images/otakiri/otakiri-1.webp",
-      "/images/otakiri/otakiri-2.webp"
+      "/images/otakiri/otakiri-2.webp",
+      "/images/otakiri/otakiri-3.webp",
+      "/images/otakiri/otakiri-4.webp",
+      "/images/otakiri/otakiri-5.webp",
+      "/images/otakiri/otakiri-6.webp",
+      "/images/otakiri/otakiri-7.webp",
+      "/images/otakiri/otakiri-8.webp",
+      "/images/otakiri/otakiri1.webp",
+      "/images/otakiri/otakiri2.webp",
+      "/images/otakiri/otakiri3.webp"
     ],
     "contact": {
       "phone": "+62 811-2278-282",
@@ -340,8 +358,14 @@
     },
     "thumb": "/images/thumbnail/thumb-fukunobu.webp",
     "images": [
+      "/images/fukunobu/combo.webp",
       "/images/fukunobu/fukunobu-1.webp",
-      "/images/fukunobu/fukunobu-2.webp"
+      "/images/fukunobu/fukunobu-2.webp",
+      "/images/fukunobu/fukunobu1.webp",
+      "/images/fukunobu/fukunobu2.webp",
+      "/images/fukunobu/fukunobu3.webp",
+      "/images/fukunobu/hotchick.webp",
+      "/images/fukunobu/hotchickXice-tea.webp"
     ],
     "contact": {
       "phone": "+62 821-2454-9451"
@@ -413,7 +437,10 @@
     "thumb": "/images/thumbnail/thumb-wsd.webp",
     "images": [
       "/images/seblak-dhero/seblak-dhero-1.webp",
-      "/images/seblak-dhero/seblak-dhero-2.webp"
+      "/images/seblak-dhero/seblak-dhero-2.webp",
+      "/images/seblak-dhero/seblak-dhero1.webp",
+      "/images/seblak-dhero/seblak-dhero2.webp",
+      "/images/seblak-dhero/seblak-dhero3.webp"
     ],
     "contact": {
       "phone": "+62 896-5788-9347"
@@ -498,7 +525,12 @@
     "thumb": "/images/thumbnail/thumb-diatas-meja.webp",
     "images": [
       "/images/diatas-meja/diatas-meja-coffee.webp",
-      "/images/diatas-meja/es-teh.webp"
+      "/images/diatas-meja/diatas-meja1.webp",
+      "/images/diatas-meja/diatas-meja2.webp",
+      "/images/diatas-meja/diatas-meja3.webp",
+      "/images/diatas-meja/diatas-meja4.webp",
+      "/images/diatas-meja/es-teh.webp",
+      "/images/diatas-meja/Latte.webp"
     ],
     "contact": {
       "instagram": "diatasmeja.banjar"
@@ -572,7 +604,89 @@
       "link": "https://maps.app.goo.gl/eV1wW9kwPMUDFWmQ7"
     },
     "thumb": "/images/thumbnail/thumb-lebiru.webp",
-    "images": ["/images/lebiru/lebiru.webp", "/images/lebiru/lebiru-2.webp"],
+    "images": [
+      "/images/lebiru/lebiru-1.webp",
+      "/images/lebiru/lebiru-2.webp",
+      "/images/lebiru/lebiru-3.webp",
+      "/images/lebiru/lebiru-4.webp",
+      "/images/lebiru/lebiru-5.webp",
+      "/images/lebiru/lebiru-6.webp",
+      "/images/lebiru/lebiru-7.webp",
+      "/images/lebiru/lebiru-8.webp",
+      "/images/lebiru/lebiru-9.webp",
+      "/images/lebiru/lebiru-10.webp",
+      "/images/lebiru/lebiru-11.webp",
+      "/images/lebiru/lebiru-12.webp",
+      "/images/lebiru/lebiru-13.webp",
+      "/images/lebiru/lebiru-14.webp",
+      "/images/lebiru/lebiru-15.webp",
+      "/images/lebiru/lebiru-16.webp",
+      "/images/lebiru/lebiru-17.webp",
+      "/images/lebiru/lebiru-18.webp",
+      "/images/lebiru/lebiru-19.webp",
+      "/images/lebiru/lebiru-20.webp",
+      "/images/lebiru/lebiru-21.webp",
+      "/images/lebiru/lebiru-22.webp",
+      "/images/lebiru/lebiru-23.webp",
+      "/images/lebiru/lebiru-24.webp",
+      "/images/lebiru/lebiru-25.webp",
+      "/images/lebiru/lebiru-26.webp",
+      "/images/lebiru/lebiru-27.webp",
+      "/images/lebiru/lebiru-28.webp",
+      "/images/lebiru/lebiru-29.webp",
+      "/images/lebiru/lebiru-30.webp",
+      "/images/lebiru/lebiru-31.webp",
+      "/images/lebiru/lebiru-32.webp",
+      "/images/lebiru/lebiru-33.webp",
+      "/images/lebiru/lebiru-34.webp",
+      "/images/lebiru/lebiru-35.webp",
+      "/images/lebiru/lebiru-36.webp",
+      "/images/lebiru/lebiru-37.webp",
+      "/images/lebiru/lebiru-38.webp",
+      "/images/lebiru/lebiru-39.webp",
+      "/images/lebiru/lebiru-40.webp",
+      "/images/lebiru/lebiru-41.webp",
+      "/images/lebiru/lebiru-42.webp",
+      "/images/lebiru/lebiru-43.webp",
+      "/images/lebiru/lebiru-44.webp",
+      "/images/lebiru/lebiru-45.webp",
+      "/images/lebiru/lebiru-46.webp",
+      "/images/lebiru/lebiru-47.webp",
+      "/images/lebiru/lebiru-48.webp",
+      "/images/lebiru/lebiru-49.webp",
+      "/images/lebiru/lebiru-50.webp",
+      "/images/lebiru/lebiru-51.webp",
+      "/images/lebiru/lebiru-52.webp",
+      "/images/lebiru/lebiru-53.webp",
+      "/images/lebiru/lebiru-54.webp",
+      "/images/lebiru/lebiru-55.webp",
+      "/images/lebiru/lebiru-56.webp",
+      "/images/lebiru/lebiru-57.webp",
+      "/images/lebiru/lebiru-58.webp",
+      "/images/lebiru/lebiru-59.webp",
+      "/images/lebiru/lebiru-60.webp",
+      "/images/lebiru/lebiru-61.webp",
+      "/images/lebiru/lebiru-62.webp",
+      "/images/lebiru/lebiru-63.webp",
+      "/images/lebiru/lebiru-64.webp",
+      "/images/lebiru/lebiru-65.webp",
+      "/images/lebiru/lebiru-66.webp",
+      "/images/lebiru/lebiru-67.webp",
+      "/images/lebiru/lebiru-68.webp",
+      "/images/lebiru/lebiru-69.webp",
+      "/images/lebiru/lebiru-70.webp",
+      "/images/lebiru/lebiru-71.webp",
+      "/images/lebiru/lebiru-72.webp",
+      "/images/lebiru/lebiru-73.webp",
+      "/images/lebiru/lebiru-74.webp",
+      "/images/lebiru/lebiru-75.webp",
+      "/images/lebiru/lebiru1.webp",
+      "/images/lebiru/lebiru2.webp",
+      "/images/lebiru/lebiru3.webp",
+      "/images/lebiru/lebiru4.webp",
+      "/images/lebiru/lebiru5.webp",
+      "/images/lebiru/lebiru.webp"
+    ],
     "contact": {
       "phone": "+62 822-9551-5314",
       "instagram": "__lebiru"
@@ -1088,7 +1202,15 @@
     "thumb": "/images/thumbnail/thumb-steak.webp",
     "images": [
       "/images/steak-batmans/steak-batmans-1.webp",
-      "/images/steak-batmans/steak-batmans-2.webp"
+      "/images/steak-batmans/steak-batmans-2.webp",
+      "/images/steak-batmans/steak-batmans-3.webp",
+      "/images/steak-batmans/steak-batmans-4.webp",
+      "/images/steak-batmans/steak-batmans-5.webp",
+      "/images/steak-batmans/steak-batmans1.webp",
+      "/images/steak-batmans/steak-batmans2.webp",
+      "/images/steak-batmans/steak-batmans3.webp",
+      "/images/steak-batmans/steak-batmans4.webp",
+      "/images/steak-batmans/steak-batmans5.webp"
     ],
     "contact": {
       "phone": "+62 812-2313-7731",
@@ -1240,8 +1362,8 @@
     },
     "thumb": "/images/thumbnail/thumb-papito.webp",
     "images": [
-      "/images/papito-barbershop/papito-barbershop-1.webp",
-      "/images/papito-barbershop/papito-barbershop-2.webp"
+      "/images/papito-barbershop/papito-barbershop1.webp",
+      "/images/papito-barbershop/papito-barbershop2.webp"
     ],
     "contact": {
       "phone": "+62 855-7012-010",
@@ -1258,25 +1380,25 @@
       {
         "id": 1,
         "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop-1.webp",
+        "image": "/images/papito-barbershop/papito-barbershop1.webp",
         "price": 14000
       },
       {
         "id": 2,
         "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop-2.webp",
+        "image": "/images/papito-barbershop/papito-barbershop2.webp",
         "price": 50000
       },
       {
         "id": 3,
         "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop-3.webp",
+        "image": "/images/papito-barbershop/papito-barbershop2.webp",
         "price": 250000
       },
       {
         "id": 4,
         "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop-4.webp",
+        "image": "/images/papito-barbershop/papito-barbershop2.webp",
         "price": 300000
       }
     ],
