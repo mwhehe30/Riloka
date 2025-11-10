@@ -222,7 +222,6 @@ const Page = () => {
                 <Link
                   key={id}
                   href={`/umkm?category=${name}`}
-                  // onClick={() => handleCategoryClick(category.name)}
                   className='group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/20 hover:-translate-y-1 text-left cursor-pointer'
                 >
                   {/* Background gradient effect on hover */}
@@ -248,7 +247,7 @@ const Page = () => {
                       className='text-xl font-bold mb-2 group-hover:translate-x-1 transition-transform duration-300'
                       style={{ color }}
                     >
-                      {name}
+                      {name.replace(/^./, (char) => char.toUpperCase())}
                     </h3>
 
                     <p className='text-muted-foreground text-sm mb-3 leading-relaxed'>

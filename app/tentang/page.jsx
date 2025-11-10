@@ -1,4 +1,4 @@
-import { Award, Globe, Heart, Sparkles, Users } from 'lucide-react';
+import { Award, Globe, Heart, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 const Page = () => {
@@ -163,43 +163,6 @@ const Page = () => {
           </div>
         </div>
 
-        {/* Our Team */}
-        <div className={`mb-20`}>
-          <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4 text-center'>
-            Tim Kami
-          </h2>
-          <p className='text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto'>
-            Kami adalah tim yang terdiri dari para profesional muda yang
-            memiliki semangat tinggi terhadap perkembangan UMKM di Indonesia.
-          </p>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {[
-              {
-                name: 'Zaky Mubarok',
-                role: 'Web Developer',
-              },
-              {
-                name: 'Dhanis Fathan Gunawan',
-                role: 'Designer',
-              },
-              {
-                name: 'Wisnu Nugroho',
-                role: 'Data Searching',
-              },
-            ].map((item) => (
-              <div
-                key={item.name}
-                className={`text-center group hover:translate-y-[-10px] transition-transform duration-300`}
-              >
-                <div className='w-32 h-32 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-                  <Users className='size-12 text-muted-foreground' />
-                </div>
-                <h3 className='text-xl font-bold'>{item.name}</h3>
-                <p className='text-muted-foreground'>{item.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
         <div className={`text-center`}>
           <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4'>
             Bergabunglah dengan Gerakan Kami
