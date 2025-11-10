@@ -176,7 +176,7 @@ const Page = () => {
   const activeTabData = tabs.find((tab) => tab.id === activeTab);
 
   return (
-    <section className='min-h-screen bg-white pt-20'>
+    <section className='min-h-screen bg-white pt-18'>
       <div className='relative aspect-4/3 sm:aspect-video md:aspect-21/7 overflow-hidden rounded-b-xl md:rounded-b-2xl'>
         <ImageWithFallback
           src={detailUmkm?.thumb}

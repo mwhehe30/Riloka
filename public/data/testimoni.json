@@ -1,44 +1,58 @@
 [
   {
     "id": 1,
-    "name": "Ahmad Saputra",
+    "name": "Siti Aminah",
     "rating": 5,
-    "review": "Luar biasa! Saya menemukan UMKM kuliner yang luar biasa melalui platform ini. Pemiliknya ramah dan makanannya sangat lezat. Harga terjangkau dengan kualitas terbaik!",
-    "date": "2024-02-15"
+    "review": "Roti dan kue dari Ratan Bakery enak banget! Saya sering beli Roti Pisang Coklat di sini. Harga terjangkau dan pelayanannya ramah. Cocok buat camilan keluarga!",
+    "date": "2024-04-15",
+    "photo": "/images/human.webp"
   },
   {
     "id": 2,
-    "name": "Siti Nurhaliza",
+    "name": "Ahmad Fauzi",
     "rating": 5,
-    "review": "Kualitas produk UMKM lokal di sini benar-benar mengagumkan. Saya telah membeli beberapa produk kerajinan tangan yang sangat bagus dan unik. Dukungan pelanggan juga sangat responsif.",
-    "date": "2024-03-10"
+    "review": "Makanan di Rindu Rasa Kuliner sangat enak dan autentik. Saya suka Paket Nasi Ayam Ungkep Tahu Tempe-nya. Tempatnya nyaman dan bersih. Harga sesuai dengan kualitas makanan.",
+    "date": "2024-06-10",
+    "photo": "/images/human.webp"
   },
   {
     "id": 3,
-    "name": "Budi Santoso",
-    "rating": 4,
-    "review": "Pengalaman belanja yang menyenangkan. Banyak pilihan UMKM yang bisa saya jelajahi dari rumah. Hanya sedikit kecewa dengan waktu pengiriman, tapi produknya tetap bagus.",
-    "date": "2024-01-22"
+    "name": "Rina Kartika",
+    "rating": 5,
+    "review": "Dapur Mak Ndut mantap! Mie Tek-Tek-nya enak banget, rasa homemade yang beneran nikmat. Porsi cukup mengenyangkan dan harga terjangkau. Recommended buat yang mau makan enak tapi hemat.",
+    "date": "2024-08-05",
+    "photo": "/images/human.webp"
   },
   {
     "id": 4,
-    "name": "Dewi Anggraini",
+    "name": "Budi Santoso",
     "rating": 5,
-    "review": "Platform ini benar-benar membantu saya menemukan jasa servis elektronik terdekat. Pekerjaannya rapi, harga wajar, dan lokasinya mudah dijangkau. Terima kasih Riloka!",
-    "date": "2024-04-05"
+    "review": "Tempatnya estetik banget! Steak di Otakiri luar biasa enaknya, porsinya besar dan kualitasnya premium. Kopi juga mantap. Cocok buat tempat nongkrong dan makan-makan di hari libur.",
+    "date": "2024-10-01",
+    "photo": "/images/human.webp"
   },
   {
     "id": 5,
-    "name": "Rizki Pratama",
-    "rating": 5,
-    "review": "Sebagai pelaku UMKM, saya merasa sangat terbantu dengan adanya platform ini. Banyak pelanggan baru yang datang setelah produk saya terdaftar di Riloka. Ini solusi terbaik untuk UMKM lokal!",
-    "date": "2024-05-18"
+    "name": "Dewi Anggraini",
+    "rating": 4,
+    "review": "Kedai Fukunobu tempat makan yang pas buat anak muda. HotChick-nya mantap dan harga terjangkau. Suasananya santai dan pelayanannya cepat. Ayam bakarnya juga enak!",
+    "date": "2024-05-30",
+    "photo": "/images/human.webp"
   },
   {
     "id": 6,
-    "name": "Maya Lestari",
+    "name": "Adi Prasetyo",
     "rating": 4,
-    "review": "Saya menemukan toko pakaian lokal yang menjual baju-baju unik dengan desain yang tidak pasaran. Kualitasnya bagus dan harganya bersaing. Terima kasih telah mendukung kreator lokal!",
-    "date": "2024-06-30"
+    "review": "Seblak Dhero mantap buat yang suka pedas! Banyak pilihan toping dan harganya terjangkau. Seblak Paket B dengan ceker dan sosis enak banget. Tempatnya bersih dan ramah.",
+    "date": "2024-04-18",
+    "photo": "/images/human.webp"
+  },
+  {
+    "id": 7,
+    "name": "Lukman Hakim",
+    "rating": 5,
+    "review": "Kopi di Cafe Diatas Meja sangat nikmat! Saya suka Latte-nya, kualitasnya bagus dan harga terjangkau. Tempatnya cozy buat kerja atau nongkrong bareng teman-teman.",
+    "date": "2024-03-12",
+    "photo": "/images/human.webp"
   }
 ]

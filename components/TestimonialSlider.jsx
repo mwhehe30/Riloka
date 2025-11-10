@@ -73,6 +73,16 @@ const TestimonialSlider = ({ testimonials }) => {
             </p>
             
             <div className="flex flex-col items-center">
+              <div className="mb-4">
+                <img 
+                  src={testimonials[currentIndex]?.photo || '/images/human.webp'} 
+                  alt={testimonials[currentIndex]?.name}
+                  className="w-16 h-16 rounded-full object-cover border-4 border-primary/10"
+                  onError={(e) => {
+                    e.target.src = '/images/human.webp';
+                  }}
+                />
+              </div>
               <h4 className="text-xl font-semibold text-foreground">
                 {testimonials[currentIndex]?.name}
               </h4>

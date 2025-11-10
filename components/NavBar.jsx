@@ -1,20 +1,34 @@
 'use client';
 
+import { ArrowLeft, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const NavBar = () => {
   const pathname = usePathname();
-  // const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    // Check initial screen size
+    checkMobile();
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   const navItems = [
@@ -25,9 +39,37 @@ const NavBar = () => {
 
   const isActive = (href) => pathname === href;
 
+  // Check if we're on a UMKM detail page (dynamic route like /umkm/slug)
+  const isUMKMDetailPage =
+    pathname.startsWith('/umkm/') && pathname !== '/umkm';
+
+  // Extract UMKM name from URL if on detail page
+  let umkmName = '';
+  if (isUMKMDetailPage) {
+    const slug = pathname.split('/')[2];
+    // Convert slug to title case for display
+    umkmName = slug
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  // Determine navbar position
+  const getNavbarPosition = () => {
+    // Desktop: selalu fixed
+    if (!isMobile) return 'fixed';
+
+    // Mobile:
+    // - Detail UMKM → fixed
+    // - Halaman lain → absolute
+    return isUMKMDetailPage ? 'fixed' : 'absolute';
+  };
+
+  const navbarPosition = getNavbarPosition();
+
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${
+      className={`${navbarPosition} top-0 left-0 right-0 z-50 w-full transition-all duration-500 ${
         scrolled
           ? 'bg-white-brighter/95 backdrop-blur-xl shadow-sm border-b border-surface'
           : 'bg-white-brighter/90 backdrop-blur-xl border-b border-surface'
@@ -38,22 +80,41 @@ const NavBar = () => {
           scrolled ? 'py-3' : 'py-4'
         }`}
       >
-        {/* LOGO */}
-        <Link href='/' className='flex items-center gap-3 group relative'>
-          <div className='relative'>
-            {/* Glow effect on hover */}
-            <div className='absolute inset-0 bg-linear-to-r from-primary/20 to-accent/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
-
-            <div className='relative'>
-              <h1 className='text-2xl font-bold tracking-tight bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300'>
-                Riloka
-              </h1>
-              <p className='text-sm text-muted-foreground font-medium leading-tight group-hover:text-muted-foreground/80 transition-colors'>
-                Dukung Bisnis Lokal
-              </p>
+        {/* Back button for UMKM detail page, Logo for other pages */}
+        {isUMKMDetailPage ? (
+          <div className='flex items-center gap-3'>
+            <button
+              onClick={() => window.history.back()}
+              className='p-2 rounded-lg hover:bg-black/5 transition-colors'
+              aria-label='Kembali'
+            >
+              <ArrowLeft className='size-6 text-black' />
+            </button>
+            <div className='flex items-center gap-2 min-w-0'>
+              {' '}
+              <MapPin className='size-5 text-primary shrink-0' />
+              <h2 className='text-lg font-bold text-black truncate max-w-[120px] xs:max-w-[150px] sm:max-w-[200px]'>
+                {umkmName}
+              </h2>
             </div>
           </div>
-        </Link>
+        ) : (
+          <Link href='/' className='flex items-center gap-3 group relative'>
+            <div className='relative'>
+              {/* Glow effect on hover */}
+              <div className='absolute inset-0 bg-linear-to-r from-primary/20 to-accent/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+
+              <div className='relative'>
+                <h1 className='text-2xl font-bold tracking-tight bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300'>
+                  Riloka
+                </h1>
+                <p className='text-sm text-muted-foreground font-medium leading-tight group-hover:text-muted-foreground/80 transition-colors'>
+                  Dukung Bisnis Lokal
+                </p>
+              </div>
+            </div>
+          </Link>
+        )}
 
         {/* DESKTOP NAVIGATION */}
         <ul className='hidden md:flex items-center gap-2'>
@@ -85,56 +146,6 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
-
-        {/* MOBILE TOGGLE */}
-        {/* <button
-          onClick={() => setOpen((prev) => !prev)}
-          className='md:hidden relative p-2.5 rounded-xl hover:bg-black/5 active:scale-95 transition-all duration-200 group'
-          aria-label='Toggle navigation menu'
-        >
-          <div className='absolute inset-0 bg-linear-to-r from-primary/10 to-accent/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-          {open ? (
-            <X className='size-6 relative z-10 transition-transform duration-300 rotate-0 group-hover:rotate-90' />
-          ) : (
-            <Menu className='size-6 relative z-10 transition-transform duration-300' />
-          )}
-        </button> */}
-
-        {/* MOBILE MENU */}
-        {/* <div
-          className={`absolute top-full left-0 w-full overflow-hidden bg-white/98 backdrop-blur-xl border-t border-black/10 shadow-2xl transition-all duration-500 md:hidden ${
-            open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <ul className='flex flex-col gap-1 p-4'>
-            {navItems.map(({ name, href }, index) => (
-              <li
-                key={href}
-                style={{
-                  animation: open
-                    ? `slideIn 0.3s ease-out ${index * 0.1}s both`
-                    : 'none',
-                }}
-              >
-                <Link
-                  href={href}
-                  onClick={() => setOpen(false)}
-                  className={`flex items-center justify-between px-5 py-3.5 rounded-xl font-semibold text-lg transition-all duration-300 group ${
-                    isActive(href)
-                      ? 'text-black bg-linear-to-r from-primary/5 to-accent/5'
-                      : 'text-muted-foreground hover:text-black hover:bg-black/5'
-                  }`}
-                >
-                  <span>{name}</span>
-                  <ChevronRight
-                    className={`size-5 transition-transform duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1
-                    `}
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div> */}
       </nav>
     </header>
   );
