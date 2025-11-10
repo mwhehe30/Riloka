@@ -134,26 +134,6 @@ const UMKMContent = () => {
     [allUMKM]
   );
 
-  // Fungsi untuk apply filter dan update displayed UMKM
-  const applyFilters = useCallback(
-    (
-      searchValue = search,
-      categoriesValue = selectedCategories,
-      page = currentPage
-    ) => {
-      const filteredData = filterData(searchValue, categoriesValue);
-      const indexOfLastItem = page * itemsPerPage;
-      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-      const currentItems = filteredData.slice(
-        indexOfFirstItem,
-        indexOfLastItem
-      );
-
-      setDisplayedUMKM(currentItems);
-    },
-    [filterData, itemsPerPage, search, selectedCategories, currentPage]
-  );
-
   // Initialize dari URL parameters
   useEffect(() => {
     const searchFromUrl = searchParams.get('search') || '';
@@ -184,32 +164,53 @@ const UMKMContent = () => {
     fetchData();
   }, []);
 
-  // Apply filters ketika allUMKM berubah (data pertama kali load)
+  // SINGLE useEffect untuk handle semua perubahan filter dan pagination
   useEffect(() => {
     if (allUMKM.length > 0) {
-      applyFilters();
-    }
-  }, [allUMKM.length, applyFilters]); // ← PERBAIKAN: tambah allUMKM.length
+      const filteredData = filterData(search, selectedCategories);
+      const indexOfLastItem = currentPage * itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+      const currentItems = filteredData.slice(
+        indexOfFirstItem,
+        indexOfLastItem
+      );
 
-  // Apply filters ketika search atau selectedCategories berubah
-  useEffect(() => {
-    if (allUMKM.length > 0) {
-      setCurrentPage(1); // Reset ke halaman 1 ketika filter berubah
-      applyFilters(search, selectedCategories, 1);
+      setDisplayedUMKM(currentItems);
     }
-  }, [search, selectedCategories, allUMKM.length, applyFilters]); // ← PERBAIKAN: tambah semua dependencies
+  }, [
+    allUMKM,
+    search,
+    selectedCategories,
+    currentPage,
+    filterData,
+    itemsPerPage,
+  ]);
 
-  // Update displayed UMKM ketika page berubah
-  useEffect(() => {
-    if (allUMKM.length > 0) {
-      applyFilters(search, selectedCategories, currentPage);
+  // Fungsi scroll ke paling atas halaman web - VERSI FIXED
+  const scrollToTop = () => {
+    // Multiple methods untuk memastikan work di semua browser
+    if (typeof window !== 'undefined') {
+      // Method 1: Scroll langsung ke top
+      window.scrollTo(0, 0);
+
+      // Method 2: Scroll ke element root
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+
+      // Method 3: Scroll ke element tertentu jika diperlukan
+      const headerElement = document.querySelector('section');
+      if (headerElement) {
+        headerElement.scrollIntoView({ behavior: 'instant' });
+      }
     }
-  }, [currentPage, search, selectedCategories, allUMKM.length, applyFilters]); // ← PERBAIKAN: tambah semua dependencies
+  };
 
   // Fungsi untuk handle search dengan tombol
   const handleSearchSubmit = () => {
     setSearch(tempSearch);
+    setCurrentPage(1); // Reset ke halaman 1 ketika search baru
     updateURLParams(tempSearch, selectedCategories);
+    scrollToTop();
   };
 
   // Fungsi untuk handle input change (hanya update temp search)
@@ -232,7 +233,9 @@ const UMKMContent = () => {
       updated.push(category);
     }
     setSelectedCategories(updated);
+    setCurrentPage(1); // Reset ke halaman 1 ketika kategori berubah
     updateURLParams(search, updated);
+    scrollToTop();
   };
 
   const resetFilters = () => {
@@ -242,21 +245,34 @@ const UMKMContent = () => {
     setCurrentPage(1);
     setIsFilterOpen(false);
     router.push('/umkm', { scroll: false });
+    scrollToTop();
   };
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+    // Scroll ke atas ketika ganti halaman - dengan delay untuk memastikan render selesai
+    setTimeout(() => {
+      scrollToTop();
+    }, 10);
   };
 
   const nextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage((prev) => prev + 1);
+      // Scroll ke atas ketika next page - dengan delay untuk memastikan render selesai
+      setTimeout(() => {
+        scrollToTop();
+      }, 10);
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+      setCurrentPage((prev) => prev - 1);
+      // Scroll ke atas ketika prev page - dengan delay untuk memastikan render selesai
+      setTimeout(() => {
+        scrollToTop();
+      }, 10);
     }
   };
 
@@ -428,7 +444,9 @@ const UMKMContent = () => {
                     onClick={() => {
                       setSearch('');
                       setTempSearch('');
+                      setCurrentPage(1);
                       updateURLParams('', selectedCategories);
+                      scrollToTop();
                     }}
                     className='ml-1 hover:text-primary-hover'
                   >
@@ -555,7 +573,7 @@ const UMKMContent = () => {
                     disabled={currentPage === 1}
                     className={`p-3 rounded-lg border-2 font-semibold transition-all ${
                       currentPage === 1
-                        ? 'text-muted-foreground border-border cursor-not-allowed'
+                        ? 'text-muted-foreground border-border cursor-not-allowed opacity-50'
                         : 'text-foreground border-border hover:bg-primary hover:text-white hover:border-primary transform hover:scale-105'
                     }`}
                   >
@@ -569,7 +587,7 @@ const UMKMContent = () => {
                       onClick={() => paginate(number)}
                       className={`w-10 h-10 flex items-center justify-center rounded-lg border-2 text-sm font-bold transition-all ${
                         currentPage === number
-                          ? 'bg-primary text-white border-primary shadow-lg'
+                          ? 'bg-primary text-white border-primary shadow-lg scale-105'
                           : 'border-border text-foreground hover:bg-primary hover:text-white hover:border-primary'
                       }`}
                     >
@@ -583,7 +601,7 @@ const UMKMContent = () => {
                     disabled={currentPage === totalPages}
                     className={`p-3 rounded-lg border-2 font-semibold transition-all ${
                       currentPage === totalPages
-                        ? 'text-muted-foreground border-border cursor-not-allowed'
+                        ? 'text-muted-foreground border-border cursor-not-allowed opacity-50'
                         : 'text-foreground border-border hover:bg-primary hover:text-white hover:border-primary transform hover:scale-105'
                     }`}
                   >

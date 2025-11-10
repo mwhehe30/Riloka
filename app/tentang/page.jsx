@@ -184,7 +184,7 @@ const Page = () => {
               },
               {
                 name: 'Wisnu Nugroho',
-                role: 'Data Researcher',
+                role: 'Data Searching',
               },
             ].map((item) => (
               <div
