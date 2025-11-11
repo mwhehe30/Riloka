@@ -14,7 +14,6 @@ import {
   MapPin,
   Phone,
   Pin,
-  Share2,
   Star,
   ThumbsUp,
   User,
@@ -185,7 +184,7 @@ const Page = () => {
           fetchPriority='high'
           priority
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          className='object-cover'
+          className='object-cover rounded-b-xl md:rounded-b-2xl'
         />
         <div className='absolute inset-0 bg-black/40 backdrop-blur-md flex flex-col gap-4 items-center justify-center p-4'>
           {detailUmkm.featured && (
@@ -225,7 +224,7 @@ const Page = () => {
         </div>
       </div>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 pb-10'>
-        <article className='relative overflow-hidden rounded-3xl shadow-2xl mb-8'>
+        {/* <article className='relative overflow-hidden rounded-3xl shadow-2xl mb-8'>
           <div className='absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent' />
 
           <div className='absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-12 text-white'>
@@ -273,10 +272,10 @@ const Page = () => {
           >
             <Share2 className='w-5 h-5 sm:w-6 sm:h-6' />
           </button>
-        </article>
+        </article> */}
 
         {/* Content Grid */}
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8'>
           {/* Main Content */}
           <div className='lg:col-span-2 space-y-8'>
             {/* Responsive Tabs - Custom Dropdown on mobile, horizontal on larger screens */}
