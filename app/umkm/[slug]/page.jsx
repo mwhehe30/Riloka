@@ -195,7 +195,7 @@ const Page = () => {
             </div>
           )}
 
-          <h1 className='text-4xl md:text-6xl font-bold text-white'>
+          <h1 className='text-4xl md:text-6xl font-bold text-white text-center'>
             {detailUmkm?.name}
           </h1>
 
@@ -243,7 +243,7 @@ const Page = () => {
               )}
             </div>
 
-            <h1 className='text-2xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight'>
+            <h1 className='text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight'>
               {detailUmkm?.name}
             </h1>
 
@@ -286,7 +286,7 @@ const Page = () => {
                 <div className='sm:hidden'>
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className='w-full p-4 text-base font-medium bg-primary text-white border-none focus:outline-none focus:ring-2 focus:ring-primary/50 flex items-center justify-between rounded-t-2xl hover:bg-gray-50 transition-colors'
+                    className='w-full p-4 text-base font-medium bg-primary text-white border-none focus:outline-none focus:ring-2 focus:ring-primary/50 flex items-center justify-between rounded-t-2xl transition-colors'
                   >
                     <div className='flex items-center gap-3'>
                       {activeTabData && (
