@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ImageWithFallback from './ImageWithFallback';
 
-const PromoCard = ({ promo }) => {
+const PromoCard = ({ promo, umkm, isInDetailPage = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
 
@@ -35,9 +35,31 @@ const PromoCard = ({ promo }) => {
     setIsModalOpen(false);
   };
 
-  const handleVisitUMKM = () => {
-    if (promo?.slug) {
-      // Navigasi normal ke halaman UMKM (tidak buka tab baru)
+  const handleContactUMKM = () => {
+    // Close modal first
+    handleCloseModal();
+
+    // If we're in UMKM detail page context and umkm data is available
+    if (isInDetailPage && umkm && umkm.contact) {
+      // Try to contact via WhatsApp first
+      if (umkm.contact.phone) {
+        // Format phone number for WhatsApp (remove any non-digit characters except +)
+        const phoneNumber = umkm.contact.phone.replace(/\D/g, '');
+        const whatsappUrl = `https://wa.me/${phoneNumber}`;
+        window.open(whatsappUrl, '_blank');
+      }
+      // If no phone, try Instagram
+      else if (umkm.contact.instagram) {
+        const instagramUrl = `https://www.instagram.com/${umkm.contact.instagram}`;
+        window.open(instagramUrl, '_blank');
+      }
+      // If no contact info, navigate to UMKM page
+      else if (promo?.slug) {
+        router.push(`/umkm/${promo.slug}`);
+      }
+    }
+    // If not in detail page or no contact info, navigate to UMKM page
+    else if (promo?.slug) {
       router.push(`/umkm/${promo.slug}`);
     }
   };
@@ -46,7 +68,7 @@ const PromoCard = ({ promo }) => {
     <>
       {/* Promo Card */}
       <div className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'>
-        <div className='bg-white rounded-2xl shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full'>
+        <div className='bg-white rounded-2xl shadow-lg transition-all duration-300 overflow-hidden border border-surface hover:border-primary/40 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl'>
           <div className='relative w-full pt-[100%] overflow-hidden'>
             <ImageWithFallback
               src={promo.image}
@@ -250,10 +272,10 @@ const PromoCard = ({ promo }) => {
                   {/* Actions */}
                   <div className='flex flex-col sm:flex-row gap-4 mt-auto pt-4'>
                     <button
-                      onClick={handleVisitUMKM}
+                      onClick={handleContactUMKM}
                       className='flex-1 bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg text-center'
                     >
-                      Kunjungi UMKM
+                      {isInDetailPage ? 'Hubungi UMKM' : 'Kunjungi UMKM'}
                     </button>
                     <button
                       onClick={handleCloseModal}

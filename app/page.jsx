@@ -46,8 +46,16 @@ const Page = () => {
           getUmkm(),
           getPromo(),
         ]);
+        // Connect each promo to its corresponding UMKM based on slug
+        const promoWithUmkm = promoData.map(promo => {
+          const umkm = umkmData.find(u => u.slug === promo.slug);
+          return {
+            ...promo,
+            umkmData: umkm || null
+          };
+        });
         setUmkm(umkmData);
-        setPromo(promoData);
+        setPromo(promoWithUmkm);
       } finally {
         setIsLoading(false);
       }
@@ -224,11 +232,13 @@ const Page = () => {
                   href={`/umkm?category=${name}`}
                   className='group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/20 hover:-translate-y-1 text-left cursor-pointer'
                 >
-                  {/* Background gradient effect on hover */}
                   <div
                     className='absolute inset-0 rounded-2xl bg-linear-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
                     style={{
-                      background: `linear-gradient(135deg, ${color}15 0%, white 100%)`,
+                      background: `linear-gradient(135deg,
+                  color-mix(in oklch, ${color}, transparent 85%) 0%,
+                  color-mix(in oklch, ${color}, transparent 92%) 50%,
+                  transparent 100%)`,
                     }}
                   />
 
@@ -236,7 +246,7 @@ const Page = () => {
                     <div
                       className='w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'
                       style={{
-                        backgroundColor: `${color}15`,
+                        backgroundColor: `color-mix(in oklch, ${color}, transparent 85%)`,
                         color,
                       }}
                     >
@@ -311,9 +321,38 @@ const Page = () => {
           <div className='flex justify-center items-center mt-8'>
             <Link
               href='/umkm'
-              className='w-max bg-primary rounded-full px-6 py-4 shadow-lg hover:bg-primary-hover hover:shadow-xl hover:-translate-y-1 text-white font-semibold hover:gap-3 transition-all group'
+              className='
+    w-max
+    rounded-full
+    px-6
+    py-4
+    shadow-lg
+    text-white
+    font-semibold
+    relative
+    overflow-hidden
+    bg-linear-to-b
+    from-primary
+    to-primary
+    transition-all
+    duration-300
+    hover:shadow-xl
+    hover:-translate-y-1
+    group
+    before:content-[""]
+    before:absolute
+    before:inset-0
+    before:bg-linear-to-b
+    before:from-primary
+    before:from-40%
+    before:to-primary-hover
+    before:opacity-0
+    before:transition-opacity
+    before:duration-300
+    hover:before:opacity-100
+  '
             >
-              Lihat Semua UMKM
+              <span className='relative z-10'>Lihat Semua UMKM</span>
             </Link>
           </div>
         </div>
@@ -352,7 +391,7 @@ const Page = () => {
                   key={promo.id}
                   className='flex-none w-80 md:w-96 snap-center'
                 >
-                  <PromoCard promo={promo} />
+                  <PromoCard promo={promo} umkm={promo.umkmData} isInDetailPage={false} />
                 </div>
               ))}
         </HorizontalScroll>
@@ -401,9 +440,38 @@ const Page = () => {
 
             <Link
               href='/umkm'
-              className='w-max bg-secondary rounded-full px-6 py-4 shadow-lg hover:bg-secondary-hover hover:shadow-xl hover:-translate-y-1 text-white font-semibold hover:gap-3 transition-all group'
+              className='
+    w-max
+    rounded-full
+    px-6
+    py-4
+    shadow-lg
+    text-white
+    font-semibold
+    relative
+    overflow-hidden
+    bg-linear-to-b
+    from-secondary
+    to-secondary
+    transition-all
+    duration-300
+    hover:shadow-xl
+    hover:-translate-y-1
+    group
+    before:content-[""]
+    before:absolute
+    before:inset-0
+    before:bg-linear-to-b
+    before:from-secondary
+    before:from-40%
+    before:to-secondary-dark
+    before:opacity-0
+    before:transition-opacity
+    before:duration-300
+    hover:before:opacity-100
+  '
             >
-              Lihat Semua UMKM
+              <span className='relative z-10'>Lihat Semua UMKM</span>
             </Link>
           </div>
         </div>

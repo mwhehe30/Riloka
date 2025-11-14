@@ -7,7 +7,7 @@ import ImageWithFallback from './ImageWithFallback';
 const UMKMCard = ({ umkm }) => {
   return (
     <Link href={`/umkm/${umkm.slug}`} className='h-full'>
-      <article className='flex flex-col overflow-hidden cursor-pointer group border border-surface bg-white shadow-lg shadow-black/5 transition-all duration-500 h-full rounded-2xl'>
+      <article className='flex flex-col overflow-hidden cursor-pointer group border border-surface bg-white shadow-lg shadow-black/5 transition-all duration-300 h-full rounded-2xl group-hover:-translate-y-1 group-hover:shadow-xl hover:shadow-xl hover:translate-y-0 translate-y-1 hover:border-primary/30 active:border-primary/40'>
         {/* Gambar */}
         <figure className='relative overflow-hidden aspect-video'>
           <ImageWithFallback

@@ -4,9 +4,13 @@ import Card from '@/components/Card';
 import UMKMListSkeleton from '@/components/UMKMListSkeleton';
 import { getUmkm } from '@/lib/api';
 import {
+  Banknote,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   Coffee,
+  Coins,
+  DollarSign,
   Filter,
   Hammer,
   MapPin,
@@ -15,7 +19,9 @@ import {
   Shirt,
   Sparkles,
   Star,
+  TrendingUp,
   Utensils,
+  Wallet,
   X,
 } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -27,6 +33,10 @@ const UMKMContent = () => {
   const [displayedUMKM, setDisplayedUMKM] = useState([]);
   const [search, setSearch] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [priceRangeIndex, setPriceRangeIndex] = useState(0); // Default to "Semua Harga" (index 0)
+  const [minRating, setMinRating] = useState(0); // Default min rating: 0 stars
+  const [isRatingDropdownOpen, setIsRatingDropdownOpen] = useState(false);
+  const [isPriceDropdownOpen, setIsPriceDropdownOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -79,9 +89,19 @@ const UMKMContent = () => {
     return [String(item.category || '').toLowerCase()];
   };
 
+  // Define price ranges dengan icon yang sesuai
+  const priceRanges = [
+    { min: 0, max: Infinity, label: 'Semua Harga', icon: DollarSign },
+    { min: 0, max: 10000, label: 'Rp 0 - 10.000', icon: Coins },
+    { min: 10000, max: 25000, label: 'Rp 10.000 - 25.000', icon: Coins },
+    { min: 25000, max: 50000, label: 'Rp 25.000 - 50.000', icon: Banknote },
+    { min: 50000, max: 100000, label: 'Rp 50.000 - 100.000', icon: Banknote },
+    { min: 100000, max: Infinity, label: 'Rp 100.000+', icon: TrendingUp },
+  ];
+
   // Fungsi untuk update URL dengan search params
   const updateURLParams = useCallback(
-    (newSearch, newCategories) => {
+    (newSearch, newCategories, newPriceRangeIndex, newMinRating) => {
       const params = new URLSearchParams();
 
       if (newSearch) {
@@ -90,6 +110,16 @@ const UMKMContent = () => {
 
       if (newCategories.length > 0) {
         params.set('category', newCategories.join(','));
+      }
+
+      // Only add price range index to URL if it's not the default (all prices)
+      if (newPriceRangeIndex && newPriceRangeIndex !== 0) {
+        params.set('price_range', newPriceRangeIndex);
+      }
+
+      // Only add min rating to URL if it's not the default value
+      if (newMinRating && newMinRating > 0) {
+        params.set('min_rating', newMinRating);
       }
 
       const newUrl = params.toString() ? `?${params.toString()}` : '/umkm';
@@ -129,15 +159,67 @@ const UMKMContent = () => {
         });
       }
 
+      // Filter by price range
+      result = result.filter((item) => {
+        const { min: minPrice, max: maxPrice } = priceRanges[priceRangeIndex];
+
+        // Check if item has price data
+        if (
+          item.products &&
+          Array.isArray(item.products) &&
+          item.products.length > 0
+        ) {
+          // Find the minimum and maximum prices in the products
+          const prices = item.products
+            .map((p) => p.price)
+            .filter((price) => typeof price === 'number');
+
+          if (prices.length > 0) {
+            const itemMinPrice = Math.min(...prices);
+            const itemMaxPrice = Math.max(...prices);
+
+            // Check if any product price falls within the selected range
+            return itemMaxPrice >= minPrice && itemMinPrice <= maxPrice;
+          }
+        }
+        // If no price data, include the item only if the range is "all prices"
+        return minPrice === 0 && maxPrice === Infinity;
+      });
+
+      // Filter by minimum rating
+      result = result.filter((item) => {
+        // Handle both string and number ratings from the JSON
+        let itemRating = 0;
+        if (typeof item.rating === 'string') {
+          // Convert string rating to number
+          itemRating = parseFloat(item.rating) || 0;
+        } else if (typeof item.rating === 'number') {
+          itemRating = item.rating;
+        } else if (
+          item.reviews &&
+          Array.isArray(item.reviews) &&
+          item.reviews.length > 0
+        ) {
+          // Calculate average from reviews if no direct rating exists
+          itemRating =
+            item.reviews.reduce((sum, review) => sum + review.rating, 0) /
+            item.reviews.length;
+        }
+
+        return itemRating >= minRating;
+      });
+
       return result;
     },
-    [allUMKM]
+    [allUMKM, priceRangeIndex, minRating]
   );
 
   // Initialize dari URL parameters
   useEffect(() => {
     const searchFromUrl = searchParams.get('search') || '';
     const categoryFromUrl = searchParams.get('category') || '';
+    const priceRangeIndexFromUrl = searchParams.get('price_range');
+    const ratingMinFromUrl = searchParams.get('min_rating');
 
     setSearch(searchFromUrl);
     setTempSearch(searchFromUrl);
@@ -145,6 +227,22 @@ const UMKMContent = () => {
     if (categoryFromUrl) {
       const categories = categoryFromUrl.toLowerCase().split(',');
       setSelectedCategories(categories);
+    }
+
+    // Initialize price range index from URL if present
+    if (priceRangeIndexFromUrl !== null) {
+      const index = priceRangeIndexFromUrl
+        ? parseInt(priceRangeIndexFromUrl)
+        : 0;
+      setPriceRangeIndex(index);
+    }
+
+    // Initialize minRating from URL if present
+    if (ratingMinFromUrl !== null) {
+      const minRatingValue = ratingMinFromUrl
+        ? parseFloat(ratingMinFromUrl)
+        : 0;
+      setMinRating(minRatingValue);
     }
   }, [searchParams]);
 
@@ -164,6 +262,39 @@ const UMKMContent = () => {
     fetchData();
   }, []);
 
+  // Handle clicks outside the rating dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const ratingDropdown = document.getElementById('rating-dropdown');
+      const ratingButton = document.getElementById('rating-dropdown-button');
+      const priceDropdown = document.getElementById('price-dropdown');
+      const priceButton = document.getElementById('price-dropdown-button');
+
+      if (
+        ratingDropdown &&
+        ratingButton &&
+        !ratingDropdown.contains(event.target) &&
+        !ratingButton.contains(event.target)
+      ) {
+        setIsRatingDropdownOpen(false);
+      }
+
+      if (
+        priceDropdown &&
+        priceButton &&
+        !priceDropdown.contains(event.target) &&
+        !priceButton.contains(event.target)
+      ) {
+        setIsPriceDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   // SINGLE useEffect untuk handle semua perubahan filter dan pagination
   useEffect(() => {
     if (allUMKM.length > 0) {
@@ -181,6 +312,8 @@ const UMKMContent = () => {
     allUMKM,
     search,
     selectedCategories,
+    priceRangeIndex,
+    minRating,
     currentPage,
     filterData,
     itemsPerPage,
@@ -209,13 +342,22 @@ const UMKMContent = () => {
   const handleSearchSubmit = () => {
     setSearch(tempSearch);
     setCurrentPage(1); // Reset ke halaman 1 ketika search baru
-    updateURLParams(tempSearch, selectedCategories);
+    updateURLParams(tempSearch, selectedCategories, priceRangeIndex, minRating);
     scrollToTop();
   };
 
-  // Fungsi untuk handle input change (hanya update temp search)
+  // Fungsi untuk handle input change (update temp search dan langsung clear URL jika input kosong)
   const handleTempSearchChange = (e) => {
-    setTempSearch(e.target.value);
+    const value = e.target.value;
+    setTempSearch(value);
+
+    // Jika input kosong, langsung update search state dan URL
+    if (value === '') {
+      setSearch('');
+      setCurrentPage(1);
+      updateURLParams('', selectedCategories);
+      scrollToTop();
+    }
   };
 
   // Fungsi untuk handle enter key di input search
@@ -234,14 +376,37 @@ const UMKMContent = () => {
     }
     setSelectedCategories(updated);
     setCurrentPage(1); // Reset ke halaman 1 ketika kategori berubah
-    updateURLParams(search, updated);
+    updateURLParams(search, updated, priceRangeIndex, minRating);
     scrollToTop();
+  };
+
+  const handleAllCategoriesClick = () => {
+    // If all categories are selected, clear all selections
+    // If not all categories are selected, select all categories
+    if (selectedCategories.length === 0) {
+      // Select all categories
+      const allCategoryNames = categories.map((cat) => cat.name);
+      setSelectedCategories(allCategoryNames);
+      setCurrentPage(1);
+      updateURLParams(search, allCategoryNames, priceRangeIndex, minRating);
+      scrollToTop();
+    } else {
+      // Clear all selections
+      setSelectedCategories([]);
+      setCurrentPage(1);
+      updateURLParams(search, [], priceRangeIndex, minRating);
+      scrollToTop();
+    }
   };
 
   const resetFilters = () => {
     setSearch('');
     setTempSearch('');
     setSelectedCategories([]);
+    setPriceRangeIndex(0); // Reset to default price range (all prices)
+    setMinRating(0); // Reset to default min rating
+    setIsRatingDropdownOpen(false); // Close the rating dropdown
+    setIsPriceDropdownOpen(false); // Close the price dropdown
     setCurrentPage(1);
     setIsFilterOpen(false);
     router.push('/umkm', { scroll: false });
@@ -337,7 +502,7 @@ const UMKMContent = () => {
           <div className='flex flex-col lg:flex-row gap-4'>
             {/* Search Input dengan Tombol */}
             <div className='flex-1 relative flex gap-3'>
-              <div className='flex flex-9 items-center gap-3 bg-muted/50 border border-border/80 rounded-lg px-5 py-4 shadow-lg transition-shadow focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20'>
+              <div className='flex flex-9 items-center gap-3 bg-muted/50 border border-border rounded-lg px-5 py-4 transition-shadow focus-within:ring-3 focus-within:ring-primary/20'>
                 <Search className='w-5 h-5 text-muted-foreground' />
                 <input
                   type='text'
@@ -374,6 +539,25 @@ const UMKMContent = () => {
               Filter Kategori
             </h3>
             <div className='flex flex-wrap gap-3'>
+              {/* All Categories Button */}
+              <button
+                onClick={handleAllCategoriesClick}
+                className={`group relative overflow-hidden px-5 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${
+                  selectedCategories.length === 0
+                    ? 'bg-primary text-white shadow-lg scale-105'
+                    : 'bg-white text-foreground border border-border hover:shadow-md'
+                }`}
+              >
+                <Filter
+                  className={`w-4 h-4 ${
+                    selectedCategories.length === 0
+                      ? 'text-white'
+                      : 'text-muted-foreground'
+                  }`}
+                />
+                <span>Semua</span>
+              </button>
+
               {categories.map(({ name, icon: Icon, color }) => {
                 const isSelected = selectedCategories.includes(name);
                 return (
@@ -402,6 +586,190 @@ const UMKMContent = () => {
                   </button>
                 );
               })}
+            </div>
+
+            <div className='mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6'>
+              {/* Price Range Filter */}
+              <div>
+                <h3 className='font-semibold text-lg mb-4 text-foreground flex items-center gap-2'>
+                  <Wallet className='w-5 h-5 text-primary' />
+                  Rentang Harga
+                </h3>
+                <div className='flex flex-col gap-2'>
+                  <div className='relative'>
+                    <button
+                      id='price-dropdown-button'
+                      type='button'
+                      onClick={() =>
+                        setIsPriceDropdownOpen(!isPriceDropdownOpen)
+                      }
+                      className='w-full px-4 py-3 bg-white border border-border rounded-lg text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all'
+                    >
+                      <div className='flex items-center gap-2'>
+                        {(() => {
+                          const IconComponent =
+                            priceRanges[priceRangeIndex].icon;
+                          return (
+                            <IconComponent className='w-4 h-4 text-primary' />
+                          );
+                        })()}
+                        <span>{priceRanges[priceRangeIndex].label}</span>
+                      </div>
+                      <ChevronDown
+                        className={`size-6 text-muted-foreground transition-transform ${
+                          isPriceDropdownOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+
+                    {isPriceDropdownOpen && (
+                      <div
+                        id='price-dropdown'
+                        className='absolute z-10 mt-2 w-full bg-white border border-border rounded-lg shadow-lg py-2'
+                      >
+                        {priceRanges.map(({ label, icon: Icon }, index) => {
+                          return (
+                            <div
+                              key={index}
+                              className={`px-4 py-3 cursor-pointer hover:bg-muted transition-colors flex items-center gap-3 ${
+                                priceRangeIndex === index ? 'bg-primary/10' : ''
+                              }`}
+                              onClick={() => {
+                                setPriceRangeIndex(index);
+                                setIsPriceDropdownOpen(false);
+                                setCurrentPage(1);
+                                updateURLParams(
+                                  search,
+                                  selectedCategories,
+                                  index,
+                                  minRating
+                                );
+                                scrollToTop();
+                              }}
+                            >
+                              <Icon className='w-4 h-4 text-primary' />
+                              <span>{label}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              {/* Rating Filter - now in second column of grid */}
+              <div>
+                <h3 className='font-semibold text-lg mb-4 text-foreground flex items-center gap-2'>
+                  <Star className='w-5 h-5 text-primary' />
+                  Rating Minimum
+                </h3>
+                <div className='flex flex-col gap-2'>
+                  <div className='relative'>
+                    <button
+                      id='rating-dropdown-button'
+                      type='button'
+                      onClick={() =>
+                        setIsRatingDropdownOpen(!isRatingDropdownOpen)
+                      }
+                      className='w-full px-4 py-3 pl-12 bg-white border border-border rounded-lg text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all'
+                    >
+                      <div className='flex items-center'>
+                        {minRating > 0 ? (
+                          <>
+                            <span className='mr-2'>{minRating}★ ke atas</span>
+                            <div className='flex'>
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`w-4 h-4 ${
+                                    i < minRating
+                                      ? 'text-yellow-400 fill-yellow-400'
+                                      : 'text-muted-foreground'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </>
+                        ) : (
+                          <span>Semua Rating</span>
+                        )}
+                      </div>
+                      <ChevronDown
+                        className={`size-6 text-muted-foreground transition-transform ${
+                          isRatingDropdownOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+
+                    {isRatingDropdownOpen && (
+                      <div
+                        id='rating-dropdown'
+                        className='absolute z-10 mt-2 w-full bg-white border border-border rounded-lg shadow-lg py-2'
+                      >
+                        <div
+                          className={`px-4 py-3 flex items-center cursor-pointer hover:bg-muted transition-colors ${
+                            minRating === 0 ? 'bg-primary/10' : ''
+                          }`}
+                          onClick={() => {
+                            setMinRating(0);
+                            setIsRatingDropdownOpen(false);
+                            setCurrentPage(1);
+                            updateURLParams(
+                              search,
+                              selectedCategories,
+                              priceRangeIndex,
+                              0
+                            );
+                            scrollToTop();
+                          }}
+                        >
+                          <span className='mr-2'>Semua Rating</span>
+                        </div>
+                        {[1, 2, 3, 4, 5].map((rating) => (
+                          <div
+                            key={rating}
+                            className={`px-4 py-3 flex items-center cursor-pointer hover:bg-muted transition-colors ${
+                              minRating === rating ? 'bg-primary/10' : ''
+                            }`}
+                            onClick={() => {
+                              setMinRating(rating);
+                              setIsRatingDropdownOpen(false);
+                              setCurrentPage(1);
+                              updateURLParams(
+                                search,
+                                selectedCategories,
+                                priceRangeIndex,
+                                rating
+                              );
+                              scrollToTop();
+                            }}
+                          >
+                            <span className='mr-2'>
+                              {rating} Bintang ke atas
+                            </span>
+                            <div className='flex'>
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`w-4 h-4 ${
+                                    i < rating
+                                      ? 'text-yellow-400 fill-yellow-400'
+                                      : 'text-muted-foreground'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className='absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none'>
+                      <Star className='w-5 h-5 text-muted-foreground' />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -435,7 +803,10 @@ const UMKMContent = () => {
           </div>
 
           {/* Active Filters */}
-          {(search || selectedCategories.length > 0) && (
+          {(search ||
+            selectedCategories.length > 0 ||
+            priceRangeIndex !== 0 ||
+            minRating !== 0) && (
             <div className='flex flex-wrap gap-2 mt-3 sm:mt-0'>
               {search && (
                 <span className='px-3 py-1 bg-primary/10 text-primary rounded-full text-sm flex items-center gap-1 border border-primary/20'>
@@ -445,7 +816,12 @@ const UMKMContent = () => {
                       setSearch('');
                       setTempSearch('');
                       setCurrentPage(1);
-                      updateURLParams('', selectedCategories);
+                      updateURLParams(
+                        '',
+                        selectedCategories,
+                        priceRangeIndex,
+                        minRating
+                      );
                       scrollToTop();
                     }}
                     className='ml-1 hover:text-primary-hover'
@@ -467,7 +843,7 @@ const UMKMContent = () => {
                         : 'bg-muted text-foreground border-border'
                     }`}
                   >
-                    {category}
+                    {category.replace(/^./, (char) => char.toUpperCase())}
                     <button
                       onClick={() => handleCategoryChange(category)}
                       className='ml-1 opacity-80 hover:opacity-100'
@@ -477,6 +853,49 @@ const UMKMContent = () => {
                   </span>
                 );
               })}
+              {/* Active Price Filter */}
+              {priceRangeIndex !== 0 && (
+                <span className='px-3 py-1 bg-primary/10 text-primary rounded-full text-sm flex items-center gap-1 border border-primary/20'>
+                  {(() => {
+                    const IconComponent = priceRanges[priceRangeIndex].icon;
+                    return <IconComponent className='w-3 h-3 mr-1' />;
+                  })()}
+                  Harga: {priceRanges[priceRangeIndex].label}
+                  <button
+                    onClick={() => {
+                      setPriceRangeIndex(0);
+                      setCurrentPage(1);
+                      updateURLParams(search, selectedCategories, 0, minRating);
+                      scrollToTop();
+                    }}
+                    className='ml-1 hover:text-primary-hover'
+                  >
+                    <X className='w-3 h-3' />
+                  </button>
+                </span>
+              )}
+              {/* Active Rating Filter */}
+              {minRating !== 0 && (
+                <span className='px-3 py-1 bg-primary/10 text-primary rounded-full text-sm flex items-center gap-1 border border-primary/20'>
+                  Rating: {minRating}★ ke atas
+                  <button
+                    onClick={() => {
+                      setMinRating(0);
+                      setCurrentPage(1);
+                      updateURLParams(
+                        search,
+                        selectedCategories,
+                        priceRangeIndex,
+                        0
+                      );
+                      scrollToTop();
+                    }}
+                    className='ml-1 hover:text-primary-hover'
+                  >
+                    <X className='w-3 h-3' />
+                  </button>
+                </span>
+              )}
             </div>
           )}
         </div>

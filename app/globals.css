@@ -13,14 +13,18 @@
   /* ===== Text ===== */
   --color-foreground: oklch(0.25 0.02 95);
   --color-muted-foreground: oklch(0.55 0.02 95);
-
-  /* ===== Brand & Accent ===== */
   --color-primary: oklch(0.52 0.16 160);
-  --color-primary-hover: oklch(0.47 0.16 160);
+  --color-primary-hover: oklch(0.4 0.16 160);
+  --color-primary-dark: oklch(0.32 0.16 160); /* 20% lebih gelap dari primary */
+
   --color-accent: oklch(0.65 0.18 55);
   --color-accent-hover: oklch(0.6 0.18 55);
-  --color-secondary: #fab12f;
-  --color-secondary-hover: #e09f29;
+
+  --color-secondary: oklch(81% 0.1573 76.193);
+  --color-secondary-hover: oklch(70% 0.1573 76.193);
+  --color-secondary-dark: oklch(
+    60% 0.1573 76.193
+  ); /* 21% lebih gelap dari secondary */
 
   /* ===== Category Colors ===== */
   --color-category-makanan: oklch(0.6 0.15 25);
@@ -51,10 +55,12 @@
   --color-muted-foreground: var(--color-muted-foreground);
 
   --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
   --color-primary-hover: var(--color-primary-hover);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
   --color-secondary: var(--color-secondary);
+  --color-secondary-dark: var(--color-secondary-dark);
   --color-secondary-hover: var(--color-secondary-hover);
 
   --color-category-makanan: var(--color-category-makanan);

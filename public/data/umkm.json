@@ -196,7 +196,7 @@
       {
         "id": 1,
         "name": "Mie Tek-Tek",
-        "image": "/images/mak-dut/mak-dut-1.webp",
+        "image": "https://i.ibb.co.com/pBTvpLRc/mak-dut-1.jpg",
         "price": 12000
       },
       {
@@ -204,6 +204,18 @@
         "name": "Kwetiau",
         "image": "/images/mak-dut/mak-dut-2.webp",
         "price": 12000
+      },
+      {
+        "id": 3,
+        "name": "Kentang Goreng",
+        "image": "/images/mak-dut/mak-dut1.png",
+        "price": 12000
+      },
+      {
+        "id": 4,
+        "name": "Martabak Telor",
+        "image": "/images/mak-dut/mak-dut2.png",
+        "price": 10000
       }
     ],
     "reviews": [
@@ -238,17 +250,17 @@
     },
     "thumb": "/images/thumbnail/thumb-otakiri.webp",
     "images": [
-      "/images/otakiri/otakiri-1.webp",
-      "/images/otakiri/otakiri-2.webp",
-      "/images/otakiri/otakiri-3.webp",
-      "/images/otakiri/otakiri-4.webp",
-      "/images/otakiri/otakiri-5.webp",
-      "/images/otakiri/otakiri-6.webp",
-      "/images/otakiri/otakiri-7.webp",
-      "/images/otakiri/otakiri-8.webp",
+      "https://i.ibb.co.com/FMF1kRS/1.png",
+      "https://i.ibb.co.com/DdsPkW7/2.png",
+      "https://i.ibb.co.com/VWKyyJxs/3.png",
+      "https://i.ibb.co.com/HpnkfS1Q/4.png",
+      "https://i.ibb.co.com/VcZtr3M9/5.png",
+      "https://i.ibb.co.com/3mqgyKZS/6.png",
+      "https://i.ibb.co.com/7t1Tc2G6/7.png",
+      "https://i.ibb.co.com/tSYKRGK/8.png",
       "/images/otakiri/otakiri1.webp",
       "/images/otakiri/otakiri2.webp",
-      "/images/otakiri/otakiri3.webp"
+      "https://i.ibb.co.com/S4KRnxxr/otakiri3.png"
     ],
     "contact": {
       "phone": "+62 811-2278-282",
@@ -436,7 +448,7 @@
     },
     "thumb": "/images/thumbnail/thumb-wsd.webp",
     "images": [
-      "/images/seblak-dhero/seblak-dhero-1.webp",
+      "https://i.ibb.co.com/d4yy480H/seblak.png",
       "/images/seblak-dhero/seblak-dhero-2.webp",
       "/images/seblak-dhero/seblak-dhero1.webp",
       "/images/seblak-dhero/seblak-dhero2.webp",
@@ -457,7 +469,7 @@
         "slug": "waroeng-seblak-dhero",
         "name": "Seblak instan DHERO( siap kirim)",
         "description": "untuk pembelian 30 pcs ada harga husus lochh..\nSeblak instan kuah dari Jawa Barat dengan bumbu cikur yang khas dan wangi bumbunya membuat ketagihan. 1kg bisa untuk 5pcs\n\nKomposisi :\n\n✨ Mie Kuning\n\n✨ Makaroni\n\n✨ Batagor\n\n✨ Siomay\n\n✨ Kerupuk\n\n✨ Gula\n\n✨ Bumbu Kencur\n\n✨ Bubuk Cabai",
-        "image": "/images/seblak-dhero/promo/promo-1.webp",
+        "image": "https://i.ibb.co.com/v4gJFx7V/promo-1-seblak-dhero.jpg",
         "date": "2025-10-27",
         "rating": 4.5,
         "status": true,
@@ -525,7 +537,7 @@
     "thumb": "/images/thumbnail/thumb-diatas-meja.webp",
     "images": [
       "/images/diatas-meja/diatas-meja-coffee.webp",
-      "/images/diatas-meja/diatas-meja1.webp",
+      "https://i.ibb.co.com/rfGRxqwW/diatas-meja1.jpg",
       "/images/diatas-meja/diatas-meja2.webp",
       "/images/diatas-meja/diatas-meja3.webp",
       "/images/diatas-meja/diatas-meja4.webp",
@@ -563,13 +575,13 @@
       {
         "id": 2,
         "name": "Latte",
-        "image": "/images/diatas-meja/Latte.webp",
+        "image": "https://i.ibb.co.com/99dQpb93/diatasmeja1.png",
         "price": 15000
       },
       {
         "id": 3,
         "name": "Es Teh Manis",
-        "image": "/images/diatas-meja/es-teh.webp",
+        "image": "https://i.ibb.co.com/MkzFmMz6/es-teh.png",
         "price": 5000
       }
     ],
@@ -702,10 +714,12 @@
       {
         "id": 1,
         "slug": "lebiru-banjar",
-        "name": "Promo 1",
-        "description": "Promo 1",
+        "name": "Sarapan Lebih Seru di Lebiru! 🌞",
+        "description": "Weekend jadi lebih nikmat di Lebiru! Mulai pagi kamu dengan menu sarapan spesial, suasana cozy, dan aroma kopi yang bikin semangat. Datang lebih awal, biar hari kamu mulai dengan cerita yang lezat.\n📍 Weekend only — pukul 07:00–11:00",
         "image": "/images/lebiru/promo/promo-1.webp",
+        "date": "2025-10-27",
         "rating": 4.5,
+        "status": true,
         "review": 100
       }
     ],
@@ -1362,8 +1376,13 @@
     },
     "thumb": "/images/thumbnail/thumb-papito.webp",
     "images": [
-      "/images/papito-barbershop/papito-barbershop1.webp",
-      "/images/papito-barbershop/papito-barbershop2.webp"
+      "https://papito-barber-shop.netlify.app/images/foto%20(12).jpg",
+      "https://papito-barber-shop.netlify.app/images/foto%20(9).jpg",
+      "https://papito-barber-shop.netlify.app/images/foto%20(6).jpg",
+      "https://papito-barber-shop.netlify.app/images/foto%20(5).jpg",
+      "https://papito-barber-shop.netlify.app/images/foto%20(4).jpg",
+      "https://papito-barber-shop.netlify.app/images/foto%20(3).jpg",
+      "https://papito-barber-shop.netlify.app/images/foto%20(14).jpg"
     ],
     "contact": {
       "phone": "+62 855-7012-010",
@@ -1379,27 +1398,57 @@
     "products": [
       {
         "id": 1,
-        "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop1.webp",
-        "price": 14000
+        "name": "JUNIOR (UNDER 14 TH)",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Lv_Z73yZjwHc2eT3NteFSiAhS_O9mLrmJA&s",
+        "price": 15000
       },
       {
         "id": 2,
-        "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop2.webp",
-        "price": 50000
+        "name": "STANDAR SERVICE",
+        "image": "https://papito-barber-shop.netlify.app/images/foto%20(12).jpg",
+        "price": 25000
       },
       {
         "id": 3,
-        "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop2.webp",
-        "price": 250000
+        "name": "FULL SERVICE",
+        "image": "https://cdn1-production-images-kly.akamaized.net/iKF4tbrvjtnP5rDg97lY5h87oVw=/500x667/smart/filters:quality(75):strip_icc()/kly-media-production/medias/4206282/original/053571000_1666920874-1463307-potong-rambut-antimainstream.jpg",
+        "price": 35000
       },
       {
         "id": 4,
-        "name": "",
-        "image": "/images/papito-barbershop/papito-barbershop2.webp",
-        "price": 300000
+        "name": "Shaving",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQAnEpIJaEHLj2DnIK0XeGt6XT7IAnR1fQw&s",
+        "price": 5000
+      },
+      {
+        "id": 5,
+        "name": "BOLD CUT",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwO1VqWkyojWKIPSi2AjG6bHTutZmXywIpwg&s",
+        "price": 35000
+      },
+      {
+        "id": 6,
+        "name": "HAIR COLORING",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlhjEynsxPR6eRvuNqQ-V0yLjKBRrsPosOCg&s",
+        "price": 50000
+      },
+      {
+        "id": 7,
+        "name": "CREAMBATH",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_wov-2hkOtjwxVytCR-q6iBspNZbbclWMxw&s",
+        "price": 50000
+      },
+      {
+        "id": 8,
+        "name": "EAR CANDLE",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrO6IhUP55Po1a_fhPwlYMGJLXzeKeM9XLUQ&s",
+        "price": 25000
+      },
+      {
+        "id": 9,
+        "name": "BLACK MASK",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqqzL_9wFYuVVi2lQYNdLjibaCNCjlDaOPpQ&s",
+        "price": 25000
       }
     ],
     "reviews": [

@@ -505,14 +505,14 @@ const Page = () => {
                 <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth p-4'>
                   {detailUmkm.promo.map((promo) => (
                     <div key={promo.id} className='flex-none w-72 sm:w-80'>
-                      <PromoCard promo={promo} />
+                      <PromoCard promo={promo} umkm={detailUmkm} isInDetailPage={true} />
                     </div>
                   ))}
                 </div>
               </div>
             ) : (
               <div className='bg-white rounded-2xl shadow-lg border border-gray-100'>
-                <div className='flex items-center justify-between mb-6 bg-primary px-6 py-4 md:px-8 rounded-t-2xl'>
+                <div className='flex items-center justify-between bg-primary px-6 py-4 md:px-8 rounded-t-2xl'>
                   <h2 className='text-2xl font-bold text-white'>
                     Promo Spesial
                   </h2>
