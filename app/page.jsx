@@ -2,6 +2,8 @@
 
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/CardSkeleton';
+import CTABanjarMap from '@/components/CTAMap';
+import CTABanjarDetailedMap from '@/components/CTAMap';
 import HorizontalScroll from '@/components/HorizontalScroll';
 import ImageWithFallback from '@/components/ImageWithFallback';
 import Marquee from '@/components/Marquee';
@@ -436,56 +438,7 @@ const Page = () => {
       </section>
 
       {/* cta */}
-      <section className='bg-primary'>
-        <div className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
-          <div className='flex flex-col items-center justify-center text-center w-full max-w-3xl mx-auto gap-6'>
-            <h1 className='text-2xl md:text-4xl font-bold text-white'>
-              Siap dukung UMKM Lokal?
-            </h1>
-
-            <p className='text-lg text-white'>
-              Bergabunglah dengan komunitas kami untuk menemukan dan mendukung
-              usaha kecil menengah di Kota Banjar
-            </p>
-
-            <Link
-              href='/umkm'
-              className='
-    w-max
-    rounded-full
-    px-6
-    py-4
-    shadow-lg
-    text-white
-    font-semibold
-    relative
-    overflow-hidden
-    bg-linear-to-b
-    from-secondary
-    to-secondary
-    transition-all
-    duration-300
-    hover:shadow-xl
-    hover:-translate-y-1
-    group
-    before:content-[""]
-    before:absolute
-    before:inset-0
-    before:bg-linear-to-b
-    before:from-secondary
-    before:from-40%
-    before:to-secondary-dark
-    before:opacity-0
-    before:transition-opacity
-    before:duration-300
-    hover:before:opacity-100
-  '
-            >
-              <span className='relative z-10'>Lihat Semua UMKM</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTABanjarDetailedMap />
     </main>
   );
 };
