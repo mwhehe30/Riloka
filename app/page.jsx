@@ -47,11 +47,11 @@ const Page = () => {
           getPromo(),
         ]);
         // Connect each promo to its corresponding UMKM based on slug
-        const promoWithUmkm = promoData.map(promo => {
-          const umkm = umkmData.find(u => u.slug === promo.slug);
+        const promoWithUmkm = promoData.map((promo) => {
+          const umkm = umkmData.find((u) => u.slug === promo.slug);
           return {
             ...promo,
-            umkmData: umkm || null
+            umkmData: umkm || null,
           };
         });
         setUmkm(umkmData);
@@ -230,7 +230,13 @@ const Page = () => {
                 <Link
                   key={id}
                   href={`/umkm?category=${name}`}
-                  className='group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/20 hover:-translate-y-1 text-left cursor-pointer'
+                  className='group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-surface hover:-translate-y-1 text-left cursor-pointer'
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.borderColor = color)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.borderColor = 'var(--color-surface)')
+                  }
                 >
                   <div
                     className='absolute inset-0 rounded-2xl bg-linear-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
@@ -391,7 +397,11 @@ const Page = () => {
                   key={promo.id}
                   className='flex-none w-80 md:w-96 snap-center'
                 >
-                  <PromoCard promo={promo} umkm={promo.umkmData} isInDetailPage={false} />
+                  <PromoCard
+                    promo={promo}
+                    umkm={promo.umkmData}
+                    isInDetailPage={false}
+                  />
                 </div>
               ))}
         </HorizontalScroll>
