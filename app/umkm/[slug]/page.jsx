@@ -502,12 +502,25 @@ const Page = () => {
                   </h2>
                 </div>
 
-                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth p-4'>
-                  {detailUmkm.promo.map((promo) => (
-                    <div key={promo.id} className='flex-none w-72 sm:w-80'>
-                      <PromoCard promo={promo} umkm={detailUmkm} isInDetailPage={true} />
-                    </div>
-                  ))}
+                {/* Grid untuk mobile, slider untuk desktop */}
+                <div className="md:hidden p-4">
+                  <div className="grid grid-cols-1 gap-6">
+                    {detailUmkm.promo.map((promo) => (
+                      <div key={promo.id} className="w-full">
+                        <PromoCard promo={promo} umkm={detailUmkm} isInDetailPage={true} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="hidden md:block p-4">
+                  <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth'>
+                    {detailUmkm.promo.map((promo) => (
+                      <div key={promo.id} className='flex-none w-72 sm:w-80'>
+                        <PromoCard promo={promo} umkm={detailUmkm} isInDetailPage={true} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
@@ -518,7 +531,7 @@ const Page = () => {
                   </h2>
                 </div>
 
-                <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth p-4'>
+                <div className="p-4">
                   <p className='text-gray-500'>Belum ada promo tersedia.</p>
                 </div>
               </div>

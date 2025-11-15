@@ -29,7 +29,7 @@ const Page = () => {
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl animate-pulse delay-500'></div>
 
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
             {/* Text Content */}
             <div className='text-center lg:text-left space-y-8'>
               {/* Badge */}
@@ -55,8 +55,8 @@ const Page = () => {
               </p>
 
               {/* CTA Buttons */}
-              <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
-                <button className='bg-secondary text-white px-8 py-4 rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:bg-secondary-dark flex items-center gap-3 group font-semibold text-lg'>
+              <div className='flex flex-col sm:flex-row gap-4 justify-self-center lg:justify-self-start'>
+                <button className='bg-secondary max-w-max text-white py-2 px-4 md:py-4 md:px-8 rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:bg-secondary-dark flex items-center gap-3 group font-semibold text-lg'>
                   Mulai Jelajahi UMKM
                   <ArrowRight className='size-5 group-hover:translate-x-1 transition-transform duration-300' />
                 </button>
@@ -78,7 +78,7 @@ const Page = () => {
                 <div className='absolute inset-0 bg-linear-to-t from-primary-dark/80 via-transparent to-transparent'></div>
 
                 {/* Floating Stats */}
-                <div className='absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg'>
+                <div className='absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hidden md:block'>
                   <div className='text-center'>
                     <div className='text-2xl font-bold text-primary-dark'>
                       10
@@ -87,7 +87,7 @@ const Page = () => {
                   </div>
                 </div>
 
-                <div className='absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg'>
+                <div className='absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hidden md:block'>
                   <div className='text-center'>
                     <div className='text-2xl font-bold text-primary-dark'>
                       4.8
@@ -97,7 +97,7 @@ const Page = () => {
                 </div>
 
                 {/* Bottom Content */}
-                <div className='absolute bottom-6 left-6 right-6'>
+                <div className='absolute bottom-6 left-6 right-6 hidden md:block'>
                   <div className='bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg'>
                     <h3 className='font-bold text-primary-dark text-lg mb-2'>
                       Ekosistem UMKM Banjar

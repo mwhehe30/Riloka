@@ -1,4 +1,4 @@
-import { CalendarIcon, StarIcon } from 'lucide-react';
+import { CalendarIcon, StarIcon, Tag } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ImageWithFallback from './ImageWithFallback';
@@ -67,56 +67,76 @@ const PromoCard = ({ promo, umkm, isInDetailPage = false }) => {
   return (
     <>
       {/* Promo Card */}
-      <div className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'>
-        <div className='bg-white rounded-2xl shadow-lg transition-all duration-300 overflow-hidden border border-surface hover:border-primary/40 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl'>
-          <div className='relative w-full pt-[100%] overflow-hidden'>
-            <ImageWithFallback
-              src={promo.image}
-              alt={promo.name}
-              fill
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-              className='absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105'
-              priority={false}
-            />
-            <span className='absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg z-10'>
-              Promo
-            </span>
-          </div>
-          <div className='p-6 flex flex-col grow'>
-            <h3 className='text-xl font-semibold text-gray-800 mb-2 truncate'>
-              {promo.name}
-            </h3>
-
-            {/* Rating Section */}
-            <div className='flex items-center gap-2 mb-3'>
-              <div className='flex items-center gap-1'>
-                <StarIcon className='w-4 h-4 fill-amber-500 text-amber-500' />
-                <span className='text-sm font-semibold text-gray-800'>
-                  {promo.rating}
-                </span>
+      <div className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] block'>
+        <div className='group relative h-full'>
+          <div className='absolute inset-0 bg-gradient-to-br from-secondary to-amber-500 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
+          <div className='relative bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 h-full flex flex-col group-hover:-translate-y-2 overflow-hidden'>
+            {/* Header dengan ikon dan nama */}
+            <div className='p-6 pb-4'>
+              <div className='flex items-center gap-4 mb-4'>
+                <div className='p-3 bg-secondary/20 rounded-2xl'>
+                  <Tag className='size-8 text-secondary-dark' />
+                </div>
+                <h3 className='text-xl font-bold text-primary-dark truncate'>
+                  {promo.name}
+                </h3>
               </div>
-              <span className='text-gray-500 text-sm'>
-                ({promo.review} reviews)
-              </span>
+
+              <div className='inline-block bg-amber-500 text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-lg z-10'>
+                Promo
+              </div>
             </div>
 
-            <div className='mt-auto'>
-              <div className='flex items-center gap-2 text-gray-500 mb-4'>
-                <CalendarIcon className='w-5 h-5 text-amber-500' />
-                <span className='text-sm'>
-                  {new Date(promo.date).toLocaleDateString('id-ID', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric',
-                  })}
+            {/* Gambar */}
+            <div className='px-6 pb-0 flex-1'>
+              <div className='relative w-full pt-[100%] overflow-hidden rounded-2xl'>
+                <ImageWithFallback
+                  src={promo.image}
+                  alt={promo.name}
+                  fill
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                  className='absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105'
+                  priority={false}
+                />
+              </div>
+            </div>
+
+            {/* Konten bawah */}
+            <div className='p-6 pt-4 flex flex-col grow'>
+              {/* Rating Section */}
+              <div className='flex items-center gap-2 mb-4'>
+                <div className='flex items-center gap-1'>
+                  <StarIcon className='w-4 h-4 fill-amber-500 text-amber-500' />
+                  <span className='text-sm font-semibold text-gray-800'>
+                    {promo.rating}
+                  </span>
+                </div>
+                <span className='text-gray-500 text-sm'>
+                  ({promo.review} reviews)
                 </span>
               </div>
-              <button
-                onClick={handleDetailClick}
-                className='w-full bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg text-center'
-              >
-                Lihat Detail
-              </button>
+
+              <div className='mt-auto flex-1'>
+                <div className='flex items-center gap-2 text-gray-500 mb-4'>
+                  <CalendarIcon className='w-5 h-5 text-amber-500' />
+                  <span className='text-sm'>
+                    {new Date(promo.date).toLocaleDateString('id-ID', {
+                      day: '2-digit',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </span>
+                </div>
+
+                <button
+                  onClick={handleDetailClick}
+                  className='w-full bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg text-center'
+                >
+                  Lihat Detail
+                </button>
+              </div>
+
+              {/* Footer */}
             </div>
           </div>
         </div>
@@ -124,9 +144,9 @@ const PromoCard = ({ promo, umkm, isInDetailPage = false }) => {
 
       {/* Promo Modal */}
       {isModalOpen && (
-        <div className='fixed inset-0 bg-black/70 pb-26 md:pb-0 flex items-center justify-center p-4 z-50 animate-fade-in'>
+        <div className='fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50 animate-fade-in'>
           <div
-            className='bg-white rounded-2xl max-w-6xl w-full max-h-[85vh] overflow-hidden shadow-2xl animate-scale-in flex flex-col'
+            className='bg-white rounded-2xl max-w-6xl w-full max-h-[calc(100vh-80px)] overflow-hidden shadow-2xl animate-scale-in flex flex-col'
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}

@@ -37,7 +37,7 @@ const HorizontalSlider = ({ children }) => {
       <div
         ref={containerRef}
         onScroll={checkScroll}
-        className='flex overflow-x-auto space-x-6 pb-4 scrollbar-none snap-x snap-mandatory px-6'
+        className='flex overflow-x-auto space-x-6 scrollbar-none snap-x snap-mandatory p-4'
       >
         {children}
       </div>

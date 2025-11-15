@@ -2,8 +2,7 @@
 
 import Card from '@/components/Card';
 import CardSkeleton from '@/components/CardSkeleton';
-import CTABanjarMap from '@/components/CTAMap';
-import CTABanjarDetailedMap from '@/components/CTAMap';
+import CTAMap from '@/components/CTAMap';
 import HorizontalScroll from '@/components/HorizontalScroll';
 import ImageWithFallback from '@/components/ImageWithFallback';
 import Marquee from '@/components/Marquee';
@@ -14,7 +13,6 @@ import TestimonialSlider from '@/components/TestimonialSlider';
 import TestimonialSliderSkeleton from '@/components/TestimonialSliderSkeleton';
 import { getPromo, getTestimonials, getUmkm } from '@/lib/api';
 import {
-  ArrowRight,
   Award,
   Coffee,
   Hammer,
@@ -209,7 +207,6 @@ const Page = () => {
           </p>
         </div>
       </section>
-      {/* Kategori Section */}
       <section className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
         <div className='flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto'>
           <div className='inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-4 font-medium text-sm'>
@@ -225,58 +222,70 @@ const Page = () => {
         </div>
 
         {/* Grid Kategori */}
-        <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-6xl mx-auto'>
+        <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-6xl mx-auto'>
           {categories.map(
             ({ id, name, icon: Icon, color, description, count }) => {
+              // Menentukan gradien berdasarkan nama kategori
+              const getBg = (name) => {
+                switch (name) {
+                  case 'makanan':
+                    return 'bg-category-makanan';
+                  case 'minuman':
+                    return 'bg-category-minuman';
+                  case 'jasa':
+                    return 'bg-category-jasa';
+                  case 'fashion':
+                    return 'bg-category-fashion';
+                  case 'kerajinan':
+                    return 'bg-category-kerajinan';
+                  default:
+                    return 'bg-primary';
+                }
+              };
+
               return (
                 <Link
                   key={id}
                   href={`/umkm?category=${name}`}
-                  className='group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-surface hover:-translate-y-1 text-left cursor-pointer'
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.borderColor = color)
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.borderColor = 'var(--color-surface)')
-                  }
+                  className='group relative'
                 >
                   <div
-                    className='absolute inset-0 rounded-2xl bg-linear-to-br from-white to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
-                    style={{
-                      background: `linear-gradient(135deg,
-                  color-mix(in oklch, ${color}, transparent 85%) 0%,
-                  color-mix(in oklch, ${color}, transparent 92%) 50%,
-                  transparent 100%)`,
-                    }}
-                  />
-
-                  <div className='relative z-10'>
-                    <div
-                      className='w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'
-                      style={{
-                        backgroundColor: `color-mix(in oklch, ${color}, transparent 85%)`,
-                        color,
-                      }}
-                    >
-                      <Icon className='size-7' />
+                    className={`absolute inset-0 ${getBg(
+                      name
+                    )} rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300`}
+                  ></div>
+                  <div className='relative bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 border border-surface group-hover:-translate-y-2 text-left cursor-pointer h-full flex flex-col p-6'>
+                    <div className='flex items-center gap-4 mb-6'>
+                      <div
+                        className='p-3 rounded-2xl'
+                        style={{
+                          backgroundColor: `color-mix(in oklch, ${color}, transparent 85%)`,
+                          color,
+                        }}
+                      >
+                        <Icon className='size-8' style={{ color }} />
+                      </div>
+                      <h3 className='text-xl font-bold' style={{ color }}>
+                        {name.replace(/^./, (char) => char.toUpperCase())}
+                      </h3>
                     </div>
 
-                    <h3
-                      className='text-xl font-bold mb-2 group-hover:translate-x-1 transition-transform duration-300'
-                      style={{ color }}
-                    >
-                      {name.replace(/^./, (char) => char.toUpperCase())}
-                    </h3>
+                    <div className='flex-1'>
+                      <p className='text-gray-700 text-sm leading-relaxed mb-6'>
+                        {description}
+                      </p>
+                    </div>
 
-                    <p className='text-muted-foreground text-sm mb-3 leading-relaxed'>
-                      {description}
-                    </p>
-                    <div className='flex items-center justify-between'>
-                      <span className='text-xs font-medium text-muted-foreground'>
-                        {count}
-                      </span>
-                      <div className='opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300'>
-                        <ArrowRight className='size-4' style={{ color }} />
+                    <div className='border-t border-gray-100'>
+                      <div
+                        className='flex items-center gap-2'
+                        style={{ color }}
+                      >
+                        <div
+                          className='w-2 h-2 rounded-full'
+                          style={{ backgroundColor: color }}
+                        ></div>
+                        <span className='text-sm font-medium'>Kategori</span>
                       </div>
                     </div>
                   </div>
@@ -286,7 +295,6 @@ const Page = () => {
           )}
         </div>
       </section>
-
       <section className='bg-surface'>
         <div className='container mx-auto px-6 lg:px-12 py-16 md:py-20'>
           <div className='flex justify-center items-center flex-col gap-4'>
@@ -305,60 +313,62 @@ const Page = () => {
             </div>
           </div>
 
-          <HorizontalScroll>
-            {isLoading
-              ? // Show skeleton cards while loading
-                [...Array(3)].map((_, index) => (
-                  <div
-                    key={index}
-                    className='flex-none w-88 md:w-96 snap-center'
-                  >
-                    <CardSkeleton />
-                  </div>
-                ))
-              : featuredUmkm.map((umkm) => (
-                  <div
-                    key={umkm.id}
-                    className='flex-none w-88 md:w-96 snap-center'
-                  >
-                    <Card umkm={umkm} />
-                  </div>
-                ))}
-          </HorizontalScroll>
+          {/* Slider untuk desktop, grid untuk mobile */}
+          <div className='lg:hidden'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto'>
+              {isLoading
+                ? // Show skeleton cards while loading
+                  [...Array(3)].map((_, index) => (
+                    <div key={index} className='w-full'>
+                      <CardSkeleton />
+                    </div>
+                  ))
+                : featuredUmkm.map((umkm) => (
+                    <div key={umkm.id} className='w-full'>
+                      <Card umkm={umkm} />
+                    </div>
+                  ))}
+            </div>
+          </div>
+
+          <div className='hidden lg:block'>
+            <HorizontalScroll>
+              {isLoading
+                ? // Show skeleton cards while loading
+                  [...Array(3)].map((_, index) => (
+                    <div
+                      key={index}
+                      className='flex-none w-88 md:w-96 snap-center'
+                    >
+                      <CardSkeleton />
+                    </div>
+                  ))
+                : featuredUmkm.map((umkm) => (
+                    <div
+                      key={umkm.id}
+                      className='flex-none w-88 md:w-96 snap-center'
+                    >
+                      <Card umkm={umkm} />
+                    </div>
+                  ))}
+            </HorizontalScroll>
+          </div>
 
           <div className='flex justify-center items-center mt-8'>
             <Link
               href='/umkm'
-              className='
-    w-max
-    rounded-full
-    px-6
-    py-4
-    shadow-lg
-    text-white
-    font-semibold
-    relative
-    overflow-hidden
-    bg-linear-to-b
-    from-primary
-    to-primary
-    transition-all
-    duration-300
-    hover:shadow-xl
-    hover:-translate-y-1
-    group
-    before:content-[""]
-    before:absolute
-    before:inset-0
-    before:bg-linear-to-b
-    before:from-primary
-    before:from-40%
-    before:to-primary-hover
-    before:opacity-0
-    before:transition-opacity
-    before:duration-300
-    hover:before:opacity-100
-  '
+              className='w-max rounded-full px-6
+py-4
+shadow-lg
+text-white
+font-semibold
+relative
+overflow-hidden
+bg-primary hover:bg-primary-hover
+transition-all
+duration-300
+hover:shadow-xl
+hover:-translate-y-1'
             >
               <span className='relative z-10'>Lihat Semua UMKM</span>
             </Link>
@@ -383,30 +393,54 @@ const Page = () => {
           </div>
         </div>
 
-        <HorizontalScroll>
-          {isLoading
-            ? // Show skeleton promo cards while loading
-              [...Array(2)].map((_, index) => (
-                <div
-                  key={index}
-                  className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'
-                >
-                  <PromoCardSkeleton />
-                </div>
-              ))
-            : promo.map((promo) => (
-                <div
-                  key={promo.id}
-                  className='flex-none w-80 md:w-96 snap-center'
-                >
-                  <PromoCard
-                    promo={promo}
-                    umkm={promo.umkmData}
-                    isInDetailPage={false}
-                  />
-                </div>
-              ))}
-        </HorizontalScroll>
+        {/* Slider untuk desktop, grid untuk mobile */}
+        <div className='md:hidden'>
+          <div className='grid grid-cols-1 gap-6 max-w-6xl mx-auto'>
+            {isLoading
+              ? // Show skeleton promo cards while loading
+                [...Array(2)].map((_, index) => (
+                  <div key={index} className='w-full p-2'>
+                    <PromoCardSkeleton />
+                  </div>
+                ))
+              : promo.map((promo) => (
+                  <div key={promo.id} className='w-full p-2'>
+                    <PromoCard
+                      promo={promo}
+                      umkm={promo.umkmData}
+                      isInDetailPage={false}
+                    />
+                  </div>
+                ))}
+          </div>
+        </div>
+
+        <div className='hidden md:block'>
+          <HorizontalScroll>
+            {isLoading
+              ? // Show skeleton promo cards while loading
+                [...Array(2)].map((_, index) => (
+                  <div
+                    key={index}
+                    className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2'
+                  >
+                    <PromoCardSkeleton />
+                  </div>
+                ))
+              : promo.map((promo) => (
+                  <div
+                    key={promo.id}
+                    className='flex-none w-80 md:w-96 snap-center'
+                  >
+                    <PromoCard
+                      promo={promo}
+                      umkm={promo.umkmData}
+                      isInDetailPage={false}
+                    />
+                  </div>
+                ))}
+          </HorizontalScroll>
+        </div>
       </section>
 
       {/* marquee */}
@@ -438,7 +472,7 @@ const Page = () => {
       </section>
 
       {/* cta */}
-      <CTABanjarDetailedMap />
+      <CTAMap />
     </main>
   );
 };
