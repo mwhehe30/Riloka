@@ -392,8 +392,8 @@ const CTABanjarDetailedMap = () => {
           <div className="text-white">
             <motion.h2 
               className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               Jelajahi <span className="text-secondary">Kekayaan Lokal</span> Banjar
