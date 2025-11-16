@@ -394,8 +394,8 @@ hover:-translate-y-1'
         </div>
 
         {/* Slider untuk desktop, grid untuk mobile */}
-        <div className='md:hidden'>
-          <div className='grid grid-cols-1 gap-6 max-w-6xl mx-auto'>
+        <div className='lg:hidden'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto'>
             {isLoading
               ? // Show skeleton promo cards while loading
                 [...Array(2)].map((_, index) => (
@@ -415,7 +415,7 @@ hover:-translate-y-1'
           </div>
         </div>
 
-        <div className='hidden md:block'>
+        <div className='hidden lg:block'>
           <HorizontalScroll>
             {isLoading
               ? // Show skeleton promo cards while loading
