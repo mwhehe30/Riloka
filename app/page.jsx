@@ -166,7 +166,7 @@ const Page = () => {
             Temukan UMKM di Sekitar Anda
           </div>
 
-          <h1 className='text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight font-montserrat'>
+          <h1 className='text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight font-montserrat'>
             <span className='text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-accent'>
               Riloka
             </span>{' '}
