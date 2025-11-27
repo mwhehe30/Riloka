@@ -147,7 +147,7 @@ const Page = () => {
 
   return (
     <main className='min-h-screen'>
-      <section className='relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center'>
+      <section className='relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center'>
         <ImageWithFallback
           src='/images/bg.webp'
           alt='Background'
@@ -223,76 +223,71 @@ const Page = () => {
 
         {/* Grid Kategori */}
         <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-6xl mx-auto'>
-          {categories.map(
-            ({ id, name, icon: Icon, color, description, count }) => {
-              // Menentukan gradien berdasarkan nama kategori
-              const getBg = (name) => {
-                switch (name) {
-                  case 'makanan':
-                    return 'bg-category-makanan';
-                  case 'minuman':
-                    return 'bg-category-minuman';
-                  case 'jasa':
-                    return 'bg-category-jasa';
-                  case 'fashion':
-                    return 'bg-category-fashion';
-                  case 'kerajinan':
-                    return 'bg-category-kerajinan';
-                  default:
-                    return 'bg-primary';
-                }
-              };
+          {categories.map(({ id, name, icon: Icon, color, description }) => {
+            // Menentukan gradien berdasarkan nama kategori
+            const getBg = (name) => {
+              switch (name) {
+                case 'makanan':
+                  return 'bg-category-makanan';
+                case 'minuman':
+                  return 'bg-category-minuman';
+                case 'jasa':
+                  return 'bg-category-jasa';
+                case 'fashion':
+                  return 'bg-category-fashion';
+                case 'kerajinan':
+                  return 'bg-category-kerajinan';
+                default:
+                  return 'bg-primary';
+              }
+            };
 
-              return (
-                <Link
-                  key={id}
-                  href={`/umkm?category=${name}`}
-                  className='group relative'
-                >
-                  <div
-                    className={`absolute inset-0 ${getBg(
-                      name
-                    )} rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300`}
-                  ></div>
-                  <div className='relative bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 border border-surface group-hover:-translate-y-2 text-left cursor-pointer h-full flex flex-col p-6'>
-                    <div className='flex items-center gap-4 mb-6'>
-                      <div
-                        className='p-3 rounded-2xl'
-                        style={{
-                          backgroundColor: `color-mix(in oklch, ${color}, transparent 85%)`,
-                          color,
-                        }}
-                      >
-                        <Icon className='size-8' style={{ color }} />
-                      </div>
-                      <h3 className='text-xl font-bold' style={{ color }}>
-                        {name.replace(/^./, (char) => char.toUpperCase())}
-                      </h3>
+            return (
+              <Link
+                key={id}
+                href={`/umkm?category=${name}`}
+                className='group relative'
+              >
+                <div
+                  className={`absolute inset-0 ${getBg(
+                    name
+                  )} rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300`}
+                ></div>
+                <div className='relative bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 border border-surface group-hover:-translate-y-2 text-left cursor-pointer h-full flex flex-col p-6'>
+                  <div className='flex items-center gap-4 mb-6'>
+                    <div
+                      className='p-3 rounded-2xl'
+                      style={{
+                        backgroundColor: `color-mix(in oklch, ${color}, transparent 85%)`,
+                        color,
+                      }}
+                    >
+                      <Icon className='size-8' style={{ color }} />
                     </div>
+                    <h3 className='text-xl font-bold' style={{ color }}>
+                      {name.replace(/^./, (char) => char.toUpperCase())}
+                    </h3>
+                  </div>
 
-                    <div className='flex-1'>
-                      <p className='text-gray-700 text-sm leading-relaxed mb-6'>
-                        {description}
-                      </p>
-                    </div>
+                  <div className='flex-1'>
+                    <p className='text-gray-700 text-sm leading-relaxed mb-6'>
+                      {description}
+                    </p>
+                  </div>
 
-                    <div className='border-t border-gray-100'>
+                  <div className='border-t border-gray-100'>
+                    <div className='flex items-center gap-2' style={{ color }}>
                       <div
-                        className='flex items-center gap-2'
-                        style={{ color }}
-                      >
-                        <div
-                          className='w-2 h-2 rounded-full'
-                          style={{ backgroundColor: color }}
-                        ></div>
-                        <span className='text-sm font-medium'>Kategori</span>
-                      </div>
+                        className='w-2 h-2 rounded-full'
+                        style={{ backgroundColor: color }}
+                      ></div>
+                      <span className='text-sm font-medium'>Kategori</span>
                     </div>
                   </div>
-                </Link>
-              );
-            }
-          )}
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
       <section className='bg-surface'>

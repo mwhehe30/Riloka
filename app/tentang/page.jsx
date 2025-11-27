@@ -21,88 +21,119 @@ const Page = () => {
       {/* Improved Hero Section */}
       <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden'>
         {/* Background Gradient */}
-        <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-secondary/5'></div>
+        <div className='absolute inset-0 bg-linear-to-br from-primary/5 via-white to-secondary/5'></div>
 
         {/* Animated Background Elements */}
-        <div className='absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse'></div>
-        <div className='absolute bottom-10 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000'></div>
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl animate-pulse delay-500'></div>
+        <div className='absolute top-10 left-10 w-48 h-48 md:w-72 md:h-72 bg-primary/10 rounded-full blur-2xl md:blur-3xl animate-pulse-slow'></div>
+        <div className='absolute bottom-10 right-10 w-56 h-56 md:w-96 md:h-96 bg-secondary/10 rounded-full blur-2xl md:blur-3xl animate-pulse-slow delay-1000'></div>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-64 md:h-64 bg-amber-500/5 rounded-full blur-2xl md:blur-3xl animate-pulse-slow delay-500'></div>
 
-        <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
+        <div className='container mx-auto px-4 sm:px-6 py-8 md:py-12 lg:px-8 relative z-10'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center'>
             {/* Text Content */}
-            <div className='text-center lg:text-left space-y-8'>
+            <div className='text-center lg:text-left space-y-6 md:space-y-8 order-2 lg:order-1'>
               {/* Badge */}
-              <div className='inline-flex items-center gap-2 bg-primary/10 text-primary-dark px-4 py-2 rounded-full text-sm font-medium mb-4'>
-                <TrendingUp className='size-4' />
+              <div className='inline-flex items-center gap-2 bg-primary/10 text-primary-dark px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium'>
+                <TrendingUp className='size-3 md:size-4' />
                 <span>Platform UMKM Indonesia</span>
               </div>
 
               {/* Main Heading */}
-              <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark leading-tight'>
+              <h1 className='text-4xl md:text-5xl xl:text-6xl font-bold text-primary-dark leading-snug md:leading-tight'>
                 Membangun{' '}
-                <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
+                <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent block md:inline'>
                   Ekosistem UMKM
                 </span>{' '}
                 yang Kuat
               </h1>
 
               {/* Subheading */}
-              <p className='text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl'>
+              <p className='text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0'>
                 Wujudkan potensi bisnis lokal melalui platform digital yang
                 menghubungkan, memberdayakan, dan mengembangkan UMKM di
                 Indonesia
               </p>
 
               {/* CTA Buttons */}
-              <div className='flex flex-col sm:flex-row gap-4 justify-self-center lg:justify-self-start'>
-                <button className='bg-secondary max-w-max text-white py-2 px-4 md:py-4 md:px-8 rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:bg-secondary-dark flex items-center gap-3 group font-semibold text-lg'>
+              <div className='flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start'>
+                <button className='bg-secondary text-white py-2.5 px-6 md:py-4 md:px-8 rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:bg-secondary-dark flex items-center gap-2 md:gap-3 group font-semibold text-base md:text-lg justify-center'>
                   Mulai Jelajahi UMKM
-                  <ArrowRight className='size-5 group-hover:translate-x-1 transition-transform duration-300' />
+                  <ArrowRight className='size-4 md:size-5 group-hover:translate-x-1 transition-transform duration-300' />
                 </button>
               </div>
             </div>
 
-            {/* Video/Image Content */}
-            <div className='relative'>
-              <div className='relative rounded-3xl overflow-hidden'>
-                <video
-                  src='/videos/video.mp4'
-                  autoPlay
-                  loop
-                  muted
-                  className='w-full h-full object-cover mix-blend-multiply'
-                />
-                <div className='absolute inset-0 bg-white -z-10'></div>
-                {/* Overlay Gradient */}
-                <div className='absolute inset-0 bg-linear-to-t from-primary-dark/80 via-transparent to-transparent'></div>
+            {/* Video/Image Content dengan Shape Berbeda */}
+            <div className='relative order-2'>
+              <div
+                className='
+          relative
+          rounded-2xl
+          md:rounded-3xl
+          overflow-hidden
+          shadow-lg
+          aspect-square
+          lg:aspect-square
+          xl:aspect-video
+          transition-all duration-500 ease-in-out
+        '
+              >
+                {/* Container Video dengan Fallback */}
+                <div className='w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center'>
+                  <video
+                    src='/videos/video.mp4'
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className='w-full h-full object-cover mix-blend-multiply'
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  {/* Placeholder jika video tidak tersedia */}
+                  <div className='hidden absolute inset-0 bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-center p-6'>
+                    <div>
+                      <div className='text-3xl md:text-4xl xl:text-6xl font-bold mb-4'>
+                        UMKM
+                      </div>
+                      <p className='text-sm md:text-lg xl:text-xl'>
+                        Platform Digital UMKM Indonesia
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                {/* Floating Stats */}
-                <div className='absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hidden md:block'>
+                {/* Overlay Gradient */}
+                <div className='absolute inset-0 bg-linear-to-t from-primary-dark/60 via-transparent to-transparent'></div>
+
+                {/* Floating Stats - Responsif */}
+                <div className='absolute top-3 left-3 md:top-6 md:left-6 bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl p-2 md:p-4 shadow-lg'>
                   <div className='text-center'>
-                    <div className='text-2xl font-bold text-primary-dark'>
+                    <div className='text-lg md:text-2xl font-bold text-primary-dark'>
                       10
                     </div>
                     <div className='text-xs text-gray-600'>UMKM Terdaftar</div>
                   </div>
                 </div>
 
-                <div className='absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hidden md:block'>
+                <div className='absolute top-3 right-3 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl p-2 md:p-4 shadow-lg'>
                   <div className='text-center'>
-                    <div className='text-2xl font-bold text-primary-dark'>
+                    <div className='text-lg md:text-2xl font-bold text-primary-dark'>
                       4.8
                     </div>
                     <div className='text-xs text-gray-600'>Rating</div>
                   </div>
                 </div>
 
-                {/* Bottom Content */}
-                <div className='absolute bottom-6 left-6 right-6 hidden md:block'>
-                  <div className='bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg'>
-                    <h3 className='font-bold text-primary-dark text-lg mb-2'>
+                {/* Bottom Content - Responsif */}
+                <div className='absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6'>
+                  <div className='bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl p-3 md:p-6 shadow-lg'>
+                    <h3 className='font-bold text-primary-dark text-sm md:text-lg mb-1 md:mb-2'>
                       Ekosistem UMKM Banjar
                     </h3>
-                    <p className='text-gray-600 text-sm'>
+                    <p className='text-gray-600 text-xs md:text-sm'>
                       Temukan dan dukung UMKM terbaik di Kota Banjar dalam satu
                       platform terintegrasi
                     </p>
@@ -111,13 +142,12 @@ const Page = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className='absolute -top-4 -right-4 w-24 h-24 bg-secondary/20 rounded-2xl transform rotate-12 animate-float'></div>
-              <div className='absolute -bottom-4 -left-4 w-20 h-20 bg-primary/20 rounded-2xl transform -rotate-12 animate-float delay-1000'></div>
+              <div className='absolute -top-2 -right-2 md:-top-4 md:-right-4 w-12 h-12 md:w-24 md:h-24 bg-secondary/20 rounded-xl md:rounded-2xl transform rotate-12 animate-float-slow'></div>
+              <div className='absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 w-10 h-10 md:w-20 md:h-20 bg-primary/20 rounded-xl md:rounded-2xl transform -rotate-12 animate-float-slow delay-1000'></div>
             </div>
           </div>
         </div>
       </section>
-
       {/* Improved Visi, Misi & Tujuan Section */}
       <section className='py-16 bg-muted/40 relative overflow-hidden'>
         {/* Background Pattern */}
