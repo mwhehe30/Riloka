@@ -1,4 +1,15 @@
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+
+// Dynamically import MapLeaflet to avoid SSR issues
+const MapLeaflet = dynamic(() => import('./MapLeaflet'), {
+  ssr: false,
+  loading: () => (
+    <div className='w-full h-full flex items-center justify-center bg-gray-100'>
+      <p className='text-gray-500'>Memuat Peta...</p>
+    </div>
+  ),
+});
 
 const MapSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -27,25 +38,31 @@ const MapSection = () => {
 
     if (selectedCategory === 'all') {
       setFilteredUmkmState(filteredUmkm);
+      setSelectedUmkm(null); // Reset selection when showing all
     } else {
-      setFilteredUmkmState(
-        filteredUmkm.filter((umkm) => umkm.category.includes(selectedCategory))
+      const filtered = filteredUmkm.filter((umkm) =>
+        umkm.category.includes(selectedCategory)
       );
+      setFilteredUmkmState(filtered);
+      // Auto-select first item when filtering by category
+      if (filtered.length > 0) {
+        setSelectedUmkm(filtered[0]);
+      } else {
+        setSelectedUmkm(null);
+      }
     }
   }, [selectedCategory, filteredUmkm]);
 
   const [filteredUmkmState, setFilteredUmkmState] = useState([]);
 
   const handleUmkmSelect = (umkm) => {
-    setSelectedUmkm(umkm);
-  };
-
-  // Set initial selected UMKM if available
-  useEffect(() => {
-    if (filteredUmkmState.length > 0 && !selectedUmkm) {
-      setSelectedUmkm(filteredUmkmState[0]);
+    // If clicking the same UMKM, unselect it
+    if (selectedUmkm?.id === umkm.id) {
+      setSelectedUmkm(null);
+    } else {
+      setSelectedUmkm(umkm);
     }
-  }, [filteredUmkmState, selectedUmkm]);
+  };
 
   return (
     <section className='bg-primary/5 py-12 lg:py-20 relative overflow-hidden'>
@@ -66,7 +83,7 @@ const MapSection = () => {
             {/* Desktop Layout - Popup di dalam map */}
             <div className='hidden lg:block relative rounded-2xl overflow-hidden shadow-xl mb-8 h-[500px]'>
               {/* Map Overlay */}
-              <div className='absolute top-5 left-5 z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
+              <div className='absolute top-5 left-5 z-[1000] bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
                 <h3 className='text-xl font-bold text-green-800 mb-2'>
                   Kota Banjar
                 </h3>
@@ -78,7 +95,7 @@ const MapSection = () => {
               </div>
 
               {/* Map Controls */}
-              <div className='absolute top-5 right-5 z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
+              <div className='absolute top-5 right-5 z-[1000] bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
                 {/* Category Filter */}
                 <div className='flex flex-wrap gap-2 mb-4'>
                   <button
@@ -168,37 +185,23 @@ const MapSection = () => {
                 </div>
               </div>
 
-              {/* Google Map */}
-              <iframe
-                src={
-                  selectedUmkm
-                    ? selectedUmkm.map.url
-                    : 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253340.115003467!2d108.34712994999999!3d-7.369722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5768e64bd0d9%3A0x403d68aef551e80!2sBanjar%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid'
-                }
-                className='w-full h-full border-0 filter grayscale-20 contrast-110'
-                allowFullScreen
-                loading='lazy'
-                referrerPolicy='no-referrer-when-downgrade'
-                title='Peta UMKM Kota Banjar'
-              ></iframe>
+              {/* Leaflet Map */}
+              <MapLeaflet
+                umkmData={filteredUmkmState}
+                selectedUmkm={selectedUmkm}
+                onSelectUmkm={handleUmkmSelect}
+              />
             </div>
 
             {/* Mobile Layout - Popup di luar map */}
             <div className='lg:hidden space-y-4'>
               {/* Map Visualization */}
               <div className='relative rounded-2xl overflow-hidden shadow-xl h-[300px]'>
-                <iframe
-                  src={
-                    selectedUmkm
-                      ? selectedUmkm.map.url
-                      : 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253340.115003467!2d108.34712994999999!3d-7.369722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5768e64bd0d9%3A0x403d68aef551e80!2sBanjar%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid'
-                  }
-                  className='w-full h-full border-0 filter grayscale-20 contrast-110'
-                  allowFullScreen
-                  loading='lazy'
-                  referrerPolicy='no-referrer-when-downgrade'
-                  title='Peta UMKM Kota Banjar'
-                ></iframe>
+                <MapLeaflet
+                  umkmData={filteredUmkmState}
+                  selectedUmkm={selectedUmkm}
+                  onSelectUmkm={handleUmkmSelect}
+                />
               </div>
 
               {/* Mobile Controls - Di luar map */}

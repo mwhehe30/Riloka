@@ -22,6 +22,17 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import NotFound from './not-found';
 
+import dynamic from 'next/dynamic';
+
+const MapLeaflet = dynamic(() => import('@/components/MapLeaflet'), {
+  ssr: false,
+  loading: () => (
+    <div className='w-full h-full flex items-center justify-center bg-gray-100'>
+      <p className='text-gray-500'>Memuat Peta...</p>
+    </div>
+  ),
+});
+
 const Page = () => {
   const { slug } = useParams();
   const [detailUmkm, setDetailUmkm] = useState(null);
@@ -503,21 +514,29 @@ const Page = () => {
                 </div>
 
                 {/* Grid untuk mobile, slider untuk desktop */}
-                <div className="md:hidden p-4">
-                  <div className="grid grid-cols-1 gap-6">
+                <div className='md:hidden p-4'>
+                  <div className='grid grid-cols-1 gap-6'>
                     {detailUmkm.promo.map((promo) => (
-                      <div key={promo.id} className="w-full">
-                        <PromoCard promo={promo} umkm={detailUmkm} isInDetailPage={true} />
+                      <div key={promo.id} className='w-full'>
+                        <PromoCard
+                          promo={promo}
+                          umkm={detailUmkm}
+                          isInDetailPage={true}
+                        />
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="hidden md:block p-4">
+                <div className='hidden md:block p-4'>
                   <div className='flex gap-6 overflow-x-auto scrollbar-none scroll-smooth'>
                     {detailUmkm.promo.map((promo) => (
                       <div key={promo.id} className='flex-none w-72 sm:w-80'>
-                        <PromoCard promo={promo} umkm={detailUmkm} isInDetailPage={true} />
+                        <PromoCard
+                          promo={promo}
+                          umkm={detailUmkm}
+                          isInDetailPage={true}
+                        />
                       </div>
                     ))}
                   </div>
@@ -531,7 +550,7 @@ const Page = () => {
                   </h2>
                 </div>
 
-                <div className="p-4">
+                <div className='p-4'>
                   <p className='text-gray-500'>Belum ada promo tersedia.</p>
                 </div>
               </div>
@@ -568,17 +587,26 @@ const Page = () => {
                     </p>
                   </div>
                 </div>
-                <div className='w-full h-[400px] rounded-xl overflow-hidden mb-4'>
-                  <iframe
-                    src={detailUmkm?.map?.url}
-                    width='100%'
-                    height='100%'
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading='lazy'
-                    referrerPolicy='no-referrer-when-downgrade'
-                    title={`Peta lokasi ${detailUmkm?.nama || 'UMKM'}`}
-                  />
+                <div className='w-full h-[400px] rounded-xl overflow-hidden mb-4 relative z-0'>
+                  {detailUmkm?.latitude && detailUmkm?.longitude ? (
+                    <MapLeaflet
+                      umkmData={[detailUmkm]}
+                      selectedUmkm={detailUmkm}
+                      onSelectUmkm={() => {}}
+                      showDetailButton={false}
+                    />
+                  ) : (
+                    <iframe
+                      src={detailUmkm?.map?.url}
+                      width='100%'
+                      height='100%'
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading='lazy'
+                      referrerPolicy='no-referrer-when-downgrade'
+                      title={`Peta lokasi ${detailUmkm?.name || 'UMKM'}`}
+                    />
+                  )}
                 </div>
                 <a
                   href={detailUmkm?.map?.link}

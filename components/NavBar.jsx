@@ -69,7 +69,7 @@ const NavBar = () => {
 
   return (
     <header
-      className={`${navbarPosition} top-0 left-0 right-0 z-50 w-full transition-all duration-500 ${
+      className={`${navbarPosition} top-0 left-0 right-0 z-[9999] w-full transition-all duration-500 ${
         scrolled
           ? 'bg-white-brighter/95 backdrop-blur-xl shadow-sm border-b border-surface'
           : 'bg-white-brighter/90 backdrop-blur-xl border-b border-surface'
