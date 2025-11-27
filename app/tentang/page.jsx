@@ -1,6 +1,7 @@
 'use client';
 
 import MapSection from '@/components/MapSection';
+import RegistrationModal from '@/components/RegistrationModal';
 import {
   ArrowRight,
   CheckCircle,
@@ -14,10 +15,17 @@ import {
   TrendingUp,
   Users,
 } from 'lucide-react';
+import { useState } from 'react';
 
 const Page = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <main className='min-h-screen bg-white pt-20'>
+      <RegistrationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       {/* Improved Hero Section */}
       <section className='relative min-h-[80vh] flex items-center justify-center overflow-hidden'>
         {/* Background Gradient */}
@@ -269,7 +277,7 @@ const Page = () => {
                         desc: 'Membangun brand awareness produk UMKM Kota Banjar',
                       },
                       {
-                        goal: '1 Lapangan Kerja',
+                        goal: 'Lapangan Kerja',
                         desc: 'Menciptakan lapangan kerja melalui pengembangan UMKM',
                       },
                       {
@@ -450,7 +458,10 @@ const Page = () => {
           perekonomian bangsa. Jelajahi direktori kami, temukan UMKM favoritmu,
           dan jadilah bagian dari perubahan.
         </p>
-        <button className='bg-secondary text-white px-8 py-4 rounded-full max-w-max hover:-translate-y-1 hover:shadow-md transition-all duration-200 hover:bg-secondary-dark flex items-center gap-2 group mx-auto'>
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className='bg-secondary text-white px-8 py-4 rounded-full max-w-max hover:-translate-y-1 hover:shadow-md transition-all duration-200 hover:bg-secondary-dark flex items-center gap-2 group mx-auto'
+        >
           Daftarkan UMKM Anda
           <ArrowRight className='size-5 group-hover:translate-x-1 transition-transform duration-200' />
         </button>
