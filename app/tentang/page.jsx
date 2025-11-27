@@ -49,7 +49,7 @@ const Page = () => {
               {/* Main Heading */}
               <h1 className='text-4xl md:text-5xl xl:text-6xl font-bold text-primary-dark leading-snug md:leading-tight'>
                 Membangun{' '}
-                <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent block md:inline'>
+                <span className='bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent block md:inline'>
                   Ekosistem UMKM
                 </span>{' '}
                 yang Kuat
@@ -87,7 +87,7 @@ const Page = () => {
         '
               >
                 {/* Container Video dengan Fallback */}
-                <div className='w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center'>
+                <div className='w-full h-full bg-linear-to-br from-primary/20 to-secondary/20 flex items-center justify-center'>
                   <video
                     src='/videos/video.mp4'
                     autoPlay
@@ -100,17 +100,6 @@ const Page = () => {
                       e.target.nextElementSibling.style.display = 'flex';
                     }}
                   />
-                  {/* Placeholder jika video tidak tersedia */}
-                  <div className='hidden absolute inset-0 bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-center p-6'>
-                    <div>
-                      <div className='text-3xl md:text-4xl xl:text-6xl font-bold mb-4'>
-                        UMKM
-                      </div>
-                      <p className='text-sm md:text-lg xl:text-xl'>
-                        Platform Digital UMKM Indonesia
-                      </p>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Overlay Gradient */}
@@ -159,7 +148,7 @@ const Page = () => {
       {/* Improved Visi, Misi & Tujuan Section */}
       <section className='py-16 bg-muted/40 relative overflow-hidden'>
         {/* Background Pattern */}
-        <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5'></div>
+        <div className='absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5'></div>
 
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
           {/* Header Section */}
@@ -182,7 +171,7 @@ const Page = () => {
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
             {/* Visi Card */}
             <div className='group relative'>
-              <div className='absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
+              <div className='absolute inset-0 bg-linear-to-br from-primary to-secondary rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
               <div className='relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col'>
                 <div className='flex items-center gap-4 mb-6'>
                   <div className='p-3 bg-primary/20 rounded-2xl'>
@@ -210,7 +199,7 @@ const Page = () => {
 
             {/* Misi Card */}
             <div className='group relative'>
-              <div className='absolute inset-0 bg-gradient-to-br from-secondary to-amber-500 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
+              <div className='absolute inset-0 bg-linear-to-br from-secondary to-amber-500 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
               <div className='relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col'>
                 <div className='flex items-center gap-4 mb-6'>
                   <div className='p-3 bg-secondary/20 rounded-2xl'>
@@ -231,7 +220,7 @@ const Page = () => {
                       key={index}
                       className='flex items-start gap-3 group/item'
                     >
-                      <div className='flex-shrink-0 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center mt-0.5'>
+                      <div className='shrink-0 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center mt-0.5'>
                         <CheckCircle className='size-4 text-secondary' />
                       </div>
                       <p className='text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors duration-200'>
@@ -251,7 +240,7 @@ const Page = () => {
 
             {/* Tujuan Card */}
             <div className='group relative'>
-              <div className='absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-500 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
+              <div className='absolute inset-0 bg-linear-to-br from-amber-500 to-orange-500 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
               <div className='relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col'>
                 <div className='flex items-center gap-4 mb-6'>
                   <div className='p-3 bg-amber-500/20 rounded-2xl'>
@@ -287,7 +276,7 @@ const Page = () => {
                     ].map((item, index) => (
                       <div
                         key={index}
-                        className='p-4 rounded-2xl bg-gradient-to-r from-gray-50 to-white border border-gray-100 hover:border-amber-200 transition-all duration-200 group/item'
+                        className='p-4 rounded-2xl bg-linear-to-r from-gray-50 to-white border border-gray-100 hover:border-amber-200 transition-all duration-200 group/item'
                       >
                         <h4 className='font-bold text-primary-dark text-sm mb-1'>
                           {item.goal}
@@ -336,7 +325,7 @@ const Page = () => {
           <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8'>
             {/* Kolaborasi Card */}
             <div className='group relative'>
-              <div className='absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
+              <div className='absolute inset-0 bg-linear-to-br from-blue-500 to-blue-600 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
               <div className='relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col'>
                 <div className='flex items-center gap-4 mb-6'>
                   <div className='p-3 bg-blue-500/20 rounded-2xl'>
@@ -363,7 +352,7 @@ const Page = () => {
 
             {/* Inovasi Card */}
             <div className='group relative'>
-              <div className='absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
+              <div className='absolute inset-0 bg-linear-to-br from-purple-500 to-purple-600 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
               <div className='relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col'>
                 <div className='flex items-center gap-4 mb-6'>
                   <div className='p-3 bg-purple-500/20 rounded-2xl'>
@@ -390,7 +379,7 @@ const Page = () => {
 
             {/* Integritas Card */}
             <div className='group relative'>
-              <div className='absolute inset-0 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
+              <div className='absolute inset-0 bg-linear-to-br from-green-500 to-green-600 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300'></div>
               <div className='relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col'>
                 <div className='flex items-center gap-4 mb-6'>
                   <div className='p-3 bg-green-500/20 rounded-2xl'>
@@ -417,7 +406,7 @@ const Page = () => {
 
             {/* Pemberdayaan Card */}
             <div className='group relative'>
-              <div className='absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-600 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
+              <div className='absolute inset-0 bg-linear-to-br from-amber-500 to-amber-600 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
               <div className='relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col'>
                 <div className='flex items-center gap-4 mb-6'>
                   <div className='p-3 bg-amber-500/20 rounded-2xl'>

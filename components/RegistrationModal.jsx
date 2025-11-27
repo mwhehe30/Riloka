@@ -80,7 +80,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
   ];
 
   return createPortal(
-    <div className='fixed inset-0 z-[10000] flex items-center justify-center p-4 sm:p-6'>
+    <div className='fixed inset-0 z-10000 flex items-center justify-center p-4 sm:p-6'>
       <div
         className='absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity'
         onClick={onClose}
@@ -149,7 +149,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
               {benefits.map((benefit, idx) => (
                 <div
                   key={idx}
-                  className='flex gap-4 p-4 rounded-xl bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:shadow-md transition-shadow'
+                  className='flex gap-4 p-4 rounded-xl bg-linear-to-br from-white to-gray-50 border border-gray-100 hover:shadow-md transition-shadow'
                 >
                   <div className='shrink-0 p-3 bg-secondary/10 rounded-lg h-fit'>
                     <benefit.icon className='size-5 text-secondary' />

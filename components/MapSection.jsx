@@ -83,7 +83,7 @@ const MapSection = () => {
             {/* Desktop Layout - Popup di dalam map */}
             <div className='hidden lg:block relative rounded-2xl overflow-hidden shadow-xl mb-8 h-[500px]'>
               {/* Map Overlay */}
-              <div className='absolute top-5 left-5 z-[1000] bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
+              <div className='absolute top-5 left-5 z-1000 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
                 <h3 className='text-xl font-bold text-green-800 mb-2'>
                   Kota Banjar
                 </h3>
@@ -95,7 +95,7 @@ const MapSection = () => {
               </div>
 
               {/* Map Controls */}
-              <div className='absolute top-5 right-5 z-[1000] bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
+              <div className='absolute top-5 right-5 z-1000 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
                 {/* Category Filter */}
                 <div className='flex flex-wrap gap-2 mb-4'>
                   <button

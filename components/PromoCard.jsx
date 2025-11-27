@@ -69,7 +69,7 @@ const PromoCard = ({ promo, umkm, isInDetailPage = false }) => {
       {/* Promo Card */}
       <div className='min-w-full md:min-w-[50%] lg:min-w-[33.333%] block'>
         <div className='group relative h-full'>
-          <div className='absolute inset-0 bg-gradient-to-br from-secondary to-amber-500 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
+          <div className='absolute inset-0 bg-linear-to-br from-secondary to-amber-500 rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300'></div>
           <div className='relative bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 h-full flex flex-col group-hover:-translate-y-2 overflow-hidden'>
             {/* Header dengan ikon dan nama */}
             <div className='p-6 pb-4'>
@@ -144,7 +144,7 @@ const PromoCard = ({ promo, umkm, isInDetailPage = false }) => {
 
       {/* Promo Modal */}
       {isModalOpen && (
-        <div className='fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50 animate-fade-in'>
+        <div className='fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-10000 animate-fade-in'>
           <div
             className='bg-white rounded-2xl max-w-6xl w-full max-h-[calc(100vh-80px)] overflow-hidden shadow-2xl animate-scale-in flex flex-col'
             onClick={(e) => e.stopPropagation()}

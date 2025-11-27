@@ -88,7 +88,7 @@ const MapLeaflet = ({
               {showDetailButton && (
                 <Link
                   href={`/umkm/${umkm.slug}`}
-                  className='text-xs bg-green-600 !text-white px-2 py-1 rounded hover:bg-green-700 inline-block no-underline'
+                  className='text-xs bg-green-600 text-white! px-2 py-1 rounded hover:bg-green-700 inline-block no-underline'
                 >
                   Lihat Detail
                 </Link>
