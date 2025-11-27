@@ -139,10 +139,10 @@ const Page = () => {
                 <div className='absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6'>
                   <div className='bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl p-3 md:p-6 shadow-lg'>
                     <h3 className='font-bold text-primary-dark text-sm md:text-lg mb-1 md:mb-2'>
-                      Ekosistem UMKM Banjar
+                      Ekosistem UMKM Indonesia
                     </h3>
                     <p className='text-gray-600 text-xs md:text-sm'>
-                      Temukan dan dukung UMKM terbaik di Kota Banjar dalam satu
+                      Temukan dan dukung UMKM terbaik di Indonesia dalam satu
                       platform terintegrasi
                     </p>
                   </div>
@@ -173,7 +173,7 @@ const Page = () => {
             </h1>
             <p className='text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed'>
               Panduan strategis kami dalam membangun ekosistem UMKM yang
-              berkelanjutan dan berdampak positif bagi perekonomian Kota Banjar
+              berkelanjutan dan berdampak positif bagi perekonomian di Indonesia
             </p>
             <div className='w-24 h-1.5 bg-secondary mx-auto mt-8 rounded-full'></div>
           </div>
@@ -194,9 +194,9 @@ const Page = () => {
                 </div>
                 <div className='flex-1'>
                   <p className='text-gray-700 text-lg leading-relaxed mb-6'>
-                    Menjadi platform terdepan dalam memberdayakan UMKM Kota
-                    Banjar untuk bersaing di era digital dan menjadi motor
-                    penggerak perekonomian lokal yang berkelanjutan.
+                    Menjadi platform terdepan dalam memberdayakan UMKM Indonesia
+                    untuk bersaing di era digital dan menjadi motor penggerak
+                    perekonomian lokal yang berkelanjutan.
                   </p>
                 </div>
                 <div className='mt-6 pt-6 border-t border-gray-100'>
@@ -327,7 +327,7 @@ const Page = () => {
             </h2>
             <p className='text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed'>
               Prinsip fundamental yang menjadi pedoman dalam setiap langkah dan
-              keputusan kami membangun ekosistem UMKM Kota Banjar
+              keputusan kami membangun ekosistem UMKM Indonesia
             </p>
             <div className='w-24 h-1.5 bg-secondary mx-auto mt-8 rounded-full'></div>
           </div>
