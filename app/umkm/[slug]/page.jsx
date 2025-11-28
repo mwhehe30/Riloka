@@ -36,7 +36,7 @@ const MapLeaflet = dynamic(() => import('@/components/MapLeaflet'), {
 const Page = () => {
   const { slug } = useParams();
   const [detailUmkm, setDetailUmkm] = useState(null);
-  const [activeTab, setActiveTab] = useState('tentang');
+  const [activeTab, setActiveTab] = useState('products');
   const [activeImage, setActiveImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -344,7 +344,7 @@ const Page = () => {
                       <button
                         key={id}
                         onClick={() => setActiveTab(id)}
-                        className={`flex flex-1 items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium transition-all whitespace-nowrap min-w-0 border-b-2 ${
+                        className={`flex flex-1 items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-medium transition-all whitespace-nowrap min-w-0 border-b-2 cursor-pointer ${
                           activeTab === id
                             ? 'text-white bg-primary border-primary'
                             : 'text-gray-500 hover:text-primary border-transparent hover:bg-primary/10'
