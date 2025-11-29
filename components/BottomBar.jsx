@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, Info, Store } from 'lucide-react';
+import { Home, Info, Map, Store } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -10,14 +10,15 @@ const BottomBar = () => {
   const navItems = [
     { name: 'Beranda', href: '/', icon: Home },
     { name: 'List UMKM', href: '/umkm', icon: Store },
-    { name: 'Tentang Kami', href: '/tentang', icon: Info },
+    { name: 'Peta', href: '/peta', icon: Map },
+    { name: 'Tentang', href: '/tentang', icon: Info },
   ];
 
   const isActive = (href) => pathname === href;
 
   return (
     <div className='fixed bottom-0 left-0 right-0 bg-white-brighter/90 border-t-2 border-surface backdrop-blur-xl md:hidden z-9999'>
-      <div className='grid grid-cols-3 py-3'>
+      <div className='grid grid-cols-4 py-3'>
         {navItems.map(({ name, href, icon: Icon }) => (
           <Link
             key={href}

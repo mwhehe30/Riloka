@@ -128,3 +128,32 @@ body {
 .animate-gradient {
   animation: gradient 8s ease infinite;
 }
+
+/* Leaflet Popup Customization */
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: 0.75rem !important; /* rounded-xl */
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}
+
+.leaflet-popup-tip {
+  background: white;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: white !important;
+  font-size: 18px !important;
+  top: 8px !important;
+  right: 8px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #eee !important;
+}

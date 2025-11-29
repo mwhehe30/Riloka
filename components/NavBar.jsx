@@ -34,6 +34,7 @@ const NavBar = () => {
   const navItems = [
     { name: 'Beranda', href: '/' },
     { name: 'List UMKM', href: '/umkm' },
+    { name: 'Peta', href: '/peta' },
     { name: 'Tentang Kami', href: '/tentang' },
   ];
 

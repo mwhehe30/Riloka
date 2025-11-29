@@ -1,3 +1,4 @@
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
@@ -16,6 +17,7 @@ const MapSection = () => {
   const [selectedUmkm, setSelectedUmkm] = useState(null);
   const [filteredUmkm, setFilteredUmkm] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isListExpanded, setIsListExpanded] = useState(true);
 
   useEffect(() => {
     const fetchUmkmData = async () => {
@@ -56,277 +58,138 @@ const MapSection = () => {
   const [filteredUmkmState, setFilteredUmkmState] = useState([]);
 
   const handleUmkmSelect = (umkm) => {
-    // If clicking the same UMKM, unselect it
-    if (selectedUmkm?.id === umkm.id) {
-      setSelectedUmkm(null);
-    } else {
+    // Only update if selecting a different UMKM
+    if (selectedUmkm?.id !== umkm.id) {
       setSelectedUmkm(umkm);
     }
   };
 
   return (
-    <section className='bg-primary/5 py-12 lg:py-20 relative overflow-hidden'>
-      <div className='container mx-auto px-4'>
-        <div className='max-w-6xl mx-auto'>
-          {/* Map Container */}
-          <div className='bg-white rounded-3xl shadow-2xl overflow-hidden p-4 lg:p-8'>
-            {/* Title Section */}
-            <div className='text-center mb-8 lg:mb-12'>
-              <h2 className='text-2xl lg:text-4xl font-bold text-green-800 mb-3 lg:mb-4'>
-                Jelajahi Kekayaan Lokal Banjar
-              </h2>
-              <p className='text-gray-600 text-sm lg:text-lg max-w-2xl mx-auto'>
-                Temukan UMKM terbaik di seluruh penjuru Kota Banjar
-              </p>
+    <section className='w-full h-full relative overflow-hidden'>
+      {/* Map Background - Full Screen */}
+      <div className='absolute inset-0 z-0'>
+        <MapLeaflet
+          umkmData={filteredUmkmState}
+          selectedUmkm={selectedUmkm}
+          onSelectUmkm={handleUmkmSelect}
+        />
+      </div>
+
+      {/* Floating Controls Container - Responsive */}
+      <div className='absolute top-0 left-0 right-0 bottom-0 z-10 pointer-events-none p-4 md:p-6 flex flex-col justify-between'>
+        {/* Top Section: Category Filter (Centered) */}
+        <div className='flex justify-center w-full pointer-events-auto'>
+          <div className='bg-white/90 backdrop-blur-md rounded-full p-1.5 shadow-lg border border-white/20 overflow-x-auto max-w-full'>
+            <div className='flex gap-1 whitespace-nowrap'>
+              <button
+                onClick={() => setSelectedCategory('all')}
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${
+                  selectedCategory === 'all'
+                    ? 'bg-green-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Semua
+              </button>
+              <button
+                onClick={() => setSelectedCategory('makanan')}
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${
+                  selectedCategory === 'makanan'
+                    ? 'bg-green-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Makanan
+              </button>
+              <button
+                onClick={() => setSelectedCategory('minuman')}
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${
+                  selectedCategory === 'minuman'
+                    ? 'bg-green-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Minuman
+              </button>
+              <button
+                onClick={() => setSelectedCategory('jasa')}
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${
+                  selectedCategory === 'jasa'
+                    ? 'bg-green-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                Jasa
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section: UMKM List (Desktop Right Bottom, Mobile Bottom Sheet style) */}
+        <div className='pointer-events-auto self-end md:self-end w-full md:w-80 transition-all duration-300 ease-in-out'>
+          <div className='bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 flex flex-col overflow-hidden'>
+            {/* Header with Toggle */}
+            <div
+              className='p-4 flex justify-between items-center cursor-pointer bg-white/50 hover:bg-white/80 transition-colors'
+              onClick={() => setIsListExpanded(!isListExpanded)}
+            >
+              <h4 className='font-semibold text-green-800 text-sm'>
+                Daftar UMKM ({loading ? 0 : filteredUmkmState.length})
+              </h4>
+              <button className='p-1 rounded-full hover:bg-gray-100 transition-colors'>
+                {isListExpanded ? (
+                  <ChevronDown className='w-5 h-5 text-gray-600' />
+                ) : (
+                  <ChevronUp className='w-5 h-5 text-gray-600' />
+                )}
+              </button>
             </div>
 
-            {/* Desktop Layout - Popup di dalam map */}
-            <div className='hidden lg:block relative rounded-2xl overflow-hidden shadow-xl mb-8 h-[500px]'>
-              {/* Map Overlay */}
-              <div className='absolute top-5 left-5 z-1000 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
-                <h3 className='text-xl font-bold text-green-800 mb-2'>
-                  Kota Banjar
-                </h3>
-                <p className='text-gray-600 text-sm leading-relaxed'>
-                  Pusat UMKM berkembang di daerah perkotaan dan sekitarnya.
-                  Telusuri berbagai usaha lokal yang tersebar di seluruh
-                  wilayah.
-                </p>
-              </div>
-
-              {/* Map Controls */}
-              <div className='absolute top-5 right-5 z-1000 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-xs border border-white/20'>
-                {/* Category Filter */}
-                <div className='flex flex-wrap gap-2 mb-4'>
-                  <button
-                    onClick={() => setSelectedCategory('all')}
-                    className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                      selectedCategory === 'all'
-                        ? 'bg-green-700 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                    }`}
-                  >
-                    Semua
-                  </button>
-                  <button
-                    onClick={() => setSelectedCategory('makanan')}
-                    className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                      selectedCategory === 'makanan'
-                        ? 'bg-green-700 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                    }`}
-                  >
-                    Makanan
-                  </button>
-                  <button
-                    onClick={() => setSelectedCategory('minuman')}
-                    className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                      selectedCategory === 'minuman'
-                        ? 'bg-green-700 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                    }`}
-                  >
-                    Minuman
-                  </button>
-                  <button
-                    onClick={() => setSelectedCategory('jasa')}
-                    className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                      selectedCategory === 'jasa'
-                        ? 'bg-green-700 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                    }`}
-                  >
-                    Jasa
-                  </button>
-                </div>
-
-                {/* UMKM List */}
-                <div className='max-h-80 overflow-y-auto scrollbar-none'>
-                  <div className='space-y-3'>
-                    {loading ? (
-                      <div className='text-center py-4'>
-                        <p className='text-gray-600'>Memuat data UMKM...</p>
-                      </div>
-                    ) : (
-                      filteredUmkmState.map((umkm) => (
-                        <div
-                          key={umkm.id}
-                          onClick={() => handleUmkmSelect(umkm)}
-                          className={`p-3 rounded-xl cursor-pointer transition-all duration-300 border ${
-                            selectedUmkm?.id === umkm.id
-                              ? 'bg-green-700 text-white border-green-700 shadow-lg transform -translate-y-1'
-                              : 'bg-white border-gray-200 hover:bg-gray-50 hover:border-green-300'
-                          }`}
-                        >
-                          <div className='flex justify-between items-start mb-1'>
-                            <h4 className='font-semibold text-xs'>
-                              {umkm.name}
-                            </h4>
-                            <div className='flex items-center space-x-1'>
-                              <span className='text-amber-500 text-xs'>⭐</span>
-                              <span
-                                className={`text-xs ${
-                                  selectedUmkm?.id === umkm.id
-                                    ? 'text-amber-300'
-                                    : 'text-gray-600'
-                                }`}
-                              >
-                                {umkm.rating}
-                              </span>
-                            </div>
-                          </div>
-                          <p className='text-xs opacity-90 line-clamp-2'>
-                            {umkm.description}
-                          </p>
+            {/* List Content */}
+            <div
+              className={`transition-all duration-300 ease-in-out ${
+                isListExpanded
+                  ? 'max-h-[40vh] md:max-h-[60vh] opacity-100'
+                  : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className='p-4 pt-0 overflow-y-auto scrollbar-none space-y-3 max-h-[40vh] md:max-h-[60vh]'>
+                {loading ? (
+                  <div className='text-center py-4'>
+                    <p className='text-gray-600'>Memuat data UMKM...</p>
+                  </div>
+                ) : (
+                  filteredUmkmState.map((umkm) => (
+                    <div
+                      key={umkm.id}
+                      onClick={() => handleUmkmSelect(umkm)}
+                      className={`p-3 rounded-xl cursor-pointer transition-all duration-300 border ${
+                        selectedUmkm?.id === umkm.id
+                          ? 'bg-green-700 text-white border-green-700 shadow-lg transform -translate-y-1'
+                          : 'bg-white border-gray-200 hover:bg-gray-50 hover:border-green-300'
+                      }`}
+                    >
+                      <div className='flex justify-between items-start mb-1'>
+                        <h4 className='font-semibold text-xs'>{umkm.name}</h4>
+                        <div className='flex items-center space-x-1'>
+                          <span className='text-amber-500 text-xs'>⭐</span>
+                          <span
+                            className={`text-xs ${
+                              selectedUmkm?.id === umkm.id
+                                ? 'text-amber-300'
+                                : 'text-gray-600'
+                            }`}
+                          >
+                            {umkm.rating}
+                          </span>
                         </div>
-                      ))
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Leaflet Map */}
-              <MapLeaflet
-                umkmData={filteredUmkmState}
-                selectedUmkm={selectedUmkm}
-                onSelectUmkm={handleUmkmSelect}
-              />
-            </div>
-
-            {/* Mobile Layout - Popup di luar map */}
-            <div className='lg:hidden space-y-4'>
-              {/* Map Visualization */}
-              <div className='relative rounded-2xl overflow-hidden shadow-xl h-[300px]'>
-                <MapLeaflet
-                  umkmData={filteredUmkmState}
-                  selectedUmkm={selectedUmkm}
-                  onSelectUmkm={handleUmkmSelect}
-                />
-              </div>
-
-              {/* Mobile Controls - Di luar map */}
-              <div className='bg-white rounded-2xl shadow-lg p-4 border border-gray-200'>
-                {/* City Info */}
-                <div className='mb-4 p-3 bg-green-50 rounded-xl border border-green-200'>
-                  <h3 className='text-lg font-bold text-green-800 mb-1'>
-                    Kota Banjar
-                  </h3>
-                  <p className='text-gray-600 text-sm'>
-                    Pusat UMKM berkembang di daerah perkotaan dan sekitarnya.
-                    Telusuri berbagai usaha lokal yang tersebar di seluruh
-                    wilayah.
-                  </p>
-                </div>
-
-                {/* Category Filter */}
-                <div className='mb-4'>
-                  <h4 className='font-semibold text-green-800 mb-2 text-sm'>
-                    Filter Kategori
-                  </h4>
-                  <div className='flex flex-wrap gap-2'>
-                    <button
-                      onClick={() => setSelectedCategory('all')}
-                      className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                        selectedCategory === 'all'
-                          ? 'bg-green-700 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                      }`}
-                    >
-                      Semua
-                    </button>
-                    <button
-                      onClick={() => setSelectedCategory('makanan')}
-                      className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                        selectedCategory === 'makanan'
-                          ? 'bg-green-700 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                      }`}
-                    >
-                      Makanan
-                    </button>
-                    <button
-                      onClick={() => setSelectedCategory('minuman')}
-                      className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                        selectedCategory === 'minuman'
-                          ? 'bg-green-700 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                      }`}
-                    >
-                      Minuman
-                    </button>
-                    <button
-                      onClick={() => setSelectedCategory('jasa')}
-                      className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                        selectedCategory === 'jasa'
-                          ? 'bg-green-700 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-300'
-                      }`}
-                    >
-                      Jasa
-                    </button>
-                  </div>
-                </div>
-
-                {/* UMKM List */}
-                <div>
-                  <h4 className='font-semibold text-green-800 mb-3 text-sm'>
-                    Daftar UMKM ({loading ? 0 : filteredUmkmState.length})
-                  </h4>
-                  <div className='max-h-60 overflow-y-auto space-y-2 scrollbar-none'>
-                    {loading ? (
-                      <div className='text-center py-4'>
-                        <p className='text-gray-600'>Memuat data UMKM...</p>
                       </div>
-                    ) : (
-                      filteredUmkmState.map((umkm) => (
-                        <div
-                          key={umkm.id}
-                          onClick={() => handleUmkmSelect(umkm)}
-                          className={`p-3 rounded-xl cursor-pointer transition-all duration-300 border ${
-                            selectedUmkm?.id === umkm.id
-                              ? 'bg-green-700 text-white border-green-700 shadow-lg'
-                              : 'bg-white border-gray-200 hover:bg-gray-50 hover:border-green-300'
-                          }`}
-                        >
-                          <div className='flex justify-between items-start mb-1'>
-                            <h4 className='font-semibold text-sm'>
-                              {umkm.name}
-                            </h4>
-                            <div className='flex items-center space-x-1'>
-                              <span className='text-amber-500 text-xs'>⭐</span>
-                              <span
-                                className={`text-xs ${
-                                  selectedUmkm?.id === umkm.id
-                                    ? 'text-amber-300'
-                                    : 'text-gray-600'
-                                }`}
-                              >
-                                {umkm.rating}
-                              </span>
-                            </div>
-                          </div>
-                          <p className='text-xs opacity-90 line-clamp-2 mb-1'>
-                            {umkm.description}
-                          </p>
-                          <div className='flex flex-wrap gap-1'>
-                            {umkm.category.map((cat) => (
-                              <span
-                                key={cat}
-                                className={`px-2 py-1 rounded-full text-xs ${
-                                  selectedUmkm?.id === umkm.id
-                                    ? 'bg-green-600 text-white'
-                                    : 'bg-green-100 text-green-800'
-                                }`}
-                              >
-                                {cat}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      ))
-                    )}
-                  </div>
-                </div>
+                      <p className='text-xs opacity-90 line-clamp-2'>
+                        {umkm.description}
+                      </p>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>

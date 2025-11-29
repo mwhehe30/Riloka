@@ -178,8 +178,8 @@ const Page = () => {
 
   const tabs = [
     { id: 'tentang', label: 'Tentang', icon: Info },
-    { id: 'galeri', label: 'Galeri', icon: Image },
     { id: 'products', label: 'Produk', icon: Box },
+    { id: 'galeri', label: 'Galeri', icon: Image },
     { id: 'ulasan', label: 'Ulasan', icon: Star },
   ];
 

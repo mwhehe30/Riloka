@@ -1,6 +1,5 @@
 'use client';
 
-import MapSection from '@/components/MapSection';
 import RegistrationModal from '@/components/RegistrationModal';
 import {
   ArrowRight,
@@ -435,8 +434,6 @@ const Page = () => {
           {/* Bottom CTA */}
         </div>
       </section>
-
-      <MapSection />
 
       <section className='text-center bg-primary py-20 px-6'>
         <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>

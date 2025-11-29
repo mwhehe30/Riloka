@@ -35,6 +35,12 @@ const Footer = () => {
                 UMKM
               </Link>
               <Link
+                href='/peta'
+                className='text-muted-foreground hover:text-foreground transition-colors'
+              >
+                Peta
+              </Link>
+              <Link
                 href='/tentang'
                 className='text-muted-foreground hover:text-foreground transition-colors'
               >
